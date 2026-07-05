@@ -130,6 +130,44 @@
     }
   }
 
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, ch => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#39;"
+    })[ch]);
+  }
+
+  function subjectCardInfo(subject) {
+    const text = ((subject && subject.id) + " " + (subject && subject.title)).toLowerCase();
+    const match = (pattern) => pattern.test(text);
+
+    if (match(/english|literature/)) return { symbol: "Aa", tone: "language", meta: "Reading, writing, expression" };
+    if (match(/french/)) return { symbol: "FR", tone: "language", meta: "Language and communication" };
+    if (match(/mathematics|math/)) return { symbol: "&radic;", tone: "math", meta: "Numbers and problem solving" };
+    if (match(/digital|computer|data/)) return { symbol: "&lt;/&gt;", tone: "digital", meta: "Technology and creation" };
+    if (match(/biology/)) return { symbol: "DNA", tone: "science", meta: "Life and living systems" };
+    if (match(/chemistry|basic science/)) return { symbol: "H<sub>2</sub>O", tone: "science", meta: "Discovery and experiments" };
+    if (match(/physics/)) return { symbol: "E=mc", tone: "science", meta: "Forces, energy and matter" };
+    if (match(/health|physical/)) return { symbol: "FIT", tone: "health", meta: "Wellness and active living" };
+    if (match(/social|citizenship|civic|government/)) return { symbol: "CIV", tone: "civic", meta: "Society, rights and leadership" };
+    if (match(/business|accounting|commerce|marketing|economics/)) return { symbol: "BIZ", tone: "business", meta: "Enterprise and money skills" };
+    if (match(/creative|arts|drawing/)) return { symbol: match(/drawing/) ? "CAD" : "ART", tone: "creative", meta: "Design, culture and creativity" };
+    if (match(/history|heritage/)) return { symbol: "HIS", tone: "history", meta: "People, places and heritage" };
+    if (match(/religious|christian|islamic/)) return { symbol: "REL", tone: "faith", meta: "Faith, values and character" };
+    if (match(/agriculture/)) return { symbol: "AG", tone: "agriculture", meta: "Food systems and enterprise" };
+    if (match(/geography/)) return { symbol: "MAP", tone: "civic", meta: "Earth, people and places" };
+    if (match(/solar|electrical|installation|maintenance/)) return { symbol: "PV", tone: "trade", meta: "Practical technical skills" };
+    return { symbol: "SUB", tone: "core", meta: "First term mastery" };
+  }
+
+  function subjectIcon(subject, className) {
+    const info = subjectCardInfo(subject);
+    return `<span class="${className || "subject-mini-symbol"} tone-${info.tone}" aria-hidden="true">${info.symbol}</span>`;
+  }
+
   /* ════════════════════════════════════════════════════════
    * HOME VIEW
    * ════════════════════════════════════════════════════════ */
@@ -158,7 +196,7 @@
               <span class="badge"><span class="dot"></span> JSS1-SS3 Coverage</span>
               <span class="badge"><span class="dot"></span> WAEC, NECO, JAMB, BECE</span>
               <span class="badge"><span class="dot"></span> Works Offline After Install</span>
-              <span class="badge"><span class="dot"></span> NGN 2,500/subject/month</span>
+              <span class="badge"><span class="dot"></span> Total updates by selection</span>
             </div>
             <div class="hero-cta">
               <button class="btn btn-primary btn-lg" data-goto="register" id="heroCTA">
@@ -271,7 +309,7 @@
           </div>
           <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
             ${["Register your details and select your class and subjects",
-               "Pay ₦2,500 per subject per month via any ChiaTech payment channel",
+               "Select subjects and review your total before payment",
                "Receive your unique Access Code via WhatsApp or email within 24 hours",
                "Log in, access your weekly lessons, download notes, and practice CBT"
               ].map((txt, i) => `
@@ -373,7 +411,7 @@
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
                 <div class="form-group" style="grid-column:1/-1">
                   <label class="form-label" for="regName">Student Full Name <span class="required">*</span></label>
-                  <input class="form-control" id="regName" type="text" placeholder="e.g. Amaka Okafor" required minlength="3">
+                  <input class="form-control" id="regName" type="text" placeholder="Tersoo David" required minlength="3">
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="regPhone">Student Phone Number <span class="required">*</span></label>
@@ -391,25 +429,24 @@
                   <label class="form-label" for="regParent">Parent/Guardian Name & Contact
                     <span style="font-weight:400;color:var(--clr-txt-muted)"> (leave blank if same as student)</span>
                   </label>
-                  <input class="form-control" id="regParent" type="text" placeholder="e.g. Mr. John Okafor — 08098765432">
+                  <input class="form-control" id="regParent" type="text" placeholder="e.g. Mr. John Okafor - 08098765432">
                 </div>
                 <div class="form-group" style="grid-column:1/-1">
                   <label class="form-label" for="regClass">Class Registering For <span class="required">*</span></label>
                   <select class="form-control" id="regClass" required>
-                    <option value="">— Select class —</option>
+                    <option value="">Select class</option>
                     ${classes.map(c => `<option value="${c.id}">${c.name} (${c.exam})</option>`).join("")}
                   </select>
                 </div>
               </div>
 
-              <div class="form-group" id="subjectsGroup" style="display:none">
-                <label class="form-label">Select Subjects <span class="required">*</span>
-                  <span id="subjectPriceNote" style="font-weight:400;color:var(--clr-gold);font-size:0.75rem;margin-left:0.5rem">₦2,500/subject/month</span>
-                </label>
-                <p class="form-hint" style="margin-bottom:0.75rem">Select all subjects you want to study this term.</p>
+              <div class="form-group subject-selector" id="subjectsGroup" style="display:none">
+                <label class="form-label">Select Subjects <span class="required">*</span></label>
+                <p class="form-hint" style="margin-bottom:0.75rem">Choose the subjects for this term. Your total updates after each selection.</p>
                 <div class="checkbox-grid" id="subjectCheckboxes"></div>
-                <div id="totalCostBadge" style="margin-top:1rem;padding:0.75rem 1rem;background:var(--clr-gold-glow);border:1px solid rgba(245,166,35,0.3);border-radius:var(--r-md);font-size:0.875rem;display:none">
-                  💰 Estimated monthly cost: <strong id="totalCostAmt" style="color:var(--clr-gold)"></strong>
+                <div id="totalCostBadge" class="selection-total" style="display:none">
+                  <span>Total</span>
+                  <strong id="totalCostAmt"></strong>
                 </div>
               </div>
 
@@ -422,11 +459,11 @@
 
           <div class="reg-sidebar">
             <div class="price-card">
-              <h3>💡 Pricing</h3>
-              <div class="price-item"><span class="label">Per Subject</span><span class="value">₦2,500/month</span></div>
+              <h3>Access Summary</h3>
               <div class="price-item"><span class="label">Registration</span><span class="value">Free</span></div>
               <div class="price-item"><span class="label">First Term Duration</span><span class="value">~12 Weeks</span></div>
               <div class="price-item"><span class="label">Content Access</span><span class="value">Offline-ready PWA</span></div>
+              <div class="price-item"><span class="label">Payment Total</span><span class="value">Shown after selection</span></div>
             </div>
             <div class="info-steps">
               <div class="info-step"><div class="step-num">1</div><p><strong>Submit this form</strong> — free, no payment yet.</p></div>
@@ -457,17 +494,28 @@
         if (!cid || !group || !box) return;
         const subjects = CURRICULUM.getSubjectsForClass(cid);
         group.style.display = "block";
-        box.innerHTML = subjects.map(sub => `
-          <label class="checkbox-item" for="subj_${sub.id}">
-            <input type="checkbox" id="subj_${sub.id}" name="subjects" value="${sub.id}">
-            <span>${sub.icon} ${sub.title}</span>
-            <span class="price">₦2,500</span>
-          </label>
-        `).join("");
+        box.innerHTML = subjects.map(sub => {
+          const info = subjectCardInfo(sub);
+          return `
+            <label class="checkbox-item subject-card tone-${info.tone}" for="subj_${sub.id}">
+              <input class="subject-input" type="checkbox" id="subj_${sub.id}" name="subjects" value="${sub.id}">
+              ${subjectIcon(sub, "subject-card-icon")}
+              <span class="subject-card-copy">
+                <span class="subject-card-title">${escapeHtml(sub.title)}</span>
+                <span class="subject-card-meta">${escapeHtml(info.meta)}</span>
+              </span>
+              <span class="subject-card-check" aria-hidden="true"></span>
+            </label>
+          `;
+        }).join("");
         // Wire checkboxes → cost total
-        box.querySelectorAll("input[type=checkbox]").forEach(cb =>
-          cb.addEventListener("change", updateRegCost)
-        );
+        box.querySelectorAll("input[type=checkbox]").forEach(cb => {
+          cb.addEventListener("change", () => {
+            cb.closest(".checkbox-item")?.classList.toggle("is-selected", cb.checked);
+            updateRegCost();
+          });
+        });
+        updateRegCost();
       });
     }
 
@@ -482,9 +530,10 @@
     if (!badge || !amt) return;
     if (checked > 0) {
       badge.style.display = "block";
-      amt.textContent = "₦" + (checked * 2500).toLocaleString() + "/month (" + checked + " subject" + (checked > 1 ? "s" : "") + ")";
+      amt.innerHTML = "&#8358;" + (checked * 2500).toLocaleString() + "/month";
     } else {
       badge.style.display = "none";
+      amt.textContent = "";
     }
   }
 
@@ -504,7 +553,7 @@
     // Build sidebar subject tabs
     const subjectTabsHTML = subjects.map(s => `
       <button class="subject-tab ${s.id === S.selectedSubject ? "is-active" : ""}"
-        data-subj="${s.id}">${s.icon} ${s.shortTitle}</button>
+        data-subj="${s.id}">${subjectIcon(s)} ${s.shortTitle}</button>
     `).join("");
 
     pane.innerHTML = `
@@ -600,7 +649,7 @@
         <div class="subject-tabs" id="lessonSubjTabs">
           ${subjects.map(s => `
             <button class="subject-tab ${s.id === S.selectedSubject ? "is-active" : ""}" data-subj="${s.id}">
-              ${s.icon} ${s.shortTitle}
+              ${subjectIcon(s)} ${s.shortTitle}
             </button>`).join("")}
         </div>
         <div style="margin-bottom:1.5rem">
@@ -777,8 +826,8 @@
         Download professionally formatted schemes of work and lesson notes for your subjects.
       </p>
       <div class="subject-tabs" id="dlSubjTabs">
-        <button class="subject-tab is-active" data-subj="all">📁 All Subjects</button>
-        ${subjects.map(s => `<button class="subject-tab" data-subj="${s.id}">${s.icon} ${s.shortTitle}</button>`).join("")}
+        <button class="subject-tab is-active" data-subj="all">All Subjects</button>
+        ${subjects.map(s => `<button class="subject-tab" data-subj="${s.id}">${subjectIcon(s)} ${s.shortTitle}</button>`).join("")}
       </div>
       <div id="downloadsGrid" class="downloads-grid">
         ${renderDownloadCards(cached, subjects, "all")}
@@ -941,7 +990,7 @@
         Objective Practice Questions
       </h2>
       <div class="subject-tabs" id="cbtSubjTabs" style="margin-bottom:1.5rem">
-        ${subjects.map(s => `<button class="subject-tab ${s.id === S.selectedSubject ? "is-active" : ""}" data-subj="${s.id}">${s.icon} ${s.shortTitle}</button>`).join("")}
+        ${subjects.map(s => `<button class="subject-tab ${s.id === S.selectedSubject ? "is-active" : ""}" data-subj="${s.id}">${subjectIcon(s)} ${s.shortTitle}</button>`).join("")}
       </div>
       <div id="cbtContent">
         ${questions.length
@@ -1106,7 +1155,7 @@
         <div style="padding:1rem 0">
           <span style="font-size:0.875rem;color:var(--clr-txt-muted)">Registered Subjects</span>
           <div style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem">
-            ${subjects.map(s => `<span class="badge"><span class="dot"></span>${s.icon} ${s.shortTitle}</span>`).join("") || "<em>None</em>"}
+            ${subjects.map(s => `<span class="badge">${subjectIcon(s, "subject-badge-symbol")} ${s.shortTitle}</span>`).join("") || "<em>None</em>"}
           </div>
         </div>
         <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
@@ -1363,7 +1412,7 @@
           <div class="form-group" style="margin-bottom:0">
             <label class="form-label" for="dlSubject">Subject</label>
             <select class="form-control" id="dlSubject">
-              ${CURRICULUM.subjects.map(s=>`<option value="${s.id}">${s.icon} ${s.shortTitle}</option>`).join("")}
+              ${CURRICULUM.subjects.map(s=>`<option value="${s.id}">${s.shortTitle}</option>`).join("")}
             </select>
           </div>
           <div class="form-group" style="margin-bottom:0;grid-column:1/-1">
@@ -1603,16 +1652,16 @@
     if (res.ok || res.queued) {
       openModal(`
         <div style="text-align:center">
-          <div style="font-size:3.5rem;margin-bottom:1rem">🎉</div>
+          <div style="font-size:3.5rem;margin-bottom:1rem;color:var(--clr-green);font-weight:900">&check;</div>
           <h3 style="font-family:var(--ff-head);font-weight:800;font-size:1.5rem;margin-bottom:0.75rem">Registration Successful!</h3>
           <p style="color:var(--clr-txt-muted);margin-bottom:1.5rem">
             Your registration has been submitted. ChiaTech will review your details and send your <strong>Access Code</strong> within <strong>24 hours</strong> after payment confirmation.
           </p>
           <div style="background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:var(--r-md);padding:1rem;margin-bottom:1.5rem;font-size:0.875rem;text-align:left">
             <strong style="color:var(--clr-gold)">Next Steps:</strong><br>
-            1️⃣ Make payment (₦${(subjects.length * 2500).toLocaleString()}/month for ${subjects.length} subject${subjects.length > 1 ? "s" : ""})<br>
-            2️⃣ Contact ChiaTech: +234 703 768 9917 or chiatech01@gmail.com<br>
-            3️⃣ Receive your Access Code and return to enter it on the Home page
+            1. Make payment (&#8358;${(subjects.length * 2500).toLocaleString()}/month for ${subjects.length} subject${subjects.length > 1 ? "s" : ""})<br>
+            2. Contact ChiaTech: +234 703 768 9917 or chiatech01@gmail.com<br>
+            3. Receive your Access Code and return to enter it on the Home page
           </div>
           <button class="btn btn-primary" onclick="closeModal()">Done</button>
         </div>

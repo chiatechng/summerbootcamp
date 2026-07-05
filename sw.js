@@ -1,12 +1,12 @@
 ﻿/**
  * ChiaTech Summer Bootcamp - Service Worker
  * Cache-first app shell with safe network handling.
- * v1.0.5
+ * v1.0.6
  */
 
-const CACHE_NAME = "bootcamp-v1.0.5";
+const CACHE_NAME = "bootcamp-v1.0.6";
 const DATA_CACHE = "bootcamp-data-v1.0.1";
-const ASSET_VERSION = "v=20260705-3";
+const ASSET_VERSION = "v=20260705-4";
 
 const APP_SHELL = [
   "./",
