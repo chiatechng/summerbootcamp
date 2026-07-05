@@ -1,548 +1,5394 @@
-/**
- * ChiaTech Summer Bootcamp — Curriculum Data (NERDC 2025)
- * First Term 2026/2027 Scheme of Work
- * JSS1–SS3 | All Core Subjects
- * v1.0.0
- */
+﻿// curriculum-data.js
+// ChiaTech 2026 NERDC Curriculum Database
+
+const curriculumData = {
+  jss1: [
+    // ==========================================
+    // 1. MATHEMATICS (JSS 1)
+    // ==========================================
+    {
+      title: "Mathematics",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Whole Numbers", objectives: "Place value, ordering, and properties of whole numbers." },
+            { week: "Week 2", topic: "LCM (Least Common Multiple)", objectives: "Finding LCM using multiples and prime factorization." },
+            { week: "Week 3", topic: "HCF (Highest Common Factor)", objectives: "Finding HCF using factorization methods." },
+            { week: "Week 4", topic: "Counting in Base 2", objectives: "Introduction to the binary number system." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Conversion of Numbers", objectives: "Conversion of Base 10 numerals to binary numbers (step-by-step)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Fractions I", objectives: "Types of fractions (proper, improper, mixed), simplification." },
+            { week: "Week 9", topic: "Fractions II", objectives: "Equivalent fractions, comparison of fractions." },
+            { week: "Week 10", topic: "Basic Operations on Whole Numbers", objectives: "Addition, subtraction, multiplication, and division." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Addition & Subtraction of Fractions", objectives: "With the same and different denominators." },
+            { week: "Week 2", topic: "Multiplication & Division of Fractions", objectives: "Solving real-life problems with fractions." },
+            { week: "Week 3", topic: "Estimation & Approximation", objectives: "Rounding off numbers, significant figures." },
+            { week: "Week 4", topic: "Numbers in Base 2 â€“ Addition", objectives: "Binary addition rules." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Numbers in Base 2 â€“ Subtraction", objectives: "Binary subtraction rules." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Numbers in Base 2 â€“ Multiplication", objectives: "Binary multiplication rules." },
+            { week: "Week 9", topic: "Algebraic Processes I", objectives: "Use of symbols, coefficients, and algebraic expressions." },
+            { week: "Week 10", topic: "Simplification of Algebraic Expressions", objectives: "Expanding brackets, collecting like terms." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Simple Equations", objectives: "Solving one-variable linear equations." },
+            { week: "Week 2", topic: "Plane Shapes", objectives: "Properties of triangles, quadrilaterals, and circles." },
+            { week: "Week 3", topic: "Three-Dimensional Figures", objectives: "Cubes, cuboids, cylinders, spheres, and cones." },
+            { week: "Week 4", topic: "Constructions", objectives: "Basic geometric constructions using ruler and compass." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Angles", objectives: "Types of angles, angle sum properties of triangles & quadrilaterals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Everyday Statistics I", objectives: "Need for statistics, importance in daily life." },
+            { week: "Week 9", topic: "Everyday Statistics II", objectives: "Methods of data collection." },
+            { week: "Week 10", topic: "Everyday Statistics III", objectives: "Data presentation: tables, bar charts, pie charts." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+
+    // ==========================================
+    // 2. ENGLISH STUDIES (JSS 1)
+    // ==========================================
+    {
+      title: "English Studies",
+      icon: "fa-book",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Intro to Speech & Nouns", objectives: "<b>Speech:</b> Organs of Speech.<br><b>Grammar:</b> Parts of Speech; Nouns - Meaning.<br><b>Composition:</b> Meaning & Types.<br><b>Literature:</b> What is Literature?" },
+            { week: "Week 2", topic: "Pure Vowels & Pronouns", objectives: "<b>Speech:</b> Pure Vowel Sounds.<br><b>Grammar:</b> Types of Nouns; Pronouns.<br><b>Reading:</b> The Family.<br><b>Literature:</b> Features and Types of Literature." },
+            { week: "Week 3", topic: "Vowel /i:/ & Verbs", objectives: "<b>Speech:</b> Vowel Sound /i:/.<br><b>Grammar:</b> Verbs - Definition & Types.<br><b>Reading:</b> SPQ3R Technique.<br><b>Literature:</b> Intro to Prose & Elements." },
+            { week: "Week 4", topic: "Vowel /i/ & Transitive Verbs", objectives: "<b>Speech:</b> Vowel Sound /i/.<br><b>Grammar:</b> Transitive, Intransitive & Regular Verbs.<br><b>Composition:</b> Descriptive vs Narrative.<br><b>Literature:</b> Oral Literature." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Vowel /e/ & Adjectives", objectives: "<b>Speech:</b> Vowel Sound /e/.<br><b>Grammar:</b> Adjectives - Types & Comparison.<br><b>Reading:</b> Differentiating Main Ideas.<br><b>Literature:</b> Intro to Drama." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Vowel /Ã¦/ & Adverbs", objectives: "<b>Speech:</b> Vowel /Ã¦/ and /a:/.<br><b>Grammar:</b> Adverbs - Identification & Types.<br><b>Composition:</b> Descriptive Essay - A Market Place." },
+            { week: "Week 9", topic: "Prepositions & Letter Writing", objectives: "<b>Grammar:</b> Prepositions - Definition & Types.<br><b>Composition:</b> Intro to Letter Writing.<br><b>Literature:</b> Folktales & Drama Text Plot." },
+            { week: "Week 10", topic: "Vowel /p/ & Conjunctions", objectives: "<b>Speech:</b> Vowel Sound /p/.<br><b>Grammar:</b> Conjunctions - Coordinating & Subordinating.<br><b>Literature:</b> Figures of Speech (Simile, Metaphor, Irony)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision, examinations, and closing." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Vowels /u/ and /u:/", objectives: "<b>Speech:</b> Vowel Sounds /u/ & /u:/.<br><b>Grammar:</b> Adverbials of Frequency.<br><b>Composition:</b> Formal Letter Features.<br><b>Literature:</b> African Folktales." },
+            { week: "Week 2", topic: "Simple Present Tense", objectives: "<b>Speech:</b> Vowel Sound /a:/.<br><b>Grammar:</b> Tenses - Simple Present.<br><b>Reading:</b> Asking projection questions.<br><b>Literature:</b> Poetry Definition." },
+            { week: "Week 3", topic: "Simple Past Tense", objectives: "<b>Grammar:</b> Simple Past Tense.<br><b>Composition:</b> Guided Composition.<br><b>Literature:</b> Poetry Types (Epic, Lyric)." },
+            { week: "Week 4", topic: "Present Continuous Tense", objectives: "<b>Speech:</b> Vowel Sound /3:/.<br><b>Grammar:</b> Present Continuous Tense.<br><b>Composition:</b> Narrative Essay.<br><b>Literature:</b> Drama Features." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Past Continuous Tense", objectives: "<b>Speech:</b> Vowel Sound /ÊŒ/.<br><b>Grammar:</b> Past Continuous Tense.<br><b>Composition:</b> Argumentative Essay.<br><b>Literature:</b> Recommended Prose." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Vowel Contrasts", objectives: "<b>Speech:</b> Contrasts /É’/ vs /É”:/.<br><b>Grammar:</b> Sentence making.<br><b>Composition:</b> Expository Essay (HIV/AIDS).<br><b>Literature:</b> Myths and Legends." },
+            { week: "Week 9", topic: "Future Tense", objectives: "<b>Speech:</b> Contrasts /e/ vs /3:/.<br><b>Grammar:</b> Future Tense (will, shall).<br><b>Reading:</b> Interpreting diagrams/maps." },
+            { week: "Week 10", topic: "Intro to Diphthongs", objectives: "<b>Speech:</b> Introduction to Diphthongs.<br><b>Composition:</b> A Festival in My Village.<br><b>Literature:</b> Dramatization of scenes." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Diphthongs & Active Voice", objectives: "<b>Speech:</b> Diphthongs /ei/, /ou/, /au/.<br><b>Grammar:</b> Intro to Active and Passive Voice.<br><b>Reading:</b> Spatial description." },
+            { week: "Week 2", topic: "Consonant Sounds", objectives: "<b>Speech:</b> Intro to Consonant Sounds.<br><b>Grammar:</b> Highlighting Active Voice.<br><b>Composition:</b> Intro to Expository Essay." },
+            { week: "Week 3", topic: "Syllables", objectives: "<b>Speech:</b> Words of two, three, four syllables.<br><b>Grammar:</b> Use of Passive Voice.<br><b>Literature:</b> Poetry Language." },
+            { week: "Week 4", topic: "Active Voice Exercises", objectives: "<b>Grammar:</b> Exercises on Active Voice.<br><b>Composition:</b> Argumentative Essay (Cultism).<br><b>Literature:</b> Myths/Legends Moral Lessons." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Passive Voice Exercises", objectives: "<b>Speech:</b> Syllables continued.<br><b>Grammar:</b> Exercises on Passive Voice.<br><b>Literature:</b> Identification of figures of speech." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Tag Questions", objectives: "<b>Speech:</b> Consonant Clusters.<br><b>Grammar:</b> Statements and Tag Questions.<br><b>Composition:</b> Argumentative vs Expository." },
+            { week: "Week 9", topic: "Polar and Tag Questions", objectives: "<b>Speech:</b> Word Boundaries - Linking sounds.<br><b>Grammar:</b> Differentiating Polar and Tag Questions.<br><b>Composition:</b> How to Plant Trees." },
+            { week: "Week 10", topic: "Contrasting Diphthongs", objectives: "<b>Speech:</b> /ei/ vs /iÇ/.<br><b>Grammar:</b> Exercise on Adverbials.<br><b>Literature:</b> Turning similes to metaphors." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Revision of Nouns, Pronouns, Verbs. End of Term Examinations." }
+          ]
+        }
+      ]
+    },
+
+    // ==========================================
+    // 3. PHYSICAL & HEALTH EDUCATION (JSS 1)
+    // ==========================================
+    {
+      title: "Physical & Health Education",
+      icon: "fa-running",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meaning of Physical Fitness", objectives: "Definition of physical fitness; difference between fitness and health." },
+            { week: "Week 2", topic: "Components of Physical Fitness", objectives: "Strength, endurance, flexibility, agility, speed, balance, coordination." },
+            { week: "Week 3", topic: "Characteristics of a Fit Person", objectives: "Features such as stamina, resistance to illness, alertness, efficiency." },
+            { week: "Week 4", topic: "Importance of Physical Fitness", objectives: "Benefits: health promotion, body development, productivity, disease prevention." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Fitness Exercises", objectives: "Exercises to Develop Strength, Endurance and Flexibility (push-ups, sit-ups, squats)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Safety Precautions", objectives: "Warm-up, cool-down, hydration, use of proper kits, avoiding overstrain." },
+            { week: "Week 9", topic: "Recreation, Leisure and Dance", objectives: "Definitions with examples of recreational and leisure activities." },
+            { week: "Week 10", topic: "Differences in Activities", objectives: "Differences between Dance, Leisure and Recreation." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Benefits of Recreation and Dance", objectives: "Physical, mental, emotional, and social benefits." },
+            { week: "Week 2", topic: "Athletics â€“ Shot-Put (Skills)", objectives: "Grip, stance, holding and releasing the shot." },
+            { week: "Week 3", topic: "Athletics â€“ Shot-Put (Execution)", objectives: "Glide and rotational techniques, rules of performance." },
+            { week: "Week 4", topic: "Athletics â€“ Discus Throw (Skills)", objectives: "Holding, swinging, and throwing the discus." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Discus Throw (Execution)", objectives: "Body positioning, release and follow-through." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Rules Governing Throwing Events", objectives: "Regulations, fouls, measuring of throws for Shot-Put and Discus." },
+            { week: "Week 9", topic: "Safety Measures in Track and Field", objectives: "Injury prevention, proper supervision, use of facilities." },
+            { week: "Week 10", topic: "Football", objectives: "Basic rules, skills (passing, dribbling, shooting), team play, safety measures." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Volleyball", objectives: "Basic rules, skills (serving, passing, spiking), team play, safety measures." },
+            { week: "Week 2", topic: "Contact and Non-Contact Sports", objectives: "Meaning and explanation with examples." },
+            { week: "Week 3", topic: "Types of Sports", objectives: "Examples: football, boxing, rugby (contact); tennis, badminton, athletics (non-contact)." },
+            { week: "Week 4", topic: "Benefits of Sports", objectives: "Physical fitness, social interaction, discipline, teamwork." },
+            { week: "Week 5", topic: "Midterm Exams", objectives: "Assessment of Weeks 1-4" },
+            { week: "Week 6", topic: "Basic Skills in Sports", objectives: "Tackling, blocking, dodging, passing, coordination." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday" },
+            { week: "Week 8", topic: "Safety Measures in Sports", objectives: "First aid, use of protective equipment, fair play." },
+            { week: "Week 9", topic: "Determinants of Health", objectives: "Personal, School and Community Health â€“ Factors: heredity, environment, lifestyle, healthcare." },
+            { week: "Week 10", topic: "Characteristics of a Healthy Person", objectives: "Signs of good health (physical, mental, emotional, social well-being)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Christian Religious Studies",
+      icon: "fa-bible",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "The Creation", objectives: "The story of creation and God's plan." },
+            { week: "Week 2", topic: "The Fall of Man", objectives: "Disobedience and its consequences in the Garden of Eden." },
+            { week: "Week 3", topic: "The Covenant", objectives: "God's covenant with Noah." },
+            { week: "Week 4", topic: "Call of Abraham", objectives: "Abraham's obedience, faith, and God's promise." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Isaac and Jacob", objectives: "The life, struggles, and blessings of the patriarchs." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Joseph", objectives: "Joseph in Egypt and his rise to power." },
+            { week: "Week 9", topic: "Joseph's Reconciliation", objectives: "Forgiveness and family reunion." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Nigerian History",
+      icon: "fa-landmark",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Intro to History", objectives: "Definitions, importance, and sources of history." },
+            { week: "Week 2", topic: "Early People in Nigeria", objectives: "The Nok culture, early human settlements." },
+            { week: "Week 3", topic: "The Oyo Empire", objectives: "Structure, political administration, and decline." },
+            { week: "Week 4", topic: "The Benin Empire", objectives: "Origins, administration, and cultural legacy." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "The Sokoto Caliphate", objectives: "The Jihad of 1804 and its impact." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Kanem-Borno Empire", objectives: "Growth, trade routes, and development." },
+            { week: "Week 9", topic: "Inter-group Relations", objectives: "Trade, migration, and diplomacy among early states." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Social & Citizenship Studies",
+      icon: "fa-users",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "What is Society?", objectives: "Defining society and the concept of community." },
+            { week: "Week 2", topic: "Duties of Citizens", objectives: "Rights, duties, and responsibilities." },
+            { week: "Week 3", topic: "National Symbols", objectives: "The flag, coat of arms, anthem, and their significance." },
+            { week: "Week 4", topic: "Social Values", objectives: "Honesty, integrity, and discipline." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Leadership", objectives: "Qualities of a good leader and follower." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Human Rights", objectives: "Basic human rights and how to protect them." },
+            { week: "Week 9", topic: "Patriotism", objectives: "Importance of loyalty to the nation." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+  {
+      title: "Islamic Studies",
+      icon: "fa-mosque",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "The Holy Quran", objectives: "Definition, significance, and importance of the Quran." },
+            { week: "Week 2", topic: "Revelation of the Quran", objectives: "The process and significance of Wahy." },
+            { week: "Week 3", topic: "Articles of Faith", objectives: "Belief in Allah, Angels, and Books." },
+            { week: "Week 4", topic: "Pillars of Islam", objectives: "Shahadah (Faith) and Salat (Prayer)." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Taharah (Cleanliness)", objectives: "Importance of purity and types of purification." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Salat (Prayer)", objectives: "Conditions, types, and importance of prayer." },
+            { week: "Week 9", topic: "Surah Al-Fatihah", objectives: "Meaning and translation of the opening chapter." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Cultural & Creative Arts",
+      icon: "fa-palette",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Intro to CCA", objectives: "Defining art, culture, and creative expression." },
+            { week: "Week 2", topic: "Elements of Art", objectives: "Line, shape, form, color, and texture." },
+            { week: "Week 3", topic: "Drawing", objectives: "Types of drawing and materials needed." },
+            { week: "Week 4", topic: "Local Crafts", objectives: "Identifying local crafts (pottery, weaving)." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Music", objectives: "Basic notes, rhythm, and local musical instruments." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Drama", objectives: "Introduction to theatre and role-playing." },
+            { week: "Week 9", topic: "Art Appreciation", objectives: "Importance of art in society." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "French",
+      icon: "fa-language",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Greetings (Salutations)", objectives: "How to greet in French (Bonjour, Salut)." },
+            { week: "Week 2", topic: "Self Introduction", objectives: "Stating name, age, and nationality." },
+            { week: "Week 3", topic: "Numbers 1-50", objectives: "Counting and writing numbers in French." },
+            { week: "Week 4", topic: "The Alphabet", objectives: "French phonetic alphabet and sounds." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Classroom Objects", objectives: "Identifying items in the classroom (le stylo, le livre)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Days and Months", objectives: "Names of days of the week and months of the year." },
+            { week: "Week 9", topic: "Family Members", objectives: "Describing basic family relationships." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Business Studies",
+      icon: "fa-briefcase",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Intro to Business Studies", objectives: "Definition, scope, and importance." },
+            { week: "Week 2", topic: "The Office", objectives: "Meaning, function, and layout of an office." },
+            { week: "Week 3", topic: "Office Staff", objectives: "Roles and responsibilities of office personnel." },
+            { week: "Week 4", topic: "Trade", objectives: "Meaning, importance, and types (Home vs. Foreign)." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Production", objectives: "Factors of production (Land, Labor, Capital, Entrepreneur)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Forms of Business", objectives: "Sole proprietorship, partnership." },
+            { week: "Week 9", topic: "Consumer Protection", objectives: "Rights and responsibilities of a consumer." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    }
+  ],
+  jss2: [
+    {
+      title: "English Studies",
+      icon: "fa-book-open",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Speech Work: Consonant Sounds /p/, /b/", objectives: "Identification and articulation of /p/ and /b/ sounds." },
+            { week: "Week 2", topic: "Grammar: Reported Speech", objectives: "Converting direct speech to reported speech." },
+            { week: "Week 3", topic: "Composition: Descriptive Essay", objectives: "Describing a memorable event or place." },
+            { week: "Week 4", topic: "Literature: Prose Techniques", objectives: "Understanding plot, characterization, and setting." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Grammar: Active and Passive Voice", objectives: "Usage and conversion of voice." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Comprehension: Speed Reading", objectives: "Techniques for rapid reading and extraction." },
+            { week: "Week 9", topic: "Speech: Intonation", objectives: "Falling and rising intonation patterns." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Mathematics",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Whole Numbers (Large)", objectives: "Reading and writing large numbers." },
+            { week: "Week 2", topic: "Approximation", objectives: "Rounding numbers to significant figures." },
+            { week: "Week 3", topic: "Rational Numbers", objectives: "Operations on rational numbers." },
+            { week: "Week 4", topic: "Indices", objectives: "Laws of indices: multiplication, division, and power laws." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Algebraic Expressions", objectives: "Expansion of algebraic brackets." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Linear Equations", objectives: "Solving simple linear equations." },
+            { week: "Week 9", topic: "Plane Geometry", objectives: "Angles and polygons." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Digital Technologies",
+      icon: "fa-laptop-code",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "System Unit", objectives: "Components of the system unit (CPU, RAM, ROM)." },
+            { week: "Week 2", topic: "Storage Devices", objectives: "Primary and secondary storage media." },
+            { week: "Week 3", topic: "Word Processing: Advanced", objectives: "Mail merge and table handling." },
+            { week: "Week 4", topic: "Spreadsheet Basics", objectives: "Introduction to rows, columns, and formulas." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Internet Concepts", objectives: "World Wide Web, browsers, and search engines." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Cyber Security", objectives: "Online safety, passwords, and threats." },
+            { week: "Week 9", topic: "Graphics Basics", objectives: "Introduction to image editing tools." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Basic Science",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Living and Non-Living Things", objectives: "Characteristics and classification of living things." },
+            { week: "Week 2", topic: "Science and Society", objectives: "The role of science in daily life." },
+            { week: "Week 3", topic: "Force and Motion", objectives: "Types of forces and their effects." },
+            { week: "Week 4", topic: "Energy", objectives: "Forms of energy and conservation principles." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Environmental Pollution", objectives: "Types, causes, and control of pollution." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Human Health", objectives: "Personal hygiene and balanced diet." },
+            { week: "Week 9", topic: "Reproductive System", objectives: "Introduction to human development." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Social Studies",
+      icon: "fa-globe",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Social Environment", objectives: "Understanding the immediate community and society." },
+            { week: "Week 2", topic: "Family Structure", objectives: "Types of families and family roles." },
+            { week: "Week 3", topic: "National Identity", objectives: "Promoting unity and cultural heritage." },
+            { week: "Week 4", topic: "Social Issues", objectives: "Drug abuse, cultism, and crime prevention." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Government", objectives: "Arms of government and their functions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Economic Activities", objectives: "Agriculture, industries, and trade." },
+            { week: "Week 9", topic: "Globalization", objectives: "Impact of global interaction on Nigeria." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Cultural & Creative Arts",
+      icon: "fa-palette",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Arts", objectives: "Review of art types and elements." },
+            { week: "Week 2", topic: "Drawing and Painting", objectives: "Still life drawing and shading techniques." },
+            { week: "Week 3", topic: "Crafts", objectives: "Introduction to leatherwork and beads." },
+            { week: "Week 4", topic: "Music Theory", objectives: "Staff notation and key signatures." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Drama", objectives: "Stagecraft and script writing basics." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Cultural Heritage", objectives: "Festivals and traditions in Nigeria." },
+            { week: "Week 9", topic: "Modern Art", objectives: "Contemporary trends in Nigerian art." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+      {
+      title: "Business Studies",
+      icon: "fa-briefcase",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "The Business Environment", objectives: "Internal and external business environments." },
+            { week: "Week 2", topic: "Office Documents", objectives: "Types and uses of office documents (invoices, receipts)." },
+            { week: "Week 3", topic: "Bookkeeping", objectives: "Basic concepts of bookkeeping and double-entry." },
+            { week: "Week 4", topic: "Consumer Rights", objectives: "Protection agencies and consumer responsibilities." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Forms of Business Ownership", objectives: "Cooperatives and public companies." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Transportation", objectives: "Types, importance, and documents used in transport." },
+            { week: "Week 9", topic: "Communication", objectives: "Modern and traditional means of communication." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "French",
+      icon: "fa-language",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "At School", objectives: "Vocabulary related to school subjects and people." },
+            { week: "Week 2", topic: "Numbers 50-100", objectives: "Writing and speaking larger numbers." },
+            { week: "Week 3", topic: "Telling Time", objectives: "How to read and say the time in French." },
+            { week: "Week 4", topic: "Verbs: ER Conjugations", objectives: "Present tense of regular -er verbs." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Describing People", objectives: "Adjectives for physical appearance and personality." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "My House", objectives: "Naming rooms and furniture." },
+            { week: "Week 9", topic: "Food and Drinks", objectives: "Vocabulary for daily meals." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Christian Religious Studies",
+      icon: "fa-bible",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Leadership of Moses", objectives: "Call and leadership of Moses." },
+            { week: "Week 2", topic: "The Ten Commandments", objectives: "Significance of the Decalogue." },
+            { week: "Week 3", topic: "The Kings of Israel", objectives: "Saul, David, and Solomon." },
+            { week: "Week 4", topic: "The Exile", objectives: "Babylonian exile and return." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Minor Prophets", objectives: "Messages of Amos, Hosea, and Micah." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Ministry of Jesus", objectives: "Baptism, temptation, and disciples." },
+            { week: "Week 9", topic: "Parables of Jesus", objectives: "Teaching through parables (The Sower)." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Islamic Studies",
+      icon: "fa-mosque",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Surah Al-Qadr & Al-Adiyat", objectives: "Memorization and interpretation." },
+            { week: "Week 2", topic: "Prophethood", objectives: "Lives of selected prophets." },
+            { week: "Week 3", topic: "Salat", objectives: "Conditions for prayer and congregational prayer." },
+            { week: "Week 4", topic: "Zakat", objectives: "Meaning, importance, and calculation." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Hajj", objectives: "Meaning and significance of the pilgrimage." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Sunnah", objectives: "Importance and role of the Sunnah." },
+            { week: "Week 9", topic: "Moral Lessons", objectives: "Honesty and truthfulness in Islam." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "Final revision and examinations." }
+          ]
+        }
+      ]
+    }
+  ],
+  jss3: [
+    {
+      title: "Mathematics",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Number Bases II", objectives: "Conversion and operations in bases other than 10." },
+            { week: "Week 2", topic: "Sets", objectives: "Types of sets, intersection, union, and Venn diagrams." },
+            { week: "Week 3", topic: "Modular Arithmetic", objectives: "Operations in modulo systems." },
+            { week: "Week 4", topic: "Variation", objectives: "Direct, inverse, and joint variation." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Algebraic Fractions", objectives: "Simplification and operations on algebraic fractions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Pythagoras Theorem", objectives: "Application of theorem to right-angled triangles." },
+            { week: "Week 9", topic: "Trigonometric Ratios", objectives: "Sine, Cosine, and Tangent (SOHCAHTOA)." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "English Studies",
+      icon: "fa-book-open",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Speech: Consonant Clusters", objectives: "Articulation of two and three consonant clusters." },
+            { week: "Week 2", topic: "Grammar: Complex Sentences", objectives: "Structure and usage of subordinating conjunctions." },
+            { week: "Week 3", topic: "Composition: Formal Letters", objectives: "Writing formal letters (applications, complaints)." },
+            { week: "Week 4", topic: "Literature: Poetry Analysis", objectives: "Analyzing themes and imagery in poems." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Grammar: Direct/Indirect Speech", objectives: "Advanced rules for reported speech conversion." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Comprehension: Critical Reading", objectives: "Identifying bias and author intent." },
+            { week: "Week 9", topic: "Speech: Stress and Rhythm", objectives: "Sentence stress and word stress patterns." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Digital Technologies",
+      icon: "fa-laptop-code",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Computer Network", objectives: "Types, topologies, and networking hardware." },
+            { week: "Week 2", topic: "The Internet", objectives: "Services on the internet and email etiquette." },
+            { week: "Week 3", topic: "Programming Basics", objectives: "Introduction to coding logic and algorithms." },
+            { week: "Week 4", topic: "Database Management", objectives: "Introduction to databases and simple queries." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Multimedia", objectives: "Creating and editing audio/video content." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Career in ICT", objectives: "Opportunities in the digital economy." },
+            { week: "Week 9", topic: "Data Privacy", objectives: "Encryption and digital safety standards." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision and examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Basic Science",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Genetics", objectives: "Introduction to heredity and variations." },
+            { week: "Week 2", topic: "Reproductive System", objectives: "Human reproduction and puberty changes." },
+            { week: "Week 3", topic: "Ecosystem", objectives: "Balance in nature, food chains, and webs." },
+            { week: "Week 4", topic: "Atomic Structure", objectives: "Atoms, molecules, and elements." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Work and Machines", objectives: "Levers, pulleys, and mechanical advantage." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Light Energy", objectives: "Reflection, refraction, and optical instruments." },
+            { week: "Week 9", topic: "Water and Solutions", objectives: "Properties of water, solubility, and hard water." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision and examinations." }
+          ]
+        }
+      ]
+    }
+  ,
+    {
+      title: "Business Studies",
+      icon: "fa-briefcase",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Bookkeeping & Accounting", objectives: "Principles of double-entry bookkeeping." },
+            { week: "Week 2", topic: "Partnership & Joint Stock Companies", objectives: "Capital formation and management." },
+            { week: "Week 3", topic: "Trade Associations", objectives: "Functions of Chambers of Commerce." },
+            { week: "Week 4", topic: "Insurance", objectives: "Principles and types of insurance in business." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Business Law", objectives: "Contracts and simple legal obligations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Entrepreneurship", objectives: "Identifying business opportunities." },
+            { week: "Week 9", topic: "Marketing", objectives: "The 4 Ps of marketing (Product, Price, Place, Promotion)." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Cultural & Creative Arts",
+      icon: "fa-palette",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Graphic Design", objectives: "Typography and layout fundamentals." },
+            { week: "Week 2", topic: "Ceramics", objectives: "Methods of clay modeling and firing." },
+            { week: "Week 3", topic: "Music Composition", objectives: "Creating melodies and rhythm." },
+            { week: "Week 4", topic: "Drama Production", objectives: "Script analysis and character development." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Traditional Festivals", objectives: "Societal significance of Nigerian festivals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Textile Design", objectives: "Tie and dye, batik techniques." },
+            { week: "Week 9", topic: "Art Exhibition", objectives: "Planning and displaying artworks." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Social & Citizenship Studies",
+      icon: "fa-users",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Constitutional Development", objectives: "Evolution of Nigerian constitutions." },
+            { week: "Week 2", topic: "Electoral Process", objectives: "Voting, ballot, and democratic rights." },
+            { week: "Week 3", topic: "Political Parties", objectives: "Functions and roles in Nigeria." },
+            { week: "Week 4", topic: "Human Trafficking", objectives: "Causes, consequences, and prevention." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Drug Abuse", objectives: "Dangers and rehab centers." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Public Service", objectives: "Civil service structure and importance." },
+            { week: "Week 9", topic: "International Organizations", objectives: "UN, AU, ECOWAS roles." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Religious Studies (CRS/IRS)",
+      icon: "fa-church",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Religious Tolerance", objectives: "Peaceful coexistence in a multi-religious society." },
+            { week: "Week 2", topic: "Prophets and Messengers", objectives: "Life and teachings of major figures." },
+            { week: "Week 3", topic: "Moral Virtues", objectives: "Justice, honesty, and humility." },
+            { week: "Week 4", topic: "Social Vices", objectives: "Religious perspective on corruption and greed." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Revision of weeks 1-4." },
+            { week: "Week 6", topic: "Community Service", objectives: "Religious duty to help the needy." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Faith and Reason", objectives: "Balancing religious belief with logical inquiry." },
+            { week: "Week 9", topic: "Leadership", objectives: "Religious attributes of a good leader." },
+            { week: "Week 10", topic: "Revision & Exams", objectives: "BECE mock revision." }
+          ]
+        }
+      ]
+    }
+  ],
+  sss1: [
+    {
+      title: "English Language",
+      icon: "fa-book",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Spoken English: Oral Composition Skills I", objectives: "Narrative composition using picture charts; Nouns - Numbers and forming plurals." },
+            { week: "Week 2", topic: "Reading Comprehension & Gender Nouns", objectives: "Word meanings through context; Nouns and Gender (masculine, feminine, common, neuter)." },
+            { week: "Week 3", topic: "Spoken English: Selected Consonant Sounds", objectives: "Practice pronunciation of /Êƒ/, /z/, /Ê’/, /Î¸/, /Ã°/; Vocabulary associated with Agriculture." },
+            { week: "Week 4", topic: "Countable and Uncountable Nouns", objectives: "Uncountable nouns in singular forms; Types of Nouns; Narrative composition." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Consonants followed by /w/", objectives: "Pronunciation practice; Noun Phrases with the Definite Article." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Listening Comprehension: Grasping Main Ideas", objectives: "Identifying main points in real-life speeches; Exceptions to definite article use." },
+            { week: "Week 9", topic: "Spoken English: Oral Composition Skills II", objectives: "Descriptive composition; Nominalization of Adjectives (e.g., wise to wisdom)." },
+            { week: "Week 10", topic: "Nominalization of Verbs", objectives: "Reading short prose on topical issues; Nominalizing verbs (e.g., conquer to conquest)." },
+            { week: "Week 11", topic: "Vocabulary Development: Animal Husbandry", objectives: "Words related to animal husbandry; Irregular Verbs with examples in context." },
+            { week: "Week 12", topic: "Consonants followed by /j/ and /u:/", objectives: "Pronunciation of dew, due, stew; Listening to debates; Forms of irregular verbs." },
+            { week: "Week 13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Words Associated with Religions", objectives: "Vocabulary for traditional religion; Consonant sounds followed by /kw/; Simple tense forms." },
+            { week: "Week 2", topic: "Vocabulary: Christian Religion", objectives: "Words associated with Christianity; Informal letter format; Complex tense forms." },
+            { week: "Week 3", topic: "Vocabulary: Islamic Religion", objectives: "Words associated with Islam; Syllabic /l/ in words; Further practice on simple and complex tenses." },
+            { week: "Week 4", topic: "Spoken English: Syllabic /n/", objectives: "Syllabic /n/ in words like often, sudden; Informal letter writing." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Other Religious Expressions", objectives: "Words like convert, fanatic, atheist; Stress on two-syllable words." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Mood, Tone, and Purpose", objectives: "Identifying mood and tone in speeches/plays; Complex sentences structure and clauses." },
+            { week: "Week 9", topic: "Words Associated with Advertising", objectives: "Vocabulary for advertising; Stress in three-syllable words; Semi-formal letter writing." },
+            { week: "Week 10", topic: "Listening Comprehension: Poem & Debate", objectives: "Identifying purpose in poems and debates; Semi-formal letter revision." },
+            { week: "Week 11", topic: "Words Associated with Stock Exchange", objectives: "Stock market vocabulary; Stress in four-syllable words; Compound and complex sentences." },
+            { week: "Week 12", topic: "Advanced Stress and Record Keeping", objectives: "Following directions; Record keeping uses (register, diary); Sentence practice." },
+            { week: "Week 13", topic: "Examination & Closing", objectives: "End of term examination." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Vocabulary: Antonyms (Exactly Opposite)", objectives: "Words exactly opposite in meaning; Stress timing in continuous prose; Adjuncts (adverbs)." },
+            { week: "Week 2", topic: "Vocabulary: Antonyms (Nearly Opposite)", objectives: "Words nearly opposite in meaning; Identifying speaker styles; Classes of adjuncts." },
+            { week: "Week 3", topic: "Vocabulary: Synonyms (Same Meaning)", objectives: "Words that mean the same; Making notes from texts; Further adjunct examples." },
+            { week: "Week 4", topic: "Listening Comprehension: Summary Skills", objectives: "Listening for summary through keywords; Speech writing features for occasions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Vocabulary: Synonyms (Nearly the Same)", objectives: "Words nearly the same in meaning; Expository writing; Phrasal verbs (come across, etc.)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Speech Writing Revision", objectives: "Revising speech features; Spelling of commonly misspelt words; Argumentative speech." },
+            { week: "Week 9", topic: "Newspaper Articles", objectives: "Features of newspaper articles vs speeches and letters; Listening for summary." },
+            { week: "Week 10", topic: "Commonly Misspelt Words II", objectives: "Spelling drills; Debate practice; Phrasal verbs (give up, give in, put off)." },
+            { week: "Week 11", topic: "Spoken English: Debate Session", objectives: "Debate practice; Writing articles on current issues; Phrasal verbs (bring back, take away)." },
+            { week: "Week 12", topic: "Revision", objectives: "General revision across vocabulary, grammar, and writing." },
+            { week: "Week 13", topic: "Examination & Closing", objectives: "End of term examination." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "General Mathematics",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Number Base System", objectives: "Conversion from one base to base 10; Conversion of decimal fractions; Arithmetic operations." },
+            { week: "Week 2", topic: "Modular Arithmetic", objectives: "Concept of modular arithmetic; Simple operations; Applications to daily life." },
+            { week: "Week 3", topic: "Indices", objectives: "Revision of standard form; Laws of indices with examples; Applications in problem solving." },
+            { week: "Week 4", topic: "Logarithms", objectives: "Definition of logarithm; Relationship between logarithm, indices, and standard form; Reading tables." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Effective Use of Logarithm Tables", objectives: "Use of logarithm tables in calculations (division, multiplication, powers, roots)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Simple Equations and Variations", objectives: "Change of subject of formula; Direct, inverse, and joint variation; Applications." },
+            { week: "Week 9", topic: "Quadratic Equations I", objectives: "Revision of factorization; Factorization of quadratic expressions; Solution by factorization." },
+            { week: "Week 10", topic: "Quadratic Equations II", objectives: "Formation of quadratic equations with given roots; Drawing quadratic graphs." },
+            { week: "Week 11", topic: "Logical Reasoning I", objectives: "Simple statements; Examples of true/false statements; Negation of simple statements." },
+            { week: "Week 12", topic: "Logical Reasoning II", objectives: "Compound statements; Logical operators and symbols; Conjunction, disjunction, conditional." },
+            { week: "Week 13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Constructions I", objectives: "Construction of angles and triangles; Bisection of angles (30Â°, 45Â°, 60Â°, 90Â°)." },
+            { week: "Week 2", topic: "Constructions II", objectives: "Construction of equal angles and quadrilaterals; Locus of points equidistant from lines/points." },
+            { week: "Week 3", topic: "Proofs of Theorems I", objectives: "Proof that sum of angles in a triangle is 180Â°; Exterior angle properties." },
+            { week: "Week 4", topic: "Proofs of Theorems II (Riders)", objectives: "Deductive proofs of riders; Angles of parallel lines; Properties of parallelograms." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Trigonometric Ratios", objectives: "Trigonometric ratios in right-angled triangles (sine, cosine, tangent)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Trigonometric Ratios of Special Angles", objectives: "Ratios for 30Â°, 45Â°, 60Â°; Applications to solving problems." },
+            { week: "Week 9", topic: "Application of Trigonometric Ratios", objectives: "Applications of trigonometry in real-life contexts; Angles between 0Â° and 360Â°." },
+            { week: "Week 10", topic: "Trigonometric Ratios & Graphs", objectives: "Trigonometric ratios with respect to the unit circle; Graphs of sine, cosine, and tangent." },
+            { week: "Week 11", topic: "Revision", objectives: "General revision of all topics taught during the term." },
+            { week: "Week 12", topic: "Examination", objectives: "Second Term Examination." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Mensuration I", objectives: "Length of arcs of circles; Sectors and segments of a circle." },
+            { week: "Week 2", topic: "Mensuration II", objectives: "Area of sectors and segments; Relationship between sector and surface area of a cone." },
+            { week: "Week 3", topic: "Surface Area of Solids", objectives: "Surface area of cube, cuboid, cylinder, cone, prism, and pyramid." },
+            { week: "Week 4", topic: "Volume of Solids", objectives: "Volume of cube, cuboid, cylinder, cone, prism, and pyramid." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Area and Volume of Frustum", objectives: "Surface area and volume of frustum of cone and pyramid; Compound shapes." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Statistics I", objectives: "Collection of meaningful data; Tabulation and presentation." },
+            { week: "Week 9", topic: "Statistics II", objectives: "Frequency distribution; Graphs: linear, bar charts, histograms." },
+            { week: "Week 10", topic: "Statistics III", objectives: "Pie charts; Frequency polygons." },
+            { week: "Week 11", topic: "Revision", objectives: "General revision of the term's work." },
+            { week: "Week 12", topic: "Examination", objectives: "End of term examination." },
+            { week: "Week 13", topic: "Closing", objectives: "Term ends." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Citizenship and Heritage Studies",
+      icon: "fa-monument",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Citizenship & Heritage Studies", objectives: "Meaning, scope, and importance; Differences between citizenship and heritage." },
+            { week: "Week 2", topic: "Origin of Citizenship", objectives: "Birth, registration, naturalization, and honorary citizenship." },
+            { week: "Week 3", topic: "Rights of Citizens", objectives: "Universal human rights; Constitutional rights in Nigeria; Rights vs privileges." },
+            { week: "Week 4", topic: "Duties and Obligations of Citizens", objectives: "Civic responsibilities, loyalty, obedience to laws, and tax payment." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "National Symbols & Their Meanings", objectives: "Coat of arms, flag, anthem, pledge, currency, and the constitution." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Nigerian Heritage", objectives: "Cultural heritage (language, dress, festivals); Historical heritage (monuments, sites)." },
+            { week: "Week 9", topic: "Preservation of Nigerian Heritage", objectives: "Role of government, communities, and families in preservation." },
+            { week: "Week 10", topic: "Threats to National Heritage", objectives: "Urbanization, globalization, neglect, conflict, and corruption." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Citizenship by Law", objectives: "Legal frameworks governing citizenship in Nigeria (1999 Constitution)." },
+            { week: "Week 2", topic: "Rule of Law", objectives: "Concept, importance, and equality before the law." },
+            { week: "Week 3", topic: "Democratic Values", objectives: "Freedom, participation, tolerance, and accountability." },
+            { week: "Week 4", topic: "National Unity & Integration", objectives: "Need, benefits, symbols, and strategies to promote unity." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Ethnic & Religious Heritage of Nigeria", objectives: "Diversity of ethnic groups and religions; Respect for plurality." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Interpersonal Relations & Social Harmony", objectives: "Peaceful co-existence, tolerance, and conflict resolution." },
+            { week: "Week 9", topic: "Leadership & Followership", objectives: "Qualities of good leaders; Duties of followers; Examples from Nigerian history." },
+            { week: "Week 10", topic: "Corruption & Its Effects on Citizenship", objectives: "Meaning, forms, dangers, and prevention of corruption." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Global Citizenship", objectives: "Concept, rights and responsibilities, and globalization." },
+            { week: "Week 2", topic: "Citizenship Education in Other Countries", objectives: "Case studies from USA, UK, Ghana, and South Africa." },
+            { week: "Week 3", topic: "International Organizations & Citizenship", objectives: "UN, AU, ECOWAS, and the Commonwealth." },
+            { week: "Week 4", topic: "Protection of Human Rights", objectives: "NHRC, NGOs, judiciary, and international courts." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Cultural Exchange & Tourism", objectives: "Importance for heritage and the economy." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Contemporary Issues in Citizenship", objectives: "Migration, digital citizenship, and climate change." },
+            { week: "Week 9", topic: "Patriotism", objectives: "Meaning, importance, and ways of showing patriotism." },
+            { week: "Week 10", topic: "Civic Participation", objectives: "Voting, community service, and volunteering." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+        ]
+        }
+      ]
+    },
+        {
+      title: "Biology",
+      icon: "fa-leaf",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Recognizing Living Things", objectives: "Characteristics of living things; differences between plants and animals." },
+            { week: "Week 2", topic: "Classification of Living Things", objectives: "Binomial nomenclature; kingdoms of living things." },
+            { week: "Week 3", topic: "The Cell", objectives: "Cell structure, plant vs. animal cells, and functions of organelles." },
+            { week: "Week 4", topic: "The Cell and Its Environment", objectives: "Osmosis, diffusion, and plasmolysis with practical examples." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Properties and Functions of the Cell", objectives: "Cellular respiration and growth." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Tissues and Supporting Systems", objectives: "Types of skeletons: hydrostatic, exoskeleton, and endoskeleton." },
+            { week: "Week 9", topic: "Nutrition in Animals", objectives: "Classes of food, balanced diet, and food tests." },
+            { week: "Week 10", topic: "Digestive System", objectives: "Human alimentary canal and the process of digestion." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Nutrition in Plants", objectives: "Photosynthesis, requirements, and light/dark reactions." },
+            { week: "Week 2", topic: "Mineral Requirements of Plants", objectives: "Macro and micro-nutrients; effects of deficiencies." },
+            { week: "Week 3", topic: "Transportation Systems", objectives: "Need for transport, materials transported, and media of transportation." },
+            { week: "Week 4", topic: "Transport in Plants", objectives: "Xylem and phloem functions; transpiration." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Transport in Animals", objectives: "Structure of the heart, blood vessels, and composition of blood." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Respiratory Systems", objectives: "Types of respiratory organs in different animals." },
+            { week: "Week 9", topic: "Mechanism of Breathing", objectives: "Inhalation and exhalation in humans and other mammals." },
+            { week: "Week 10", topic: "Excretory Systems", objectives: "Waste products, excretory organs, and kidney functions." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Reproduction in Unicellular Organisms", objectives: "Asexual reproduction methods: binary fission, budding." },
+            { week: "Week 2", topic: "Reproduction in Plants", objectives: "Structure of a flower, pollination, and fertilization." },
+            { week: "Week 3", topic: "Reproduction in Animals", objectives: "Male and female reproductive systems in humans." },
+            { week: "Week 4", topic: "Diseases and Health", objectives: "Pathogens, vectors, and transmission of diseases." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Public Health", objectives: "Sanitation, immunization, and community health." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Ecology: Basic Concepts", objectives: "Environment, habitat, niche, and population." },
+            { week: "Week 9", topic: "Ecosystems", objectives: "Components of an ecosystem; food chains and food webs." },
+            { week: "Week 10", topic: "Ecological Management", objectives: "Conservation of natural resources and pollution control." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Economics",
+      icon: "fa-chart-line",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meaning of Economics", objectives: "Definitions by various economists; scope and importance." },
+            { week: "Week 2", topic: "Basic Economic Concepts", objectives: "Wants, scarcity, scale of preference, choice, and opportunity cost." },
+            { week: "Week 3", topic: "Basic Tools for Economic Analysis", objectives: "Tables, graphs, and charts; simple percentage calculations." },
+            { week: "Week 4", topic: "Concept of Demand", objectives: "Definition, law of demand, and demand schedules." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Concept of Supply", objectives: "Definition, law of supply, and supply schedules." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Theory of Price Determination", objectives: "Equilibrium price and quantity; effects of changes in supply and demand." },
+            { week: "Week 9", topic: "Theory of Production", objectives: "Meaning, types, and factors of production (Land, Labor)." },
+            { week: "Week 10", topic: "Factors of Production II", objectives: "Capital and Entrepreneurship; division of labor." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Business Organizations I", objectives: "Sole proprietorship and partnership: features, advantages, disadvantages." },
+            { week: "Week 2", topic: "Business Organizations II", objectives: "Joint stock companies (Private and Public Ltd)." },
+            { week: "Week 3", topic: "Co-operative Societies", objectives: "Types, features, and importance of co-operatives." },
+            { week: "Week 4", topic: "Public Enterprises", objectives: "Meaning, reasons for establishment, and privatization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Population", objectives: "Census, population size, growth rate, and demographics." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Labor Market", objectives: "Concept of labor force, supply, and demand for labor." },
+            { week: "Week 9", topic: "Trade Unions", objectives: "Role of trade unions, employers' associations, and wage determination." },
+            { week: "Week 10", topic: "Unemployment", objectives: "Causes, consequences, and solutions to unemployment in Nigeria." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Agriculture", objectives: "Systems of agriculture, importance, and problems." },
+            { week: "Week 2", topic: "Agricultural Policies in Nigeria", objectives: "Review of past and present agricultural policies." },
+            { week: "Week 3", topic: "Industrialization", objectives: "Meaning, importance, and problems of industrialization." },
+            { week: "Week 4", topic: "Location of Industries", objectives: "Factors influencing location and localization of industries." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Distributive Trade", objectives: "Channels of distribution: Wholesalers, Retailers, and Consumers." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Money", objectives: "Trade by barter, definition of money, characteristics, and functions." },
+            { week: "Week 9", topic: "Financial Institutions", objectives: "Commercial banks and central banks: functions and differences." },
+            { week: "Week 10", topic: "Inflation", objectives: "Meaning, types, causes, and control of inflation." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Computer Studies",
+      icon: "fa-desktop",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Fundamentals of Computing", objectives: "Definition of a computer, basic components, and uses." },
+            { week: "Week 2", topic: "History of Computers", objectives: "Early counting devices (Abacus, Napier's Bones) to modern systems." },
+            { week: "Week 3", topic: "Generations of Computers", objectives: "First to fifth generations and their core technologies." },
+            { week: "Week 4", topic: "Classification of Computers", objectives: "By size (micro, mini, mainframe) and by type (analog, digital, hybrid)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Computer Hardware", objectives: "Input and Output devices; Central Processing Unit (CPU)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Computer Software", objectives: "System software vs. Application software; examples." },
+            { week: "Week 9", topic: "Operating Systems", objectives: "Functions of an OS; examples like Windows, Linux, and macOS." },
+            { week: "Week 10", topic: "Data and Information", objectives: "Differences between data and information; data processing cycle." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Information Transmission", objectives: "Methods of transmitting information: ancient and modern." },
+            { week: "Week 2", topic: "Internet Basics", objectives: "Definition of the internet, web browsers, and search engines." },
+            { week: "Week 3", topic: "Electronic Mail (E-mail)", objectives: "Creating an email account, sending, and receiving emails." },
+            { week: "Week 4", topic: "Network Topologies", objectives: "Bus, Star, Ring, and Mesh topologies." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Introduction to Word Processing", objectives: "Using MS Word: creating, saving, and formatting text." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Word Processing Skills", objectives: "Inserting tables, images, and printing documents." },
+            { week: "Week 9", topic: "Spreadsheet Applications", objectives: "Introduction to MS Excel; rows, columns, and cells." },
+            { week: "Week 10", topic: "Basic Excel Formulas", objectives: "Using SUM, AVERAGE, and basic arithmetic in spreadsheets." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Presentation Packages", objectives: "Introduction to MS PowerPoint; creating basic slides." },
+            { week: "Week 2", topic: "Advanced Presentation", objectives: "Adding animations, transitions, and multimedia to slides." },
+            { week: "Week 3", topic: "Computer Ethics", objectives: "Responsible use of computers and the internet." },
+            { week: "Week 4", topic: "Cybersecurity Basics", objectives: "Understanding malware, viruses, and how to protect systems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Logic Circuits I", objectives: "Introduction to logic gates (AND, OR, NOT)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Logic Circuits II", objectives: "Truth tables and simple combinations of gates." },
+            { week: "Week 9", topic: "Introduction to Programming", objectives: "Concept of algorithms and flowcharts." },
+            { week: "Week 10", topic: "Basic Programming Constructs", objectives: "Sequence, selection, and iteration in programming logic." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Chemistry",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Chemistry", objectives: "Definition, history, branches, and importance of chemistry." },
+            { week: "Week 2", topic: "Chemical Industries & Lab Apparatus", objectives: "Common laboratory apparatus and their uses." },
+            { week: "Week 3", topic: "Nature of Matter", objectives: "States of matter, properties, and changes of state." },
+            { week: "Week 4", topic: "Separation Techniques", objectives: "Filtration, distillation, sublimation, chromatography." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Atomic Structure", objectives: "Structure of the atom; Subatomic particles." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Periodic Table", objectives: "Groups, periods, and periodicity." },
+            { week: "Week 9", topic: "Chemical Combination", objectives: "Laws of chemical combination." },
+            { week: "Week 10", topic: "Acids, Bases, and Salts", objectives: "Definitions, examples, properties; pH scale; Neutralization." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Writing symbols, formulae; Balancing equations, followed by exams." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Quantitative and Qualitative Analysis", objectives: "Basic concepts of chemical analysis." },
+            { week: "Week 2", topic: "Mole Concept and Stoichiometry", objectives: "Mole, molar mass, Avogadroâ€™s number." },
+            { week: "Week 3", topic: "Percentage Composition", objectives: "Calculations of composition and empirical formula." },
+            { week: "Week 4", topic: "Gas Laws", objectives: "Boyleâ€™s law, Charlesâ€™ law, Ideal gas equation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Structure of the Atom II", objectives: "Bohrâ€™s model; Electronic configurations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Chemical Bonding", objectives: "Ionic and Covalent Bonding: Formation and properties." },
+            { week: "Week 9", topic: "Oxidation and Reduction", objectives: "Definitions, examples, redox reactions." },
+            { week: "Week 10", topic: "Water and Solution", objectives: "Properties, types of solutions, solubility, and crystallization." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Organic Chemistry", objectives: "Characteristics of organic compounds." },
+            { week: "Week 2", topic: "Hydrocarbons", objectives: "Alkanes, Alkenes, and Alkynes: Structures, properties, and examples." },
+            { week: "Week 3", topic: "Isomerism", objectives: "Structural and geometric isomerism." },
+            { week: "Week 4", topic: "Petroleum and Petrochemicals", objectives: "Refining, fractional distillation of petroleum." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Chemical Reactions and Types", objectives: "Combination, decomposition, displacement." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Energy Changes in Reactions", objectives: "Endothermic and exothermic reactions." },
+            { week: "Week 9", topic: "Rates of Chemical Reactions", objectives: "Factors affecting reaction rates." },
+            { week: "Week 10", topic: "Chemical Equilibrium", objectives: "Reversible reactions and Le Chatelierâ€™s principle." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Metals and Non-Metals properties and uses, followed by exams." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Physics",
+      icon: "fa-magnet",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Fundamentals and Derived Quantities", objectives: "Meaning of physical quantities, fundamental units, derived units, SI units." },
+            { week: "Week 2", topic: "Measurements", objectives: "Measurement of mass, weight, length, and time; accuracy and errors." },
+            { week: "Week 3", topic: "Position, Distance and Displacement", objectives: "Concept of position, difference between distance and displacement." },
+            { week: "Week 4", topic: "Scalars and Vectors", objectives: "Definitions, differences, addition and resolution of vectors." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Speed, Velocity and Acceleration", objectives: "Definitions, equations, graphical representation." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Motion I", objectives: "Concept of motion, types of motion, equations of uniformly accelerated motion." },
+            { week: "Week 9", topic: "Motion II", objectives: "Applications of equations of motion in real life." },
+            { week: "Week 10", topic: "Motion III", objectives: "Graphical analysis of motion, problem-solving." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Linear Momentum", objectives: "Newtonâ€™s laws of motion, momentum, impulse, conservation of momentum." },
+            { week: "Week 2", topic: "Work, Energy and Power", objectives: "Definitions, equations, work done in different contexts." },
+            { week: "Week 3", topic: "Mechanical Energy: Machines", objectives: "Simple machines, efficiency, mechanical advantage, velocity ratio." },
+            { week: "Week 4", topic: "Heat Energy I", objectives: "Temperature and Its Measurement: Concept of heat, temperature scales, thermometers." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Heat Energy II", objectives: "Heat Measurement: Specific heat capacity, latent heat, calorimetry." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Particulate Nature of Matter I", objectives: "Molecular theory, evidence of particle nature, Brownian motion." },
+            { week: "Week 9", topic: "Particulate Nature of Matter II", objectives: "Diffusion, pressure in gases, applications." },
+            { week: "Week 10", topic: "Particulate Nature of Matter III", objectives: "Real-life applications of particle theory." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Fluids at Rest and in Motion", objectives: "Pressure in fluids, Pascalâ€™s principle, Archimedesâ€™ principle, Bernoulliâ€™s principle." },
+            { week: "Week 2", topic: "Gas Laws", objectives: "Boyleâ€™s law, Charlesâ€™ law, pressure law, ideal gas equation." },
+            { week: "Week 3", topic: "Simple Harmonic Motion", objectives: "Concept, examples, characteristics, equations." },
+            { week: "Week 4", topic: "Projectile Motion", objectives: "Concept, equations of projectile motion, range, maximum height." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Types of Waves", objectives: "Classification of waves: mechanical, electromagnetic, transverse, longitudinal." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Properties of Waves I", objectives: "Reflection, refraction, diffraction, interference, applications." },
+            { week: "Week 9", topic: "Properties of Waves II", objectives: "Superposition of waves, resonance." },
+            { week: "Week 10", topic: "Properties of Waves III", objectives: "Real-life applications of wave properties." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Agricultural Science",
+      icon: "fa-tractor",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meaning and Importance of Agriculture", objectives: "Definition of agriculture; Importance to individuals and the nation." },
+            { week: "Week 2", topic: "Problems of Agricultural Development", objectives: "Land tenure, low technology, poor storage, pests and diseases; Solutions." },
+            { week: "Week 3", topic: "Subsistence and Commercial Agriculture", objectives: "Meaning, characteristics, and differences." },
+            { week: "Week 4", topic: "Role of Government", objectives: "Agricultural programmes, credit facilities, and extension services." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Role of NGOs", objectives: "Contributions of NGOs (FAO, IFAD, etc.) to agricultural development." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Agricultural Laws and Reforms", objectives: "Land use decree, land tenure systems, and government reforms." },
+            { week: "Week 9", topic: "Land and Its Uses", objectives: "Types of land use (agriculture, forestry, housing, mining)." },
+            { week: "Week 10", topic: "Agricultural Ecology", objectives: "Components of farm ecosystem; Interactions of crops and animals." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Factors affecting land availability, followed by examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Agro-Allied Industries", objectives: "Meaning, examples (textile, breweries, oil mills), and relationship with agriculture." },
+            { week: "Week 2", topic: "Environmental Factors", objectives: "Effects of rainfall, temperature, wind, soil, and biotic factors on agriculture." },
+            { week: "Week 3", topic: "Rock Formation", objectives: "Types of rocks (igneous, sedimentary, metamorphic); Importance to agriculture." },
+            { week: "Week 4", topic: "Soil Formation and Profile", objectives: "Processes of soil formation; Soil horizons and profiles." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Soil Types and Properties", objectives: "Types of soil; Physical and chemical properties; Soil texture and structure." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Simple Farm Tools", objectives: "Examples (hoe, cutlass, rake); Uses and maintenance practices." },
+            { week: "Week 9", topic: "Farm Machinery and Implements", objectives: "Examples (tractors, planters, harvesters); Functions and advantages." },
+            { week: "Week 10", topic: "Maintenance of Farm Machinery", objectives: "Care and servicing of implements; Safety precautions." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Problems of agricultural mechanization, followed by exams." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Prospects of Agricultural Mechanization", objectives: "Meaning, benefits, and limitations of mechanization." },
+            { week: "Week 2", topic: "Sources of Farm Power", objectives: "Human, animal, mechanical, electrical, solar, wind, and water power." },
+            { week: "Week 3", topic: "Classification of Crops", objectives: "Food crops, cash crops; Annuals, biennials, and perennials." },
+            { week: "Week 4", topic: "Husbandry of Selected Crops", objectives: "Maize, cassava, yam: Land prep, planting, maintenance, and harvesting." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Pasture and Forage Crops", objectives: "Meaning, types, and importance in livestock production." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Plant Nutrients and Cycle", objectives: "Macro and micro-nutrients; Nitrogen and carbon cycles." },
+            { week: "Week 9", topic: "Irrigation", objectives: "Definition, types of irrigation, and importance." },
+            { week: "Week 10", topic: "Drainage", objectives: "Meaning, types of drainage systems, and importance." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "Agricultural pollution causes and control, followed by exams." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Solar PV Installation & Maintenance",
+      icon: "fa-solar-panel",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Renewable Energy", objectives: "Meaning, sources (solar, wind, hydro, biomass), and importance in Nigeria." },
+            { week: "Week 2", topic: "Basics of Solar Energy", objectives: "Solar radiation, photovoltaic effect, advantages & limitations." },
+            { week: "Week 3", topic: "Solar Energy Terminologies", objectives: "Irradiance, insolation, efficiency, peak sun hours." },
+            { week: "Week 4", topic: "Types of Solar Energy Systems", objectives: "Off-grid, on-grid, hybrid systems â€“ differences and applications." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Components of PV Systems I", objectives: "Solar panels: types (monocrystalline, polycrystalline, thin film), ratings." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Components of PV Systems II", objectives: "Charge controllers: types (PWM, MPPT) and functions." },
+            { week: "Week 9", topic: "Components of PV Systems III", objectives: "Batteries: types (lead-acid, lithium-ion), sizing, and care." },
+            { week: "Week 10", topic: "Components of PV Systems IV", objectives: "Inverters: types (pure sine, modified sine) and ratings." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Basic Electrical Concepts", objectives: "Current, voltage, resistance, power, and Ohmâ€™s law." },
+            { week: "Week 2", topic: "Tools & Instruments in PV Installation", objectives: "Multimeter, clamp meter, solar tester, and hand tools." },
+            { week: "Week 3", topic: "Solar Panel Connections I", objectives: "Series connection and voltage effects." },
+            { week: "Week 4", topic: "Solar Panel Connections II", objectives: "Parallel connection and current effects." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Solar Panel Mounting Structures", objectives: "Types, orientations, tilt angle, and site assessment." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Wiring & Cabling", objectives: "DC & AC cabling, cable sizing, and safety." },
+            { week: "Week 9", topic: "Earthing & Protection", objectives: "Surge protectors, grounding systems, and circuit breakers." },
+            { week: "Week 10", topic: "Practical: Small Solar Setup", objectives: "Assembling a 12V DC lighting system." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "PV System Design Principles", objectives: "Load assessment and energy demand calculation." },
+            { week: "Week 2", topic: "Sizing Solar Panels", objectives: "Calculating energy requirement vs. solar panel output." },
+            { week: "Week 3", topic: "Sizing Batteries", objectives: "Daily load, depth of discharge, and battery autonomy." },
+            { week: "Week 4", topic: "Sizing Charge Controllers & Inverters", objectives: "Ratings and efficiency considerations." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Practical PV System Design", objectives: "Case study: Designing a household system." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "PV System Installation Steps I", objectives: "Mounting panels and installing the balance of system." },
+            { week: "Week 9", topic: "PV System Installation Steps II", objectives: "Electrical wiring, inverter, and battery connection." },
+            { week: "Week 10", topic: "System Testing & Commissioning", objectives: "Voltage/current tests and performance checks." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Further Mathematics",
+      icon: "fa-square-root-alt",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1-2", topic: "Sets", objectives: "Types of sets; Set operations (union, intersection, complement); Venn diagrams up to 3-set problems." },
+            { week: "Week 3", topic: "Indices and Logarithms", objectives: "Laws of indices and logarithms; Solution of exponential equations." },
+            { week: "Week 4", topic: "Surds", objectives: "Rules for manipulating surds; Rationalization of the denominator." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Linear Inequalities", objectives: "Linear inequalities in one and two variables; Graphs of linear inequalities." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Binary Operations", objectives: "Laws of binary operations; Identity element and inverse; Multiplication table." },
+            { week: "Week 9", topic: "Functions", objectives: "Types of functions (one-to-one, inverse, identity, composite); Applications." },
+            { week: "Week 10", topic: "Sequence and Series", objectives: "nth term and sum of Arithmetic (AP) and Geometric Progressions (GP)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1-2", topic: "Trigonometric Ratios & Logical Reasoning", objectives: "Special angles (30Â°, 45Â°, 60Â°); Introduction to logical reasoning." },
+            { week: "Week 3", topic: "Calculating and Processing Devices", objectives: "Abacus; Decimal and binary systems; Flow charts and applications." },
+            { week: "Week 4", topic: "Straight Line in Coordinate Geometry", objectives: "Midpoint, gradient, distance between points, and equation of a straight line." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Vectors in Two Dimensions I", objectives: "Scalars and vectors; Vector addition and scalar multiplication; Unit vectors." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Vectors in Two Dimensions II", objectives: "Triangle and parallelogram law; Resolution of vectors; Scalar (dot) product." },
+            { week: "Week 9-10", topic: "Revision", objectives: "General revision of topics covered." },
+            { week: "Week 11-13", topic: "Examination & Closing", objectives: "End of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1-2", topic: "Location", objectives: "Measures of central tendency: mean, mode, median, deciles, percentiles, quartiles." },
+            { week: "Week 3-4", topic: "Measures of Dispersion", objectives: "Range, interquartile range, mean deviation, standard deviation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Measures of Location", objectives: "Coefficient of variation and its applications." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Operations Research", objectives: "Meaning and scope; Models (linear programming, transportation, assignment)." },
+            { week: "Week 9", topic: "Models", objectives: "Practical application of linear programming and assignment models." },
+            { week: "Week 10", topic: "Application of Models", objectives: "Further applications of OR models in real-life problem-solving." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Geography",
+      icon: "fa-globe-africa",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Geography", objectives: "Meaning, nature, scope, and value of geography." },
+            { week: "Week 2", topic: "The Earth and Other Planets", objectives: "Characteristics of the Earth; Comparison with other planets." },
+            { week: "Week 3", topic: "Earthâ€™s Rotation and Revolution", objectives: "Effects of rotation; Revolution (seasons, solstices, equinoxes)." },
+            { week: "Week 4", topic: "Latitudes and Longitudes", objectives: "Definitions, uses in location and time calculation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "The Earthâ€™s Structure", objectives: "Layers: crust, mantle, core â€“ composition and importance." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Rocks", objectives: "Types of rocks: igneous, sedimentary, metamorphic; Formation." },
+            { week: "Week 9", topic: "Town/Village", objectives: "Characteristics, similarities, and differences." },
+            { week: "Week 10", topic: "The Local Government Area (LGA)", objectives: "Definition, functions, and importance in geography." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Mountains", objectives: "Types: block, fold, volcanic; Formation and importance." },
+            { week: "Week 2", topic: "Lowlands", objectives: "Types, examples in Nigeria and West Africa, importance." },
+            { week: "Week 3", topic: "The Environment", objectives: "Meaning, components (physical and human), interactions." },
+            { week: "Week 4", topic: "Weather", objectives: "Meaning, elements of weather, instruments for measurement." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Climate I", objectives: "Meaning, elements, and factors influencing climate." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Nigeria: Location and Position", objectives: "Latitudinal and longitudinal extent, boundaries, neighbours." },
+            { week: "Week 9", topic: "Physical Setting of Nigeria", objectives: "Relief, drainage, and vegetation zones." },
+            { week: "Week 10-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Population of Nigeria", objectives: "Size, distribution, density, factors influencing population." },
+            { week: "Week 2", topic: "Resources of Nigeria", objectives: "Types: human and natural; Distribution and importance." },
+            { week: "Week 3", topic: "Basic Concepts in Map Reading", objectives: "Scale, direction, symbols, conventional signs." },
+            { week: "Week 4", topic: "Map Distances", objectives: "Methods of measuring distances on maps." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Map Reduction and Enlargement", objectives: "Techniques and practical exercises." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Interpretation of Features", objectives: "Relief, drainage, settlement, transport features." },
+            { week: "Week 9", topic: "Transportation", objectives: "Modes: road, rail, water, air; Importance and problems." },
+            { week: "Week 10-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Technical Drawing",
+      icon: "fa-ruler-combined",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Technical Drawing", objectives: "Meaning; Career opportunities; Uses of drawing materials." },
+            { week: "Week 2", topic: "Safe Working Habits", objectives: "Practice of good and safe working habits in technical drawing." },
+            { week: "Week 3", topic: "Board Practice", objectives: "Fixing drawing sheet; Sharpening pencil; Drawing borderlines and title block." },
+            { week: "Week 4", topic: "Lines", objectives: "Identification of line types and their applications." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Lettering and Numbering", objectives: "Upper and lower case letters; Writing numbers 0â€“9 correctly." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Plane Geometry â€“ Division of Line", objectives: "Bisection and trisection of lines; Dividing lines into equal parts/ratios." },
+            { week: "Week 9", topic: "Circles", objectives: "Types of circles; Parts and properties; Division into equal parts." },
+            { week: "Week 10", topic: "Angles", objectives: "Construction and Measurement; Classification and description of angles." },
+            { week: "Week 11", topic: "Triangles", objectives: "Types, construction, and inscribed/circumscribed circles." },
+            { week: "Week 12-13", topic: "Quadrilaterals & Revision", objectives: "Properties and construction of quadrilaterals; End of term exams." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1-3", topic: "Introduction to Polygons", objectives: "Properties and construction of regular and irregular polygons." },
+            { week: "Week 4", topic: "Scales", objectives: "Types of scales (plain, diagonal, RF); Reading and interpreting scales." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Enlargement and Reduction", objectives: "Enlargement and reduction of plane figures using ratios." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8-9", topic: "Equal Areas of Similar Figures", objectives: "Principles of determining equal areas; Graphical methods." },
+            { week: "Week 10", topic: "Tangents and Tangency", objectives: "Properties and construction of tangents to circles." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1-3", topic: "Loci, Parabola, Hyperbola, Ellipse", objectives: "Construction and plotting of loci, parabola, hyperbola, and ellipse." },
+            { week: "Week 4", topic: "Prisms", objectives: "Properties and construction; Cardboard model production." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Pyramids and Cones", objectives: "Properties and construction; Cardboard model production." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8-9", topic: "Surface Development", objectives: "Construction of surface development of frustum of solids." },
+            { week: "Week 10", topic: "Dimensioning", objectives: "Principles and rules guiding dimensioning." },
+            { week: "Week 11", topic: "Construction of Isometric", objectives: "Isometric drawing and axis; Techniques of isometric circles." },
+            { week: "Week 12-13", topic: "Examination & Closing", objectives: "End of term examination and activities." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Nigerian History",
+      icon: "fa-landmark",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to History", objectives: "Meaning, scope, and importance of History in nation-building." },
+            { week: "Week 2", topic: "Why We Teach History", objectives: "Educational, moral, political, and social values." },
+            { week: "Week 3", topic: "Sources of History I", objectives: "Oral tradition, written sources, archaeology, linguistics." },
+            { week: "Week 4", topic: "Sources of History II and Dating", objectives: "Determining historical time â€“ calendar systems, radiocarbon dating." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Historical Skills", objectives: "Ancient and modern approaches; critical thinking, evaluation of evidence." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Prospects of ICT in Historical Studies", objectives: "Use of ICT in data collection, storage, and presentation." },
+            { week: "Week 9", topic: "Land and Peoples of Nigeria", objectives: "Geographical and ethnic diversity; major ethnic groups." },
+            { week: "Week 10", topic: "Traditions of Origin", objectives: "Myths, legends, and oral accounts of the origins of major groups." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Early Centres of Civilization", objectives: "Nok culture, Igbo-Ukwu, Ife, and Benin civilizations." },
+            { week: "Week 2", topic: "State Formation Process I", objectives: "Concept of centralized and non-centralized states." },
+            { week: "Week 3", topic: "Centralized States I", objectives: "Kanem and Bornu to 1800 â€“ political organization, trade, and religion." },
+            { week: "Week 4", topic: "Centralized States II", objectives: "Hausa States to 1800 â€“ city-states, economy, and leadership." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Centralized States III", objectives: "Nupe, Jukun, Ife, Oyo, Benin, and Efik â€“ origins and administration." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Non-Centralized States I", objectives: "Tiv, Idoma, Igbo, Ibibio, Ijaw â€“ social and political organization." },
+            { week: "Week 9", topic: "Non-Centralized States II", objectives: "Aspects of their history and inter-group interactions." },
+            { week: "Week 10", topic: "Inter-group Relations I", objectives: "Economic activities, trade between groups, and cultural exchanges." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Inter-group Relations II", objectives: "The impact of migrations, wars, and politics." },
+            { week: "Week 2", topic: "Indigenous Technology and Industries", objectives: "Iron smelting, weaving, pottery, carving, and blacksmithing." },
+            { week: "Week 3", topic: "Early External Influences", objectives: "Contact with North African trade and introduction of Islam." },
+            { week: "Week 4", topic: "The Trans-Saharan Trade", objectives: "Routes, goods exchanged, and impact on Nigerian societies." },
+            { week: "Week 5", topic: "Midterm Test", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Islam in Kanem-Bornu and Hausa Land", objectives: "Spread, influence, and contributions to governance." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Early European Contacts", objectives: "Arrival of the Portuguese; trade, exploration, and missionary activities." },
+            { week: "Week 9", topic: "Trans-Atlantic Slave Trade I", objectives: "Origin and organization of the Atlantic slave trade." },
+            { week: "Week 10", topic: "Trans-Atlantic Slave Trade II", objectives: "Effects of the slave trade on African societies and economies." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Government",
+      icon: "fa-university",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meaning and Scope of Government", objectives: "Government as an institution, a process, and an academic field of study." },
+            { week: "Week 2", topic: "Basic Concepts in Government I", objectives: "Power, Authority, and Legitimacy: Definitions and sources." },
+            { week: "Week 3", topic: "Basic Concepts in Government II", objectives: "Sovereignty: Meaning, characteristics, types, and limitations." },
+            { week: "Week 4", topic: "Basic Concepts in Government III", objectives: "Democracy, Political Culture, and Political Socialization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Types and Characteristics of Government", objectives: "Unitary, Federal, and Confederal systems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Systems of Government", objectives: "Presidential and Parliamentary (Cabinet) systems of government." },
+            { week: "Week 9", topic: "Types of Government", objectives: "Monarchy, Aristocracy, Oligarchy, and Autocracy." },
+            { week: "Week 10", topic: "Constitutions", objectives: "Meaning, sources, features, and types (Written, Unwritten, Rigid, Flexible)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Constitutionalism", objectives: "Meaning, principles, and limitations." },
+            { week: "Week 2", topic: "Organs of Government I", objectives: "The Executive: Types, functions, and control." },
+            { week: "Week 3", topic: "Organs of Government II", objectives: "The Legislature: Types (unicameral, bicameral), functions, and bills." },
+            { week: "Week 4", topic: "Organs of Government III", objectives: "The Judiciary: Functions, independence, and separation of powers." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Rule of Law", objectives: "Meaning, principles, and limitations to the rule of law." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Fundamental Human Rights", objectives: "Meaning, types, and how they can be safeguarded." },
+            { week: "Week 9", topic: "Political Parties", objectives: "Definition, types, functions, and party systems." },
+            { week: "Week 10", topic: "Pressure Groups", objectives: "Meaning, types, functions, and modes of operation." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Franchise (Suffrage)", objectives: "Meaning, types, and qualifications for franchise." },
+            { week: "Week 2", topic: "Elections", objectives: "Meaning, functions, and types of electoral systems." },
+            { week: "Week 3", topic: "Electoral Commission", objectives: "Roles, functions, and features of an independent electoral commission." },
+            { week: "Week 4", topic: "Public Administration", objectives: "Civil Service: Meaning, characteristics, functions, and problems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Public Corporations", objectives: "Meaning, reasons for establishment, structure, and control." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Local Government", objectives: "Meaning, reasons for creation, functions, and sources of finance." },
+            { week: "Week 9", topic: "Pre-Colonial Administration in Nigeria", objectives: "Hausa/Fulani, Yoruba, and Igbo traditional political systems." },
+            { week: "Week 10", topic: "Colonial Administration", objectives: "Indirect rule in Nigeria: Successes and failures." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Christian Religious Studies",
+      icon: "fa-bible",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Sovereignty of God", objectives: "God the Creator; The Creation story." },
+            { week: "Week 2", topic: "Leadership Roles", objectives: "Joseph as a leader: Early life, dreams, and betrayal." },
+            { week: "Week 3", topic: "Leadership Roles II", objectives: "Moses: Birth, call, and leading Israelites out of Egypt." },
+            { week: "Week 4", topic: "Leadership Roles III", objectives: "Joshua: Commissioning, crossing the Jordan, and capturing Jericho." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Leadership Roles IV", objectives: "Deborah and Barak: Leading the Israelites to victory." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "God's Care for His People", objectives: "Provision in the wilderness (Manna, Quail, Water)." },
+            { week: "Week 9", topic: "The Ten Commandments", objectives: "Giving of the law at Mount Sinai and its significance." },
+            { week: "Week 10", topic: "Consequences of Disobedience", objectives: "Saul's disobedience and rejection as king." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Submission to the Will of God", objectives: "David's submission and repentance; Jonah's call and submission." },
+            { week: "Week 2", topic: "Making Decisions", objectives: "Solomon's wisdom and decisions; Rehoboam's unwise decision." },
+            { week: "Week 3", topic: "Greed and Its Effects", objectives: "Ahab and Naboth's vineyard; Gehazi's greed." },
+            { week: "Week 4", topic: "The Supremacy of God", objectives: "Elijah at Mount Carmel; Religious reforms of Josiah." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Courage", objectives: "Daniel, Shadrach, Meshach, and Abednego." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Early Life of Jesus", objectives: "Annunciation, birth, and presentation in the temple." },
+            { week: "Week 9", topic: "The Baptism and Temptation", objectives: "Significance of Jesus' baptism and triumph over temptation." },
+            { week: "Week 10", topic: "Call of the Disciples", objectives: "The twelve disciples and the demands of discipleship." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Jesus' Teachings I", objectives: "The Sermon on the Mount; The Beatitudes." },
+            { week: "Week 2", topic: "Jesus' Teachings II", objectives: "Parables of the Kingdom (Sower, Mustard Seed, Wheat and Tares)." },
+            { week: "Week 3", topic: "Miracles of Jesus", objectives: "Nature miracles, healing, and raising the dead." },
+            { week: "Week 4", topic: "The Triumphal Entry", objectives: "Significance of Jesus entering Jerusalem." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "The Last Supper", objectives: "Institution of the Lord's Supper and betrayal by Judas." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Trial and Crucifixion", objectives: "Jesus before the High Priest and Pilate; The crucifixion." },
+            { week: "Week 9", topic: "Resurrection and Ascension", objectives: "The empty tomb, appearances, and the Great Commission." },
+            { week: "Week 10", topic: "The Holy Spirit", objectives: "Promise of the Holy Spirit and the Day of Pentecost." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Literature-in-English",
+      icon: "fa-book-open",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Literature", objectives: "Meaning, nature, and functions of literature." },
+            { week: "Week 2", topic: "Genres of Literature", objectives: "Features of Prose, Drama, and Poetry." },
+            { week: "Week 3", topic: "Literary Appreciation", objectives: "Elements of prose: Plot, setting, characterization, and theme." },
+            { week: "Week 4", topic: "Figures of Speech I", objectives: "Simile, metaphor, personification, and hyperbole." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Figures of Speech II", objectives: "Irony, paradox, oxymoron, and euphemism." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Introduction to Drama", objectives: "Types of drama (Tragedy, Comedy, Tragicomedy); Elements of drama." },
+            { week: "Week 9", topic: "African Drama", objectives: "Reading and analysis of recommended African play." },
+            { week: "Week 10", topic: "African Drama (Cont'd)", objectives: "Thematic analysis and character study of recommended African play." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Poetry", objectives: "Structure, form, and poetic devices (rhyme, rhythm, stanza)." },
+            { week: "Week 2", topic: "Types of Poetry", objectives: "Sonnet, ode, elegy, lyric, epic, and ballad." },
+            { week: "Week 3", topic: "African Poetry", objectives: "Analysis of selected African poems: themes and poetic devices." },
+            { week: "Week 4", topic: "African Poetry (Cont'd)", objectives: "Detailed study of more selected African poems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Non-African Poetry", objectives: "Analysis of selected non-African poems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Introduction to Prose", objectives: "Types of prose (Fiction vs. Non-fiction); Narrative techniques." },
+            { week: "Week 9", topic: "African Prose", objectives: "Reading and plot analysis of recommended African novel." },
+            { week: "Week 10", topic: "African Prose (Cont'd)", objectives: "Characterization and themes of recommended African novel." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Non-African Drama", objectives: "Background and plot summary of recommended Non-African play." },
+            { week: "Week 2", topic: "Non-African Drama (Cont'd)", objectives: "Thematic concerns and dramatic techniques." },
+            { week: "Week 3", topic: "Character Study", objectives: "Detailed character analysis in recommended Non-African play." },
+            { week: "Week 4", topic: "Non-African Prose", objectives: "Background and plot summary of recommended Non-African novel." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Non-African Prose (Cont'd)", objectives: "Thematic analysis and narrative style." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Unseen Poetry", objectives: "Techniques for analyzing unseen poems." },
+            { week: "Week 9", topic: "Unseen Prose", objectives: "Techniques for answering questions on unseen prose passages." },
+            { week: "Week 10", topic: "General Literary Review", objectives: "Comparing themes across recommended texts." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Accounting",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Bookkeeping and Accounting", objectives: "History, definition, objectives, and importance." },
+            { week: "Week 2", topic: "Accounting Concepts and Conventions", objectives: "Entity, going concern, materiality, historical cost, and matching concepts." },
+            { week: "Week 3", topic: "The Accounting Equation", objectives: "Assets = Capital + Liabilities; Practical applications." },
+            { week: "Week 4", topic: "Source Documents", objectives: "Receipts, invoices, vouchers, debit/credit notes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Books of Original Entry", objectives: "Sales journal, purchases journal, return inwards, and outwards journals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Ledger and Double Entry Principle", objectives: "Posting from subsidiary books to the ledger." },
+            { week: "Week 9", topic: "The Cash Book (Single Column)", objectives: "Format, recording transactions, and balancing." },
+            { week: "Week 10", topic: "The Cash Book (Two Column)", objectives: "Recording cash and bank transactions; Contra entries." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "The Cash Book (Three Column)", objectives: "Recording cash, bank, and discount allowed/received." },
+            { week: "Week 2", topic: "Petty Cash Book", objectives: "Imprest system, preparation of petty cash book." },
+            { week: "Week 3", topic: "The Trial Balance", objectives: "Meaning, uses, rules of extraction, and preparation." },
+            { week: "Week 4", topic: "Errors in Accounting", objectives: "Errors that affect and do not affect the trial balance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Correction of Errors", objectives: "Using the suspense account to correct errors." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Bank Reconciliation Statement I", objectives: "Causes of differences between cash book and bank statement." },
+            { week: "Week 9", topic: "Bank Reconciliation Statement II", objectives: "Preparation of adjusted cash book and reconciliation statement." },
+            { week: "Week 10", topic: "Final Accounts of a Sole Trader", objectives: "Introduction to Trading Account." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Final Accounts of a Sole Trader (Cont'd)", objectives: "Profit and Loss Account." },
+            { week: "Week 2", topic: "Balance Sheet", objectives: "Format, classification of assets and liabilities." },
+            { week: "Week 3", topic: "Adjustments in Final Accounts I", objectives: "Prepayments and Accruals." },
+            { week: "Week 4", topic: "Adjustments in Final Accounts II", objectives: "Provision for bad/doubtful debts and depreciation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Depreciation of Fixed Assets", objectives: "Meaning, causes, straight line, and reducing balance methods." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Control Accounts", objectives: "Sales ledger and purchases ledger control accounts." },
+            { week: "Week 9", topic: "Manufacturing Accounts", objectives: "Cost of production, prime cost, factory overheads." },
+            { week: "Week 10", topic: "Single Entry and Incomplete Records", objectives: "Statement of affairs, calculation of profit or loss." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Commerce",
+      icon: "fa-store",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Commerce", objectives: "Meaning, scope, characteristics, and functions of commerce." },
+            { week: "Week 2", topic: "Occupation", objectives: "Meaning, classification of occupation (industry, commerce, services)." },
+            { week: "Week 3", topic: "Production", objectives: "Meaning, types (primary, secondary, tertiary), and factors of production." },
+            { week: "Week 4", topic: "Division of Labor & Specialization", objectives: "Meaning, advantages, disadvantages, and limitations." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Trade", objectives: "Meaning, classification (Home and Foreign trade)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Home Trade", objectives: "Retail trade: Meaning, characteristics, functions of the retailer." },
+            { week: "Week 9", topic: "Types of Retail Outlets", objectives: "Small scale (hawking, mobile shops) vs Large scale (department stores, supermarkets)." },
+            { week: "Week 10", topic: "Wholesale Trade", objectives: "Meaning, types, functions of the wholesaler to manufacturer and retailer." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Foreign Trade", objectives: "Meaning, types (import, export, entrepot), and barriers." },
+            { week: "Week 2", topic: "Documents used in Foreign Trade", objectives: "Indent, Bill of Lading, Consular Invoice, Certificate of Origin." },
+            { week: "Week 3", topic: "Terms of Quoting Prices", objectives: "FOB, CIF, FAS, FOR." },
+            { week: "Week 4", topic: "Business Organizations: Sole Proprietorship", objectives: "Meaning, features, sources of capital, advantages, and disadvantages." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Partnership", objectives: "Meaning, types of partners, deed of partnership, advantages, and disadvantages." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Limited Liability Companies", objectives: "Private and Public companies; Formation and features." },
+            { week: "Week 9", topic: "Co-operative Societies", objectives: "Meaning, types, features, advantages, and disadvantages." },
+            { week: "Week 10", topic: "Public Enterprises", objectives: "Reasons for establishment, features, and problems." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Money", objectives: "Trade by barter; Origin, definition, and characteristics of money." },
+            { week: "Week 2", topic: "Functions of Money", objectives: "Medium of exchange, store of value, standard of deferred payment." },
+            { week: "Week 3", topic: "Commercial Banks", objectives: "Meaning, functions, types of accounts (savings, current, fixed deposit)." },
+            { week: "Week 4", topic: "Central Bank", objectives: "Meaning, functions, and differences from commercial banks." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Other Financial Institutions", objectives: "Mortgage banks, Merchant banks, Insurance companies." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Insurance", objectives: "Meaning, principles (insurable interest, indemnity, utmost good faith)." },
+            { week: "Week 9", topic: "Types of Insurance", objectives: "Life and non-life insurance (marine, fire, motor)." },
+            { week: "Week 10", topic: "Communication", objectives: "Importance in commerce; Traditional and modern methods (NIPOST, Courier, Internet)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Marketing",
+      icon: "fa-bullhorn",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Marketing", objectives: "Meaning, definitions, and history of marketing." },
+            { week: "Week 2", topic: "Importance of Marketing", objectives: "Functions to the economy, society, and business." },
+            { week: "Week 3", topic: "Marketing Concepts I", objectives: "Production concept, product concept, selling concept." },
+            { week: "Week 4", topic: "Marketing Concepts II", objectives: "Marketing concept and societal marketing concept." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Marketing Mix (The 4Ps)", objectives: "Product, Price, Place, and Promotion." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Market Segmentation", objectives: "Meaning, bases for segmentation (demographic, geographic, psychographic)." },
+            { week: "Week 9", topic: "Consumer Behavior", objectives: "Meaning and factors influencing consumer buying decisions." },
+            { week: "Week 10", topic: "Types of Consumers", objectives: "Individual consumers vs. Organizational consumers." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "The Product", objectives: "Meaning, levels of a product, classification of products." },
+            { week: "Week 2", topic: "Product Life Cycle", objectives: "Introduction, growth, maturity, and decline stages." },
+            { week: "Week 3", topic: "New Product Development", objectives: "Stages from idea generation to commercialization." },
+            { week: "Week 4", topic: "Branding and Packaging", objectives: "Meaning, importance, types of brands, and packaging functions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Pricing", objectives: "Meaning, objectives, and factors influencing pricing." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Pricing Strategies", objectives: "Skimming, penetration, psychological, and cost-plus pricing." },
+            { week: "Week 9", topic: "Distribution (Place)", objectives: "Channels of distribution, intermediaries (wholesalers, retailers)." },
+            { week: "Week 10", topic: "Physical Distribution", objectives: "Transportation, warehousing, inventory control, and order processing." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Promotion", objectives: "Meaning, objectives, and the promotional mix." },
+            { week: "Week 2", topic: "Advertising", objectives: "Meaning, types, media, advantages, and disadvantages." },
+            { week: "Week 3", topic: "Personal Selling", objectives: "Meaning, steps in the selling process, qualities of a good salesperson." },
+            { week: "Week 4", topic: "Sales Promotion", objectives: "Techniques used for consumers and trade." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Public Relations", objectives: "Meaning, tools, and importance to marketing." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Marketing Research", objectives: "Meaning, importance, and steps in the research process." },
+            { week: "Week 9", topic: "E-Marketing", objectives: "Meaning, importance, and tools (social media, websites, email)." },
+            { week: "Week 10", topic: "International Marketing", objectives: "Meaning, reasons for going international, and challenges." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Government",
+      icon: "fa-university",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meaning and Scope of Government", objectives: "Government as an institution, a process, and an academic field of study." },
+            { week: "Week 2", topic: "Basic Concepts in Government I", objectives: "Power, Authority, and Legitimacy: Definitions and sources." },
+            { week: "Week 3", topic: "Basic Concepts in Government II", objectives: "Sovereignty: Meaning, characteristics, types, and limitations." },
+            { week: "Week 4", topic: "Basic Concepts in Government III", objectives: "Democracy, Political Culture, and Political Socialization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Types and Characteristics of Government", objectives: "Unitary, Federal, and Confederal systems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Systems of Government", objectives: "Presidential and Parliamentary (Cabinet) systems of government." },
+            { week: "Week 9", topic: "Types of Government", objectives: "Monarchy, Aristocracy, Oligarchy, and Autocracy." },
+            { week: "Week 10", topic: "Constitutions", objectives: "Meaning, sources, features, and types (Written, Unwritten, Rigid, Flexible)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Constitutionalism", objectives: "Meaning, principles, and limitations." },
+            { week: "Week 2", topic: "Organs of Government I", objectives: "The Executive: Types, functions, and control." },
+            { week: "Week 3", topic: "Organs of Government II", objectives: "The Legislature: Types (unicameral, bicameral), functions, and bills." },
+            { week: "Week 4", topic: "Organs of Government III", objectives: "The Judiciary: Functions, independence, and separation of powers." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Rule of Law", objectives: "Meaning, principles, and limitations to the rule of law." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Fundamental Human Rights", objectives: "Meaning, types, and how they can be safeguarded." },
+            { week: "Week 9", topic: "Political Parties", objectives: "Definition, types, functions, and party systems." },
+            { week: "Week 10", topic: "Pressure Groups", objectives: "Meaning, types, functions, and modes of operation." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Franchise (Suffrage)", objectives: "Meaning, types, and qualifications for franchise." },
+            { week: "Week 2", topic: "Elections", objectives: "Meaning, functions, and types of electoral systems." },
+            { week: "Week 3", topic: "Electoral Commission", objectives: "Roles, functions, and features of an independent electoral commission." },
+            { week: "Week 4", topic: "Public Administration", objectives: "Civil Service: Meaning, characteristics, functions, and problems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Public Corporations", objectives: "Meaning, reasons for establishment, structure, and control." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Local Government", objectives: "Meaning, reasons for creation, functions, and sources of finance." },
+            { week: "Week 9", topic: "Pre-Colonial Administration in Nigeria", objectives: "Hausa/Fulani, Yoruba, and Igbo traditional political systems." },
+            { week: "Week 10", topic: "Colonial Administration", objectives: "Indirect rule in Nigeria: Successes and failures." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Christian Religious Studies",
+      icon: "fa-bible",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Sovereignty of God", objectives: "God the Creator; The Creation story." },
+            { week: "Week 2", topic: "Leadership Roles", objectives: "Joseph as a leader: Early life, dreams, and betrayal." },
+            { week: "Week 3", topic: "Leadership Roles II", objectives: "Moses: Birth, call, and leading Israelites out of Egypt." },
+            { week: "Week 4", topic: "Leadership Roles III", objectives: "Joshua: Commissioning, crossing the Jordan, and capturing Jericho." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Leadership Roles IV", objectives: "Deborah and Barak: Leading the Israelites to victory." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "God's Care for His People", objectives: "Provision in the wilderness (Manna, Quail, Water)." },
+            { week: "Week 9", topic: "The Ten Commandments", objectives: "Giving of the law at Mount Sinai and its significance." },
+            { week: "Week 10", topic: "Consequences of Disobedience", objectives: "Saul's disobedience and rejection as king." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Submission to the Will of God", objectives: "David's submission and repentance; Jonah's call and submission." },
+            { week: "Week 2", topic: "Making Decisions", objectives: "Solomon's wisdom and decisions; Rehoboam's unwise decision." },
+            { week: "Week 3", topic: "Greed and Its Effects", objectives: "Ahab and Naboth's vineyard; Gehazi's greed." },
+            { week: "Week 4", topic: "The Supremacy of God", objectives: "Elijah at Mount Carmel; Religious reforms of Josiah." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Courage", objectives: "Daniel, Shadrach, Meshach, and Abednego." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Early Life of Jesus", objectives: "Annunciation, birth, and presentation in the temple." },
+            { week: "Week 9", topic: "The Baptism and Temptation", objectives: "Significance of Jesus' baptism and triumph over temptation." },
+            { week: "Week 10", topic: "Call of the Disciples", objectives: "The twelve disciples and the demands of discipleship." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Jesus' Teachings I", objectives: "The Sermon on the Mount; The Beatitudes." },
+            { week: "Week 2", topic: "Jesus' Teachings II", objectives: "Parables of the Kingdom (Sower, Mustard Seed, Wheat and Tares)." },
+            { week: "Week 3", topic: "Miracles of Jesus", objectives: "Nature miracles, healing, and raising the dead." },
+            { week: "Week 4", topic: "The Triumphal Entry", objectives: "Significance of Jesus entering Jerusalem." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "The Last Supper", objectives: "Institution of the Lord's Supper and betrayal by Judas." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Trial and Crucifixion", objectives: "Jesus before the High Priest and Pilate; The crucifixion." },
+            { week: "Week 9", topic: "Resurrection and Ascension", objectives: "The empty tomb, appearances, and the Great Commission." },
+            { week: "Week 10", topic: "The Holy Spirit", objectives: "Promise of the Holy Spirit and the Day of Pentecost." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Literature-in-English",
+      icon: "fa-book-open",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Literature", objectives: "Meaning, nature, and functions of literature." },
+            { week: "Week 2", topic: "Genres of Literature", objectives: "Features of Prose, Drama, and Poetry." },
+            { week: "Week 3", topic: "Literary Appreciation", objectives: "Elements of prose: Plot, setting, characterization, and theme." },
+            { week: "Week 4", topic: "Figures of Speech I", objectives: "Simile, metaphor, personification, and hyperbole." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Figures of Speech II", objectives: "Irony, paradox, oxymoron, and euphemism." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Introduction to Drama", objectives: "Types of drama (Tragedy, Comedy, Tragicomedy); Elements of drama." },
+            { week: "Week 9", topic: "African Drama", objectives: "Reading and analysis of recommended African play." },
+            { week: "Week 10", topic: "African Drama (Cont'd)", objectives: "Thematic analysis and character study of recommended African play." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Poetry", objectives: "Structure, form, and poetic devices (rhyme, rhythm, stanza)." },
+            { week: "Week 2", topic: "Types of Poetry", objectives: "Sonnet, ode, elegy, lyric, epic, and ballad." },
+            { week: "Week 3", topic: "African Poetry", objectives: "Analysis of selected African poems: themes and poetic devices." },
+            { week: "Week 4", topic: "African Poetry (Cont'd)", objectives: "Detailed study of more selected African poems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Non-African Poetry", objectives: "Analysis of selected non-African poems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Introduction to Prose", objectives: "Types of prose (Fiction vs. Non-fiction); Narrative techniques." },
+            { week: "Week 9", topic: "African Prose", objectives: "Reading and plot analysis of recommended African novel." },
+            { week: "Week 10", topic: "African Prose (Cont'd)", objectives: "Characterization and themes of recommended African novel." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Non-African Drama", objectives: "Background and plot summary of recommended Non-African play." },
+            { week: "Week 2", topic: "Non-African Drama (Cont'd)", objectives: "Thematic concerns and dramatic techniques." },
+            { week: "Week 3", topic: "Character Study", objectives: "Detailed character analysis in recommended Non-African play." },
+            { week: "Week 4", topic: "Non-African Prose", objectives: "Background and plot summary of recommended Non-African novel." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Non-African Prose (Cont'd)", objectives: "Thematic analysis and narrative style." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Unseen Poetry", objectives: "Techniques for analyzing unseen poems." },
+            { week: "Week 9", topic: "Unseen Prose", objectives: "Techniques for answering questions on unseen prose passages." },
+            { week: "Week 10", topic: "General Literary Review", objectives: "Comparing themes across recommended texts." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Accounting",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Bookkeeping and Accounting", objectives: "History, definition, objectives, and importance." },
+            { week: "Week 2", topic: "Accounting Concepts and Conventions", objectives: "Entity, going concern, materiality, historical cost, and matching concepts." },
+            { week: "Week 3", topic: "The Accounting Equation", objectives: "Assets = Capital + Liabilities; Practical applications." },
+            { week: "Week 4", topic: "Source Documents", objectives: "Receipts, invoices, vouchers, debit/credit notes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Books of Original Entry", objectives: "Sales journal, purchases journal, return inwards, and outwards journals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "The Ledger and Double Entry Principle", objectives: "Posting from subsidiary books to the ledger." },
+            { week: "Week 9", topic: "The Cash Book (Single Column)", objectives: "Format, recording transactions, and balancing." },
+            { week: "Week 10", topic: "The Cash Book (Two Column)", objectives: "Recording cash and bank transactions; Contra entries." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "The Cash Book (Three Column)", objectives: "Recording cash, bank, and discount allowed/received." },
+            { week: "Week 2", topic: "Petty Cash Book", objectives: "Imprest system, preparation of petty cash book." },
+            { week: "Week 3", topic: "The Trial Balance", objectives: "Meaning, uses, rules of extraction, and preparation." },
+            { week: "Week 4", topic: "Errors in Accounting", objectives: "Errors that affect and do not affect the trial balance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Correction of Errors", objectives: "Using the suspense account to correct errors." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Bank Reconciliation Statement I", objectives: "Causes of differences between cash book and bank statement." },
+            { week: "Week 9", topic: "Bank Reconciliation Statement II", objectives: "Preparation of adjusted cash book and reconciliation statement." },
+            { week: "Week 10", topic: "Final Accounts of a Sole Trader", objectives: "Introduction to Trading Account." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Final Accounts of a Sole Trader (Cont'd)", objectives: "Profit and Loss Account." },
+            { week: "Week 2", topic: "Balance Sheet", objectives: "Format, classification of assets and liabilities." },
+            { week: "Week 3", topic: "Adjustments in Final Accounts I", objectives: "Prepayments and Accruals." },
+            { week: "Week 4", topic: "Adjustments in Final Accounts II", objectives: "Provision for bad/doubtful debts and depreciation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Depreciation of Fixed Assets", objectives: "Meaning, causes, straight line, and reducing balance methods." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Control Accounts", objectives: "Sales ledger and purchases ledger control accounts." },
+            { week: "Week 9", topic: "Manufacturing Accounts", objectives: "Cost of production, prime cost, factory overheads." },
+            { week: "Week 10", topic: "Single Entry and Incomplete Records", objectives: "Statement of affairs, calculation of profit or loss." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Commerce",
+      icon: "fa-store",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Commerce", objectives: "Meaning, scope, characteristics, and functions of commerce." },
+            { week: "Week 2", topic: "Occupation", objectives: "Meaning, classification of occupation (industry, commerce, services)." },
+            { week: "Week 3", topic: "Production", objectives: "Meaning, types (primary, secondary, tertiary), and factors of production." },
+            { week: "Week 4", topic: "Division of Labor & Specialization", objectives: "Meaning, advantages, disadvantages, and limitations." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Trade", objectives: "Meaning, classification (Home and Foreign trade)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Home Trade", objectives: "Retail trade: Meaning, characteristics, functions of the retailer." },
+            { week: "Week 9", topic: "Types of Retail Outlets", objectives: "Small scale (hawking, mobile shops) vs Large scale (department stores, supermarkets)." },
+            { week: "Week 10", topic: "Wholesale Trade", objectives: "Meaning, types, functions of the wholesaler to manufacturer and retailer." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Foreign Trade", objectives: "Meaning, types (import, export, entrepot), and barriers." },
+            { week: "Week 2", topic: "Documents used in Foreign Trade", objectives: "Indent, Bill of Lading, Consular Invoice, Certificate of Origin." },
+            { week: "Week 3", topic: "Terms of Quoting Prices", objectives: "FOB, CIF, FAS, FOR." },
+            { week: "Week 4", topic: "Business Organizations: Sole Proprietorship", objectives: "Meaning, features, sources of capital, advantages, and disadvantages." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Partnership", objectives: "Meaning, types of partners, deed of partnership, advantages, and disadvantages." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Limited Liability Companies", objectives: "Private and Public companies; Formation and features." },
+            { week: "Week 9", topic: "Co-operative Societies", objectives: "Meaning, types, features, advantages, and disadvantages." },
+            { week: "Week 10", topic: "Public Enterprises", objectives: "Reasons for establishment, features, and problems." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Money", objectives: "Trade by barter; Origin, definition, and characteristics of money." },
+            { week: "Week 2", topic: "Functions of Money", objectives: "Medium of exchange, store of value, standard of deferred payment." },
+            { week: "Week 3", topic: "Commercial Banks", objectives: "Meaning, functions, types of accounts (savings, current, fixed deposit)." },
+            { week: "Week 4", topic: "Central Bank", objectives: "Meaning, functions, and differences from commercial banks." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Other Financial Institutions", objectives: "Mortgage banks, Merchant banks, Insurance companies." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Insurance", objectives: "Meaning, principles (insurable interest, indemnity, utmost good faith)." },
+            { week: "Week 9", topic: "Types of Insurance", objectives: "Life and non-life insurance (marine, fire, motor)." },
+            { week: "Week 10", topic: "Communication", objectives: "Importance in commerce; Traditional and modern methods (NIPOST, Courier, Internet)." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Marketing",
+      icon: "fa-bullhorn",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to Marketing", objectives: "Meaning, definitions, and history of marketing." },
+            { week: "Week 2", topic: "Importance of Marketing", objectives: "Functions to the economy, society, and business." },
+            { week: "Week 3", topic: "Marketing Concepts I", objectives: "Production concept, product concept, selling concept." },
+            { week: "Week 4", topic: "Marketing Concepts II", objectives: "Marketing concept and societal marketing concept." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Marketing Mix (The 4Ps)", objectives: "Product, Price, Place, and Promotion." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Market Segmentation", objectives: "Meaning, bases for segmentation (demographic, geographic, psychographic)." },
+            { week: "Week 9", topic: "Consumer Behavior", objectives: "Meaning and factors influencing consumer buying decisions." },
+            { week: "Week 10", topic: "Types of Consumers", objectives: "Individual consumers vs. Organizational consumers." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "The Product", objectives: "Meaning, levels of a product, classification of products." },
+            { week: "Week 2", topic: "Product Life Cycle", objectives: "Introduction, growth, maturity, and decline stages." },
+            { week: "Week 3", topic: "New Product Development", objectives: "Stages from idea generation to commercialization." },
+            { week: "Week 4", topic: "Branding and Packaging", objectives: "Meaning, importance, types of brands, and packaging functions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Pricing", objectives: "Meaning, objectives, and factors influencing pricing." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Pricing Strategies", objectives: "Skimming, penetration, psychological, and cost-plus pricing." },
+            { week: "Week 9", topic: "Distribution (Place)", objectives: "Channels of distribution, intermediaries (wholesalers, retailers)." },
+            { week: "Week 10", topic: "Physical Distribution", objectives: "Transportation, warehousing, inventory control, and order processing." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Promotion", objectives: "Meaning, objectives, and the promotional mix." },
+            { week: "Week 2", topic: "Advertising", objectives: "Meaning, types, media, advantages, and disadvantages." },
+            { week: "Week 3", topic: "Personal Selling", objectives: "Meaning, steps in the selling process, qualities of a good salesperson." },
+            { week: "Week 4", topic: "Sales Promotion", objectives: "Techniques used for consumers and trade." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment of Weeks 1-4." },
+            { week: "Week 6", topic: "Public Relations", objectives: "Meaning, tools, and importance to marketing." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "Holiday." },
+            { week: "Week 8", topic: "Marketing Research", objectives: "Meaning, importance, and steps in the research process." },
+            { week: "Week 9", topic: "E-Marketing", objectives: "Meaning, importance, and tools (social media, websites, email)." },
+            { week: "Week 10", topic: "International Marketing", objectives: "Meaning, reasons for going international, and challenges." },
+            { week: "Week 11-13", topic: "Revision & Exams", objectives: "General revision and end of term examinations." }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "sss2": [
+    {
+      "title": "General Mathematics",
+      "icon": "fa-calculator",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Logarithms", "objectives": "Laws of indices; operations with numbers > 1 using tables." },
+            { "week": "Week 2", "topic": "Logarithms II", "objectives": "Characteristics and mantissa of numbers < 1; mult/div calculations." },
+            { "week": "Week 3", "topic": "Sequence and Series (AP)", "objectives": "Definition of A.P.; nth term and sum of A.P." },
+            { "week": "Week 4", "topic": "Sequence and Series (GP)", "objectives": "Definition of G.P.; nth term and sum of geometric series." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Quadratic Equations", "objectives": "Factorization, completing the square, formula methods." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Simultaneous Eq.", "objectives": "Linear and quadratic expressions (elimination/substitution)." },
+            { "week": "Week 9", "topic": "Approximation & Errors", "objectives": "Percentage error, rounding, and significant figures." },
+            { "week": "Week 10", "topic": "General Revision", "objectives": "Consolidation of first-term topics." },
+            { "week": "Week 11-13", "topic": "Exams", "objectives": "End of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Linear Inequalities", "objectives": "Graphing intervals and compounding inequalities." },
+            { "week": "Week 2", "topic": "Graphs of Inequalities", "objectives": "Shading regions on Cartesian coordinates." },
+            { "week": "Week 3", "topic": "Logical Reasoning", "objectives": "Truth tables, implications, and equivalence." },
+            { "week": "Week 4", "topic": "Mensuration of Circle", "objectives": "Length of arcs, areas of sectors and segments." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Trigonometry I", "objectives": "Sine and Cosine rules; angles of elevation and depression." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Trigonometry II", "objectives": "Trigonometric ratios of angles up to 360 degrees." },
+            { "week": "Week 9", "topic": "Geometry of Circles", "objectives": "Circle theorems (chords, tangents, angles)." },
+            { "week": "Week 10", "topic": "Revision", "objectives": "Revision of second-term topics." },
+            { "week": "Week 11-13", "topic": "Exams", "objectives": "End of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Statistics I", "objectives": "Mean, median, mode of grouped data." },
+            { "week": "Week 2", "topic": "Statistics II", "objectives": "Variance and standard deviation." },
+            { "week": "Week 3", "topic": "Probability", "objectives": "Experimental and theoretical probability of independent events." },
+            { "week": "Week 4", "topic": "Vectors", "objectives": "Vector notation, addition, and resultant vectors." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Transformations", "objectives": "Translation, reflection, and rotation in the Cartesian plane." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Enlargement", "objectives": "Scale factors and similar shapes." },
+            { "week": "Week 9", "topic": "General Revision", "objectives": "Comprehensive review of the academic session." },
+            { "week": "Week 10-13", "topic": "Promotion Exams", "objectives": "End of session examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "English Language",
+      "icon": "fa-book-open",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Oral Skills: Vowels", "objectives": "Distinguishing between short and long monophthongs with phonetic drills." },
+            { "week": "Week 2", "topic": "Grammar: Noun Phrases", "objectives": "Identification of noun phrases, structural elements, and grammatical functions." },
+            { "week": "Week 3", "topic": "Continuous Writing: Narrative Essays", "objectives": "Structuring dynamic storytelling formats using correct tense alignment." },
+            { "week": "Week 4", "topic": "Comprehension", "objectives": "Reading for main ideas and summarizing core concepts." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Oral Skills: Consonants", "objectives": "Articulation of plosives and fricatives in connected speech." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Grammar: Pronouns", "objectives": "Types of pronouns, antecedents, and proper application in sentences." },
+            { "week": "Week 9", "topic": "Continuous Writing: Expository Essays", "objectives": "Techniques for explaining concepts clearly and logically." },
+            { "week": "Week 10", "topic": "General Revision", "objectives": "Consolidation of first-term topics." },
+            { "week": "Week 11-13", "topic": "Exams", "objectives": "End of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Oral Skills: Diphthongs", "objectives": "Identifying and pronouncing combinations of two vowel sounds." },
+            { "week": "Week 2", "topic": "Grammar: Adjectival Phrases", "objectives": "Formation and function of adjectival phrases as modifiers." },
+            { "week": "Week 3", "topic": "Continuous Writing: Formal Letters", "objectives": "Layout, tone, and conventions of official correspondence." },
+            { "week": "Week 4", "topic": "Comprehension", "objectives": "Reading to understand implied meanings and infer authorial intent." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Oral Skills: Consonant Clusters", "objectives": "Pronunciation of clusters at the beginning and ends of words." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Grammar: Verb Tenses", "objectives": "Mastery of the present perfect and past perfect tenses." },
+            { "week": "Week 9", "topic": "Continuous Writing: Argumentative Essays", "objectives": "Structuring arguments, acknowledging counterclaims, and persuading the reader." },
+            { "week": "Week 10", "topic": "Revision", "objectives": "Revision of second-term topics." },
+            { "week": "Week 11-13", "topic": "Exams", "objectives": "End of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Oral Skills: Intonation and Stress", "objectives": "Understanding rising and falling tunes and word stress patterns." },
+            { "week": "Week 2", "topic": "Grammar: Adverbial Phrases & Clauses", "objectives": "Identifying adverbial elements modifying verbs, adjectives, and other adverbs." },
+            { "week": "Week 3", "topic": "Continuous Writing: Speech Writing", "objectives": "Drafting speeches for specific audiences using rhetorical devices." },
+            { "week": "Week 4", "topic": "Comprehension: Summary Skills", "objectives": "Extracting salient points and writing concise summaries." },
+            { "week": "Week 5", "topic": "Midterm", "objectives": "Continuous Assessment." },
+            { "week": "Week 6", "topic": "Literature-in-English Link", "objectives": "Identifying rhymes, rhythms, and poetic devices in selected poems." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "Academic rest." },
+            { "week": "Week 8", "topic": "Grammar: Prepositions", "objectives": "Complex prepositions and prepositional phrases expressing relationships." },
+            { "week": "Week 9", "topic": "General Revision", "objectives": "Comprehensive review of the academic session." },
+            { "week": "Week 10-13", "topic": "Promotion Exams", "objectives": "End of session examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 3: PHYSICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Physics",
+      icon: "fa-magnet",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Light Waves I", objectives: "Nature of light, rectilinear propagation, reflection, laws of reflection, applications." },
+            { week: "Week 2", topic: "Light Waves II", objectives: "Refraction of light, refractive index, total internal reflection (prisms, optical fibers)." },
+            { week: "Week 3", topic: "Sound Waves", objectives: "Production, propagation, characteristics (pitch, loudness, quality), and speed of sound." },
+            { week: "Week 4", topic: "Human Eye", objectives: "Structure, image formation, eye defects and corrections (short sight, long sight)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Application of Sound Waves", objectives: "Uses of sound in medicine (ultrasound), industry (SONAR), and musical instruments." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Electric Charges", objectives: "Concept of charge, methods of charging, and properties of charges." },
+            { week: "Week 9", topic: "Fields (Description & Properties)", objectives: "Concept of electric, magnetic, and gravitational fields and their field lines." },
+            { week: "Week 10", topic: "Gravitational Field", objectives: "Newtonâ€™s law of universal gravitation, differences between mass and weight." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Electric Field", objectives: "Electric field patterns, Coulombâ€™s law, potential difference, capacitors." },
+            { week: "Week 2", topic: "Magnetic Fields", objectives: "Properties of magnets, magnetic flux, earthâ€™s magnetic field and its uses." },
+            { week: "Week 3", topic: "Electro-Magnetic Field", objectives: "Electricity and magnetism relationship, Faradayâ€™s and Lenzâ€™s laws, transformers." },
+            { week: "Week 4", topic: "Simple A.C. Circuits", objectives: "Characteristics of alternating current, comparison of A.C. and D.C., peak and rms values." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Battery", objectives: "Types of cells (primary, secondary), construction, working principles, and maintenance." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Solar Collector", objectives: "Principles of solar collector, applications and advantages in energy supply." },
+            { week: "Week 9-11", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Electrical Continuity Testing", objectives: "Testing with continuity tester and multimeter; troubleshooting circuits." },
+            { week: "Week 2", topic: "Electroplating", objectives: "Principles of electrolysis; industrial and domestic electroplating applications." },
+            { week: "Week 3", topic: "Application of Electromagnetic Field", objectives: "Uses in communication, medicine (MRI, X-ray), and industry." },
+            { week: "Week 4", topic: "Models of the Atom", objectives: "Historical development: Dalton, Thomson, Rutherford, Bohr; modern atomic theory." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Nucleus", objectives: "Structure of the nucleus, isotopes, nuclear reactions (fission, fusion), radioactivity." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Energy Quantization", objectives: "Planckâ€™s hypothesis, photons, energy levels, and the photoelectric effect." },
+            { week: "Week 9", topic: "Duality of Matter", objectives: "Wave-particle duality, de Broglie hypothesis, experimental evidences." },
+            { week: "Week 10", topic: "Energy and Society", objectives: "Sources of energy, energy crisis, environmental effects, sustainable strategies." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 4: CHEMISTRY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Chemistry",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Environmental Chemistry", objectives: "Water pollution, air pollution, sources, effects, and control measures." },
+            { week: "Week 2", topic: "Electrolysis", objectives: "Electrolytes, electrodes, applications of electrolysis, Faradayâ€™s laws." },
+            { week: "Week 3", topic: "Electrochemical Cells", objectives: "Galvanic and electrolytic cells, construction, working principles." },
+            { week: "Week 4", topic: "Acid-Base Titration", objectives: "Apparatus, procedures, acid-base indicators, titration calculations." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Solubility and Solubility Curves", objectives: "Factors affecting solubility, calculations, interpretation of solubility curves." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Chemical Equilibrium", objectives: "Concept of dynamic equilibrium, equilibrium constant (Kc), simple calculations." },
+            { week: "Week 9", topic: "Chemical Kinetics", objectives: "Meaning of reaction rate, factors affecting rates, rate laws, order of reaction." },
+            { week: "Week 10", topic: "Heat of Reaction", objectives: "Enthalpy change, calorimetry, Hessâ€™s law applications." },
+            { week: "Week 11", topic: "Energetics of Reactions", objectives: "Activation energy, energy profile diagrams, exothermic and endothermic reactions." },
+            { week: "Week 12-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Saponification and Detergents", objectives: "Chemistry of soap making, differences between soap and detergent." },
+            { week: "Week 2", topic: "Intro to Nuclear Chemistry", objectives: "Radioactivity, half-life, nuclear reactions, applications and dangers." },
+            { week: "Week 3", topic: "Halogens", objectives: "General properties, trends, compounds, and uses of fluorine, chlorine, bromine, iodine." },
+            { week: "Week 4", topic: "Alkali and Alkaline Earth Metals", objectives: "Characteristics, occurrence, reactivity, and uses." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Transition Elements", objectives: "General properties, variable oxidation states, complex compounds." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "General Properties of Metals", objectives: "Reactivity series, extraction and refining, metallic bonding." },
+            { week: "Week 9", topic: "Non-Metals and Their Compounds", objectives: "Hydrogen, oxygen, nitrogen and their compounds." },
+            { week: "Week 10", topic: "Water", objectives: "Hardness of water, purification methods, water quality control." },
+            { week: "Week 11", topic: "Environmental Pollution", objectives: "Causes, effects, and control of land, air, and water pollution." },
+            { week: "Week 12-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Sulphur and Its Compounds", objectives: "Occurrence, preparation, properties, uses of sulphur, sulphur dioxide, and sulphuric acid." },
+            { week: "Week 2", topic: "Carbon and Its Compounds", objectives: "Properties, oxides, carbonates, hydrocarbons, importance." },
+            { week: "Week 3", topic: "Industrial Preparation of Chemicals", objectives: "Large-scale production of HCl, NHâ‚ƒ, Hâ‚‚SOâ‚„, processes and applications." },
+            { week: "Week 4", topic: "Organic Chemistry (Revision)", objectives: "Functional groups, homologous series, IUPAC nomenclature." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Hydrocarbons", objectives: "Types, properties, reactions, tests for hydrocarbons." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Alcohols, Ethers, and Phenols", objectives: "Structures, uses, reactions, industrial applications." },
+            { week: "Week 9", topic: "Aldehydes and Ketones", objectives: "Preparation, identification, uses and reactions." },
+            { week: "Week 10", topic: "Carboxylic Acids and Esters", objectives: "Structure, reactions, uses, esterification." },
+            { week: "Week 11", topic: "Polymers and Plastics", objectives: "Types, polymerization, uses, dangers of plastics." },
+            { week: "Week 12-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 5: BIOLOGY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Biology",
+      icon: "fa-dna",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Digestive System I", objectives: "Organs of the alimentary canal; associated glands; mechanical and chemical digestion." },
+            { week: "Week 2", topic: "Digestive System II", objectives: "Enzymes of digestion; absorption of digested food; assimilation and egestion." },
+            { week: "Week 3", topic: "Transportation System I", objectives: "Transport in unicellular and multicellular organisms; diffusion, osmosis, active transport." },
+            { week: "Week 4", topic: "Transportation System II", objectives: "Circulatory system in mammals; structure and functions of the heart, blood vessels." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Respiratory System I", objectives: "Meaning of respiration; structure of the respiratory system in man; breathing mechanism." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Respiratory System II", objectives: "Types of respiration (aerobic and anaerobic); comparison; importance and energy yield." },
+            { week: "Week 9", topic: "Excretory System", objectives: "Excretory organs in man; structure and functions of the kidney; excretory products." },
+            { week: "Week 10", topic: "Nutrient Cycling in Nature", objectives: "Cycles of carbon, nitrogen, and water; importance of nutrient cycling to living organisms." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Ecological Management", objectives: "Concepts of association, tolerance and adaptation; examples in plants and animals." },
+            { week: "Week 2", topic: "Pollution", objectives: "Types (air, water, soil, noise); causes, effects and control of pollution." },
+            { week: "Week 3", topic: "Conservation of Natural Resources", objectives: "Meaning, methods, and importance of conserving soil, water, forests and wildlife." },
+            { week: "Week 4", topic: "Pests and Diseases of Crops", objectives: "Types of crop pests and diseases; effects on crop production; control measures." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Reproductive Systems in Vertebrates", objectives: "Structures and functions of reproductive systems in fish, amphibians, reptiles, birds, mammals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Reproductive Systems in Plants", objectives: "Floral parts and functions; types of flowers; comparison of monocot and dicot flowers." },
+            { week: "Week 9", topic: "Pollination in Plants", objectives: "Self- and cross-pollination; agents of pollination; advantages and disadvantages." },
+            { week: "Week 10", topic: "Regulation of Internal Environment", objectives: "Homeostasis in humans; regulation of temperature, water balance; role of skin, kidney." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Nervous Coordination", objectives: "Organization of the nervous system; structure and functions of neurones." },
+            { week: "Week 2", topic: "Sense Organs", objectives: "Structure and functions of the eye, ear, nose, tongue and skin; common defects." },
+            { week: "Week 3", topic: "Ecology of Population", objectives: "Population characteristics (size, density, birth rate, death rate); population growth curve." },
+            { week: "Week 4", topic: "Balance in Nature", objectives: "Concept of ecological balance; food chains, food webs, and energy flow in ecosystems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Reproductive System in Humans", objectives: "Male and female reproductive systems; fertilization; development of embryo." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Development of New Seeds", objectives: "Fertilization in plants; development of seeds; structure and functions of seed parts." },
+            { week: "Week 9", topic: "Fruits", objectives: "Types of fruits (simple, aggregate, multiple); features of wind- and animal-dispersed fruits." },
+            { week: "Week 10", topic: "Reproductive Behaviours", objectives: "Courtship behaviour in animals; parental care; importance to species continuity." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 6: GOVERNMENT (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Government",
+      icon: "fa-university",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Colonial Administration in Nigeria", objectives: "British vs French systems; principles, successes, and failures of indirect rule in Nigeria." },
+            { week: "Week 2", topic: "Nationalism in Nigeria", objectives: "Meaning; factors leading to its rise; roles of key nationalists; effects on independence." },
+            { week: "Week 3", topic: "Constitutional Development I", objectives: "Features, merits, and demerits of Clifford (1922), Richards (1946), and Macpherson (1951) Constitutions." },
+            { week: "Week 4", topic: "Constitutional Development II", objectives: "Lyttleton (1954), Independence (1960), and Republican (1963) Constitutions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Military Rule in Nigeria", objectives: "Reasons for military intervention; achievements and failures of military regimes." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Civil Rule in Nigeria", objectives: "Characteristics of civil rule (rule of law, separation of powers); merits and challenges." },
+            { week: "Week 9", topic: "Nigerian Federalism I", objectives: "Evolution of Nigerian federalism (from 1954 till date); main features." },
+            { week: "Week 10", topic: "Nigerian Federalism II", objectives: "Problems of federalism (resource control, revenue allocation, state creation); solutions." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Revenue Allocation in Nigeria", objectives: "Principles (derivation, need, equality, population); controversies and challenges." },
+            { week: "Week 2", topic: "Inter-Governmental Relations", objectives: "Types (federalâ€“state, stateâ€“local); importance and problems." },
+            { week: "Week 3", topic: "Political Crisis in Nigeria I", objectives: "Causes and effects of the 1962 Census Crisis and 1963 Tiv Crisis." },
+            { week: "Week 4", topic: "Political Crisis in Nigeria II", objectives: "1964 Election Crisis; 1965 Western Region Crisis; impact on Nigerian politics." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "The Nigerian Civil War", objectives: "Causes, major events, effects, and Gowonâ€™s 3Rs resolution efforts." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Civil Society & Popular Participation", objectives: "Role of NGOs, labour unions, student movements; importance of popular participation." },
+            { week: "Week 9", topic: "Citizenship Education", objectives: "Rights and duties of citizens; importance of national integration; challenges to unity." },
+            { week: "Week 10", topic: "Political Apathy", objectives: "Causes, effects on democracy, and solutions (civic education, accountability)." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Electoral Systems", objectives: "Types (simple majority, PR, second ballot); merits and demerits." },
+            { week: "Week 2", topic: "Electoral Commissions in Nigeria", objectives: "Historical overview (NEC, FEDECO, INEC); roles, achievements, and challenges." },
+            { week: "Week 3", topic: "Electoral Malpractices", objectives: "Types (rigging, ballot stuffing, intimidation); causes; consequences on democracy." },
+            { week: "Week 4", topic: "Democratic Processes in Nigeria", objectives: "Democratic principles (rule of law, majority rule); challenges to democratic processes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Judiciary", objectives: "Structure (hierarchy of courts), functions, and independence of the judiciary." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Human Rights", objectives: "Categories of rights; protection of rights; limitations in practice; institutions for enforcement." },
+            { week: "Week 9", topic: "Public Corporations in Nigeria", objectives: "Roles in national development; methods of control (ministerial, legislative, judicial)." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 7: ECONOMICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Economics",
+      icon: "fa-chart-line",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Elementary Treatment of Fiscal Policy", objectives: "Tools of fiscal policy (taxation, government expenditure); objectives and limitations." },
+            { week: "Week 2", topic: "Balanced and Unbalanced Budget", objectives: "Meaning and differences; effects on the economy; advantages and disadvantages." },
+            { week: "Week 3", topic: "Elements of National Income", objectives: "Concepts (GDP, GNP, NI); methods of measuring national income; uses and limitations." },
+            { week: "Week 4", topic: "Demand for and Supply of Money", objectives: "Transactionary, precautionary, and speculative motives; determinants of money supply." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Inflation and Deflation", objectives: "Types, causes, and effects of inflation and deflation; control measures." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Economic Lessons from World Powers", objectives: "Growth in Asian Tigers; lessons Nigeria can learn from Japan, Europe, and America." },
+            { week: "Week 9", topic: "Human Capital Development", objectives: "Importance, problems, and solutions to human capital development in Nigeria." },
+            { week: "Week 10", topic: "Petroleum and the Nigerian Economy", objectives: "Contributions to GDP; problems of oil dependence; diversification strategies." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Manufacturing & Construction Industries", objectives: "Features, importance, and problems of manufacturing and construction in Nigeria." },
+            { week: "Week 2", topic: "Financial Market Regulatory Agencies", objectives: "Overview of financial markets; types of regulatory agencies." },
+            { week: "Week 3", topic: "Functions of Regulatory Agencies I", objectives: "Functions, importance, and challenges of CBN, NDIC, and SEC." },
+            { week: "Week 4", topic: "Functions of Regulatory Agencies II", objectives: "Functions and roles of NSE, Insurance Commission, and Ministry of Finance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "International Trade", objectives: "Importance and problems; theories of absolute and comparative advantage." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Economic Growth and Development", objectives: "Distinction between growth and development; indicators; strategies for promoting growth." },
+            { week: "Week 9", topic: "Balance of Payments (BOP)", objectives: "Components, causes of disequilibrium, and measures for correcting BOP problems." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Economic Development Planning", objectives: "Objectives of planning; types of plans; problems of planning in Nigeria." },
+            { week: "Week 2", topic: "International Economic Organization I", objectives: "IMF, World Bank â€“ objectives, roles, benefits, and criticisms." },
+            { week: "Week 3", topic: "International Economic Organization II", objectives: "ECOWAS, AU, WTO â€“ aims, achievements, and challenges." },
+            { week: "Week 4", topic: "Current Economic Plans", objectives: "Meaning, objectives, and evaluation of MDGs, NEEDS, and Vision 2020." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Economic Development Challenges", objectives: "Corruption, unemployment, poverty, poor infrastructure; effects on development." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Economic Reform Programs", objectives: "SAP, deregulation, privatization, commercialization â€“ objectives and benefits." },
+            { week: "Week 9", topic: "Past Question Drilling I", objectives: "Practice of WAEC/NECO past questions on SS2 topics." },
+            { week: "Week 10", topic: "Past Question Drilling II", objectives: "More past question practice and test drills." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    }
+    ,
+    // -----------------------------------------------------------------
+    // SUBJECT 8: CITIZENSHIP AND HERITAGE STUDIES (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Citizenship and Heritage Studies",
+      icon: "fa-monument",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Nigerian Constitution", objectives: "Origin, structure, and features of the constitution." },
+            { week: "Week 2", topic: "Fundamental Objectives", objectives: "Political, economic, social, and educational directive principles." },
+            { week: "Week 3", topic: "Separation of Powers", objectives: "Executive, legislature, judiciary; checks and balances." },
+            { week: "Week 4", topic: "Public Service & Citizenship", objectives: "Role of civil service, duties, and challenges." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Nigerian Heritage Sites", objectives: "UNESCO sites, national museums, and parks." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Traditional Institutions", objectives: "Roles of chiefs, kings, emirs, obas, and obis." },
+            { week: "Week 9", topic: "Colonial Heritage", objectives: "Positive and negative impacts; historical lessons." },
+            { week: "Week 10", topic: "Preservation of Historical Records", objectives: "Roles of archives, museums, and libraries." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Governance & Citizenship", objectives: "Meaning, principles, and systems of governance." },
+            { week: "Week 2", topic: "Federalism in Nigeria", objectives: "Features, challenges, and importance of federalism." },
+            { week: "Week 3", topic: "Human Rights Violations", objectives: "Causes, effects, and legal remedies." },
+            { week: "Week 4", topic: "Civil Society & NGOs", objectives: "Roles in democracy, advocacy, and social service." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Security & Citizenship", objectives: "Roles of police, army, civil defense; citizensâ€™ roles in security." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Nigerian Foreign Policy", objectives: "Principles, objectives, and major achievements." },
+            { week: "Week 9", topic: "Citizenship in a Digital Age", objectives: "Cyber rights, cybercrime, and digital responsibility." },
+            { week: "Week 10", topic: "Case Studies", objectives: "Analyzing role models in Nigerian citizenship & heritage." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Democratic Institutions in Nigeria", objectives: "Roles of INEC, political parties, and the judiciary." },
+            { week: "Week 2", topic: "Elections & Citizenship", objectives: "Importance, processes, and duties of voters." },
+            { week: "Week 3", topic: "Electoral Malpractices", objectives: "Forms, effects, and solutions to electoral fraud." },
+            { week: "Week 4", topic: "Media & Citizenship", objectives: "Role of press, social media, and freedom of expression." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Nigerian Cultural Heritage Globally", objectives: "Impact of Nollywood, Nigerian music, and literature." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Civic Challenges", objectives: "Addressing drug abuse, cultism, and examination malpractice." },
+            { week: "Week 9", topic: "National Development", objectives: "The role of active citizenship in building the nation." },
+            { week: "Week 10", topic: "Environmental Citizenship", objectives: "Climate change, waste management, and sustainable living." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 9: DIGITAL TECHNOLOGIES (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Digital Technologies",
+      icon: "fa-laptop-code",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Review of SS1 Work", objectives: "Quick revision of digital foundations." },
+            { week: "Week 2", topic: "Advanced Word Processing", objectives: "Mail merge, macros, and templates." },
+            { week: "Week 3", topic: "Advanced Spreadsheet I", objectives: "Pivot tables and advanced formulas." },
+            { week: "Week 4", topic: "Advanced Spreadsheet II", objectives: "Financial models and scenario analysis." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Advanced Presentation Tools", objectives: "Multimedia integration and professional designs." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Web Design I", objectives: "Introduction to HTML and CSS structures." },
+            { week: "Week 9", topic: "Web Design II", objectives: "Creating and structuring simple websites." },
+            { week: "Week 10", topic: "Web Publishing & Hosting", objectives: "Domains, hosting environments, and the publishing process." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Computer Programming I", objectives: "Introduction to algorithms and flowcharts." },
+            { week: "Week 2", topic: "Computer Programming II", objectives: "Introduction to Python/JavaScript." },
+            { week: "Week 3", topic: "Programming Basics", objectives: "Understanding variables, data types, and operators." },
+            { week: "Week 4", topic: "Control Structures", objectives: "If-else conditions, loops, and functions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Data Science Basics", objectives: "Data collection, storage, and cleaning techniques." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Big Data & Analytics", objectives: "Meaning, applications, and tools for data analytics." },
+            { week: "Week 9", topic: "Artificial Intelligence", objectives: "Applications of AI in education, health, and business." },
+            { week: "Week 10", topic: "Machine Learning Basics", objectives: "Core concepts and simple machine learning applications." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Mobile Application Development I", objectives: "Introduction to mobile app environments." },
+            { week: "Week 2", topic: "Mobile Application Development II", objectives: "Creating simple Android/iOS apps." },
+            { week: "Week 3", topic: "Cloud Computing II", objectives: "SaaS, PaaS, and IaaS structures." },
+            { week: "Week 4", topic: "Blockchain Technology", objectives: "Concept, cryptocurrency, and uses beyond finance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Cybersecurity III", objectives: "Ethical hacking and penetration testing basics." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Cyber Laws & Digital Rights", objectives: "Nigerian cybercrime act and global cyber laws." },
+            { week: "Week 9", topic: "Digital Entrepreneurship", objectives: "E-commerce, freelancing, and running an online business." },
+            { week: "Week 10", topic: "Project Work", objectives: "Students develop and present mini ICT projects." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 10: AGRICULTURAL SCIENCE (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Agricultural Science",
+      icon: "fa-tractor",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Farm Surveying and Planning", objectives: "Meaning, importance, instruments used, and methods of land measurement." },
+            { week: "Week 2", topic: "Farm Planning", objectives: "Objectives, factors influencing farm planning, and importance to production." },
+            { week: "Week 3", topic: "Farmstead Planning & Building Location", objectives: "Factors affecting location (topography, soil, water); layout of farm structures." },
+            { week: "Week 4", topic: "Forest Management", objectives: "Importance of forests; methods of management (afforestation, taungya system)." },
+            { week: "Week 5", topic: "Agro-Forestry Practices in Nigeria", objectives: "Examples (alley cropping, shelter belts); benefits to soil fertility and biodiversity." },
+            { week: "Week 6", topic: "Importance of Ornamental Plants", objectives: "Economic, aesthetic, medicinal, and environmental importance." },
+            { week: "Week 7", topic: "Common Types of Ornamental Plants", objectives: "Flowering plants, foliage plants, shrubs, lawn grasses, climbers." },
+            { week: "Week 8", topic: "Settings and Locations for Planting", objectives: "Home gardens, parks, roadsides; factors to consider when locating plants." },
+            { week: "Week 9", topic: "Cultivating Ornamental Plants", objectives: "Direct seeding, transplanting, grafting, layering, budding, and cuttings." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Maintenance of Ornamental Plants", objectives: "Weeding, watering, pruning, staking, mulching, pest and disease control." },
+            { week: "Week 2", topic: "Diseases of Crops", objectives: "Types (fungal, bacterial, viral, nematode); symptoms, effects, and control." },
+            { week: "Week 3", topic: "Pests of Crops", objectives: "Examples (insects, birds, rodents); economic importance and control measures." },
+            { week: "Week 4", topic: "Weeds and Weed Control", objectives: "Characteristics, harmful/beneficial effects; methods of weed control." },
+            { week: "Week 5", topic: "Types and Classification of Farm Animals", objectives: "Cattle, sheep, goats, pigs, poultry, fish; classification based on uses." },
+            { week: "Week 6", topic: "Anatomy & Physiology of Farm Animals", objectives: "Digestive, circulatory, respiratory, and reproductive systems." },
+            { week: "Week 7", topic: "Animal Reproduction", objectives: "Types (asexual and sexual); reproductive processes, fertilization, and gestation." },
+            { week: "Week 8", topic: "Environmental Physiology", objectives: "Effects of climate on growth and reproduction; adaptation strategies." },
+            { week: "Week 9", topic: "Livestock Management", objectives: "Management practices for housing, feeding, breeding, and health care." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Animal Nutrition", objectives: "Classes of food nutrients, functions, sources, and importance in animal production." },
+            { week: "Week 2", topic: "Rangeland Management", objectives: "Types, importance, and methods of improvement (reseeding, rotational grazing)." },
+            { week: "Week 3", topic: "Basic Economic Principles", objectives: "Scarcity, choice, opportunity cost, scale of preference, production possibilities." },
+            { week: "Week 4", topic: "Factors of Production", objectives: "Land, labour, capital, and entrepreneurship in agriculture." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Principles of Demand", objectives: "Law of demand, demand curve, factors affecting demand in agriculture." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Principles of Supply", objectives: "Law of supply, supply curve, factors affecting supply in agriculture." },
+            { week: "Week 9", topic: "Implications of Demand and Supply", objectives: "Application of demand and supply to pricing, output, and farmersâ€™ decisions." },
+            { week: "Week 10", topic: "Functions of a Farm Manager", objectives: "Roles, qualities, and responsibilities; importance to agricultural productivity." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 11: FURTHER MATHEMATICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Further Mathematics",
+      icon: "fa-square-root-alt",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Solution to Quadratic Equation", objectives: "Solving quadratic equations via factorization, completing the square, formula; word problems." },
+            { week: "Week 2", topic: "Tangent and Normal to Curve", objectives: "Derivation of tangent and normal equations; applications in coordinate geometry." },
+            { week: "Week 3", topic: "Polynomials I", objectives: "Degree of polynomials; addition, subtraction, multiplication; long division." },
+            { week: "Week 4", topic: "Polynomials II", objectives: "Factor and remainder theorem; applications in simplifying algebraic expressions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Polynomials II (Cont.)", objectives: "Application of factor and remainder theorem; solving higher order equations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Cubic Equations and Factorization", objectives: "Factorization of cubic expressions; methods of solution." },
+            { week: "Week 9", topic: "Logical Reasoning I", objectives: "Statements; truth table; negation, conjunction, disjunction." },
+            { week: "Week 10", topic: "Logical Reasoning II", objectives: "Conditional and biconditional statements; tautology and contradiction." },
+            { week: "Week 11", topic: "Trigonometric Function", objectives: "Values of trigonometric ratios; angle of elevation and depression." },
+            { week: "Week 12", topic: "Graphs of Trigonometric Function", objectives: "Sine, cosine, and tangent graphs; properties and transformations." },
+            { week: "Week 13", topic: "Trig Identity & Inverse Graphs", objectives: "Basic identities; inverse trigonometric graphs; applications of Pythagoras theorem." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Limits & Differentiation from First Principle", objectives: "Concept of limits; evaluation; differentiation using first principle." },
+            { week: "Week 2", topic: "Rules of Differentiation I", objectives: "Differentiation of algebraic functions using power, constant, and sum/difference rules." },
+            { week: "Week 3", topic: "Rules of Differentiation II", objectives: "Product rule, quotient rule, chain rule." },
+            { week: "Week 4", topic: "Differentiation of Complex Functions", objectives: "Standard derivatives of trigonometric, logarithmic, and exponential functions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Application of Differentiation", objectives: "Rate of change; velocity and acceleration; equation of motion." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Maximum and Minimum Points", objectives: "Turning points of curves; second derivative test; applications." },
+            { week: "Week 9", topic: "The Circle", objectives: "General equation of a circle; equation of tangent; length of tangent." },
+            { week: "Week 10", topic: "Conic Sections I", objectives: "Parabola, ellipse, hyperbola: definitions and equations." },
+            { week: "Week 11", topic: "Conic Sections II", objectives: "Properties and graphs of conic sections; applications." },
+            { week: "Week 12", topic: "Conic Sections III", objectives: "Continuation of parabola, ellipse, and hyperbola." },
+            { week: "Week 13", topic: "Sample Space and Events", objectives: "Event space; independent and dependent events; probability." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Sample Space and Events (Cont.)", objectives: "Further problems on event space; probability of compound events." },
+            { week: "Week 2", topic: "Permutation and Combination I", objectives: "Meaning; arrangement of objects; fundamental counting principle." },
+            { week: "Week 3", topic: "Permutation and Combination II", objectives: "Combination of objects; applications in probability." },
+            { week: "Week 4", topic: "Dynamics I", objectives: "Newtonâ€™s laws of motion; motion along inclined plane." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Dynamics II", objectives: "Motion of connected particles; applications of Newtonâ€™s laws." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Work, Power, Energy", objectives: "Work done by a force; power; energy; impulse and momentum." },
+            { week: "Week 9", topic: "Projectiles", objectives: "Motion of projectiles; equations and applications." },
+            { week: "Week 10", topic: "Binomial Expansion", objectives: "Binomial theorem; expansion of (a + b)^n; applications." },
+            { week: "Week 11", topic: "Mechanics (Vector Geometry)", objectives: "Vector operations; scalar and vector products; applications in mechanics." },
+            { week: "Week 12", topic: "Integration I", objectives: "Indefinite integral; basic rules; applications." },
+            { week: "Week 13", topic: "Integration II and Applications", objectives: "Definite integrals; area under a curve; regression line and correlation coefficient." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 12: FOODS & NUTRITION (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Foods & Nutrition",
+      icon: "fa-utensils",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Meat Cookery", objectives: "Types, structure, and nutritive value of meat; choice and cooking methods." },
+            { week: "Week 2", topic: "Poultry", objectives: "Types, structure, nutritive value, and preparation of poultry." },
+            { week: "Week 3", topic: "Eggs", objectives: "Structure, tests for freshness, and methods of cooking eggs." },
+            { week: "Week 4", topic: "Milk and Milk Products", objectives: "Types, nutritive value, preservation, and examples of milk dishes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Sea Foods", objectives: "Classification, nutritive value, and cooking methods for fishes." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Food Additives", objectives: "Types (flavouring, herbs, spices), classification, and uses." },
+            { week: "Week 9", topic: "Practical Session", objectives: "Preparation and serving of meat, poultry, milk, and seafood dishes." },
+            { week: "Week 10", topic: "Starchy Roots and Plantain", objectives: "Types, nutritive value, and dishes made from starchy roots and plantains." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Energy Management in Food Prep", objectives: "Principles of energy management, steps to manage energy, and fatigue." },
+            { week: "Week 2", topic: "Kitchen Equipment and Utensils", objectives: "Classification, selection, care, and storage of kitchen equipment." },
+            { week: "Week 3", topic: "Labour Saving Devices", objectives: "Uses, selection factors, care, and maintenance." },
+            { week: "Week 4", topic: "Special Nutritional Needs I", objectives: "Meal planning for infants, children, adolescents, and adults." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Special Nutritional Needs II", objectives: "Meal planning for pregnant/lactating mothers and the aged." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Project on Test Interpretation", objectives: "Practice in interpreting exam questions and writing responses." },
+            { week: "Week 9", topic: "Flour Cookery", objectives: "Types of flour, nutritive value, and dishes (bread, pastries)." },
+            { week: "Week 10", topic: "Raising Agents", objectives: "Types (yeast, baking powder), composition, and evaluation." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Convenience Foods", objectives: "Uses, forms, selection factors, and dishes made with convenience foods." },
+            { week: "Week 2", topic: "Preservation of Foods", objectives: "Spoilage causes, importance of preservation, and principles." },
+            { week: "Week 3", topic: "Methods of Food Preservation", objectives: "Drying, smoking, salting, freezing, and canning." },
+            { week: "Week 4", topic: "Food Storage", objectives: "Storage of perishable/non-perishable foods; barns, freezers." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Practical on Convenience & Storage", objectives: "Preparation of dishes; demonstration of preservation methods." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Budgeting", objectives: "Income, expenditure, food budgeting, and influencing factors." },
+            { week: "Week 9", topic: "Food Purchasing", objectives: "Bulk vs. piece-meal purchasing, impulse buying, shopping lists." },
+            { week: "Week 10", topic: "Consumer Education", objectives: "Consumer rights, NAFDAC, SON, FCCPC; falsification and misbranding." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 13: GEOGRAPHY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Geography",
+      icon: "fa-globe-africa",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Industry", objectives: "Types of industries (primary, secondary, tertiary, quaternary); importance in economic development." },
+            { week: "Week 2", topic: "Basic Concepts of GIS", objectives: "Meaning of Geographic Information System; importance and uses." },
+            { week: "Week 3", topic: "Components of GIS", objectives: "Hardware, software, data, people, and methods; functions of each." },
+            { week: "Week 4", topic: "Earthâ€™s External Processes", objectives: "Weathering, erosion, transportation, deposition, and resulting landforms." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Climate II", objectives: "Elements of climate; climatic controls; differences between weather and climate." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Climatic Classification", objectives: "Koppenâ€™s classification; world climatic regions." },
+            { week: "Week 9", topic: "Environmental Resources", objectives: "Renewable and non-renewable resources; importance and sustainable use." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Renewable and Non-Renewable Resources", objectives: "Meaning, differences, and significance in Nigeriaâ€™s economy." },
+            { week: "Week 2", topic: "Environmental Problems", objectives: "Pollution, deforestation, desertification, soil erosion, overpopulation." },
+            { week: "Week 3", topic: "Environmental Conservation", objectives: "Methods (afforestation, legislation, recycling) and importance." },
+            { week: "Week 4", topic: "Agriculture", objectives: "Types (subsistence, commercial, mixed); importance and challenges in Nigeria." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Transport and Communication", objectives: "Types (road, rail, water, air); importance and challenges in Nigeria." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Manufacturing Industries", objectives: "Factors influencing location; contributions to GDP; problems." },
+            { week: "Week 9", topic: "Commercial Activities in Nigeria", objectives: "Role of trade, banking, insurance, and tourism in the economy." },
+            { week: "Week 10-12", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Direction and Bearing", objectives: "Use of compass and bearings in navigation and map reading." },
+            { week: "Week 2", topic: "Representation of Relief Forms", objectives: "Contours, hachures, spot heights; interpretation of relief features." },
+            { week: "Week 3", topic: "Population", objectives: "Factors influencing distribution; structure, density, growth, and problems." },
+            { week: "Week 4", topic: "Settlements", objectives: "Rural and urban settlements; functions and location factors." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Settlement Interactions", objectives: "Rural-urban migration; effects on development; problems and solutions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Geo-political Issues", objectives: "Boundary disputes, ethnic conflicts, political instability; effects on development." },
+            { week: "Week 9", topic: "GIS Data", objectives: "Types (spatial, attribute); sources and uses in planning." },
+            { week: "Week 10", topic: "Earthâ€™s Internal Processes", objectives: "Vulcanicity, earthquakes, folding, and faulting." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+    ,
+    // -----------------------------------------------------------------
+    // SUBJECT 14: COMMERCE (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Commerce",
+      icon: "fa-store",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Communication", objectives: "Meaning, importance, and traditional/modern forms of communication." },
+            { week: "Week 2", topic: "Post Office and Telecommunication Services", objectives: "Services provided by NIPOST and telecommunication companies; advantages." },
+            { week: "Week 3", topic: "Advertising", objectives: "Meaning, roles, types, and media of advertising; advantages and disadvantages." },
+            { week: "Week 4", topic: "Sales Promotion and Public Relations", objectives: "Functions of sales promotion; roles of public relations in business." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Tourism", objectives: "Meaning, importance, tourist centers in Nigeria, and challenges." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Insurance I", objectives: "Meaning, principles of insurance (insurable interest, indemnity, utmost good faith)." },
+            { week: "Week 9", topic: "Insurance II", objectives: "Types of insurance (life, fire, marine, motor); importance of insurance to businesses." },
+            { week: "Week 10", topic: "Banking", objectives: "Origin of banking, types of banks, and their general functions." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Commercial Banks", objectives: "Functions, types of accounts, bank clearing system, and cheques." },
+            { week: "Week 2", topic: "Central Bank", objectives: "Functions of CBN, monetary policies, and relationship with commercial banks." },
+            { week: "Week 3", topic: "Specialized Banks", objectives: "Development banks, mortgage banks, merchant banks; their roles." },
+            { week: "Week 4", topic: "Business Capital", objectives: "Meaning, types of capital (authorized, issued, called-up, working capital)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Calculation of Business Capital", objectives: "Working capital, capital owned, and basic accounting equations in commerce." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Credit", objectives: "Meaning, basis for credit, instruments of credit, and types of credit." },
+            { week: "Week 9", topic: "Hire Purchase and Deferred Payment", objectives: "Features, advantages, and differences between them." },
+            { week: "Week 10", topic: "Profit", objectives: "Meaning, types (gross, net), and calculation of turnover and rate of turnover." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Business Law I", objectives: "Principles of contract, essentials of a valid contract, breach of contract." },
+            { week: "Week 2", topic: "Business Law II", objectives: "Law of agency; types of agents, rights, and duties of principal and agent." },
+            { week: "Week 3", topic: "Sale of Goods Act", objectives: "Provisions of the act, conditions, and warranties." },
+            { week: "Week 4", topic: "Government Policies and Business", objectives: "Privatization, commercialization, and deregulation; impact on commerce." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Consumer Protection", objectives: "Need for protection, rights of consumers, and consumer protection agencies (SON, NAFDAC)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Trade Associations", objectives: "Meaning, types, and functions (Chamber of Commerce, Manufacturers Association)." },
+            { week: "Week 9", topic: "Syndicates and Cartels", objectives: "Meaning, formation, advantages, and disadvantages." },
+            { week: "Week 10", topic: "Nationalization and Indigenization", objectives: "Reasons for nationalization; the indigenization decree and its effects." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 15: FINANCIAL ACCOUNTING (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Financial Accounting",
+      icon: "fa-file-invoice-dollar",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Bank Reconciliation Statement I", objectives: "Meaning, causes of disagreement between cash book and bank statement." },
+            { week: "Week 2", topic: "Bank Reconciliation Statement II", objectives: "Preparation of adjusted cash book and bank reconciliation statement." },
+            { week: "Week 3", topic: "Depreciation of Fixed Assets I", objectives: "Meaning, causes, and reasons for providing depreciation." },
+            { week: "Week 4", topic: "Depreciation of Fixed Assets II", objectives: "Methods of calculating depreciation (Straight line and Reducing balance)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Depreciation Accounting", objectives: "Journal entries and ledger accounts for depreciation and disposal of assets." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Bad Debts and Provision for Bad Debts", objectives: "Accounting entries for bad debts, recovery, and provision for doubtful debts." },
+            { week: "Week 9", topic: "Provision for Discounts", objectives: "Accounting entries for provision for discounts allowed and received." },
+            { week: "Week 10", topic: "Control Accounts I", objectives: "Meaning, uses, and preparation of Sales Ledger Control Account." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Control Accounts II", objectives: "Preparation of Purchases Ledger Control Account and set-offs." },
+            { week: "Week 2", topic: "Single Entry and Incomplete Records I", objectives: "Meaning, causes, and computation of profit using statement of affairs." },
+            { week: "Week 3", topic: "Single Entry and Incomplete Records II", objectives: "Conversion of single entry to double entry; preparation of final accounts." },
+            { week: "Week 4", topic: "Manufacturing Accounts I", objectives: "Meaning, prime cost, factory overheads, and cost of production." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Manufacturing Accounts II", objectives: "Preparation of manufacturing, trading, profit and loss accounts." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Partnership Accounts I", objectives: "Meaning, types of partners, deed of partnership, and capital accounts." },
+            { week: "Week 9", topic: "Partnership Accounts II", objectives: "Preparation of Profit and Loss Appropriation Account." },
+            { week: "Week 10", topic: "Partnership Accounts III", objectives: "Current accounts and balance sheet of a partnership." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Admission of a New Partner", objectives: "Reasons for admission, treatment of goodwill (premium and revaluation methods)." },
+            { week: "Week 2", topic: "Revaluation of Assets", objectives: "Accounting entries for revaluing assets upon admission of a partner." },
+            { week: "Week 3", topic: "Company Accounts (Introduction)", objectives: "Meaning, types of companies, differences between partnership and company." },
+            { week: "Week 4", topic: "Issue of Shares", objectives: "Classes of shares, issue at par, premium, and discount." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Company Final Accounts", objectives: "Preparation of simple trading, profit and loss appropriation account for companies." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Capital Market I", objectives: "Meaning, functions of the Nigerian Stock Exchange (NSE)." },
+            { week: "Week 9", topic: "Capital Market II", objectives: "Securities traded on the NSE; roles of brokers and jobbers." },
+            { week: "Week 10", topic: "Public Sector Accounting", objectives: "Meaning, sources of government revenue, and capital expenditures." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 16: LITERATURE IN ENGLISH (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Literature in English",
+      icon: "fa-theater-masks",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Introduction to African Drama", objectives: "Background, themes, and stylistic devices in the selected WAEC/NECO text." },
+            { week: "Week 2", topic: "African Drama: Act & Scene Analysis", objectives: "Detailed reading and analysis of plot development." },
+            { week: "Week 3", topic: "African Drama: Characterization", objectives: "Role and significance of major and minor characters." },
+            { week: "Week 4", topic: "African Poetry I", objectives: "Reading and analyzing selected African poems; identifying themes and poetic devices." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "African Poetry II", objectives: "In-depth study of tone, mood, and imagery in selected poems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Non-African Prose: Introduction", objectives: "Author's background, setting, and plot overview of the selected novel." },
+            { week: "Week 9", topic: "Non-African Prose: Chapter Analysis", objectives: "Exploration of themes, narrative techniques, and conflicts." },
+            { week: "Week 10", topic: "Unseen Poetry Analysis", objectives: "Strategies for analyzing and interpreting unseen poems." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Non-African Drama: Introduction", objectives: "Background, themes, and setting of the selected non-African play." },
+            { week: "Week 2", topic: "Non-African Drama: Plot Analysis", objectives: "Detailed scene-by-scene analysis." },
+            { week: "Week 3", topic: "Non-African Drama: Characterization", objectives: "Analysis of major characters, tragic flaws, and motivations." },
+            { week: "Week 4", topic: "Non-African Poetry I", objectives: "Reading and analyzing selected non-African poems." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Non-African Poetry II", objectives: "Focus on literary devices, figures of speech, and thematic concerns." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "African Prose: Introduction", objectives: "Overview of the selected African novel; socio-cultural context." },
+            { week: "Week 9", topic: "African Prose: Thematic Analysis", objectives: "Exploration of major themes (e.g., colonialism, tradition vs. modernity)." },
+            { week: "Week 10", topic: "Unseen Prose Comprehension", objectives: "Techniques for tackling unseen prose passages." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "General Overview of Drama Texts", objectives: "Comparing themes and styles across African and Non-African drama." },
+            { week: "Week 2", topic: "General Overview of Prose Texts", objectives: "Comparing narrative techniques and character development in prescribed novels." },
+            { week: "Week 3", topic: "General Overview of Poetry", objectives: "Consolidating knowledge on poetic devices across all prescribed poems." },
+            { week: "Week 4", topic: "Literary Appreciation", objectives: "Evaluating texts critically; identifying tone, mood, and diction." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Answering Context Questions", objectives: "Techniques for answering WAEC/NECO context and essay questions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Past Questions Drill: Drama", objectives: "Practicing past questions on prescribed drama texts." },
+            { week: "Week 9", topic: "Past Questions Drill: Prose", objectives: "Practicing past questions on prescribed prose texts." },
+            { week: "Week 10", topic: "Past Questions Drill: Poetry", objectives: "Practicing past questions on prescribed poetry." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 17: CHRISTIAN RELIGIOUS STUDIES (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Christian Religious Studies",
+      icon: "fa-cross",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "The Sovereignty of God", objectives: "God as Creator; His control over the universe (Isaiah 45, Genesis 1-2)." },
+            { week: "Week 2", topic: "The Leadership of Joseph", objectives: "Josephâ€™s early life, dreams, slavery, and rise to power in Egypt." },
+            { week: "Week 3", topic: "The Leadership of Moses", objectives: "Call of Moses, leading the Israelites, and his qualities as a leader." },
+            { week: "Week 4", topic: "The Leadership of Joshua", objectives: "Joshuaâ€™s commission, crossing the Jordan, and leading Israel into Canaan." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Deborah and Barak", objectives: "Role of Deborah as a judge and leader; the victory over Sisera." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Eli and Samuel", objectives: "The sins of Eli's sons; the call of Samuel and his leadership." },
+            { week: "Week 9", topic: "King Saul", objectives: "Saul's selection, his disobedience, and his rejection as king." },
+            { week: "Week 10", topic: "King David", objectives: "David's selection, his successes, his sin with Bathsheba, and repentance." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "King Solomon", objectives: "Solomonâ€™s wisdom, the building of the temple, his sins, and the division of the kingdom." },
+            { week: "Week 2", topic: "Elijah and the Prophets of Baal", objectives: "Ahabâ€™s apostasy, the contest on Mount Carmel, and Elijah's victory." },
+            { week: "Week 3", topic: "King Josiah", objectives: "Josiahâ€™s religious reforms and the discovery of the Book of the Law." },
+            { week: "Week 4", topic: "Nehemiah and Ezra", objectives: "The rebuilding of the walls of Jerusalem; religious and social reforms." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "The Birth and Early Life of Jesus", objectives: "The annunciation, birth, presentation in the temple, and visit of the Magi." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "The Baptism and Temptation", objectives: "Significance of Jesus' baptism by John and his victory over temptation." },
+            { week: "Week 9", topic: "The Call of the Disciples", objectives: "Calling of the first disciples and the twelve apostles; demands of discipleship." },
+            { week: "Week 10", topic: "The Teachings of Jesus (Parables)", objectives: "Parables of the Kingdom (Sower, Mustard Seed) and their meanings." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Miracles of Jesus", objectives: "Nature miracles (calming the storm) and healing miracles; their significance." },
+            { week: "Week 2", topic: "The Transfiguration", objectives: "Events on the mount of transfiguration and its significance to Jesus' ministry." },
+            { week: "Week 3", topic: "The Triumphal Entry and Cleansing of the Temple", objectives: "Fulfillment of prophecy; conflict with religious leaders." },
+            { week: "Week 4", topic: "The Last Supper and Betrayal", objectives: "Institution of the Lordâ€™s Supper; Judas' betrayal and Peter's denial." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Crucifixion and Burial", objectives: "The trials of Jesus, crucifixion at Golgotha, and burial by Joseph of Arimathea." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Resurrection and Ascension", objectives: "The empty tomb, post-resurrection appearances, and the great commission." },
+            { week: "Week 9", topic: "The Promise of the Holy Spirit", objectives: "The Day of Pentecost, Peter's speech, and the birth of the early church." },
+            { week: "Week 10", topic: "Paul's Missionary Journeys", objectives: "Overview of Paul's first missionary journey; challenges and successes." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 18: ISLAMIC RELIGIOUS STUDIES (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Islamic Religious Studies",
+      icon: "fa-star-and-crescent",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Suratul Hujurat (Q. 49)", objectives: "Reading, translation, and lessons on Islamic brotherhood and manners." },
+            { week: "Week 2", topic: "Suratun Nur (Q. 24)", objectives: "Selected verses on chastity, modesty, and social ethics." },
+            { week: "Week 3", topic: "Hadith: Concept and Importance", objectives: "Definition of Hadith/Sunnah; its role as the second source of Shariah." },
+            { week: "Week 4", topic: "Classification of Hadith", objectives: "Sahih (Authentic), Hasan (Good), Da'if (Weak); components of Hadith (Isnad and Matn)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Hadith 1 of An-Nawawi", objectives: "Reading, translation, and application of the Hadith on Intentions (Niyyah)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Hadith 15 & 16 of An-Nawawi", objectives: "Good speech, honoring neighbors, and controlling anger." },
+            { week: "Week 9", topic: "Tawhid: Shirk (Polytheism)", objectives: "Meaning, types of Shirk, and its consequences in Islam." },
+            { week: "Week 10", topic: "Articles of Faith", objectives: "Belief in Prophets and Messengers; characteristics of Prophets." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Zakat: Concept and Importance", objectives: "Meaning of Zakat, differences between Zakat and Sadaqah." },
+            { week: "Week 2", topic: "Nisab and Beneficiaries of Zakat", objectives: "Items subject to Zakat, calculation of Nisab, and the 8 categories of recipients." },
+            { week: "Week 3", topic: "Hajj (Pilgrimage)", objectives: "Conditions, types, and the essential rites (Arkan) of Hajj." },
+            { week: "Week 4", topic: "Umrah (Lesser Hajj)", objectives: "Differences between Hajj and Umrah; spiritual significance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Islamic Economic System", objectives: "Sources of wealth, prohibition of Riba (usury/interest), and fair trading." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Marriage in Islam (Nikah)", objectives: "Conditions for valid marriage, selection of a spouse, and duties of husband and wife." },
+            { week: "Week 9", topic: "Divorce (Talaq)", objectives: "Types of divorce, rules governing Iddah (waiting period), and Khul'." },
+            { week: "Week 10", topic: "The Rightly Guided Caliphs", objectives: "Life and achievements of Abu Bakr As-Siddiq (RA)." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "The Rightly Guided Caliphs", objectives: "Life and administrative reforms of Umar bin Al-Khattab (RA)." },
+            { week: "Week 2", topic: "The Rightly Guided Caliphs", objectives: "Life, compilation of the Quran, and martyrdom of Uthman bin Affan (RA)." },
+            { week: "Week 3", topic: "The Rightly Guided Caliphs", objectives: "Life, courage, and challenges during the reign of Ali bin Abi Talib (RA)." },
+            { week: "Week 4", topic: "Umayyad Dynasty", objectives: "Establishment of the dynasty by Mu'awiyah; key achievements." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Umar bin Abdul Aziz", objectives: "His piety, reforms, and why he is considered the 5th Rightly Guided Caliph." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Islamic Ethics", objectives: "Respect for parents and elders; brotherhood and equality." },
+            { week: "Week 9", topic: "Social Vices in Islam", objectives: "Prohibition of gambling, alcohol consumption, and bribery." },
+            { week: "Week 10", topic: "Islamic Contribution to Civilization", objectives: "Contributions in medicine, mathematics, and education." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 19: DATA PROCESSING (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Data Processing",
+      icon: "fa-database",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Data Models", objectives: "Meaning of data models; types (Entity-Relationship, Relational, Object-Oriented)." },
+            { week: "Week 2", topic: "Entity-Relationship Model", objectives: "Entities, attributes, relationships, and drawing ER diagrams." },
+            { week: "Week 3", topic: "Relational Model", objectives: "Tables, primary keys, foreign keys, and referential integrity." },
+            { week: "Week 4", topic: "Normalization", objectives: "Meaning and importance; First Normal Form (1NF) and Second Normal Form (2NF)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Database Management System (DBMS)", objectives: "Functions, advantages, and examples of DBMS software (Access, MySQL)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Creating a Database (Practical)", objectives: "Using MS Access to create tables and define primary keys." },
+            { week: "Week 9", topic: "Querying a Database", objectives: "Creating select queries and basic SQL commands (SELECT, FROM, WHERE)." },
+            { week: "Week 10", topic: "Forms and Reports", objectives: "Designing data entry forms and generating printable reports in MS Access." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Internet", objectives: "Meaning, history, and basic terminology (WWW, URL, HTTP, HTML)." },
+            { week: "Week 2", topic: "Internet Services", objectives: "Email, FTP, Telnet, e-commerce, and cloud storage." },
+            { week: "Week 3", topic: "Web Browsers and Search Engines", objectives: "Features of browsers; how to use search engines effectively." },
+            { week: "Week 4", topic: "Cyber Security I", objectives: "Meaning, types of cybercrimes (hacking, phishing, identity theft)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Cyber Security II", objectives: "Preventive measures, firewalls, antivirus software, and encryption." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Presentation Packages", objectives: "Features, uses, and examples (MS PowerPoint, Google Slides)." },
+            { week: "Week 9", topic: "Creating Presentations (Practical)", objectives: "Designing slides, inserting multimedia, and applying transitions." },
+            { week: "Week 10", topic: "Web Design (Introduction)", objectives: "Basic HTML tags and structuring a simple web page." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Graphic Design (Introduction)", objectives: "Meaning, principles of design, and types of graphic software (CorelDraw, Photoshop)." },
+            { week: "Week 2", topic: "CorelDraw Basics", objectives: "Exploring the CorelDraw interface, toolbars, and color palettes." },
+            { week: "Week 3", topic: "Creating Designs (Practical I)", objectives: "Using shape tools, text tools, and coloring to create logos." },
+            { week: "Week 4", topic: "Creating Designs (Practical II)", objectives: "Designing letterheads, complementary cards, and basic flyers." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Computer Maintenance", objectives: "Preventive maintenance, disk defragmentation, and system updates." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Ethics in Data Processing", objectives: "Data privacy, copyright laws, and intellectual property rights." },
+            { week: "Week 9", topic: "Data Backup and Recovery", objectives: "Importance of backups, types of backup media, and recovery procedures." },
+            { week: "Week 10", topic: "Project Work", objectives: "Students develop a complete mini-database or a basic graphics portfolio." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+    ,
+    // -----------------------------------------------------------------
+    // SUBJECT 20: ECONOMICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Economics",
+      icon: "fa-chart-line",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Action of Government on Prices", objectives: "Price control, minimum and maximum price legislation, rationing, and their effects." },
+            { week: "Week 2", topic: "Elasticity of Demand", objectives: "Meaning, types (price, income, cross), and measurement of elasticity of demand." },
+            { week: "Week 3", topic: "Elasticity of Supply", objectives: "Meaning, determinants, and measurement of price elasticity of supply." },
+            { week: "Week 4", topic: "Utility Theory", objectives: "Meaning of utility, total, marginal utility, and the law of diminishing marginal utility." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Theory of Consumer Behaviour", objectives: "Indifference curves, budget lines, and consumer equilibrium." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Theory of Production I", objectives: "Production function, short-run and long-run periods." },
+            { week: "Week 9", topic: "Theory of Production II", objectives: "Law of variable proportions (diminishing returns) and returns to scale." },
+            { week: "Week 10", topic: "Cost Concepts", objectives: "Total, average, marginal costs, fixed and variable costs, and their curves." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Revenue Concepts", objectives: "Total, average, and marginal revenue under different market structures." },
+            { week: "Week 2", topic: "Market Structures I: Perfect Competition", objectives: "Features, short-run and long-run equilibrium of a perfectly competitive firm." },
+            { week: "Week 3", topic: "Market Structures II: Monopoly", objectives: "Features, causes, and equilibrium of a monopolist; price discrimination." },
+            { week: "Week 4", topic: "Market Structures III: Imperfect Markets", objectives: "Monopolistic competition, oligopoly, and their basic features." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "National Income I", objectives: "Meaning, concepts (GDP, GNP, NNP, NI)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "National Income II", objectives: "Methods of measuring national income (Output, Income, Expenditure)." },
+            { week: "Week 9", topic: "Money", objectives: "Meaning, characteristics, functions, and the concept of value of money." },
+            { week: "Week 10", topic: "Inflation and Deflation", objectives: "Meaning, types, causes, effects, and control of inflation and deflation." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Financial Institutions I", objectives: "Commercial banks and central banks: functions and credit creation." },
+            { week: "Week 2", topic: "Financial Institutions II", objectives: "Other financial institutions (merchant banks, mortgage banks, insurance)." },
+            { week: "Week 3", topic: "Public Finance I", objectives: "Meaning, government revenue, and government expenditure." },
+            { week: "Week 4", topic: "Public Finance II", objectives: "Taxation: Meaning, types (direct and indirect), principles of a good tax system." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "National Budget", objectives: "Meaning, types (balanced, surplus, deficit), and uses of the budget." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Economic Growth and Development", objectives: "Meaning, differences, and characteristics of developing economies." },
+            { week: "Week 9", topic: "Economic Planning", objectives: "Meaning, types, importance, and challenges of economic planning in West Africa." },
+            { week: "Week 10", topic: "International Trade", objectives: "Reasons for international trade, comparative advantage, and terms of trade." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 21: FURTHER MATHEMATICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Further Mathematics",
+      icon: "fa-square-root-alt",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Roots of Quadratic Equations", objectives: "Sum and product of roots, forming equations from given roots." },
+            { week: "Week 2", topic: "Polynomials I", objectives: "Addition, subtraction, and multiplication of polynomials." },
+            { week: "Week 3", topic: "Polynomials II", objectives: "Division of polynomials, Remainder and Factor theorems." },
+            { week: "Week 4", topic: "Polynomials III", objectives: "Roots of cubic equations, synthetic division." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Logical Reasoning", objectives: "Truth tables, compound statements, tautology, contradiction, and implication." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Permutations", objectives: "Factorial notation, arrangements with and without restrictions, cyclic permutations." },
+            { week: "Week 9", topic: "Combinations", objectives: "Selections, combination formulas, and applications." },
+            { week: "Week 10", topic: "Binomial Theorem", objectives: "Pascal's triangle, Binomial expansion for positive integral indices." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Probability I", objectives: "Addition and multiplication laws of probability, mutually exclusive events." },
+            { week: "Week 2", topic: "Probability II", objectives: "Independent events, conditional probability, and probability trees." },
+            { week: "Week 3", topic: "Vectors in Three Dimensions I", objectives: "Position vectors, addition, subtraction, and magnitude of 3D vectors." },
+            { week: "Week 4", topic: "Vectors in Three Dimensions II", objectives: "Scalar (Dot) product, angle between two vectors, and direction cosines." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Dynamics I", objectives: "Newton's laws of motion, force, mass, and acceleration." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Dynamics II", objectives: "Motion of connected particles, objects on inclined planes with friction." },
+            { week: "Week 9", topic: "Work, Energy, and Power", objectives: "Definitions, calculations of work done, kinetic/potential energy, and conservation of energy." },
+            { week: "Week 10", topic: "Projectiles", objectives: "Equations of motion under gravity, maximum height, time of flight, and range." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Differentiation I", objectives: "First principles, standard derivatives of polynomials, trigonometric, and exponential functions." },
+            { week: "Week 2", topic: "Differentiation II", objectives: "Product rule, quotient rule, and chain rule (function of a function)." },
+            { week: "Week 3", topic: "Application of Differentiation", objectives: "Rates of change, gradients of curves, turning points (maxima and minima)." },
+            { week: "Week 4", topic: "Integration I", objectives: "Integration as anti-derivative, standard integrals, indefinite integrals." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Integration II", objectives: "Integration by substitution, integration of trigonometric functions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Application of Integration", objectives: "Definite integrals, calculation of area under a curve." },
+            { week: "Week 9", topic: "Correlation", objectives: "Scatter diagrams, Spearman's rank correlation coefficient." },
+            { week: "Week 10", topic: "Variance and Standard Deviation", objectives: "Calculation for grouped and ungrouped continuous data." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 22: CIVIC EDUCATION (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Civic Education",
+      icon: "fa-landmark",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Citizenship Education", objectives: "Meaning of citizenship, ways of acquiring citizenship." },
+            { week: "Week 2", topic: "Duties and Obligations of Citizens", objectives: "Differentiating between rights, duties, and obligations." },
+            { week: "Week 3", topic: "Capitalist Democracy", objectives: "Meaning, characteristics, and how it fosters development." },
+            { week: "Week 4", topic: "Rule of Law", objectives: "Principles, meaning, importance, and limitations of the rule of law." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Protection of Human Rights", objectives: "Groups that protect human rights, roles of individuals in human rights protection." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Drug Abuse I", objectives: "Meaning, commonly abused drugs, and signs of drug abuse." },
+            { week: "Week 9", topic: "Drug Abuse II", objectives: "Symptoms, causes, and consequences of drug abuse on individuals and society." },
+            { week: "Week 10", topic: "Preventive Measures against Drug Abuse", objectives: "Roles of government agencies (NDLEA, NAFDAC) and rehabilitation." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Political Apathy I", objectives: "Meaning, forms, and causes of political apathy." },
+            { week: "Week 2", topic: "Political Apathy II", objectives: "Dangers of political apathy and ways to overcome it." },
+            { week: "Week 3", topic: "Public Service", objectives: "Meaning, characteristics, and reasons for the shortcomings in the public service." },
+            { week: "Week 4", topic: "Ways of Improving the Public Service", objectives: "Code of Conduct Bureau (CCB) and continuous training." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Civil Society", objectives: "Meaning, functions, and problems of civil society groups." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Popular Participation I", objectives: "Meaning, types, and reasons why people do not participate in politics." },
+            { week: "Week 9", topic: "Popular Participation II", objectives: "How popular participation can be promoted in society." },
+            { week: "Week 10", topic: "Democracy and National Development", objectives: "How democratic practices promote national development and unity." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Human Trafficking I", objectives: "Meaning, causes, and methods used by traffickers." },
+            { week: "Week 2", topic: "Human Trafficking II", objectives: "Consequences of human trafficking on the victims and society." },
+            { week: "Week 3", topic: "Preventing Human Trafficking", objectives: "Roles of government (NAPTIP), NGOs, and individuals." },
+            { week: "Week 4", topic: "Interpersonal Relationships", objectives: "Meaning, types, and importance of healthy interpersonal relationships." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Inter-communal Relationships", objectives: "Meaning, importance, and skills for resolving inter-communal conflicts." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Cultism", objectives: "Meaning, origin, causes, and consequences of cultism in schools." },
+            { week: "Week 9", topic: "Preventive Measures against Cultism", objectives: "Roles of parents, government, and society in eradicating cultism." },
+            { week: "Week 10", topic: "National Security", objectives: "Roles of citizens and armed forces in maintaining national security." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 23: ANIMAL HUSBANDRY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Animal Husbandry",
+      icon: "fa-paw",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Anatomy and Physiology of Farm Animals", objectives: "Introduction to major body systems of farm animals." },
+            { week: "Week 2", topic: "Digestive Systems", objectives: "Ruminant vs. non-ruminant digestive systems and their functions." },
+            { week: "Week 3", topic: "Reproductive System", objectives: "Male and female reproductive organs and their functions." },
+            { week: "Week 4", topic: "Animal Reproduction", objectives: "Estrus cycle, mating, gestation, and parturition." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Environmental Physiology", objectives: "Effects of climate (temperature, rainfall, humidity) on animal performance." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Animal Nutrition", objectives: "Classes of animal feed and essential nutrients (carbohydrates, proteins, vitamins)." },
+            { week: "Week 9", topic: "Types of Feed", objectives: "Concentrates, roughages, supplements, and feed additives." },
+            { week: "Week 10", topic: "Ration Formulation", objectives: "Balanced ration, maintenance, and production rations." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Livestock Management: Poultry", objectives: "Breeds, housing, feeding, and management systems of poultry." },
+            { week: "Week 2", topic: "Livestock Management: Pigs", objectives: "Breeds, housing, feeding, and routine management of swine." },
+            { week: "Week 3", topic: "Livestock Management: Cattle", objectives: "Dairy vs. beef cattle, housing, and pasture management." },
+            { week: "Week 4", topic: "Livestock Management: Sheep and Goats", objectives: "Extensive and intensive systems, health and feeding." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Animal Health Management I", objectives: "Signs of good health vs. ill-health in farm animals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Animal Health Management II", objectives: "Predisposing factors to animal diseases; preventive measures." },
+            { week: "Week 9", topic: "Common Animal Diseases", objectives: "Viral, bacterial, fungal, and protozoan diseases; symptoms and control." },
+            { week: "Week 10", topic: "Parasites of Farm Animals", objectives: "Endoparasites (tapeworms, roundworms) and ectoparasites (ticks, lice)." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Pasture and Forage Crops", objectives: "Meaning, common grasses and legumes used in livestock feeding." },
+            { week: "Week 2", topic: "Establishment of Pasture", objectives: "Land preparation, planting, weed control, and fertilizer application." },
+            { week: "Week 3", topic: "Pasture Management", objectives: "Rotational grazing, zero grazing, and control of pests/diseases in pasture." },
+            { week: "Week 4", topic: "Forage Conservation", objectives: "Methods of preserving forage: hay and silage making." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Animal Improvement", objectives: "Aims of animal improvement; introduction, selection, and breeding methods." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Artificial Insemination", objectives: "Meaning, methods of semen collection, advantages and disadvantages." },
+            { week: "Week 9", topic: "Processing and Marketing of Animal Products", objectives: "Processing meat, milk, and eggs for human consumption." },
+            { week: "Week 10", topic: "Record Keeping in Animal Husbandry", objectives: "Types of records (health, production, financial) and their importance." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 24: VISUAL ARTS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Visual Arts",
+      icon: "fa-palette",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Nigerian Art History I", objectives: "Study of Nok and Ife Art cultures: location, medium, and characteristics." },
+            { week: "Week 2", topic: "Nigerian Art History II", objectives: "Study of Benin and Igbo-Ukwu Art cultures: origin, medium, and significance." },
+            { week: "Week 3", topic: "Contemporary Nigerian Art", objectives: "Pioneers of modern Nigerian art (Aina Onabolu, Ben Enwonwu)." },
+            { week: "Week 4", topic: "Two-Dimensional Art: Painting", objectives: "Techniques (impasto, wash, glazing), media, and color psychology." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Still Life Painting (Practical)", objectives: "Setting up a composition; rendering using poster colors or watercolor." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Landscape Painting", objectives: "Understanding perspective, atmospheric perspective, and outdoor painting." },
+            { week: "Week 9", topic: "Imaginative Composition", objectives: "Creating artwork based on themes from memory or imagination." },
+            { week: "Week 10", topic: "Figure Drawing", objectives: "Proportions of the human body, quick sketches, and detailed anatomical studies." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Three-Dimensional Art: Sculpture", objectives: "Materials (clay, wood, metal) and techniques (modeling, carving, casting)." },
+            { week: "Week 2", topic: "Modeling (Practical)", objectives: "Preparing clay, pinch, coil, and slab methods." },
+            { week: "Week 3", topic: "Relief Sculpture", objectives: "Creating bas-relief (low relief) and high relief using clay or plaster." },
+            { week: "Week 4", topic: "Ceramics I", objectives: "History of pottery, preparation of clay, and forming techniques." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Ceramics II (Decoration and Firing)", objectives: "Incising, glazing, and understanding the kiln firing process." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Textile Design I", objectives: "Introduction to fabric decoration, materials, and dyes." },
+            { week: "Week 9", topic: "Tie and Dye (Practical)", objectives: "Techniques: folding, tying, marbling, and dyeing processes." },
+            { week: "Week 10", topic: "Batik (Practical)", objectives: "Wax resist techniques, stamping, and freehand drawing on fabric." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Graphic Design I", objectives: "Elements and principles applied to graphic communication." },
+            { week: "Week 2", topic: "Lettering", objectives: "Calligraphy, block lettering, serif and sans-serif typefaces." },
+            { week: "Week 3", topic: "Poster Design", objectives: "Functions of a poster, balancing text and imagery, use of bold colors." },
+            { week: "Week 4", topic: "Logo and Badge Design", objectives: "Conceptualizing and designing emblems for schools or organizations." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Book Cover Design", objectives: "Designing front, spine, and back covers; typography and illustration." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Art Appreciation", objectives: "How to critique a work of art; analyzing form, content, and context." },
+            { week: "Week 9", topic: "Museums and Galleries", objectives: "Roles of museums/galleries in preservation and promotion of art." },
+            { week: "Week 10", topic: "Portfolio Development", objectives: "Selecting, organizing, and presenting artworks for exhibition or WAEC assessment." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 25: TECHNICAL DRAWING (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Technical Drawing",
+      icon: "fa-drafting-compass",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Orthographic Projection I", objectives: "First-angle and Third-angle projection principles." },
+            { week: "Week 2", topic: "Orthographic Projection II", objectives: "Converting isometric views to orthographic views." },
+            { week: "Week 3", topic: "Orthographic Projection III", objectives: "Dimensioning, hidden details, and center lines." },
+            { week: "Week 4", topic: "Isometric Drawing I", objectives: "Principles of isometric projection, isometric axes and scale." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Isometric Drawing II", objectives: "Drawing isometric views from orthographic projections (blocks and cylinders)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Oblique Drawing I", objectives: "Principles of oblique projection (Cavalier and Cabinet)." },
+            { week: "Week 9", topic: "Oblique Drawing II", objectives: "Drawing oblique blocks and dealing with circular features." },
+            { week: "Week 10", topic: "Sections and Sectional Views I", objectives: "Purpose of sectioning, cutting planes, and hatching techniques." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Sections and Sectional Views II", objectives: "Full sections, half sections, and staggered sections." },
+            { week: "Week 2", topic: "Intersection of Solids I", objectives: "Lines of intersection between two prisms." },
+            { week: "Week 3", topic: "Intersection of Solids II", objectives: "Intersection of cylinders of equal and unequal diameters." },
+            { week: "Week 4", topic: "Intersection of Solids III", objectives: "Intersection between a cylinder and a cone." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Surface Development I", objectives: "Meaning and application of surface development in sheet metal work." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Surface Development II", objectives: "Parallel line development (prisms and cylinders)." },
+            { week: "Week 9", topic: "Surface Development III", objectives: "Radial line development (pyramids and cones)." },
+            { week: "Week 10", topic: "Development of Truncated Solids", objectives: "Developing the surfaces of cut cylinders and cones." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Loci I", objectives: "Path of a moving point; the cycloid." },
+            { week: "Week 2", topic: "Loci II", objectives: "The epicycloid and hypocycloid." },
+            { week: "Week 3", topic: "Loci III", objectives: "Involute of a circle and a polygon." },
+            { week: "Week 4", topic: "Building Drawing I", objectives: "Architectural symbols, standard dimensions for doors and windows." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Building Drawing II", objectives: "Drawing a simple floor plan from a given sketch." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Building Drawing III", objectives: "Front and side elevations of a simple building." },
+            { week: "Week 9", topic: "Freehand Sketching", objectives: "Sketching hand tools and engineering components in good proportion." },
+            { week: "Week 10", topic: "Computer-Aided Design (CAD)", objectives: "Introduction to AutoCAD interface, basic drawing, and modification tools." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+    ,
+    // -----------------------------------------------------------------
+    // SUBJECT 26: AGRICULTURAL SCIENCE (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Agricultural Science",
+      icon: "fa-leaf",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Forestry I", objectives: "Meaning, importance, and forest management practices." },
+            { week: "Week 2", topic: "Forestry II", objectives: "Forest regulations, selective exploitation, and regeneration." },
+            { week: "Week 3", topic: "Wildlife Conservation", objectives: "Meaning, importance, and common wildlife species in Nigeria." },
+            { week: "Week 4", topic: "Fishery I", objectives: "Meaning, types (artisanal, industrial), and aquatic organisms." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Fishery II", objectives: "Fish farming management, pond construction, and maintenance." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Ruminant Animal Management", objectives: "Management of cattle, sheep, and goats (housing, feeding)." },
+            { week: "Week 9", topic: "Non-Ruminant Animal Management", objectives: "Management of poultry, pigs, and rabbits." },
+            { week: "Week 10", topic: "Agricultural Pests", objectives: "Classification, signs of damage, and economic importance." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Crop Improvement", objectives: "Methods of crop improvement (introduction, selection, breeding)." },
+            { week: "Week 2", topic: "Principles of Genetics", objectives: "Mendelian genetics, genes, chromosomes, and heritability." },
+            { week: "Week 3", topic: "Crop Diseases", objectives: "Symptoms, causes, and control of common crop diseases." },
+            { week: "Week 4", topic: "Weed Control", objectives: "Classification, harmful effects, and methods of weed control." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Soil Fertility", objectives: "Maintenance of soil fertility; manure and fertilizers." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Irrigation and Drainage", objectives: "Meaning, importance, types, and systems of irrigation." },
+            { week: "Week 9", topic: "Planting Operations", objectives: "Seed selection, seed treatment, planting dates, and spacing." },
+            { week: "Week 10", topic: "Basic Farm Tools", objectives: "Maintenance and uses of farm tools and implements." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Farm Economics", objectives: "Basic economic principles: demand, supply, and production costs." },
+            { week: "Week 2", topic: "Farm Management", objectives: "Record keeping, types of records, and farm budgeting." },
+            { week: "Week 3", topic: "Agricultural Extension", objectives: "Definition, functions, and teaching methods in extension." },
+            { week: "Week 4", topic: "Agricultural Marketing", objectives: "Channels of marketing, marketing problems, and solutions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Food Processing", objectives: "Methods of processing fruits, vegetables, and cereals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Storage of Farm Produce", objectives: "Storage structures and methods for grains and perishable crops." },
+            { week: "Week 9", topic: "Agricultural Laws", objectives: "Land tenure systems, land use act, and agricultural policies." },
+            { week: "Week 10", topic: "Revision", objectives: "Recap of core agricultural concepts." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 27: BIOLOGY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Biology",
+      icon: "fa-dna",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Cell and its Environment", objectives: "Diffusion, osmosis, plasmolysis, and turgidity." },
+            { week: "Week 2", topic: "Living Cells", objectives: "Structure, functions, and properties of cell components." },
+            { week: "Week 3", topic: "Nutrition in Animals", objectives: "Holophytic vs. holozoic nutrition; teeth and digestion in mammals." },
+            { week: "Week 4", topic: "Digestive System", objectives: "Process of digestion and absorption in the human alimentary canal." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Transport System I", objectives: "Media of transport; blood and lymph; circulatory systems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Transport System II", objectives: "Transport in plants: Xylem and Phloem; transpirational pull." },
+            { week: "Week 9", topic: "Respiratory System I", objectives: "Types of respiration (aerobic/anaerobic); mechanisms of respiration." },
+            { week: "Week 10", topic: "Respiratory System II", objectives: "Respiratory organs in animals and plants." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Excretory System", objectives: "Excretory organs, mechanism of excretion, and homeostasis." },
+            { week: "Week 2", topic: "Nervous System I", objectives: "Central and peripheral nervous systems; neurons." },
+            { week: "Week 3", topic: "Nervous System II", objectives: "Brain, spinal cord, and reflex actions." },
+            { week: "Week 4", topic: "Sense Organs", objectives: "Structure and function of eye, ear, nose, tongue, and skin." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Hormonal Coordination", objectives: "Endocrine glands, hormones, and their functions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Reproductive System I", objectives: "Asexual and sexual reproduction in organisms." },
+            { week: "Week 9", topic: "Reproductive System II", objectives: "Reproduction in mammals: structures and process of fertilization." },
+            { week: "Week 10", topic: "Pollination and Fertilization", objectives: "Mechanisms of pollination and fertilization in plants." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Growth and Development", objectives: "Meaning, types, and mechanisms of growth in organisms." },
+            { week: "Week 2", topic: "Ecological Factors", objectives: "Abiotic and biotic factors and their influence on organisms." },
+            { week: "Week 3", topic: "Ecosystems", objectives: "Components, food chains, food webs, and trophic levels." },
+            { week: "Week 4", topic: "Habitat Studies", objectives: "Freshwater, marine, and terrestrial habitats." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Adaptation for Survival", objectives: "Adaptive features in plants and animals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Pollution", objectives: "Types, causes, effects, and control of environmental pollution." },
+            { week: "Week 9", topic: "Conservation of Natural Resources", objectives: "Importance of conservation and sustainable management." },
+            { week: "Week 10", topic: "Pests and Diseases of Crops", objectives: "Common pests and methods of control." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 28: CHEMISTRY (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Chemistry",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Air", objectives: "Composition of air, separation of air components, noble gases." },
+            { week: "Week 2", topic: "Water", objectives: "Composition, properties, types of water hardness, and treatment." },
+            { week: "Week 3", topic: "Solubility", objectives: "Solubility curves, saturated/unsaturated solutions, Henry's law." },
+            { week: "Week 4", topic: "Chemical Kinetics", objectives: "Rates of reaction, factors affecting reaction rates, collision theory." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Chemical Equilibrium", objectives: "Reversible reactions, Le Chatelierâ€™s principle, equilibrium constant." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Acids, Bases, and Salts I", objectives: "Concepts of acids and bases (Arrhenius, Bronsted-Lowry)." },
+            { week: "Week 9", topic: "Acids, Bases, and Salts II", objectives: "pH scale, neutralization, and preparation of salts." },
+            { week: "Week 10", topic: "Redox Reactions", objectives: "Oxidation numbers, oxidizing and reducing agents, balancing redox equations." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Electrolysis I", objectives: "Electrolytes, non-electrolytes, Faradayâ€™s laws of electrolysis." },
+            { week: "Week 2", topic: "Electrolysis II", objectives: "Applications of electrolysis (electroplating, extraction of metals)." },
+            { week: "Week 3", topic: "Hydrocarbons: Alkanes", objectives: "Structure, nomenclature, physical/chemical properties of alkanes." },
+            { week: "Week 4", topic: "Hydrocarbons: Alkenes", objectives: "Preparation, properties, and addition reactions of alkenes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Hydrocarbons: Alkynes", objectives: "Preparation, properties, and reactions of alkynes (ethyne)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Benzene and Aromatic Compounds", objectives: "Structure, properties, and substitution reactions of benzene." },
+            { week: "Week 9", topic: "Alkanols", objectives: "Classification, preparation, and properties of alcohols." },
+            { week: "Week 10", topic: "Alkanoic Acids", objectives: "Structure, preparation, and chemical properties of carboxylic acids." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Alkanals and Alkanones", objectives: "Structure, properties, and identification tests." },
+            { week: "Week 2", topic: "Alkanoates (Esters)", objectives: "Preparation (esterification) and uses." },
+            { week: "Week 3", topic: "Fats and Oils", objectives: "Composition, saponification, soap manufacture." },
+            { week: "Week 4", topic: "Proteins and Polymers", objectives: "Structure of amino acids, condensation and addition polymerization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Introduction to Radioactivity", objectives: "Alpha, beta, and gamma radiation; half-life." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Nuclear Chemistry", objectives: "Nuclear fission and fusion, applications." },
+            { week: "Week 9", topic: "Petroleum and Petrochemicals", objectives: "Fractional distillation, refining processes." },
+            { week: "Week 10", topic: "Revision", objectives: "Review of key organic and physical chemistry topics." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 29: PHYSICS (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Physics",
+      icon: "fa-atom",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Heat Energy", objectives: "Concept of heat, temperature, and heat capacity." },
+            { week: "Week 2", topic: "Specific Heat Capacity", objectives: "Measurement and applications (calorimetry)." },
+            { week: "Week 3", topic: "Change of State", objectives: "Melting, boiling, latent heat, and vapor pressure." },
+            { week: "Week 4", topic: "Gas Laws", objectives: "Boyle's law, Charles' law, Pressure law, and Ideal gas equation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Light Energy: Reflection", objectives: "Laws of reflection, plane mirrors, curved mirrors." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Light Energy: Refraction", objectives: "Laws of refraction, refractive index, Snell's law." },
+            { week: "Week 9", topic: "Total Internal Reflection", objectives: "Conditions, critical angle, and applications (fiber optics)." },
+            { week: "Week 10", topic: "Lenses", objectives: "Types, refraction through lenses, lens formula, and magnification." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Optical Instruments", objectives: "Human eye, camera, projector, microscope, and telescope." },
+            { week: "Week 2", topic: "Current Electricity I", objectives: "Electric current, potential difference, Ohm's law, resistors." },
+            { week: "Week 3", topic: "Current Electricity II", objectives: "Series and parallel circuits, resistivity." },
+            { week: "Week 4", topic: "Electromotive Force", objectives: "EMF vs. Terminal voltage, internal resistance, cells." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Electrical Measurements", objectives: "Potentiometers, Wheatstone bridge, ammeters/voltmeters." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Capacitors", objectives: "Principles, types, capacitance, energy stored, dielectrics." },
+            { week: "Week 9", topic: "Electric Fields", objectives: "Coulomb's law, electric field intensity, potential." },
+            { week: "Week 10", topic: "Magnetic Fields", objectives: "Magnetic force, fields around conductors, electromagnets." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Electromagnetic Induction", objectives: "Faraday's and Lenz's laws, induction principles." },
+            { week: "Week 2", topic: "Transformers", objectives: "Construction, principles, types (step-up/step-down), efficiency." },
+            { week: "Week 3", topic: "Alternating Current", objectives: "AC circuits, peak/RMS values, reactance, impedance." },
+            { week: "Week 4", topic: "Semiconductors", objectives: "Intrinsic/extrinsic, p-n junction, diodes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Electronic Components", objectives: "Transistors, logic gates (AND, OR, NOT)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Atomic Physics", objectives: "Models of the atom, photoelectric effect, energy levels." },
+            { week: "Week 9", topic: "Radioactivity", objectives: "Decay, half-life, uses, and dangers of radiation." },
+            { week: "Week 10", topic: "Revision", objectives: "Review of electricity, magnetism, and modern physics." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 30: HEALTH EDUCATION (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Health Education",
+      icon: "fa-heartbeat",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Community Health", objectives: "Meaning, importance, and community health services." },
+            { week: "Week 2", topic: "School Health Program", objectives: "Meaning, components, and functions of a school health program." },
+            { week: "Week 3", topic: "Environmental Health", objectives: "Factors affecting environmental health; sanitation." },
+            { week: "Week 4", topic: "Health Agencies", objectives: "Roles of local, state, national, and international health agencies (WHO, UNICEF)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Family Life Education", objectives: "Meaning, importance, and components of family life." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Human Growth and Development", objectives: "Stages of development; personality development." },
+            { week: "Week 9", topic: "Sexually Transmitted Infections", objectives: "Types, symptoms, prevention, and control of STIs." },
+            { week: "Week 10", topic: "Prevention of STIs", objectives: "Personal responsibility, abstinence, and proper protection." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Drug/Substance Abuse", objectives: "Definition, common drugs, and signs of drug abuse." },
+            { week: "Week 2", topic: "Effects of Drug Abuse", objectives: "Physical, social, and mental consequences of substance abuse." },
+            { week: "Week 3", topic: "Prevention of Drug Abuse", objectives: "Roles of family, school, and government agencies (NDLEA)." },
+            { week: "Week 4", topic: "Safety and First Aid", objectives: "Principles of first aid, emergency kits, and common accidents." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Emergency Conditions", objectives: "First aid for burns, fractures, poisoning, and bleeding." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Rehabilitation", objectives: "Meaning and importance of rehabilitation in health." },
+            { week: "Week 9", topic: "Consumer Health", objectives: "Meaning of consumer health; rights and protection of consumers." },
+            { week: "Week 10", topic: "Health Quackery", objectives: "Identifying and avoiding fraudulent health practices." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Food and Nutrition", objectives: "Nutrients, balanced diet, and dietary needs of different groups." },
+            { week: "Week 2", topic: "Nutritional Deficiencies", objectives: "Causes, symptoms, and control of deficiency diseases (e.g., Kwashiorkor, Scurvy)." },
+            { week: "Week 3", topic: "Physical Fitness", objectives: "Meaning, components, and importance of physical fitness." },
+            { week: "Week 4", topic: "Body Conditioning", objectives: "Types of exercises for fitness; warm-up and cool-down." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Posture and Deformities", objectives: "Importance of good posture; common postural deformities." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Common Communicable Diseases", objectives: "Mode of transmission and prevention." },
+            { week: "Week 9", topic: "Non-Communicable Diseases", objectives: "Causes and management of chronic diseases (e.g., Hypertension, Diabetes)." },
+            { week: "Week 10", topic: "Personal Health", objectives: "Practices for maintaining personal hygiene." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 31: NIGERIAN LANGUAGES (SS 2)
+    // -----------------------------------------------------------------
+    {
+      title: "Nigerian Languages (Igbo/Yoruba/Hausa)",
+      icon: "fa-language",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Grammar: Sentence Structure", objectives: "Advanced sentence construction and syntax analysis." },
+            { week: "Week 2", topic: "Grammar: Tenses and Aspects", objectives: "Understanding verb conjugations in the language." },
+            { week: "Week 3", topic: "Literature: Poetry Analysis", objectives: "Appreciating traditional and modern poetic forms, tone, and imagery." },
+            { week: "Week 4", topic: "Oral Literature: Proverbs", objectives: "Analysis of cultural wisdom and usage of proverbs in daily communication." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Essay Writing: Descriptive", objectives: "Writing clear descriptive essays on cultural events." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Comprehension", objectives: "Reading and interpreting complex literary passages." },
+            { week: "Week 9", topic: "Translation", objectives: "Translating simple English passages into the native language." },
+            { week: "Week 10", topic: "Cultural Study", objectives: "Traditional institutions, marriage customs, and festivals." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Grammar: Punctuation and Spelling", objectives: "Mastering orthography and correct usage of marks." },
+            { week: "Week 2", topic: "Literature: Drama", objectives: "Character analysis and themes in selected play texts." },
+            { week: "Week 3", topic: "Essay Writing: Narrative", objectives: "Writing engaging stories and narratives." },
+            { week: "Week 4", topic: "Vocabulary Development", objectives: "Synonyms, antonyms, and idiomatic expressions." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Letter Writing", objectives: "Formal and informal letters in the native language." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Folktales and Legends", objectives: "Exploring moral lessons embedded in traditional tales." },
+            { week: "Week 9", topic: "Debate and Speech", objectives: "Articulating ideas and arguments in the native language." },
+            { week: "Week 10", topic: "Current Affairs in the Language", objectives: "Discussing local issues using the native language." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Grammar: Advanced Syntax", objectives: "Complex sentence analysis." },
+            { week: "Week 2", topic: "Literature: Prose", objectives: "Deep study of themes, plot, and settings in selected novels." },
+            { week: "Week 3", topic: "Essay Writing: Argumentative", objectives: "Structured argumentative writing." },
+            { week: "Week 4", topic: "Summary Skills", objectives: "Summarizing complex texts in the native language." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Poetry Recitation", objectives: "Performance and appreciation of traditional chants/poems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Report Writing", objectives: "Writing reports on school or community events." },
+            { week: "Week 9", topic: "Oral Tradition", objectives: "Documenting traditional music and artistic expression." },
+            { week: "Week 10", topic: "General Revision", objectives: "Consolidation of grammar, literature, and essay skills." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Government",
+      "icon": "fa-gavel",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Pre-Colonial Administration I", "objectives": "Hausa/Fulani and Yoruba traditional political systems." },
+            { "week": "Week 2", "topic": "Pre-Colonial Administration II", "objectives": "Igbo traditional political system and comparisons." },
+            { "week": "Week 3", "topic": "Colonial Administration", "objectives": "Historical background, Indirect Rule in Nigeria." },
+            { "week": "Week 4", "topic": "French Colonial Administration", "objectives": "Policy of Assimilation and Association in West Africa." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Nationalism in West Africa", "objectives": "Factors that led to nationalist movements and key figures." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Constitutional Development I", "objectives": "Clifford (1922) and Richards (1946) Constitutions." },
+            { "week": "Week 9", "topic": "Constitutional Development II", "objectives": "Macpherson (1951) and Lyttleton (1954) Constitutions." },
+            { "week": "Week 10", "topic": "Independence Constitution", "objectives": "Features, merits, and demerits of the 1960 Constitution." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Post-Independence Constitutions", "objectives": "Republican Constitution (1963) and 1979/1999 Constitutions." },
+            { "week": "Week 2", "topic": "Military Rule in Nigeria", "objectives": "Causes, structure, and impact of military intervention." },
+            { "week": "Week 3", "topic": "Conflict Resolution", "objectives": "Meaning, causes of conflicts, and resolution mechanisms." },
+            { "week": "Week 4", "topic": "Public Service", "objectives": "Structure, functions, and shortcomings of the Public Service." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "NEPAD", "objectives": "New Partnership for Africa's Development: objectives and impact." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Millennium Development Goals", "objectives": "MDGs and Sustainable Development Goals (SDGs) in Nigeria." },
+            { "week": "Week 9", "topic": "Foreign Policy Revsion", "objectives": "Nigeria's role in global and regional organizations." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Past questions on Basic Concepts and Political Systems." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Past questions on Constitutional Development." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Past questions on International Organizations." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Geography",
+      "icon": "fa-globe-africa",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Earth's Internal Processes", "objectives": "Vulcanicity, earthquakes, and their geographical effects." },
+            { "week": "Week 2", "topic": "Earth's External Processes", "objectives": "Weathering, mass movement, and denudation." },
+            { "week": "Week 3", "topic": "Action of Rivers", "objectives": "Stages of a river, erosion, transportation, and deposition." },
+            { "week": "Week 4", "topic": "Action of Wind and Glaciers", "objectives": "Desert landforms and glaciated topographies." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Oceanography", "objectives": "Ocean currents, tides, and marine resources." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Climate and Vegetation", "objectives": "Global climatic regions and associated vegetation." },
+            { "week": "Week 9", "topic": "Soils", "objectives": "Soil formation, profiles, types, and conservation." },
+            { "week": "Week 10", "topic": "Map Reading Revision", "objectives": "Advanced map reading: intervisibility, drainage patterns." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Geographic Information System", "objectives": "Introduction to GIS and Remote Sensing." },
+            { "week": "Week 2", "topic": "Economic Geography", "objectives": "Mining, manufacturing, and power resources globally." },
+            { "week": "Week 3", "topic": "World Population", "objectives": "Growth, distribution, and demographic transition." },
+            { "week": "Week 4", "topic": "Nigeria: Trade and Transportation", "objectives": "Domestic and international trade networks." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Environmental Challenges", "objectives": "Deforestation, pollution, and global warming." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Regional Geography of Africa I", "objectives": "Location, relief, drainage, and climate of Africa." },
+            { "week": "Week 9", "topic": "Regional Geography of Africa II", "objectives": "Lumbering in Zaire, Gold mining in South Africa." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Physical geography map work and data interpretation." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Human and economic geography." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Regional geography of Nigeria and Africa." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Commerce",
+      "icon": "fa-shopping-cart",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Trade Associations", "objectives": "Chambers of Commerce, Trade Unions, and Employers Associations." },
+            { "week": "Week 2", "topic": "Business Management I", "objectives": "Functions of management: planning, organizing, controlling." },
+            { "week": "Week 3", "topic": "Business Management II", "objectives": "Organizational structure and delegation of authority." },
+            { "week": "Week 4", "topic": "Privatization and Commercialization", "objectives": "Meaning, advantages, and disadvantages." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Nationalization and Indigenization", "objectives": "Reasons for nationalization and historical context." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Economic Groupings", "objectives": "ECOWAS, LCBC, Mano River Union: functions and problems." },
+            { "week": "Week 9", "topic": "Capital Market", "objectives": "Functions of the capital market and primary/secondary markets." },
+            { "week": "Week 10", "topic": "Introduction to Business Law", "objectives": "Law of agency, sales of goods act." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Credit", "objectives": "Meaning, bases of credit, and credit instruments." },
+            { "week": "Week 2", "topic": "Consumer Credit", "objectives": "Hire purchase, deferred payment, and credit cards." },
+            { "week": "Week 3", "topic": "Profit", "objectives": "Gross profit, net profit, mark-up, and margin." },
+            { "week": "Week 4", "topic": "Turnover", "objectives": "Meaning, factors affecting turnover, and rate of turnover." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Business Environment", "objectives": "Internal and external factors affecting business." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Computer in Business", "objectives": "Application of computers in modern commerce." },
+            { "week": "Week 9", "topic": "Revision: Home and Foreign Trade", "objectives": "Consolidation of SS1 and SS2 trade concepts." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Past questions on Business Units and Trade." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Past questions on Commercial Services (Banking, Insurance)." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Past questions on Management and Law." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Financial Accounting",
+      "icon": "fa-calculator",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Company Accounts: Issue of Shares", "objectives": "Issue at par, premium, and discount; calls in arrears/advance." },
+            { "week": "Week 2", "topic": "Company Accounts: Capital Structure", "objectives": "Bonus issues, rights issues, and accounting treatments." },
+            { "week": "Week 3", "topic": "Final Accounts of Companies II", "objectives": "Adjustments, provisions for tax, and dividends." },
+            { "week": "Week 4", "topic": "Interpretation of Accounts", "objectives": "Profitability ratios, liquidity ratios, and investment ratios." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Public Sector Accounting", "objectives": "Sources of government revenue, capital, and recurrent expenditure." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Consignment Accounts Revision", "objectives": "Invoicing at cost and selling price." },
+            { "week": "Week 9", "topic": "Joint Venture Revision", "objectives": "Memorandum joint venture accounts." },
+            { "week": "Week 10", "topic": "Branch Accounts Revision", "objectives": "Preparation of branch and head office accounts." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Suspense Accounts", "objectives": "Correction of errors and preparation of suspense accounts." },
+            { "week": "Week 2", "topic": "Bank Reconciliation", "objectives": "Adjusted cash book and reconciliation statements." },
+            { "week": "Week 3", "topic": "Depreciation Revision", "objectives": "Advanced problems on disposal of assets." },
+            { "week": "Week 4", "topic": "Incomplete Records Revision", "objectives": "Conversion to double entry." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Partnership Accounts Revision", "objectives": "Dissolution and piecemeal realization." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Non-Profit Organizations Revision", "objectives": "Complex adjustments for clubs and societies." },
+            { "week": "Week 9", "topic": "Manufacturing Accounts Revision", "objectives": "Transfer pricing and unrealized profit." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Objective test techniques and principles." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Theory and computational past questions (Part 1)." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Theory and computational past questions (Part 2)." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Christian Religious Studies",
+      "icon": "fa-cross",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Fellowship in the Early Church", "objectives": "Communal living, Peter's speech on Pentecost." },
+            { "week": "Week 2", "topic": "Opposition to the Gospel", "objectives": "Arrest of Peter and John, death of Stephen." },
+            { "week": "Week 3", "topic": "Mission to the Gentiles", "objectives": "Peter's vision and the conversion of Cornelius." },
+            { "week": "Week 4", "topic": "The Council of Jerusalem", "objectives": "Conflict over circumcision and the resolution." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Paul's Teachings on Love", "objectives": "1 Corinthians 13: the supremacy of love." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Justification by Faith", "objectives": "Paul's letters to the Romans and Galatians." },
+            { "week": "Week 9", "topic": "Spiritual Gifts", "objectives": "Types of gifts, their purpose, and unity in the Church." },
+            { "week": "Week 10", "topic": "Forgiveness", "objectives": "Paul's teaching in Philemon." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Civic Responsibilities", "objectives": "Obedience to lawful authority and payment of taxes." },
+            { "week": "Week 2", "topic": "Dignity of Labor", "objectives": "Paul's teaching on work in Thessalonians." },
+            { "week": "Week 3", "topic": "Family Relationships", "objectives": "Duties of husbands, wives, and children (Colossians/Ephesians)." },
+            { "week": "Week 4", "topic": "The Second Coming", "objectives": "Signs of the end times and preparation." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Christian Persecution", "objectives": "Peter's message to suffering Christians." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Faith and Works", "objectives": "James' teachings on practical Christianity." },
+            { "week": "Week 9", "topic": "Impartiality", "objectives": "Treating all people equally regardless of status." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Review of Old Testament themes (SS1/SS2)." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Review of the Synoptic Gospels." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Review of Acts and the Epistles." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Islamic Religious Studies",
+      "icon": "fa-mosque",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Study of Selected Surahs", "objectives": "Translation, commentary, and lessons from Surah Al-Hujurat." },
+            { "week": "Week 2", "topic": "Study of Selected Hadith", "objectives": "Hadith on intention, brotherhood, and morality." },
+            { "week": "Week 3", "topic": "Marriage in Islam (Nikah)", "objectives": "Conditions, importance, and rights of spouses." },
+            { "week": "Week 4", "topic": "Divorce (Talaq)", "objectives": "Types of divorce, Iddah (waiting period), and reconciliation." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Inheritance (Mirath)", "objectives": "Basic principles and heirs in Islamic law." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Islamic Civilization", "objectives": "Contributions of early Muslims to science and medicine." },
+            { "week": "Week 9", "topic": "Islam in West Africa", "objectives": "Impact of Islam on culture and education in West Africa." },
+            { "week": "Week 10", "topic": "The Role of Women in Islam", "objectives": "Rights, education, and contributions of women." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Sufism (Tariqah)", "objectives": "Origin, beliefs, and major orders (Qadiriyyah, Tijaniyyah)." },
+            { "week": "Week 2", "topic": "Islamic Political System", "objectives": "Concept of Shura (consultation) and leadership." },
+            { "week": "Week 3", "topic": "Umayyad and Abbasid Caliphates", "objectives": "Historical overview and achievements." },
+            { "week": "Week 4", "topic": "Moral Decadence in Society", "objectives": "Islamic approach to solving drug abuse, cultism, and corruption." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Islamic Economic System Revision", "objectives": "Halal businesses and poverty alleviation." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Articles of Faith Revision", "objectives": "In-depth review of Iman." },
+            { "week": "Week 9", "topic": "Pillars of Islam Revision", "objectives": "Review of Salat, Zakat, Sawm, and Hajj." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and feedback." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Quran and Hadith studies." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Fiqh (Jurisprudence) and Islamic History." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Moral/Social teachings and contemporary issues." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "French",
+      "icon": "fa-language",
+      "terms": [
+        {
+          "termName": "First Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Grammar Revision: Tenses", "objectives": "Consolidation of Present, Past, Future, and Imperfect." },
+            { "week": "Week 2", "topic": "Le Subjonctif", "objectives": "Advanced usage of the subjunctive mood in expressions of doubt/will." },
+            { "week": "Week 3", "topic": "La Technologie", "objectives": "Vocabulary related to computing, internet, and AI." },
+            { "week": "Week 4", "topic": "Les ProblÃ¨mes de SociÃ©tÃ©", "objectives": "Discussing unemployment, poverty, and crime." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "Discours Direct et Indirect", "objectives": "Reported speech formation and rules." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Lâ€™art et la Culture", "objectives": "Cinema, music, literature, and festivals." },
+            { "week": "Week 9", "topic": "Expression Ã‰crite", "objectives": "Argumentative essays and formal letter writing." },
+            { "week": "Week 10", "topic": "ComprÃ©hension Orale et Ã‰crite", "objectives": "Advanced reading texts and listening exercises." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          "termName": "Second Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Francophone Africa", "objectives": "History, geography, and literature of Francophone nations." },
+            { "week": "Week 2", "topic": "La Traduction", "objectives": "Techniques for translating passages from French to English and vice versa." },
+            { "week": "Week 3", "topic": "Les Pronoms Relatifs", "objectives": "Mastery of qui, que, dont, oÃ¹, and compound relatives." },
+            { "week": "Week 4", "topic": "PrÃ©paration Ã  l'Oral", "objectives": "Role-plays, debates, and picture description." },
+            { "week": "Week 5", "topic": "Midterm Examination", "objectives": "Assessment covering Weeks 1-4." },
+            { "week": "Week 6", "topic": "La Francophonie", "objectives": "The organization, its goals, and global presence." },
+            { "week": "Week 7", "topic": "Midterm Break", "objectives": "National mid-term academic rest cycle." },
+            { "week": "Week 8", "topic": "Writing Skills Revision", "objectives": "Summarizing texts and creative writing." },
+            { "week": "Week 9", "topic": "Grammar Revision", "objectives": "Adjectives, adverbs, and prepositions." },
+            { "week": "Week 10", "topic": "Mock Examination Preparation", "objectives": "Comprehensive review of SS1 to SS3 topics." },
+            { "week": "Week 11-13", "topic": "Revision & Examinations", "objectives": "Mock Examinations and oral tests." }
+          ]
+        },
+        {
+          "termName": "Third Term",
+          "weeks": [
+            { "week": "Week 1", "topic": "Intensive WASSCE Revision I", "objectives": "Essay writing and comprehension passages." },
+            { "week": "Week 2", "topic": "Intensive WASSCE Revision II", "objectives": "Grammar, translation, and vocabulary." },
+            { "week": "Week 3", "topic": "Intensive WASSCE Revision III", "objectives": "Oral examination practice (Listening and Speaking)." },
+            { "week": "Week 4-13", "topic": "WASSCE / NECO Examinations", "objectives": "Final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    }
+  ],
+
+// =========================================================================
+  // SENIOR SECONDARY SCHOOL YEAR 3 (SS 3) CURRICULUM DATA INDEX
+  // =========================================================================
+  sss3: [
+    // -----------------------------------------------------------------
+    // SUBJECT 1: ENGLISH LANGUAGE (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "English Language",
+      icon: "fa-book-open",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Speech: Consonant Clusters", objectives: "Practicing complex consonant sounds in sentences; rising and falling tones." },
+            { week: "Week 2", topic: "Vocabulary: Culture & Institutions", objectives: "Words associated with cultural ceremonies, development, and traditional institutions." },
+            { week: "Week 3", topic: "Comprehension & Summary", objectives: "Extracting salient points; phrasing main ideas into concise, correct sentences." },
+            { week: "Week 4", topic: "Grammar: Noun Phrases", objectives: "Functions of noun phrases as subjects and objects in complex sentences." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Continuous Writing: Expository", objectives: "Writing expository compositions reflecting current global and national issues." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Speech: Intonation Patterns", objectives: "More practice with intonation using WH-questions and polar questions." },
+            { week: "Week 9", topic: "Grammar: Adjectival & Adverbial Clauses", objectives: "Identifying and using dependent clauses accurately." },
+            { week: "Week 10", topic: "Letter Writing: Formal", objectives: "Writing letters of complaint, application, and requests to authorities." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Speech: Contrastive Stress", objectives: "Using emphatic stress to convey specific meanings in dialogue." },
+            { week: "Week 2", topic: "Grammar: Lexis and Structure", objectives: "Intensive WAEC/JAMB lexis and structure drills; synonyms and antonyms." },
+            { week: "Week 3", topic: "Continuous Writing: Argumentative", objectives: "Debate writing; structuring arguments and acknowledging counterclaims." },
+            { week: "Week 4", topic: "Comprehension: Inferential Reading", objectives: "Reading between the lines; understanding author's mood, tone, and purpose." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Grammar: Concord (Subject-Verb Agreement)", objectives: "Rules of proximity, rules of majority, and complex subject-verb relations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Speech Writing", objectives: "Format of a formal speech/address for school or public functions." },
+            { week: "Week 9", topic: "Summary Writing Techniques", objectives: "Practicing WAEC standard summary passages; avoiding preamble and examples." },
+            { week: "Week 10", topic: "WAEC/JAMB Preparatory Drills", objectives: "Answering past questions on test of orals and essay writing." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Test of Orals, Lexis, and Structure past question breakdown." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Essay writing, Comprehension, and Summary review." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Final examination techniques and time management." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 2: GENERAL MATHEMATICS (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "General Mathematics",
+      icon: "fa-calculator",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Matrices and Determinants", objectives: "Addition, subtraction, multiplication of matrices; determinants of 2x2 and 3x3 matrices." },
+            { week: "Week 2", topic: "Inverse of Matrices", objectives: "Finding the inverse of 2x2 matrices; solving simultaneous equations using matrices." },
+            { week: "Week 3", topic: "Arithmetic & Geometric Progressions", objectives: "Revision of AP and GP; advanced problem solving and real-life applications." },
+            { week: "Week 4", topic: "Surds", objectives: "Conjugate of surds, rationalization, and solving equations involving surds." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Commercial Mathematics I", objectives: "Simple and compound interest, depreciation, and inflation calculations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Commercial Mathematics II", objectives: "Shares, dividends, bonds, and taxation (Income tax and VAT)." },
+            { week: "Week 9", topic: "Longitude and Latitude I", objectives: "Identifying lines of longitude/latitude; calculating distances along great circles." },
+            { week: "Week 10", topic: "Longitude and Latitude II", objectives: "Calculating distances along small circles; speed and time differences." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Coordinate Geometry", objectives: "Equation of a line, gradient, distance between points, parallel and perpendicular lines." },
+            { week: "Week 2", topic: "Calculus: Differentiation", objectives: "Concept of limits, differentiation from first principles, power rule." },
+            { week: "Week 3", topic: "Applications of Differentiation", objectives: "Rates of change, finding maximum and minimum points on a curve." },
+            { week: "Week 4", topic: "Calculus: Integration", objectives: "Integration as reverse of differentiation; indefinite and definite integrals." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Applications of Integration", objectives: "Calculating the area under a curve using definite integrals." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Circle Geometry (Revision)", objectives: "Comprehensive review of circle theorems, chords, tangents, and cyclic quadrilaterals." },
+            { week: "Week 9", topic: "Trigonometry (Revision)", objectives: "Sine and cosine rules, elevation, depression, and bearing." },
+            { week: "Week 10", topic: "WAEC/JAMB Preparatory Drills", objectives: "Solving complex multi-topic WAEC theory questions." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Algebra, Number Bases, and Commercial Math past questions." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Geometry, Trigonometry, and Calculus past questions." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Statistics, Probability, and graph-reading techniques." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 3: DIGITAL TECHNOLOGIES (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Digital Technologies",
+      icon: "fa-laptop-code",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Revision of SS2 Work", objectives: "Recap of programming, web development, and networking concepts." },
+            { week: "Week 2", topic: "Computer Security (Advanced)", objectives: "Encryption, firewalls, intrusion detection, and digital signatures." },
+            { week: "Week 3", topic: "System Development Life Cycle (SDLC)", objectives: "Analysis, design, implementation, testing, and evaluation." },
+            { week: "Week 4", topic: "Software Engineering Principles", objectives: "Agile, Waterfall methodologies, and project documentation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Database Advanced Concepts", objectives: "Normalization (1NF, 2NF, 3NF), advanced SQL (JOIN, GROUP BY)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Web Programming (Advanced)", objectives: "Responsive design, interactivity (JS DOM), and web hosting." },
+            { week: "Week 9", topic: "Python (Object-Oriented Programming)", objectives: "Classes, objects, methods, and inheritance in Python." },
+            { week: "Week 10", topic: "ICT in National Security & Business", objectives: "Digital surveillance, cybercrime prevention, FinTech, e-commerce." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Emerging Tech: Blockchain & FinTech", objectives: "Cryptocurrency mechanisms, e-payment gateways, smart contracts." },
+            { week: "Week 2", topic: "Mobile App Development (Advanced)", objectives: "Integration with databases, APIs, and publishing apps to stores." },
+            { week: "Week 3", topic: "Artificial Intelligence (Machine Learning Intro)", objectives: "Data training, supervised vs unsupervised learning." },
+            { week: "Week 4", topic: "Data Analytics Tools", objectives: "Using Excel, Python (pandas), or Power BI for data interpretation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "ICT Policy and Governance", objectives: "ICT policies in Nigeria, roles of NITDA and NCC." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Digital Transformation & Entrepreneurship", objectives: "E-government, smart cities; writing business plans for ICT startups." },
+            { week: "Week 9", topic: "Capstone Project (Full Stack)", objectives: "Students create functional websites or apps for real-world issues." },
+            { week: "Week 10", topic: "Project Defense & WAEC Prep", objectives: "Presenting projects and reviewing WAEC practical past questions." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WAEC/NECO Revision I", objectives: "Solving WAEC/NECO ICT objective and theory past papers." },
+            { week: "Week 2", "topic": "Intensive WAEC/NECO Revision II", objectives: "Hands-on practice with spreadsheets, databases, and word processing tasks." },
+            { week: "Week 3", "topic": "Intensive WAEC/NECO Revision III", objectives: "Review of programming, flowcharts, and HTML WAEC standards." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 4: SOLAR PV INSTALLATION & MAINTENANCE (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Solar PV Installation & Maintenance",
+      icon: "fa-solar-panel",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Revision of SS1-SS2 Work", objectives: "Recap of PV components, sizing, and basic installation." },
+            { week: "Week 2", topic: "Routine Maintenance of Solar PV Systems", objectives: "Cleaning panels, checking connections, and battery terminal care." },
+            { week: "Week 3", topic: "Troubleshooting I", objectives: "Identifying common faults (low voltage, rapid battery drain)." },
+            { week: "Week 4", topic: "Troubleshooting II", objectives: "Using multimeters and clamp meters for fault diagnosis." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Replacing Faulty Components", objectives: "Safe removal and replacement of inverters, charge controllers, or panels." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Advanced System Design Project", objectives: "Designing a comprehensive solar system for a rural health clinic or school." },
+            { week: "Week 9", topic: "Project Presentation", objectives: "Presentation of student designs and electrical schematics." },
+            { week: "Week 10", topic: "Health and Safety (HSE)", objectives: "Advanced HSE standards in roof mounting and electrical wiring." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Costing of Solar PV Installations", objectives: "Calculating components, labor, logistics, and overhead costs." },
+            { week: "Week 2", topic: "Pricing Strategies & Quotations", objectives: "Drafting professional quotations and business proposals for clients." },
+            { week: "Week 3", topic: "Record Keeping & Customer Service", objectives: "Maintaining warranties, service logs, and handling client complaints." },
+            { week: "Week 4", topic: "Marketing Solar Products in Nigeria", objectives: "Strategies for selling solar solutions to residential and commercial users." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Funding Opportunities", objectives: "Accessing grants, loans, cooperatives, and government incentives." },
+            { week: "Week 7", "topic": "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Practical Quotation Project", objectives: "Prepare a complete business quotation for a 5kVA solar installation." },
+            { week: "Week 9", topic: "Business Strategy Exhibition", objectives: "Mini-exhibition: Students showcase solar PV business startup ideas." },
+            { week: "Week 10", topic: "WAEC Trade Subject Practical Prep", objectives: "Reviewing WAEC electrical/solar practical requirements." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WAEC/NECO Revision I", objectives: "Mock WAEC/NECO solar PV practicals (wiring, connection, testing)." },
+            { week: "Week 2", "topic": "Intensive WAEC/NECO Revision II", objectives: "Global career opportunities and future trends (bifacial panels, flexible PVs)." },
+            { week: "Week 3", "topic": "Intensive WAEC/NECO Revision III", objectives: "Theory past question drills and final troubleshooting labs." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 5: BIOLOGY (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Biology",
+      icon: "fa-dna",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Nervous Coordination (Revision)", objectives: "Central and peripheral nervous system, reflex arcs, conditional reflexes." },
+            { week: "Week 2", topic: "Sense Organs", objectives: "Structure and functions of the eye and ear; defects and corrections." },
+            { week: "Week 3", topic: "Reproductive System in Plants", objectives: "Structure of flowers, pollination, fertilization, and fruit formation." },
+            { week: "Week 4", topic: "Reproductive System in Humans", objectives: "Male/female anatomy, fertilization, gestation, and birth." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Heredity and Genetics I", objectives: "Basic terms (genes, alleles, genotype); Mendel's First Law." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Heredity and Genetics II", objectives: "Mendel's Second Law, sex determination, sex-linked traits (color blindness)." },
+            { week: "Week 9", topic: "Chromosomes and DNA", objectives: "Structure of DNA, replication, and the role of chromosomes in inheritance." },
+            { week: "Week 10", topic: "Variation in Population", objectives: "Morphological and physiological variations; blood groups and fingerprints." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Evolution", objectives: "Theories of evolution (Lamarck, Darwin); evidence of evolution (fossils, comparative anatomy)." },
+            { week: "Week 2", topic: "Adaptation", objectives: "Structural, physiological, and behavioral adaptations of organisms to their environments." },
+            { week: "Week 3", topic: "Ecological Succession", objectives: "Primary and secondary succession; climax community." },
+            { week: "Week 4", topic: "Overcrowding and Population", objectives: "Causes and effects of overcrowding; factors affecting population sizes." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Food Shortage", objectives: "Causes of food shortage, effects on population, and agricultural solutions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Conservation of Natural Resources", objectives: "Importance of preserving water, soil, wildlife, and forests; agencies involved." },
+            { week: "Week 9", topic: "Biology Practical Prep I", objectives: "Drawing and labeling biological specimens, magnification calculations." },
+            { week: "Week 10", topic: "Biology Practical Prep II", objectives: "Food tests, identifying bones of the mammalian skeleton, ecological instruments." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Theory past questions on physiology, anatomy, and genetics." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Theory past questions on ecology, evolution, and plant biology." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Final practical specimen review and labeling standards." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 6: CHEMISTRY (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Chemistry",
+      icon: "fa-flask",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Quantitative Analysis (Volumetric)", objectives: "Acid-base titrations, calculation of molarity, mass concentration, and water of crystallization." },
+            { week: "Week 2", topic: "Qualitative Analysis", objectives: "Test for cations (flame tests, NaOH, NH3 drops) and anions." },
+            { week: "Week 3", topic: "Petroleum and Alternative Energy", objectives: "Refining of crude oil, knocking, octane number, and alternative fuels." },
+            { week: "Week 4", topic: "Fats and Oils", objectives: "Sources, physical/chemical properties, saponification (soap making)." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Soaps and Detergents", objectives: "Preparation, cleansing action, differences, and environmental impact (eutrophication)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Giant Molecules (Polymers)", objectives: "Addition and condensation polymerization; natural (starch, proteins) and synthetic polymers." },
+            { week: "Week 9", topic: "Carbohydrates", objectives: "Classification (mono-, di-, polysaccharides), properties, and tests for sugars." },
+            { week: "Week 10", topic: "Proteins", objectives: "Structure, amino acids, peptide bonds, and properties." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Metals and their Compounds I", objectives: "General properties of metals; Extraction, properties, and uses of Iron." },
+            { week: "Week 2", topic: "Metals and their Compounds II", objectives: "Extraction, properties, and uses of Aluminium and Copper; Alloys." },
+            { week: "Week 3", topic: "Non-Metals: Sulphur", objectives: "Allotropes, extraction (Frasch process), compounds (SO2, H2SO4), and uses." },
+            { week: "Week 4", topic: "Non-Metals: Nitrogen", objectives: "Preparation, properties, Ammonia (Haber process), Trioxonitrate(V) acid." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Non-Metals: Halogens", objectives: "Chlorine preparation, properties, and uses; hydrogen chloride." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Radioactivity (Revision)", objectives: "Alpha, beta, gamma rays; half-life calculations, nuclear fission/fusion." },
+            { week: "Week 9", topic: "Chemistry Practical Prep I", objectives: "Titration drills, accuracy, and concordant values." },
+            { week: "Week 10", topic: "Chemistry Practical Prep II", objectives: "Identifying unknown salts; writing balanced ionic equations for qualitative tests." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Physical Chemistry past questions (Gas laws, Stoichiometry, Electrolysis)." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Organic Chemistry and IUPAC nomenclature review." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Inorganic Chemistry and final practical test drills." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 7: PHYSICS (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Physics",
+      icon: "fa-atom",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Electromagnetic Induction", objectives: "Faradayâ€™s laws, Lenzâ€™s law, induction coil, and mutual/self induction." },
+            { week: "Week 2", topic: "Transformers & Generators", objectives: "Step-up/step-down transformers, AC and DC generators, power transmission." },
+            { week: "Week 3", topic: "Alternating Current (A.C.) Circuits I", objectives: "Peak and RMS values, resistance, and capacitance in A.C. circuits." },
+            { week: "Week 4", topic: "Alternating Current (A.C.) Circuits II", objectives: "Inductance, series RLC circuits, impedance, and resonance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Models of the Atom", objectives: "Thomson, Rutherford, and Bohr models; atomic spectra and energy levels." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Energy Quantization", objectives: "Planckâ€™s constant, photons, and thermionic emission." },
+            { week: "Week 9", topic: "Photoelectric Effect", objectives: "Einsteinâ€™s equation, threshold frequency, work function, and applications." },
+            { week: "Week 10", topic: "X-Rays", objectives: "Production, properties, types (hard and soft), and applications." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Radioactivity I", objectives: "Natural radioactivity, properties of alpha, beta, and gamma emissions." },
+            { week: "Week 2", topic: "Radioactivity II", objectives: "Decay law, half-life calculations, artificial radioactivity, and isotopes." },
+            { week: "Week 3", topic: "Nuclear Energy", objectives: "Nuclear fission, nuclear fusion, binding energy, and mass defect." },
+            { week: "Week 4", topic: "Conduction of Electricity Through Gases", objectives: "Cathode rays, discharge tubes, J.J. Thomsonâ€™s experiment." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Semiconductors and Diodes", objectives: "P-type and N-type materials, doping, P-N junction diodes, and rectification." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Physics Practical Prep I", objectives: "Mechanics and Waves experiments; plotting graphs, slope, and intercept." },
+            { week: "Week 9", topic: "Physics Practical Prep II", objectives: "Electricity and Optics experiments; handling errors and precautions." },
+            { week: "Week 10", topic: "WAEC Theory Mechanics Revision", objectives: "Projectiles, circular motion, SHM, and equilibrium of forces." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Electricity, Magnetism, and modern physics theory past questions." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Heat, Light, and Sound theory past questions." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Final practical mock and examination strategy." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 8: CIVIC EDUCATION (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Civic Education",
+      icon: "fa-landmark",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Characteristics of Human Rights", objectives: "Universality, inalienability, and indivisibility of human rights." },
+            { week: "Week 2", topic: "Dangers of Political Apathy", objectives: "Effects of voter apathy on development, democracy, and governance." },
+            { week: "Week 3", topic: "Fighting Political Apathy", objectives: "Ways to encourage popular participation in elections and governance." },
+            { week: "Week 4", topic: "Public Service in a Democracy", objectives: "Meaning, functions, and characteristics of the public service." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Shortcomings of the Public Service", objectives: "Red tape, corruption, inefficiency, and ways to improve it (CCB, SERVICOM)." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Civil Society", objectives: "Meaning, examples (NLC, ASUU, NBA), and functions in a democracy." },
+            { week: "Week 9", topic: "Popular Participation", objectives: "Reasons people do not participate in politics and how to promote it." },
+            { week: "Week 10", topic: "Democracy and National Development", objectives: "How democratic practices promote rule of law and national development." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Constitutional Democracy", objectives: "Meaning, features, and advantages of constitutional democracy." },
+            { week: "Week 2", topic: "Rule of Law vs Arbitrary Rule", objectives: "Supremacy of the law, equality before the law, and safeguarding rights." },
+            { week: "Week 3", topic: "Dangers of Cultism", objectives: "Causes, consequences on the individual and society, preventive measures." },
+            { week: "Week 4", topic: "Drug Abuse (Revision)", objectives: "Recap of consequences, NDLEA activities, and rehabilitation." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Human Trafficking (Revision)", objectives: "Causes, effects, roles of NAPTIP, and preventive strategies." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "National Values & Ethics", objectives: "Honesty, discipline, courage, and integrity in nation building." },
+            { week: "Week 9", topic: "WAEC/JAMB Objective Drills", objectives: "Solving past objective questions on civic duties and governance." },
+            { week: "Week 10", topic: "WAEC Essay Drills", objectives: "Techniques for answering theory questions on human rights and democracy." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Review of SS1 Topics (Values, Citizenship, HIV/AIDS)." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Review of SS2 Topics (Capitalist Democracy, Traffic Regs, Interpersonal relations)." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Review of SS3 Topics and final mock assessments." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    // -----------------------------------------------------------------
+    // SUBJECT 9: ECONOMICS (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Economics",
+      icon: "fa-chart-line",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "National Income Concepts", objectives: "GDP, GNP, NNP, NI; methods of measuring national income." },
+            { week: "Week 2", topic: "Public Finance", objectives: "Government expenditure, taxation types, incidence of tax." },
+            { week: "Week 3", topic: "Inflation and Deflation", objectives: "Causes, types, effects, and control of inflation." },
+            { week: "Week 4", topic: "Financial Institutions I", objectives: "Central Bank: functions and tools of monetary control." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Financial Institutions II", objectives: "Commercial banks, merchant banks, and microfinance banks." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Economic Growth and Development", objectives: "Indicators, differences, and challenges of development in Nigeria." },
+            { week: "Week 9", topic: "Money Market and Capital Market", objectives: "Instruments, stock exchange, and importance to the economy." },
+            { week: "Week 10", topic: "Population and Labour", objectives: "Theories of population, population density, and labor force participation." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "International Trade I", objectives: "Terms of trade, balance of trade, balance of payments." },
+            { week: "Week 2", topic: "International Trade II", objectives: "Protectionism, tariffs, quotas, and exchange rates." },
+            { week: "Week 3", topic: "Economic Integration", objectives: "ECOWAS, OPEC, WTO; benefits and challenges of integration." },
+            { week: "Week 4", topic: "Economic Development Planning", objectives: "Types of plans, problems of planning in developing countries." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Development Agencies", objectives: "Roles of IMF, World Bank, and African Development Bank." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "WAEC Objective Drills", objectives: "Solving past objective questions on theory of demand/supply and market structure." },
+            { week: "Week 9", topic: "WAEC Theory Drills", objectives: "Solving past theory questions on national income and international trade." },
+            { week: "Week 10", topic: "Final Exam Strategy", objectives: "Answering data response and graphical analysis questions." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Micro-economic concepts, demand, supply, and elasticities." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Macro-economic concepts, national income, and public finance." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "International trade, economic integration, and development planning." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 10: FURTHER MATHEMATICS (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Further Mathematics",
+      icon: "fa-infinity",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Dynamics: Newtonâ€™s Laws", objectives: "Motion in a straight line, projectile motion, and forces in equilibrium." },
+            { week: "Week 2", topic: "Vectors in Three Dimensions", objectives: "Dot product, cross product, and application to geometry." },
+            { week: "Week 3", topic: "Differentiation of Trig Functions", objectives: "Derivatives of sin x, cos x, and tan x; chain and product rules." },
+            { week: "Week 4", topic: "Applications of Differentiation", objectives: "Tangents, normals, rates of change, and optimization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Integration of Trig Functions", objectives: "Indefinite and definite integration of basic trigonometric functions." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Areas and Volumes", objectives: "Using integration to find area under curves and volume of revolution." },
+            { week: "Week 9", topic: "Statistics I", objectives: "Mean, median, mode of grouped data, standard deviation, and variance." },
+            { week: "Week 10", topic: "Statistics II", objectives: "Probability distributions, binomial and Poisson distributions." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Mechanics: Work, Energy, Power", objectives: "Kinetic and potential energy, conservation of energy, work done." },
+            { week: "Week 2", topic: "Circular Motion", objectives: "Angular velocity, centripetal force, and banking of roads." },
+            { week: "Week 3", topic: "Differential Equations", objectives: "Solving first-order separable differential equations." },
+            { week: "Week 4", topic: "Numerical Methods", objectives: "Approximate roots of equations, Simpson's rule." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Coordinate Geometry (Conics)", objectives: "Parabola, ellipse, and hyperbola equations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Partial Fractions", objectives: "Decomposition into partial fractions and integration application." },
+            { week: "Week 9", topic: "WAEC Theory Revision I", objectives: "Complex numbers, polynomials, and roots of equations." },
+            { week: "Week 10", topic: "WAEC Theory Revision II", objectives: "Dynamics, statics, and trigonometry past questions." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Algebra and Pure Mathematics past papers." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Vectors, Mechanics, and Statistics past papers." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Calculus and final examination strategies." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 11: AGRICULTURAL SCIENCE (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Agricultural Science",
+      icon: "fa-leaf",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Agricultural Economics", objectives: "Farm management, record keeping, and agricultural finance." },
+            { week: "Week 2", topic: "Agricultural Extension", objectives: "Methods of extension, role of extension agents in Nigeria." },
+            { week: "Week 3", topic: "Animal Health and Management", objectives: "Causes of diseases, parasites, and control measures." },
+            { week: "Week 4", topic: "Crop Improvement", objectives: "Principles of genetics in agriculture, hybridization, selection." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Pasture and Forage Management", objectives: "Types of pasture, establishment, and utilization." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Ornamental Plants", objectives: "Floriculture, maintenance of lawns, and landscaping." },
+            { week: "Week 9", topic: "Forestry", objectives: "Importance of forests, forest management, and conservation." },
+            { week: "Week 10", topic: "Wildlife Conservation", objectives: "Wildlife management, game reserves, and national parks." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Soil Management (Advanced)", objectives: "Soil fertility, conservation, and erosion control." },
+            { week: "Week 2", topic: "Fishery Management", objectives: "Aquaculture, fish farming systems, and processing." },
+            { week: "Week 3", topic: "Agricultural Laws and Reforms", objectives: "Land tenure systems, government policies (e.g., Operation Feed the Nation)." },
+            { week: "Week 4", topic: "Farm Power and Machinery", objectives: "Tractors, tillage equipment, and maintenance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Marketing of Agricultural Produce", objectives: "Channels of distribution, storage, and processing." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Agro-Allied Industries", objectives: "Processing raw materials into finished goods." },
+            { week: "Week 9", topic: "WAEC Practical Preparation I", objectives: "Specimen identification, soil samples, and tools." },
+            { week: "Week 10", topic: "WAEC Theory Revision", objectives: "Crop production, animal science, and agricultural economics." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Crop and Soil Science past questions." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Animal production and health past questions." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Economics and practical specimen review." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 12: LITERATURE-IN-ENGLISH (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Literature-in-English",
+      icon: "fa-feather-alt",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Analysis of African Prose", objectives: "Characterization, themes, and stylistic devices in the set African novel." },
+            { week: "Week 2", topic: "Analysis of Non-African Prose", objectives: "Comparative analysis of themes in the set non-African novel." },
+            { week: "Week 3", topic: "African Drama", objectives: "Conflict, plot development, and stage craft in set African play." },
+            { week: "Week 4", topic: "Non-African Drama", objectives: "Symbolism and dramatic devices in set non-African play." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "African Poetry I", objectives: "Analysis of African poems; tone, imagery, and poetic devices." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "African Poetry II", objectives: "Thematic comparison across different African poets." },
+            { week: "Week 9", topic: "Non-African Poetry", objectives: "Analysis of set non-African poems; appreciation and critique." },
+            { week: "Week 10", topic: "Literary Terms", objectives: "Review of figures of speech, verse forms, and narrative techniques." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Unseen Prose", objectives: "Skills for answering questions on unseen prose passages." },
+            { week: "Week 2", topic: "Unseen Poetry", objectives: "Techniques for appreciating and interpreting unknown poems." },
+            { week: "Week 3", topic: "Synthesis of Set Books", objectives: "Connecting themes across all three genres (Prose, Drama, Poetry)." },
+            { week: "Week 4", topic: "Essay Writing in Literature", objectives: "Structuring critical essays; thesis statements, evidence, and conclusion." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Character Analysis Workshops", objectives: "Deep dives into major characters of set texts." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "WAEC Past Questions: Theory", objectives: "Drafting responses to typical WAEC/NECO essay questions." },
+            { week: "Week 9", topic: "Objective Question Drills", objectives: "Literary theory and history of literature objective tests." },
+            { week: "Week 10", topic: "Examinerâ€™s Expectations", objectives: "Reviewing marking schemes and common pitfalls in literature exams." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Deep review of African texts." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Deep review of Non-African texts." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Poetry and unseen passage practice." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 13: FINANCIAL ACCOUNTING (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Financial Accounting",
+      icon: "fa-file-invoice-dollar",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Company Accounts I", objectives: "Issue of shares, types of shares, and share capital." },
+            { week: "Week 2", topic: "Company Accounts II", objectives: "Debentures, preparation of profit and loss appropriation accounts." },
+            { week: "Week 3", topic: "Partnership Accounts", objectives: "Dissolution of partnership, admission of new partners." },
+            { week: "Week 4", topic: "Manufacturing Accounts", objectives: "Costing of goods, prime cost, factory overheads, and production account." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Departmental Accounts", objectives: "Allocation of expenses and preparation of departmental trading accounts." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Branch Accounts", objectives: "Head office and branch relationship; accounting for branch transactions." },
+            { week: "Week 9", topic: "Accounting for Non-Profit Org.", objectives: "Receipts and payments account, income and expenditure account." },
+            { week: "Week 10", topic: "Public Sector Accounting", objectives: "Government accounting concepts and budgetary processes." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Control Accounts", objectives: "Sales and purchases ledger control accounts." },
+            { week: "Week 2", topic: "Correction of Errors", objectives: "Suspense accounts, journal entries, and errors not affecting the trial balance." },
+            { week: "Week 3", topic: "Incomplete Records", objectives: "Deriving profit from incomplete information; single entry systems." },
+            { week: "Week 4", topic: "Investment Accounts", objectives: "Accounting for stocks, shares, and bonds." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Valuation of Assets", objectives: "Methods of depreciation and stock valuation." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Interpretation of Financial Statements", objectives: "Ratio analysis (Liquidity, profitability, efficiency)." },
+            { week: "Week 9", topic: "WAEC Theory Practice", objectives: "Comprehensive past question drills on final accounts." },
+            { week: "Week 10", topic: "WAEC Objective Practice", objectives: "Speed drills for theory and computation objective questions." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Financial reporting and company accounts." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Partnership, branch, and manufacturing accounts." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Cost accounting and final ratio analysis." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+    // -----------------------------------------------------------------
+    // SUBJECT 14: GOVERNMENT (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Government",
+      icon: "fa-gavel",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Constitution", objectives: "Types, features, and importance of constitutions." },
+            { week: "Week 2", topic: "Democracy", objectives: "Types, features, and democratic processes." },
+            { week: "Week 3", topic: "Political Parties", objectives: "Functions, types, and the party system in Nigeria." },
+            { week: "Week 4", topic: "Electoral Commission (INEC)", objectives: "Roles, duties, and challenges of INEC in Nigeria." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Pressure Groups", objectives: "Functions, methods, and impact on government." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Public Opinion", objectives: "Formation, expression, and importance in democracy." },
+            { week: "Week 9", topic: "Capitalism and Socialism", objectives: "Features, merits, and demerits of these ideologies." },
+            { week: "Week 10", topic: "Fascism and Communalism", objectives: "Defining features and historical significance." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Public Administration", objectives: "Meaning, structure, and functions." },
+            { week: "Week 2", topic: "Civil Service", objectives: "Structure, functions, and the role of the Civil Service Commission." },
+            { week: "Week 3", topic: "Foreign Policy", objectives: "Determinants and objectives of Nigeria's foreign policy." },
+            { week: "Week 4", topic: "International Organizations I", objectives: "The United Nations (UN) and its specialized agencies." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "International Organizations II", objectives: "AU, ECOWAS, and the Commonwealth of Nations." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Political Heritage of Nigeria", objectives: "Pre-colonial, colonial, and post-colonial governance." },
+            { week: "Week 9", topic: "WAEC Theory Drills", objectives: "Past question analysis on rights, democracy, and foreign policy." },
+            { week: "Week 10", topic: "WAEC Objective Practice", objectives: "Speed drills for objective theory and governance terminology." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Government ideologies and constitution review." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Nigeria's political history and foreign policy." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "International organizations and past question marathon." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    },
+
+    // -----------------------------------------------------------------
+    // SUBJECT 15: GEOGRAPHY (SS 3)
+    // -----------------------------------------------------------------
+    {
+      title: "Geography",
+      icon: "fa-globe-africa",
+      terms: [
+        {
+          termName: "First Term",
+          weeks: [
+            { week: "Week 1", topic: "Map Reading I (Relief)", objectives: "Identification of relief features, slopes, and cross-sections." },
+            { week: "Week 2", topic: "Map Reading II", objectives: "Drawing cross-sections and calculating gradients." },
+            { week: "Week 3", topic: "Settlement", objectives: "Types, factors affecting growth, and functions of settlements." },
+            { week: "Week 4", topic: "Transport", objectives: "Modes of transport (road, rail, water, air) and their importance." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Manufacturing Industries", objectives: "Factors affecting location, importance, and problems." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "World Population", objectives: "Patterns, density, and migration factors." },
+            { week: "Week 9", topic: "Tourism", objectives: "Development, importance, and challenges in Nigeria/Africa." },
+            { week: "Week 10", topic: "International Trade", objectives: "Major commodities, trading blocs, and global trade patterns." },
+            { week: "Week 11-13", topic: "Revision & Examinations", objectives: "General revision and end of term evaluations." }
+          ]
+        },
+        {
+          termName: "Second Term",
+          weeks: [
+            { week: "Week 1", topic: "Environmental Problems", objectives: "Pollution (air, water, land), global warming, and desertification." },
+            { week: "Week 2", topic: "Renewable/Non-Renewable Resources", objectives: "Management and conservation strategies." },
+            { week: "Week 3", topic: "Regional Geography: Nigeria I", objectives: "Physical setting, climate, and vegetation." },
+            { week: "Week 4", topic: "Regional Geography: Nigeria II", objectives: "Economic activities: agriculture, mining, and industrialization." },
+            { week: "Week 5", topic: "Midterm Examination", objectives: "Assessment covering Weeks 1-4." },
+            { week: "Week 6", topic: "Map Work Revision", objectives: "Intensive practice on map interpretation and scale calculation." },
+            { week: "Week 7", topic: "Midterm Break", objectives: "National mid-term academic rest cycle." },
+            { week: "Week 8", topic: "Statistical Methods", objectives: "Representing data using bar charts, pie charts, and dots." },
+            { week: "Week 9", topic: "WAEC Practical Prep", objectives: "Field work methods and survey techniques." },
+            { week: "Week 10", topic: "WAEC Theory Revision", objectives: "Physical and human geography past question drills." },
+            { week: "Week 11-13", topic: "Mock Examinations", objectives: "Comprehensive Mock WASSCE / NECO testing." }
+          ]
+        },
+        {
+          termName: "Third Term",
+          weeks: [
+            { week: "Week 1", topic: "Intensive WASSCE Revision I", objectives: "Physical geography (landforms, climate, vegetation)." },
+            { week: "Week 2", "topic": "Intensive WASSCE Revision II", objectives: "Human geography (settlement, transport, trade)." },
+            { week: "Week 3", "topic": "Intensive WASSCE Revision III", objectives: "Map reading and statistical calculation marathon." },
+            { week: "Week 4-13", topic: "WASSCE / NECO EXAMINATIONS", objectives: "Students sit for final national and regional certificate examinations." }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const BOOTCAMP_CONFIG = {
+  apiProxyUrl: "/api/portal",
+  pricePerSubject: 2500,
+  currency: "NGN",
+  termStartDate: "2026-07-04",
+  releaseIntervalDays: 7
+};
+
 (function () {
   "use strict";
 
-  /* ═══════════════════════════════════════════════════════════
-   * CONFIG
-   * ═══════════════════════════════════════════════════════════ */
-  window.BOOTCAMP_CONFIG = {
-    version: "1.0.0",
-    sheetId: "1mL5t37Ly_Qpcbvmb9xOAeiN_8QVUzVnIE_iKUKA8QvQ",
-    appsScriptUrl: "https://script.google.com/macros/s/AKfycbydU4Ywq5x4N5CTX-GusbUI5SJoCfxA9Db-iSA6xiketsG3RS7EmJ-uLgn5-OibuAW-Ag/exec",
-    portalName: "ChiaTech Summer Bootcamp",
-    session: "First Term 2026/2027",
-    organisation: "ChiaTech Solutions & Resources Ltd",
-    contact: "+2347037689917",
-    email: "chiatech01@gmail.com",
-    website: "https://summer.chiatechsolutions.com",
-    pricePerSubjectPerMonth: 2500,
-    termStartDate: "2026-09-08",   // First Monday of First Term
-    weekDurationDays: 7
-  };
-
-  /* ═══════════════════════════════════════════════════════════
-   * CLASSES
-   * ═══════════════════════════════════════════════════════════ */
-  const CLASSES = [
-    { id:"JSS1", name:"Junior Secondary 1", level:"JSS", exam:"BECE (in JSS3)" },
-    { id:"JSS2", name:"Junior Secondary 2", level:"JSS", exam:"BECE (in JSS3)" },
-    { id:"JSS3", name:"Junior Secondary 3", level:"JSS", exam:"BECE (This Year)" },
-    { id:"SS1",  name:"Senior Secondary 1", level:"SS",  exam:"WAEC/NECO/JAMB (in SS3)" },
-    { id:"SS2",  name:"Senior Secondary 2", level:"SS",  exam:"WAEC/NECO/JAMB (in SS3)" },
-    { id:"SS3",  name:"Senior Secondary 3", level:"SS",  exam:"WAEC/NECO/JAMB/NABTEB (This Year)" }
+  const classMeta = [
+    { id: "jss1", name: "JSS1", exam: "Foundation", aliases: ["jss1", "js1"] },
+    { id: "jss2", name: "JSS2", exam: "Foundation", aliases: ["jss2", "js2"] },
+    { id: "jss3", name: "JSS3", exam: "BECE", aliases: ["jss3", "js3"] },
+    { id: "sss1", name: "SS1", exam: "Senior Secondary Foundation", aliases: ["sss1", "ss1", "s1"] },
+    { id: "sss2", name: "SS2", exam: "WAEC / NECO Preparation", aliases: ["sss2", "ss2", "s2"] },
+    { id: "sss3", name: "SS3", exam: "WAEC / NECO / JAMB / NABTEB", aliases: ["sss3", "ss3", "s3"] }
   ];
 
-  /* ═══════════════════════════════════════════════════════════
-   * SUBJECTS MASTER LIST
-   * ═══════════════════════════════════════════════════════════ */
-  const SUBJECTS = [
-    // JSS Subjects
-    { id:"eng-studies",   title:"English Studies",                  shortTitle:"English Studies",    level:"JSS", color:"blue",   icon:"📖" },
-    { id:"mathematics",   title:"Mathematics",                      shortTitle:"Mathematics",         level:"BOTH",color:"purple", icon:"🔢" },
-    { id:"phe",           title:"Physical & Health Education",      shortTitle:"PHE",                 level:"JSS", color:"green",  icon:"⚽" },
-    { id:"crs",           title:"Christian Religious Studies (CRS)",shortTitle:"CRS",                 level:"JSS", color:"gold",   icon:"✝️" },
-    { id:"irs",           title:"Islamic Religious Studies (IRS)",   shortTitle:"IRS",                 level:"JSS", color:"gold",   icon:"🌙" },
-    { id:"ng-history",    title:"Nigerian History",                  shortTitle:"Nigerian History",    level:"JSS", color:"orange", icon:"🏛️" },
-    { id:"social-cit",    title:"Social & Citizenship Studies",      shortTitle:"Social Studies",      level:"JSS", color:"teal",   icon:"🌍" },
-    { id:"cca",           title:"Cultural & Creative Arts",          shortTitle:"CCA",                 level:"JSS", color:"pink",   icon:"🎨" },
-    { id:"french",        title:"French Language",                   shortTitle:"French",              level:"JSS", color:"blue",   icon:"🇫🇷" },
-    { id:"interm-sci",    title:"Integrated Science",                shortTitle:"Integrated Science",  level:"JSS", color:"green",  icon:"🔬" },
-    { id:"dig-tech-jss",  title:"Digital Technologies",              shortTitle:"Digital Tech",        level:"JSS", color:"cyan",   icon:"💻" },
-    { id:"bus-studies",   title:"Business Studies",                  shortTitle:"Business Studies",    level:"JSS", color:"amber",  icon:"💼" },
-    { id:"solar-pv",      title:"Solar PV Installation",             shortTitle:"Solar PV",            level:"BOTH",color:"yellow", icon:"☀️" },
-    { id:"comp-hardware", title:"Computer Hardware & GSM Repairs",   shortTitle:"Computer Hardware",   level:"BOTH",color:"cyan",   icon:"🔧" },
-    { id:"fashion",       title:"Fashion Design & Garment Making",   shortTitle:"Fashion Design",      level:"BOTH",color:"pink",   icon:"👗" },
-    // SS Subjects
-    { id:"eng-lang",      title:"English Language",                  shortTitle:"English Language",    level:"SS",  color:"blue",   icon:"📖" },
-    { id:"gen-math",      title:"General Mathematics",               shortTitle:"General Maths",       level:"SS",  color:"purple", icon:"📐" },
-    { id:"citizen-her",   title:"Citizenship & Heritage Studies",    shortTitle:"Citizenship Studies", level:"SS",  color:"gold",   icon:"🏛️" },
-    { id:"dig-tech-ss",   title:"Digital Technologies",              shortTitle:"Digital Tech",        level:"SS",  color:"cyan",   icon:"💻" },
-    { id:"physics",       title:"Physics",                           shortTitle:"Physics",             level:"SS",  color:"blue",   icon:"⚛️" },
-    { id:"chemistry",     title:"Chemistry",                         shortTitle:"Chemistry",           level:"SS",  color:"green",  icon:"🧪" },
-    { id:"biology",       title:"Biology",                           shortTitle:"Biology",             level:"SS",  color:"green",  icon:"🌿" },
-    { id:"economics",     title:"Economics",                         shortTitle:"Economics",           level:"SS",  color:"amber",  icon:"📊" },
-    { id:"literature",    title:"Literature in English",             shortTitle:"Literature",          level:"SS",  color:"pink",   icon:"📚" },
-    { id:"commerce",      title:"Commerce",                          shortTitle:"Commerce",            level:"SS",  color:"orange", icon:"🏪" },
-    { id:"government",    title:"Government",                        shortTitle:"Government",          level:"SS",  color:"teal",   icon:"⚖️" },
-    { id:"agric-sci",     title:"Agricultural Science",              shortTitle:"Agric Science",       level:"SS",  color:"green",  icon:"🌾" },
-    { id:"further-math",  title:"Further Mathematics",               shortTitle:"Further Math",        level:"SS",  color:"purple", icon:"∑" },
-    { id:"account",       title:"Financial Accounting",              shortTitle:"Accounting",          level:"SS",  color:"amber",  icon:"🧾" },
-    { id:"yoruba",        title:"Yoruba Language",                   shortTitle:"Yoruba",              level:"SS",  color:"orange", icon:"🗣️" },
-    { id:"igbo",          title:"Igbo Language",                     shortTitle:"Igbo",                level:"SS",  color:"orange", icon:"🗣️" },
-    { id:"hausa",         title:"Hausa Language",                    shortTitle:"Hausa",               level:"SS",  color:"orange", icon:"🗣️" }
+  const iconFallbacks = {
+    "Mathematics": "ðŸ§®",
+    "General Mathematics": "ðŸ§®",
+    "English Studies": "ðŸ“˜",
+    "English Language": "ðŸ“˜",
+    "Digital Technologies": "ðŸ’»",
+    "Computer Studies": "ðŸ’»",
+    "Physics": "âš›",
+    "Chemistry": "âš—",
+    "Biology": "ðŸ§¬",
+    "Agricultural Science": "ðŸŒ±",
+    "Economics": "ðŸ“ˆ",
+    "Government": "ðŸ›",
+    "Geography": "ðŸŒ",
+    "Literature-in-English": "âœ’",
+    "Financial Accounting": "ðŸ§¾",
+    "Commerce": "ðŸ’¼"
+  };
+
+  function slug(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function titleCaseId(value) {
+    return slug(value).replace(/-/g, " ");
+  }
+
+  function subjectIcon(subject) {
+    return iconFallbacks[subject.title] || iconFallbacks[subject.shortTitle] || "ðŸ“š";
+  }
+
+  function weekNumber(raw) {
+    const match = String(raw || "").match(/\d+/);
+    return match ? parseInt(match[0], 10) : 1;
+  }
+
+  function objectiveList(value) {
+    if (Array.isArray(value)) return value.filter(Boolean).map(String);
+    if (!value) return [];
+    return String(value)
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/?b>/gi, "")
+      .split(/\n|;|\.\s+(?=[A-Z0-9])/)
+      .map(item => item.replace(/\.$/, "").trim())
+      .filter(Boolean);
+  }
+
+  function cleanText(value) {
+    return String(value || "")
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/?b>/gi, "**")
+      .trim();
+  }
+
+  function normalizeWeek(week) {
+    const num = weekNumber(week.week);
+    const objectives = objectiveList(week.objectives);
+    const notes = [
+      "## " + (week.topic || "Weekly Lesson"),
+      "",
+      cleanText(week.objectives || "Lesson content will be supplied by the academic team."),
+      "",
+      "### Study Task",
+      "- Read the topic summary carefully.",
+      "- Write short notes on the key ideas.",
+      "- Attempt the practice questions for this subject."
+    ].join("\n");
+
+    return {
+      week: num,
+      label: String(week.week || "Week " + num),
+      topic: week.topic || "Weekly Lesson",
+      objectives,
+      notes
+    };
+  }
+
+  function normalizeSubject(classId, subject) {
+    const firstTerm = (subject.terms || []).find(term => /first/i.test(term.termName || "")) || (subject.terms || [])[0] || { weeks: [] };
+    const id = slug(subject.title);
+    return {
+      id,
+      classId,
+      title: subject.title,
+      shortTitle: subject.title
+        .replace("Christian Religious Studies", "CRS")
+        .replace("Islamic Religious Studies", "IRS")
+        .replace("Physical & Health Education", "PHE")
+        .replace("Literature-in-English", "Literature"),
+      icon: subjectIcon(subject),
+      terms: subject.terms || [],
+      weeks: (firstTerm.weeks || []).map(normalizeWeek)
+    };
+  }
+
+  function normalizeClassId(classId) {
+    const key = String(classId || "").toLowerCase().replace(/\s+/g, "");
+    const found = classMeta.find(item => item.aliases.includes(key));
+    return found ? found.id : key;
+  }
+
+  const classes = classMeta.filter(item => Array.isArray(curriculumData[item.id]));
+  const subjectsByClass = {};
+  const subjectsById = {};
+
+  classes.forEach(cls => {
+    subjectsByClass[cls.id] = (curriculumData[cls.id] || []).filter(Boolean).map(subject => normalizeSubject(cls.id, subject));
+    subjectsByClass[cls.id].forEach(subject => {
+      if (!subjectsById[subject.id]) subjectsById[subject.id] = subject;
+    });
+  });
+
+  const subjects = Object.values(subjectsById).sort((a, b) => a.title.localeCompare(b.title));
+
+  const officialSubjectDefinitions = [
+    { id: "english-studies", title: "English Studies", shortTitle: "English", icon: "ðŸ“˜", sourceAliases: ["english-studies"] },
+    { id: "mathematics", title: "Mathematics", shortTitle: "Mathematics", icon: "ðŸ§®", sourceAliases: ["mathematics"] },
+    { id: "digital-technologies", title: "Digital Technologies", shortTitle: "Digital Tech", icon: "ðŸ’»", sourceAliases: ["digital-technologies", "computer-studies", "data-processing"] },
+    { id: "basic-science", title: "Basic Science", shortTitle: "Basic Science", icon: "ðŸ”¬", sourceAliases: ["basic-science"] },
+    { id: "physical-health-education", title: "Physical & Health Education", shortTitle: "PHE", icon: "ðŸƒ", sourceAliases: ["physical-and-health-education", "physical-health-education", "health-education"] },
+    { id: "social-citizenship-studies", title: "Social & Citizenship Studies", shortTitle: "Social Studies", icon: "ðŸ¤", sourceAliases: ["social-and-citizenship-studies", "social-citizenship-studies", "social-studies"] },
+    { id: "business-studies", title: "Business Studies", shortTitle: "Business", icon: "ðŸ’¼", sourceAliases: ["business-studies"] },
+    { id: "cultural-creative-arts", title: "Cultural & Creative Arts", shortTitle: "CCA", icon: "ðŸŽ¨", sourceAliases: ["cultural-and-creative-arts", "cultural-creative-arts"] },
+    { id: "nigerian-history", title: "Nigerian History", shortTitle: "History", icon: "ðŸ“œ", sourceAliases: ["nigerian-history", "history"] },
+    { id: "christian-religious-studies", title: "Christian Religious Studies", shortTitle: "CRS", icon: "âœï¸", sourceAliases: ["christian-religious-studies", "crs", "religious-studies-crs-irs", "religious-studies"] },
+    { id: "islamic-studies", title: "Islamic Studies", shortTitle: "IRS", icon: "â˜ªï¸", sourceAliases: ["islamic-studies", "islamic-religious-studies", "irs", "religious-studies-crs-irs", "religious-studies"] },
+    { id: "french", title: "French", shortTitle: "French", icon: "ðŸ—£ï¸", sourceAliases: ["french"] },
+    { id: "english-language", title: "English Language", shortTitle: "English", icon: "ðŸ“˜", sourceAliases: ["english-language"] },
+    { id: "general-mathematics", title: "General Mathematics", shortTitle: "Mathematics", icon: "ðŸ§®", sourceAliases: ["general-mathematics"] },
+    { id: "solar-photovoltaic-installation-and-maintenance", title: "Solar Photovoltaic Installation and Maintenance", shortTitle: "Solar PV", icon: "â˜€ï¸", sourceAliases: ["solar-photovoltaic-installation-and-maintenance", "solar-pv-installation-and-maintenance", "solar-pv-installation-maintenance", "electrical-wiring-installation", "electrical-installation-maintenance-work"] },
+    { id: "citizenship-and-heritage-studies", title: "Citizenship and Heritage Studies", shortTitle: "Citizenship", icon: "ðŸ›ï¸", sourceAliases: ["citizenship-and-heritage-studies", "citizenship-heritage-studies"] },
+    { id: "biology", title: "Biology", shortTitle: "Biology", icon: "ðŸ§¬", sourceAliases: ["biology"] },
+    { id: "chemistry", title: "Chemistry", shortTitle: "Chemistry", icon: "âš—ï¸", sourceAliases: ["chemistry"] },
+    { id: "physics", title: "Physics", shortTitle: "Physics", icon: "âš›ï¸", sourceAliases: ["physics"] },
+    { id: "agriculture", title: "Agriculture", shortTitle: "Agriculture", icon: "ðŸŒ±", sourceAliases: ["agriculture", "agricultural-science", "animal-husbandry"] },
+    { id: "further-mathematics", title: "Further Mathematics", shortTitle: "Further Maths", icon: "ðŸ§®", sourceAliases: ["further-mathematics"] },
+    { id: "health-education", title: "Health Education", shortTitle: "Health", icon: "ðŸ©º", sourceAliases: ["health-education", "physical-health-education", "physical-and-health-education"] },
+    { id: "geography", title: "Geography", shortTitle: "Geography", icon: "ðŸŒ", sourceAliases: ["geography"] },
+    { id: "technical-drawing", title: "Technical Drawing", shortTitle: "Tech Drawing", icon: "ðŸ“", sourceAliases: ["technical-drawing"] },
+    { id: "government", title: "Government", shortTitle: "Government", icon: "ðŸ›ï¸", sourceAliases: ["government"] },
+    { id: "literature-in-english", title: "Literature in English", shortTitle: "Literature", icon: "âœ’ï¸", sourceAliases: ["literature-in-english", "literature"] },
+    { id: "accounting", title: "Accounting", shortTitle: "Accounting", icon: "ðŸ§¾", sourceAliases: ["accounting", "financial-accounting", "bookkeeping"] },
+    { id: "commerce", title: "Commerce", shortTitle: "Commerce", icon: "ðŸ’¼", sourceAliases: ["commerce"] },
+    { id: "marketing", title: "Marketing", shortTitle: "Marketing", icon: "ðŸ“£", sourceAliases: ["marketing"] },
+    { id: "economics", title: "Economics", shortTitle: "Economics", icon: "ðŸ“ˆ", sourceAliases: ["economics"] },
+    { id: "civic-education", title: "Civic Education", shortTitle: "Civic", icon: "ðŸ›ï¸", sourceAliases: ["civic-education"] }
   ];
 
-  /* ═══════════════════════════════════════════════════════════
-   * CLASS → SUBJECTS MAPPING
-   * ═══════════════════════════════════════════════════════════ */
-  const CLASS_SUBJECTS = {
-    JSS1: ["eng-studies","mathematics","phe","crs","irs","ng-history","social-cit","cca","french","interm-sci","dig-tech-jss","bus-studies","solar-pv","comp-hardware","fashion"],
-    JSS2: ["eng-studies","mathematics","phe","crs","irs","ng-history","social-cit","cca","french","interm-sci","dig-tech-jss","bus-studies","solar-pv","comp-hardware","fashion"],
-    JSS3: ["eng-studies","mathematics","phe","crs","irs","ng-history","social-cit","cca","french","interm-sci","dig-tech-jss","bus-studies","solar-pv","comp-hardware","fashion"],
-    SS1:  ["eng-lang","gen-math","citizen-her","dig-tech-ss","physics","chemistry","biology","economics","literature","commerce","government","agric-sci","further-math","account","solar-pv","comp-hardware","yoruba","igbo","hausa"],
-    SS2:  ["eng-lang","gen-math","citizen-her","dig-tech-ss","physics","chemistry","biology","economics","literature","commerce","government","agric-sci","further-math","account","solar-pv","comp-hardware","yoruba","igbo","hausa"],
-    SS3:  ["eng-lang","gen-math","citizen-her","dig-tech-ss","physics","chemistry","biology","economics","literature","commerce","government","agric-sci","further-math","account","solar-pv","comp-hardware","yoruba","igbo","hausa"]
+  const officialDefsById = {};
+  const officialAliasToId = {
+    "computer-studies": "digital-technologies",
+    "data-processing": "digital-technologies",
+    "solar-pv-installation-and-maintenance": "solar-photovoltaic-installation-and-maintenance",
+    "solar-pv-installation-maintenance": "solar-photovoltaic-installation-and-maintenance",
+    "electrical-wiring-installation": "solar-photovoltaic-installation-and-maintenance",
+    "electrical-installation-maintenance-work": "solar-photovoltaic-installation-and-maintenance",
+    "agricultural-science": "agriculture",
+    "financial-accounting": "accounting",
+    "physical-and-health-education": "physical-health-education"
   };
 
-  /* ═══════════════════════════════════════════════════════════
-   * FIRST TERM 2026/2027 WEEK-BY-WEEK CURRICULUM
-   * 12-week teaching term (Weeks 1–12 + revision/exam weeks)
-   * Format: { subjectId, classId, weeks: [ { week, topic, objectives:[], notes } ] }
-   * ═══════════════════════════════════════════════════════════ */
+  officialSubjectDefinitions.forEach(def => {
+    officialDefsById[def.id] = def;
+    officialAliasToId[slug(def.id)] = def.id;
+    officialAliasToId[slug(def.title)] = def.id;
+  });
 
-  // Helper to build standard 12-week term structure
-  function makeTerm(subjectId, classes, weeks) {
-    return classes.map(classId => ({ subjectId, classId, weeks }));
+  function canonicalSubjectId(value) {
+    const key = slug(value);
+    return officialAliasToId[key] || key;
   }
 
-  /* ─── DIGITAL TECHNOLOGIES — JSS1 ─── */
-  const digTechJSS1 = {
-    subjectId: "dig-tech-jss", classId: "JSS1",
-    weeks: [
-      { week:1, topic:"Introduction to Digital Technology",
-        objectives:["Define digital technology","List 5 examples of digital devices","Explain importance of ICT in modern life"],
-        notes:`**What is Digital Technology?**\nDigital technology involves the use of electronic systems to generate, store, process, and transmit data. All information is represented as binary digits (0s and 1s).\n\n**Examples of Digital Devices:**\n- Smartphones\n- Computers and laptops\n- Digital cameras\n- Smart televisions\n- Tablets and iPads\n\n**Importance of Digital Technology:**\n1. Facilitates communication (emails, video calls, social media)\n2. Enables access to global information through the internet\n3. Supports e-commerce and digital banking\n4. Enhances education through e-learning platforms\n5. Powers healthcare with telemedicine and medical records systems\n\n**Key Terms:**\n- **Digital:** Information stored/processed in binary form\n- **Analogue:** Continuous signal (clock hands, vinyl records)\n- **ICT:** Information and Communications Technology`
-      },
-      { week:2, topic:"Historical Development of Digital Devices",
-        objectives:["List computer generations 1–5","Explain the Abacus and Napier's Bones","Distinguish analog from digital evolution"],
-        notes:`**History of Computing Devices**\n\n**Early Devices (Pre-Computer):**\n- **Abacus (3000 BC):** The first calculating tool. Used beads on rods to perform arithmetic. Still used in some cultures today.\n- **Napier's Bones (1617):** John Napier's manual multiplication tool using numbered rods.\n- **Pascal's Calculator (1642):** Mechanical adding machine by Blaise Pascal.\n- **Babbage's Difference Engine (1820s):** Charles Babbage's machine considered the first mechanical computer concept.\n\n**Generations of Computers:**\n| Generation | Period | Technology | Example |\n|---|---|---|---|\n| 1st | 1940–1956 | Vacuum tubes | ENIAC |\n| 2nd | 1956–1963 | Transistors | IBM 7094 |\n| 3rd | 1964–1971 | Integrated Circuits | IBM 360 |\n| 4th | 1971–Present | Microprocessors | Personal PCs |\n| 5th | Present–Future | AI, Quantum | Modern PCs |\n\n**Key Milestones:**\n- 1943: First programmable electronic computer (Colossus)\n- 1969: Internet predecessor (ARPANET) launched\n- 1983: Mobile phone introduced\n- 1991: World Wide Web by Tim Berners-Lee\n- 2007: iPhone revolutionizes smartphones`
-      },
-      { week:3, topic:"Career Opportunities in Information Technology",
-        objectives:["Name 8 IT career paths","Explain skills needed for each","Match IT careers to national development"],
-        notes:`**IT Career Paths in Nigeria and Globally**\n\n**1. Software Developer/Engineer**\n- Designs, writes, and tests computer programs\n- Skill: Programming (Python, JavaScript, Java)\n\n**2. Cybersecurity Analyst**\n- Protects computer systems from hackers\n- Skill: Network security, ethical hacking\n\n**3. Data Scientist/Analyst**\n- Analyzes large datasets to find useful patterns\n- Skill: Statistics, SQL, machine learning\n\n**4. Web Designer/Developer**\n- Creates websites and web applications\n- Skill: HTML, CSS, JavaScript, design tools\n\n**5. Network Engineer**\n- Designs and maintains computer networks\n- Skill: Cisco, routing, switching\n\n**6. AI/Machine Learning Engineer**\n- Builds intelligent systems\n- Skill: Python, TensorFlow, mathematics\n\n**7. Mobile App Developer**\n- Creates apps for phones and tablets\n- Skill: Flutter, Swift, Kotlin\n\n**8. Database Administrator (DBA)**\n- Manages organizational data storage\n- Skill: MySQL, Oracle, MongoDB\n\n**Digital Skills for Nigerian Students:**\nWith the NERDC 2025 curriculum, students who master Digital Technologies can pursue JAMB-scored ICT courses at Nigerian universities and polytechnics.`
-      },
-      { week:4, topic:"Basic Computer Hardware Components I",
-        objectives:["Identify input and output devices","Explain functions of each device","Practice safe handling of devices"],
-        notes:`**Computer Hardware: Input and Output Devices**\n\n**What is Hardware?**\nHardware refers to the physical components of a computer that you can see and touch.\n\n**INPUT DEVICES** — Feed data INTO the computer:\n| Device | Function |\n|---|---|\n| Keyboard | Types text and commands |\n| Mouse | Points and clicks |\n| Scanner | Converts documents to digital images |\n| Microphone | Records audio |\n| Webcam | Captures video/images |\n| Joystick | Controls games |\n| Touchscreen | Touch-based input |\n| Barcode Reader | Reads barcodes |\n\n**OUTPUT DEVICES** — Display/produce results FROM the computer:\n| Device | Function |\n|---|---|\n| Monitor | Displays visual information |\n| Printer | Produces paper copies |\n| Speaker | Produces audio |\n| Projector | Displays on large screen |\n| Headphones | Personal audio output |\n\n**Device Care Tips:**\n- Keep away from liquids\n- Handle keyboards gently\n- Clean screens with soft, dry cloth only\n- Never pull cables by the wire — hold the connector`
-      },
-      { week:5, topic:"Mid-Term Assessment — Weeks 1 to 4", objectives:["Review and test Weeks 1–4 content"], notes:"**Mid-Term Assessment**\n\nThis week covers revision and a class test on:\n- Introduction to Digital Technology\n- History of Computing\n- IT Career Paths\n- Input/Output Devices\n\n**Study Tips:**\n- Review your class notes thoroughly\n- Practice naming and labelling hardware components\n- Attempt past questions from your teacher\n- Work in study groups with classmates" },
-      { week:6, topic:"Basic Computer Hardware Components II — Storage",
-        objectives:["Distinguish primary from secondary storage","Explain RAM, ROM, HDD, Flash Drive","Convert between bytes, KB, MB, GB, TB"],
-        notes:`**Computer Storage Units**\n\n**PRIMARY STORAGE (Internal):**\n- **RAM (Random Access Memory):** Temporary memory. Loses data when power is off. Makes computer faster.\n- **ROM (Read Only Memory):** Permanent memory. Stores startup instructions (BIOS). Cannot be erased normally.\n- **Cache Memory:** Ultra-fast memory built into the CPU for frequently used data.\n\n**SECONDARY STORAGE (External):**\n- **Hard Disk Drive (HDD):** Large-capacity internal storage. Uses spinning magnetic disks.\n- **Solid State Drive (SSD):** Faster, no moving parts. Used in modern laptops.\n- **USB Flash Drive (Pen Drive):** Portable storage. Easy to carry.\n- **Memory Card (SD Card):** Used in phones and cameras.\n- **CD/DVD:** Optical disc storage (older technology).\n- **Cloud Storage:** Data stored online (Google Drive, OneDrive, iCloud).\n\n**Data Measurement Units:**\n| Unit | Abbreviation | Size |\n|---|---|---|\n| Bit | b | Smallest unit (0 or 1) |\n| Byte | B | 8 bits |\n| Kilobyte | KB | 1,024 bytes |\n| Megabyte | MB | 1,024 KB |\n| Gigabyte | GB | 1,024 MB |\n| Terabyte | TB | 1,024 GB |\n| Petabyte | PB | 1,024 TB |\n\n**Quick Memory Trick:** _**B**ig **K**ids **M**ight **G**row **T**aller **P**lease_ (Bit, KB, MB, GB, TB, PB)`
-      },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"**Mid-Term Break**\n\nRest, review your notes, and complete any assignments given before the break. Prepare for the remaining weeks of the term." },
-      { week:8, topic:"Basic Software Concepts",
-        objectives:["Distinguish system from application software","List functions of an Operating System","Identify 5 examples of application software"],
-        notes:`**Computer Software**\n\n**What is Software?**\nSoftware is the set of instructions (programs) that tell the computer hardware what to do.\n\n**Types of Software:**\n\n**1. System Software:**\nControls and manages computer hardware. The most important system software is the **Operating System (OS)**.\n\n*Examples of Operating Systems:*\n- Windows 11 (Microsoft)\n- macOS Ventura (Apple)\n- Ubuntu (Linux — free)\n- Android (smartphones)\n- iOS (iPhones)\n\n*Functions of the OS:*\n- Manages memory allocation\n- Controls input/output devices\n- Provides user interface (desktop)\n- Manages files and folders\n- Schedules tasks\n\n**2. Application Software:**\nPrograms that perform specific user tasks.\n\n| Category | Examples |\n|---|---|\n| Word Processing | Microsoft Word, Google Docs |\n| Spreadsheet | Microsoft Excel, Google Sheets |\n| Presentation | PowerPoint, Google Slides |\n| Web Browser | Chrome, Firefox, Edge |\n| Email Client | Gmail, Outlook |\n| Media Player | VLC, Windows Media Player |\n| Design | Canva, CorelDRAW, Photoshop |\n\n**3. Utility Software:**\nMaintenance tools — antivirus, disk cleaner, file compressor (WinRAR).`
-      },
-      { week:9, topic:"Computer Booting and Shutdown Processes",
-        objectives:["Define booting (cold and warm)","List steps to safely start a computer","Explain safe shutdown procedures"],
-        notes:`**Computer Startup and Shutdown**\n\n**What is Booting?**\nBooting is the process of starting a computer and loading the Operating System into RAM.\n\n**Types of Booting:**\n- **Cold Boot:** Starting the computer from a completely powered-off state by pressing the power button.\n- **Warm Boot (Restart):** Restarting the computer without fully powering off. Used to apply updates or fix errors.\n\n**Cold Boot Steps:**\n1. Ensure power supply is connected\n2. Press the Power button\n3. Computer runs POST (Power-On Self Test) to check hardware\n4. BIOS loads from ROM\n5. Operating System loads from storage into RAM\n6. Login screen or Desktop appears\n\n**Safe Shutdown Steps:**\n1. Save all open files and close applications\n2. Click Start → Power (Windows) or Apple menu → Shut Down (Mac)\n3. Select "Shut Down"\n4. Wait for the computer to fully power off before disconnecting\n\n**Why Safe Shutdown Matters:**\n- Prevents data loss from unsaved files\n- Prevents file system corruption\n- Protects against hard drive damage\n- Allows Windows to install pending updates properly\n\n**NEVER:** Pull the power cable while the computer is running.`
-      },
-      { week:10, topic:"MS Word Introduction",
-        objectives:["Open, save, and close a Word document","Format text (bold, italic, font size, colour)","Insert a picture and set up a page"],
-        notes:`**Microsoft Word — Getting Started**\n\n**Opening Microsoft Word:**\n- Click Start → Microsoft Office → Word\n- Or double-click the Word icon on the Desktop\n\n**Creating a New Document:**\n- Click "Blank Document"\n- Or press Ctrl + N\n\n**Saving a Document:**\n- Click File → Save (or Ctrl + S)\n- Choose a location (Documents folder)\n- Type a meaningful filename\n- Select format: .docx (Word) or .pdf\n\n**Basic Text Formatting (Home Tab):**\n| Action | Shortcut |\n|---|---|\n| Bold | Ctrl + B |\n| Italic | Ctrl + I |\n| Underline | Ctrl + U |\n| Copy | Ctrl + C |\n| Paste | Ctrl + V |\n| Undo | Ctrl + Z |\n| Select All | Ctrl + A |\n\n**Page Setup (Layout Tab):**\n- Change paper size (A4 recommended)\n- Set margins (Normal = 1 inch all sides)\n- Choose portrait or landscape orientation\n\n**Inserting a Picture:**\n1. Click Insert → Pictures\n2. Choose "This Device" to insert from your computer\n3. Click once to select the picture\n4. Drag corners to resize\n\n**Printing (Ctrl + P):**\n- Select your printer\n- Choose number of copies\n- Preview before printing`
-      },
-      { week:11, topic:"General Revision — First Term",
-        objectives:["Review all topics from Weeks 1–10","Identify weak areas for extra study","Practice past questions"],
-        notes:"**First Term Revision Guide — Digital Technologies JSS1**\n\n**Topics to Review:**\n\n✅ Week 1: Definition and examples of digital technology\n✅ Week 2: Computer generations (5 generations with features)\n✅ Week 3: IT career paths and required skills\n✅ Week 4: Input and output devices with functions\n✅ Week 6: Primary vs secondary storage; data units (B, KB, MB, GB, TB)\n✅ Week 8: System software vs application software; OS functions\n✅ Week 9: Cold boot vs warm boot; safe shutdown steps\n✅ Week 10: MS Word — formatting, saving, printing\n\n**Practice Questions:**\n1. What is the difference between RAM and ROM?\n2. List 5 input devices and their functions.\n3. Arrange in order from smallest to largest: GB, TB, KB, MB, Byte\n4. Name the 5 generations of computers with their key technology.\n5. Give 3 functions of an Operating System.\n6. What is the keyboard shortcut to save a file in MS Word?\n7. What is the difference between a cold boot and a warm boot?\n\n**Exam Tips:**\n- Draw and label diagrams where required\n- Use point form for 'list' questions\n- Write in complete sentences for 'explain' questions"
-      },
-      { week:12, topic:"First Term End-of-Term Examination", objectives:["Sit and complete First Term examination"], notes:"**First Term Examination**\n\nStudents will write a formal First Term examination covering all topics from Weeks 1–10.\n\n**Examination Format:**\n- Section A: Objectives (Multiple Choice, 30 questions)\n- Section B: Short Answer (10 questions)\n- Section C: Essay/Long Answer (3 questions, answer 2)\n\n**Checklist for Exam Day:**\n- ✅ Bring your student ID card\n- ✅ Bring pens (blue or black) and pencils\n- ✅ Arrive 15 minutes before exam time\n- ✅ Read all instructions carefully before answering\n- ✅ Manage your time: do easy questions first" }
-    ]
-  };
-
-  /* ─── MATHEMATICS — JSS1 ─── */
-  const mathJSS1 = {
-    subjectId: "mathematics", classId: "JSS1",
-    weeks: [
-      { week:1, topic:"Whole Numbers — Reading, Writing, and Place Value",
-        objectives:["Read and write numbers up to 1 billion","Identify place value of each digit","Round numbers to significant figures"],
-        notes:`**Whole Numbers and Place Value**\n\n**Place Value Chart:**\n| Billions | Millions | Thousands | Units |\n|---|---|---|---|\n| 1,000,000,000 | 1,000,000 | 1,000 | 1 |\n\n**Example:** 4,567,892\n- 4 is in the millions place (4,000,000)\n- 5 is in the hundred-thousands place (500,000)\n- 6 is in the ten-thousands place (60,000)\n- 7 is in the thousands place (7,000)\n- 8 is in the hundreds place (800)\n- 9 is in the tens place (90)\n- 2 is in the units place (2)\n\n**Rounding Numbers:**\n- Rounding to nearest 10: Look at the units digit. If ≥5, round up.\n- Example: 347 → 350 (rounded to nearest 10)\n- Example: 342 → 340 (rounded to nearest 10)\n\n**Practice:**\n1. Write in words: 3,456,709\n2. Write in figures: Five hundred and sixty-two thousand, four hundred and thirty-one\n3. Round 4,567 to the nearest 100`
-      },
-      { week:2, topic:"Basic Operations — Addition and Subtraction",
-        objectives:["Add and subtract large numbers","Apply BODMAS rule","Solve word problems"],
-        notes:`**Addition and Subtraction of Whole Numbers**\n\n**Addition (Sum):**\nAlways align digits by place value before adding.\n\nExample: 45,678 + 23,456 = 69,134\n\n**Subtraction (Difference):**\nBorrow from the next column when needed.\n\nExample: 70,000 − 34,567 = 35,433\n\n**BODMAS Rule:**\nOrder of operations:\n**B**rackets → **O**f → **D**ivision → **M**ultiplication → **A**ddition → **S**ubtraction\n\nExample: 2 + 3 × 4 = 2 + 12 = 14 *(NOT 20)*\n\n**Word Problem:**\nA school has 1,456 boys and 1,289 girls. How many students in total?\n1,456 + 1,289 = **2,745 students**\n\n**Practice:**\n1. 123,456 + 78,904 = ?\n2. 500,000 − 237,689 = ?\n3. Evaluate: (4 + 6) × 3 − 8 ÷ 4`
-      },
-      { week:3, topic:"Multiplication and Division of Whole Numbers",
-        objectives:["Multiply 4-digit by 3-digit numbers","Perform long division","Identify factors and multiples"],
-        notes:`**Multiplication and Division**\n\n**Long Multiplication:**\n4,567 × 23\n= 4,567 × 3 + 4,567 × 20\n= 13,701 + 91,340\n= **105,041**\n\n**Long Division:**\n13,440 ÷ 12\n= 1,120\n(Check: 1,120 × 12 = 13,440 ✓)\n\n**Factors:** Numbers that divide another number evenly.\n- Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24\n\n**Multiples:** The results of multiplying a number.\n- Multiples of 5: 5, 10, 15, 20, 25, ...\n\n**LCM (Lowest Common Multiple):**\nLCM of 4 and 6:\n- Multiples of 4: 4, 8, **12**, 16...\n- Multiples of 6: 6, **12**, 18...\n- LCM = 12\n\n**HCF (Highest Common Factor):**\nHCF of 24 and 36:\n- Factors of 24: 1,2,3,4,**6**,8,12,24\n- Factors of 36: 1,2,3,4,**6**,9,12,18,36\n- HCF = 12`
-      },
-      { week:4, topic:"Fractions — Types, Equivalent, and Operations",
-        objectives:["Identify proper, improper, and mixed fractions","Find equivalent fractions","Add and subtract fractions"],
-        notes:`**Fractions**\n\n**Types of Fractions:**\n- **Proper Fraction:** Numerator < Denominator → ³⁄₄\n- **Improper Fraction:** Numerator > Denominator → ⁷⁄₄\n- **Mixed Number:** Whole + Fraction → 1¾\n\n**Converting Improper to Mixed:**\n⁷⁄₄ = 4 goes into 7 once with remainder 3 = **1¾**\n\n**Equivalent Fractions:**\n½ = ²⁄₄ = ³⁄₆ = ⁴⁄₈ (multiply/divide both parts by same number)\n\n**Adding Fractions (Same Denominator):**\n³⁄₈ + ²⁄₈ = ⁵⁄₈\n\n**Adding Fractions (Different Denominators):**\n¹⁄₃ + ¹⁄₄ = ⁴⁄₁₂ + ³⁄₁₂ = **⁷⁄₁₂**\n\n**Multiplying Fractions:**\n²⁄₃ × ³⁄₄ = (2×3)/(3×4) = ⁶⁄₁₂ = **½**\n\n**Dividing Fractions:**\n²⁄₃ ÷ ¹⁄₄ = ²⁄₃ × ⁴⁄₁ = **⁸⁄₃ = 2²⁄₃**`
-      },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review Weeks 1–4 and sit class test"], notes:"Mid-Term Assessment week. Review whole numbers, operations, and fractions." },
-      { week:6, topic:"Decimals and Percentages",
-        objectives:["Convert between decimals, fractions, and percentages","Calculate percentage increase and decrease","Solve real-life percentage problems"],
-        notes:`**Decimals and Percentages**\n\n**Conversion Table:**\n| Fraction | Decimal | Percentage |\n|---|---|---|\n| ½ | 0.5 | 50% |\n| ¼ | 0.25 | 25% |\n| ¾ | 0.75 | 75% |\n| ⅕ | 0.2 | 20% |\n| ⅛ | 0.125 | 12.5% |\n\n**Percentage of a Quantity:**\nFind 30% of ₦4,500:\n= (30/100) × 4500 = **₦1,350**\n\n**Percentage Increase:**\nA phone costs ₦15,000 and increases to ₦18,000:\nIncrease = 18,000 − 15,000 = 3,000\n% Increase = (3,000/15,000) × 100 = **20%**\n\n**Percentage Decrease:**\nA bag was ₦8,000, now ₦6,400:\nDecrease = 1,600\n% Decrease = (1,600/8,000) × 100 = **20%**\n\n**Simple Interest:**\nSI = (P × R × T) / 100\nP = Principal, R = Rate (%), T = Time (years)`
-      },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Rest and review your notes." },
-      { week:8, topic:"Integers — Positive and Negative Numbers",
-        objectives:["Represent integers on a number line","Add, subtract, multiply, and divide integers","Apply integers to real-life (temperature, banking)"],
-        notes:`**Integers**\n\n**Definition:** Integers include all whole numbers (positive, negative, and zero).\n{..., −4, −3, −2, −1, 0, +1, +2, +3, +4, ...}\n\n**Number Line:**\n◄ −5 −4 −3 −2 −1  0  +1 +2 +3 +4 +5 ►\n\n**Rules for Operations:**\n**Addition:**\n- (+3) + (+4) = +7\n- (−3) + (−4) = −7\n- (+5) + (−3) = +2\n- (−5) + (+3) = −2\n\n**Subtraction (change sign and add):**\n- (+6) − (−2) = (+6) + (+2) = +8\n\n**Multiplication/Division:**\n- (+) × (+) = +\n- (−) × (−) = +\n- (+) × (−) = −\n- (−) × (+) = −\n\n**Real-Life Applications:**\n- Temperature: −5°C means 5 degrees below zero\n- Bank: −₦500 means you owe ₦500 (overdraft)\n- Floors: −2 means 2nd floor below ground (basement)`
-      },
-      { week:9, topic:"Ratio and Proportion",
-        objectives:["Express ratio in simplest form","Solve direct and inverse proportion problems","Apply ratio to sharing problems"],
-        notes:`**Ratio and Proportion**\n\n**Ratio:**\nA ratio compares two quantities.\n\nExample: A class has 20 boys and 15 girls.\nRatio of boys to girls = 20:15 = **4:3** (simplify by dividing both by 5)\n\n**Sharing in a Given Ratio:**\nShare ₦35,000 between Amaka and Bola in ratio 3:2\n- Total parts = 3 + 2 = 5\n- Amaka = (3/5) × 35,000 = **₦21,000**\n- Bola = (2/5) × 35,000 = **₦14,000**\n\n**Direct Proportion:**\nAs one quantity increases, the other increases at the same rate.\n\nIf 4 books cost ₦1,200, how much do 10 books cost?\n4 books → ₦1,200\n1 book → ₦300\n10 books → **₦3,000**\n\n**Inverse Proportion:**\nAs one quantity increases, the other decreases.\n\n6 workers build a wall in 12 days. How long for 9 workers?\n= (6 × 12) / 9 = 72/9 = **8 days**`
-      },
-      { week:10, topic:"Introduction to Geometry — Lines and Angles",
-        objectives:["Identify types of lines (parallel, perpendicular)","Classify angles (acute, right, obtuse, reflex)","Measure angles with a protractor"],
-        notes:`**Lines and Angles**\n\n**Types of Lines:**\n- **Straight Line:** Extends in both directions infinitely\n- **Line Segment:** Has two definite endpoints\n- **Parallel Lines:** Never meet (rail tracks ═)\n- **Perpendicular Lines:** Meet at exactly 90° (⊥)\n- **Intersecting Lines:** Cross at a point\n\n**Types of Angles:**\n| Angle | Range | Example |\n|---|---|---|\n| Acute | 0° − 89° | 45° |\n| Right | Exactly 90° | Corner of a page |\n| Obtuse | 91° − 179° | 120° |\n| Straight | 180° | A flat line |\n| Reflex | 181° − 359° | 270° |\n| Revolution | 360° | Full circle |\n\n**Angle Facts:**\n- Angles on a straight line add up to **180°**\n- Angles at a point add up to **360°**\n- Vertically opposite angles are **equal**\n- Complementary angles add to **90°**\n- Supplementary angles add to **180°**\n\n**Measuring Angles:**\n1. Place protractor centre on the vertex\n2. Align base line with one arm of the angle\n3. Read the measurement where the second arm crosses`
-      },
-      { week:11, topic:"First Term Revision — All Topics", objectives:["Review all mathematics topics from the term"], notes:"Comprehensive revision of Weeks 1–10. Practice all question types: objectives, short answer, word problems, and geometry." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term mathematics examination"], notes:"First Term Examination. Bring your geometric set (ruler, protractor, compasses, pencil). Show all working clearly." }
-    ]
-  };
-
-  /* ─── NIGERIAN HISTORY — JSS1 ─── */
-  const ngHistJSS1 = {
-    subjectId: "ng-history", classId: "JSS1",
-    weeks: [
-      { week:1, topic:"Introduction to History and Historical Sources",
-        objectives:["Define history and explain its importance","List primary and secondary sources of history","Distinguish oral tradition from written records"],
-        notes:`**What is History?**\nHistory is the systematic study and recording of past events, especially human affairs. It helps us understand how we arrived at the present.\n\n**Importance of History:**\n1. Helps us learn from past mistakes\n2. Preserves national identity and culture\n3. Strengthens patriotism and national unity\n4. Provides records for governance and law\n5. Helps us understand current events\n\n**Sources of Nigerian History:**\n\n**Primary Sources (first-hand accounts):**\n- Oral traditions: Folktales, praise songs, oral accounts from elders\n- Artifacts: Tools, pottery, carvings\n- Archaeological evidence: Nok terracotta, Igbo-Ukwu bronzes\n- Written records by early visitors and colonialists\n\n**Secondary Sources (second-hand accounts):**\n- History textbooks\n- Historical novels and films\n- Encyclopaedias\n- Government reports\n\n**Oral Tradition in Nigeria:**\nOral tradition is the passing of historical information from generation to generation through spoken word — stories, songs, proverbs, and riddles. Griots (historians) in West Africa preserved royal lineages and major events this way.`
-      },
-      { week:2, topic:"Nigerian Peoples and Languages",
-        objectives:["Name the major ethnic groups in Nigeria","Identify at least 3 Nigerian languages per region","Explain the value of linguistic diversity"],
-        notes:`**Nigeria's Ethnic and Linguistic Diversity**\n\nNigeria is home to over **250 ethnic groups** and more than **500 languages**, making it one of the most linguistically diverse nations in the world.\n\n**The Three Major Ethnic Groups:**\n\n**1. Hausa-Fulani (Northern Nigeria)**\n- Location: Sokoto, Kano, Kaduna, Borno, Adamawa, etc.\n- Language: Hausa (lingua franca of northern Nigeria)\n- Known for: Islamic culture, trade, cattle rearing\n\n**2. Yoruba (Southwestern Nigeria)**\n- Location: Lagos, Ogun, Oyo, Ondo, Ekiti, Osun\n- Language: Yoruba\n- Known for: Urban settlements, arts, commerce, festivals (Egungun, Osun-Osogbo)\n\n**3. Igbo (Southeastern Nigeria)**\n- Location: Anambra, Imo, Enugu, Ebonyi, Abia, Rivers\n- Language: Igbo\n- Known for: Democratic village governance, industriousness, trade\n\n**Other Significant Groups:**\n- **Tiv** (Benue) — farming community\n- **Ijaw** (Niger Delta) — fishing and oil\n- **Edo** (Benin Kingdom) — art and bronze casting\n- **Kanuri** (Borno) — descendants of Kanem-Bornu Empire\n- **Efik/Ibibio** (Cross River/Akwa Ibom)`
-      },
-      { week:3, topic:"Early Settlements and Ancient Civilisations in Nigeria",
-        objectives:["Describe the Nok civilisation","Explain the significance of Igbo-Ukwu finds","Identify art forms from Ife and Benin"],
-        notes:`**Ancient Nigerian Civilisations**\n\n**1. NOK CULTURE (c. 1000 BC – 200 AD)**\n- Location: Jos Plateau, Kaduna (Central Nigeria)\n- Discovered: 1928, at a tin mine in Nok village\n- Famous for: Beautiful terracotta (fired clay) figurines of humans and animals\n- Achievement: Evidence of early iron smelting in sub-Saharan Africa\n- Significance: Oldest known sub-Saharan sculpture tradition\n\n**2. IGBO-UKWU (c. 9th Century AD)**\n- Location: Igbo-Ukwu, Anambra State\n- Discovered: 1939, 1959–1964 by Thurstan Shaw\n- Famous for: Exquisite bronze and copper alloy objects\n- Achievement: Advanced lost-wax bronze casting technique\n- Significance: Proves Igbo civilisation preceded European contact\n\n**3. IFE (YORUBA) CIVILISATION (c. 12th–15th Century)**\n- Location: Ile-Ife, Osun State\n- Famous for: Naturalistic bronze and brass heads representing Yoruba kings (Ooni)\n- Significance: Considered the spiritual homeland of all Yoruba people\n\n**4. BENIN KINGDOM (c. 13th Century – 1897)**\n- Location: Benin City, Edo State\n- Famous for: Bronze plaques and ivories depicting court life\n- The Oba (king) commissioned elaborate artwork\n- Conquered by British in 1897; many artifacts taken to museums in Europe`
-      },
-      { week:4, topic:"Origins and Myths of Nigerian Societies",
-        objectives:["Recount origin myths of Yoruba, Hausa, and Igbo","Explain the political significance of origin myths","Distinguish myth from historical fact"],
-        notes:`**Origin Myths of Nigerian Peoples**\n\nOrigin myths explain how a group believes they came to exist. While not literally factual, they reveal cultural values and shape group identity.\n\n**YORUBA ORIGIN — Ile-Ife Creation Myth:**\nOlodumare (the Supreme God) sent Obatala (deity of creation) and Oduduwa to create the earth from a watery void. Obatala got drunk on palm wine, so Oduduwa descended on a chain, poured sand on the water, and placed a five-toed chicken to spread it, creating dry land at Ile-Ife. Oduduwa is considered the ancestor of all Yoruba kingdoms.\n\n**HAUSA ORIGIN — Bayajidda Legend:**\nBayajidda (Abuyazidu), a prince from Baghdad, fled to Bornu, then Daura (Katsina State). He killed a sacred snake (Sarki) that blocked the town well. The grateful Daurama (Hausa queen) married him. Their son and grandsons founded the **Seven True Hausa States** (Hausa Bakwai): Biram, Daura, Gobir, Kano, Katsina, Rano, and Zazzau (Zaria).\n\n**IGBO ORIGIN — Multiple Traditions:**\nIgbo people have no single creation myth due to their decentralised structure. Common traditions:\n- Descent from Eri, a divine figure sent by Chukwu (God) to settle near the Anambra River\n- Some communities trace descent from Nri kingdom (Anambra State), considered spiritually powerful`
-      },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review and test Weeks 1–4 content"], notes:"Mid-Term Assessment covering introduction to history, Nigerian peoples, ancient civilisations, and origin myths." },
-      { week:6, topic:"Traditional Political Systems I — Yoruba and Igbo",
-        objectives:["Describe the Oyo Empire structure","Explain Igbo village democracy","Compare centralised and decentralised systems"],
-        notes:`**Traditional Political Systems**\n\n**CENTRALISED SYSTEMS (with a strong king/ruler):**\n\n**The Oyo Empire (Yoruba):**\n- Founded: c. 14th century; reached peak in 17th–18th centuries\n- Capital: Old Oyo (Oyo-Ile)\n- Ruler: **Alafin** (king of Oyo)\n- Council of Chiefs: **Oyo Mesi** (7 chiefs who could check the Alafin's power)\n- The **Ogboni Society** (council of elders) held judicial and spiritual authority\n- Unique feature: A constitutional monarchy where the Alafin could be asked to "open the calabash" (commit suicide) if he abused power\n- Power: Controlled trade routes; collected tribute from vassal states as far as Dahomey (Benin Republic)\n\n**DECENTRALISED SYSTEMS (power distributed among communities):**\n\n**Igbo Village Democracy:**\n- No single king ruled all Igbo; each village (obodo) governed itself\n- **Ofo** (staff of authority) symbolised power and justice\n- **Ozo Society** (title-holders) — men who earned prestige through wealth and character\n- **Age Grades:** Different generations took turns performing community service\n- **Umunna** (patrilineage/extended family) — basic social unit\n- Women had their own organisations: **Umuada** (daughters of the lineage) held significant authority`
-      },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Rest and read ahead." },
-      { week:8, topic:"Traditional Political Systems II — Hausa, Kanem-Bornu",
-        objectives:["Describe the Hausa emirate system","Explain the structure of Kanem-Bornu","Compare the two systems"],
-        notes:`**Northern Nigerian Political Systems**\n\n**THE HAUSA CITY-STATES:**\nThe Seven True Hausa States (Hausa Bakwai) were independent city-states, each ruled by a **Sarki** (king).\n- Structure: Sarki → Hakimai (district heads) → Village Heads → People\n- Revenue: Taxes on trade (Kola nuts, leather goods, slaves, gold)\n- The **Fulani Jihad of 1804** by Usman Dan Fodio overthrew Hausa kings and replaced them with Emirs, creating the **Sokoto Caliphate**\n\n**KANEM-BORNU EMPIRE (c. 700–1900 AD):**\n- Location: Around Lake Chad (modern northeast Nigeria, Niger, Chad, Cameroon)\n- Rulers: **Mai** (king), later **Shehu** under Islamic rule\n- The empire had two phases: Kanem (east of Lake Chad) and Bornu (west of Lake Chad)\n- Religion: Islam adopted as state religion from 11th century\n- Economy: Trans-Saharan trade (slaves, ivory, natron for salt)\n- Notable ruler: **Mai Idris Alooma** (1571–1583) — introduced firearms, built mosques, strengthened Islamic law\n- Decline: Fulani and Tuareg raids; internal rebellions; finally ended by Rabih al-Zubayr (1893)`
-      },
-      { week:9, topic:"Nigerian Art and Traditional Culture",
-        objectives:["Identify 5 traditional Nigerian art forms","Describe major cultural festivals","Explain the social functions of art and festivals"],
-        notes:`**Nigerian Art and Culture**\n\n**Traditional Art Forms:**\n\n1. **Bronze Casting (Benin and Ife):** Lost-wax (cire perdue) technique. Bronze plaques recorded royal court history.\n\n2. **Terracotta Sculpture (Nok):** Fired clay figures. The earliest known sub-Saharan art form.\n\n3. **Wood Carving:** Masks, statues, doors (especially Yoruba palace doors and Igbo Ikenga figures).\n\n4. **Textile Weaving:**\n- Kente cloth (Yoruba: Aso-Oke)\n- Kanga and batik fabrics\n- Hand-woven Fulani blankets\n\n5. **Calabash Decoration:** Carved and painted calabashes used for storage, music, and ceremony.\n\n**Major Cultural Festivals:**\n\n| Festival | Group | Purpose |\n|---|---|---|\n| Egungun Festival | Yoruba | Honouring ancestors |\n| Osun-Osogbo | Yoruba | Worship of river goddess |\n| Argungu Fishing Festival | Hausa | Annual fishing celebration |\n| Igbo-Ukwu Heritage Festival | Igbo | Celebrating ancient heritage |\n| Sharo Festival | Fulani | Coming-of-age ritual |\n| Sango Festival | Yoruba | Honouring god of thunder |`
-      },
-      { week:10, topic:"Early Trade and the Trans-Saharan Routes",
-        objectives:["Describe the Trans-Saharan trade network","List major goods traded","Explain the impact of trade on Nigerian societies"],
-        notes:`**Trade in Pre-Colonial Nigeria**\n\n**Local Trade:**\nNigerian societies traded among themselves long before European contact.\n- Barter system: exchanging goods for goods\n- Cowrie shells used as currency in Yoruba and Igbo areas\n- Iron bars used as currency in some northern areas\n\n**The Trans-Saharan Trade Network:**\nA network of routes across the Sahara Desert connecting West African kingdoms to North Africa, the Middle East, and Mediterranean Europe.\n\n**Major Trade Routes:**\n- Kano → Tripoli (Libya)\n- Kano → Marrakesh (Morocco)\n- Bornu → Egypt\n\n**Goods Traded:**\n\n| From West Africa (South) | From North Africa |\n|---|---|\n| Gold | Salt |\n| Kola nuts | Horses |\n| Slaves | Cloth and textiles |\n| Leather goods | Books and manuscripts |\n| Ivory | Copper |\n| Natron | Glass beads |\n\n**Impact on Nigerian Societies:**\n1. Growth of city-states (Kano, Katsina, Zaria) as trading centres\n2. Spread of Islam through Muslim merchants\n3. Growth of a merchant class with political influence\n4. Introduction of Arabic writing and scholarship\n5. Strengthened the Kanem-Bornu and Hausa Empires`
-      },
-      { week:11, topic:"First Term Revision — Nigerian History", objectives:["Review all topics Weeks 1–10"], notes:"Comprehensive revision. Focus on: historical sources, ethnic groups, ancient civilisations (Nok, Igbo-Ukwu, Ife, Benin), origin myths, political systems (Oyo, Igbo, Hausa, Kanem-Bornu), art, and trade." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term examination in Nigerian History"], notes:"First Term Examination. Show your understanding of early Nigerian history clearly. Use dates and examples in your answers." }
-    ]
-  };
-
-  /* ─── ENGLISH LANGUAGE — SS1 ─── */
-  const engLangSS1 = {
-    subjectId: "eng-lang", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Speech Work — Vowels and Consonants",
-        objectives:["Classify English vowel sounds (monophthongs, diphthongs)","Identify consonant clusters","Practice correct pronunciation of common words"],
-        notes:`**English Phonology — Vowels and Consonants**\n\n**Vowel Sounds in English:**\nEnglish has 20 vowel sounds (12 monophthongs + 8 diphthongs) but only 5 vowel letters (A, E, I, O, U).\n\n**Monophthongs (Pure Vowels):**\n| Sound | Example Words |\n|---|---|\n| /iː/ | see, tree, feet |\n| /ɪ/ | sit, bit, lip |\n| /e/ | bed, head, said |\n| /æ/ | cat, bat, hat |\n| /ɑː/ | car, bar, father |\n| /ɒ/ | got, hot, cot |\n| /ɔː/ | saw, law, more |\n| /ʊ/ | put, foot, book |\n| /uː/ | too, blue, shoe |\n| /ʌ/ | cut, bus, love |\n| /ɜː/ | bird, word, her |\n| /ə/ | about, sofa, the |\n\n**Diphthongs (Gliding Vowels):**\n/eɪ/ (day), /aɪ/ (my), /ɔɪ/ (boy), /əʊ/ (go), /aʊ/ (now), /ɪə/ (ear), /eə/ (air), /ʊə/ (tour)\n\n**Consonants:**\nEnglish has 24 consonant sounds. Special attention to:\n- /θ/ vs /ð/ (think vs this)\n- /p/ vs /b/ (pin vs bin)\n- /f/ vs /v/ (fan vs van)\n\n**WAEC Speaking Tips:**\n- Avoid mother-tongue interference\n- Stress the correct syllable: PHOtograph, phoTOGraphy, photoGRAPHic`
-      },
-      { week:2, topic:"Comprehension — Reading and Inference",
-        objectives:["Identify main idea and supporting details","Make logical inferences from a text","Answer comprehension questions in complete sentences"],
-        notes:`**Reading Comprehension Skills**\n\n**Types of Questions in WAEC Comprehension:**\n1. **Literal Questions:** Answer directly from the text (what the text says)\n2. **Inferential Questions:** Read between the lines (what the text implies)\n3. **Vocabulary in Context:** Explain the meaning of underlined words\n4. **Summary:** Condense the key points into fewer words\n\n**Steps for Answering Comprehension:**\n1. Read the passage carefully (twice if needed)\n2. Read all the questions\n3. Re-read relevant sections of the passage\n4. Write your answers in complete sentences\n5. Use evidence from the passage to support your answer\n\n**Key Literary Terms:**\n- **Main Idea:** The central message or theme\n- **Theme:** Recurring idea/message (e.g., courage, deception)\n- **Tone:** The writer's attitude (e.g., humorous, serious, critical)\n- **Mood:** How the reader feels (e.g., tense, joyful)\n- **Diction:** Choice of words\n- **Register:** Level of formality (formal/informal/neutral)\n\n**WAEC Tip:** Never copy directly from the passage for inferential answers. Rephrase in your own words.`
-      },
-      { week:3, topic:"Grammar — Tenses (Simple, Continuous, Perfect)",
-        objectives:["Identify the 12 English tenses","Form sentences in all tenses correctly","Correct common tense errors in sentences"],
-        notes:`**English Tenses — Complete Guide**\n\n**PRESENT TENSES:**\n| Tense | Form | Example |\n|---|---|---|\n| Simple Present | V / V+s | She reads every day |\n| Present Continuous | am/is/are + V-ing | She is reading now |\n| Present Perfect | has/have + V3 | She has read the book |\n| Present Perfect Continuous | has/have been + V-ing | She has been reading for an hour |\n\n**PAST TENSES:**\n| Tense | Form | Example |\n|---|---|---|\n| Simple Past | V2 | She read yesterday |\n| Past Continuous | was/were + V-ing | She was reading when I called |\n| Past Perfect | had + V3 | She had read before I arrived |\n| Past Perfect Continuous | had been + V-ing | She had been reading for hours |\n\n**FUTURE TENSES:**\n| Tense | Form | Example |\n|---|---|---|\n| Simple Future | will + V | She will read tomorrow |\n| Future Continuous | will be + V-ing | She will be reading at noon |\n| Future Perfect | will have + V3 | She will have read by then |\n| Future Perfect Continuous | will have been + V-ing | She will have been reading for 2 hours |\n\n**Common Errors:**\n❌ "She don't know" → ✅ "She doesn't know"\n❌ "I have went" → ✅ "I have gone"\n❌ "When I will come" → ✅ "When I come"`
-      },
-      { week:4, topic:"Lexis and Structure — Synonyms, Antonyms, Homonyms",
-        objectives:["Match words with their synonyms and antonyms","Identify homonyms and homophones","Use context to determine meaning"],
-        notes:`**Vocabulary and Word Study**\n\n**Synonyms (words with similar meanings):**\n| Word | Synonyms |\n|---|---|\n| Brave | Courageous, fearless, valiant |\n| Smart | Intelligent, clever, bright |\n| Happy | Joyful, elated, content |\n| Beautiful | Gorgeous, stunning, lovely |\n| Difficult | Hard, challenging, arduous |\n\n**Antonyms (words with opposite meanings):**\n| Word | Antonym |\n|---|---|\n| Ancient | Modern |\n| Expand | Contract |\n| Generous | Stingy |\n| Transparent | Opaque |\n| Temporary | Permanent |\n\n**Homonyms (same spelling, different meaning):**\n- **Bank:** river bank / bank (financial institution)\n- **Bat:** cricket bat / flying bat\n- **Tire:** car tire / to tire (become exhausted)\n\n**Homophones (same sound, different spelling and meaning):**\n- **Their / There / They're**\n- **To / Too / Two**\n- **Right / Write**\n- **Peace / Piece**\n- **Flour / Floor** *(note: not exact homophones but often confused)*\n\n**Collocations (words that naturally go together):**\n- Make a decision (not "do a decision")\n- Heavy rain (not "strong rain" in British English)\n- Pay attention (not "give attention")`
-      },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review and test Weeks 1–4 content"], notes:"Mid-Term test on: vowel/consonant sounds, comprehension skills, tenses, synonyms/antonyms/homonyms." },
-      { week:6, topic:"Essay Writing — Narrative and Descriptive",
-        objectives:["Structure a narrative essay with plot elements","Use vivid language in descriptive writing","Apply correct essay format (introduction, body, conclusion)"],
-        notes:`**Essay Writing — Narrative and Descriptive**\n\n**NARRATIVE ESSAY:**\nTells a story. Usually written in first person (I, we) or third person (he/she/they).\n\n**Structure of a Narrative Essay:**\n1. **Introduction:** Set the scene. Hook the reader.\n2. **Rising Action:** Build up the events leading to the climax.\n3. **Climax:** The most exciting/turning point.\n4. **Falling Action:** Events after the climax, leading to resolution.\n5. **Conclusion:** How the story ends; lesson learned.\n\n**WAEC Narrative Topics:**\n- "Write a story ending with: ...and I never saw him again"\n- "Write about an unforgettable experience"\n\n**DESCRIPTIVE ESSAY:**\nPaints a picture with words. Engages the five senses.\n\n**Techniques:**\n- **Simile:** "The road was as smooth as glass"\n- **Metaphor:** "The sun was a ball of fire"\n- **Personification:** "The wind whispered through the trees"\n- **Imagery:** Vivid sensory details (sight, sound, smell, touch, taste)\n\n**Format Checklist:**\n- ✅ Minimum 450 words for WAEC essays\n- ✅ Title written/stated at the top\n- ✅ Clear paragraphing\n- ✅ Varied sentence lengths\n- ✅ Correct punctuation and spelling\n- ✅ Conclusion that wraps up the theme`
-      },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Write a practice essay on any topic." },
-      { week:8, topic:"Grammar — Active and Passive Voice",
-        objectives:["Convert sentences from active to passive voice","Identify when passive voice is appropriate","Avoid common passive voice errors"],
-        notes:`**Active and Passive Voice**\n\n**Active Voice:** Subject performs the action.\n→ "The teacher *corrected* the scripts."\n\n**Passive Voice:** Subject receives the action. Formed with: to be + past participle (V3)\n→ "The scripts *were corrected* by the teacher."\n\n**Conversion Rules:**\n\nActive: Subject + Verb + Object\n→ Passive: Object + to be (matching tense) + V3 + by + Subject\n\n**Tense Conversion Table:**\n| Active Tense | Passive Form |\n|---|---|\n| Simple Present | is/are + V3 |\n| Simple Past | was/were + V3 |\n| Simple Future | will be + V3 |\n| Present Continuous | is/are being + V3 |\n| Past Continuous | was/were being + V3 |\n| Present Perfect | has/have been + V3 |\n| Past Perfect | had been + V3 |\n\n**Examples:**\n- Active: "She will write the letter."\n  Passive: "The letter will be written by her."\n- Active: "They have built a new school."\n  Passive: "A new school has been built by them."\n\n**When to Use Passive:**\n- When the doer is unknown: "The window was broken."\n- When the doer is unimportant: "The results will be announced tomorrow."\n- In formal/scientific writing\n\n**WAEC Tip:** Know how to identify active/passive in a sentence and convert correctly.`
-      },
-      { week:9, topic:"Oral English — Stress, Rhythm, and Intonation",
-        objectives:["Apply word stress correctly","Understand sentence rhythm in English","Distinguish rising from falling intonation"],
-        notes:`**Oral English — Stress, Rhythm, and Intonation**\n\n**WORD STRESS:**\nIn English, one syllable in a multi-syllable word receives more emphasis.\n\n**Common Patterns:**\n- **Nouns:** Stress usually on FIRST syllable\n  - PHOto, TAble, STUdent, PERson\n- **Verbs (2 syllables):** Stress usually on SECOND syllable\n  - preSENT, exPORT, reCORD\n- **Adjectives:** Stress on FIRST syllable\n  - HAPpy, BOring, CLEVer\n\n**Noun vs Verb Stress (Homographs):**\n| Word | Noun | Verb |\n|---|---|---|\n| present | PRE-sent | pre-SENT |\n| record | RE-cord | re-CORD |\n| permit | PER-mit | per-MIT |\n| export | EX-port | ex-PORT |\n\n**INTONATION:**\nThe rise and fall of pitch in speech.\n\n- **Falling Intonation (↘):** Statements, commands, wh-questions\n  - "I am going to school.↘"\n  - "What is your name?↘"\n\n- **Rising Intonation (↗):** Yes/No questions, uncertainty\n  - "Are you coming?↗"\n  - "She passed?↗"\n\n**RHYTHM:**\nEnglish is stress-timed: stressed syllables occur at regular intervals.\n- "The CAT sat on the MAT"\n- Unstressed syllables are spoken quickly; stressed ones are longer and louder`
-      },
-      { week:10, topic:"Summary Writing",
-        objectives:["Identify key points in a passage","Write a concise summary in a specified number of points or words","Avoid direct copying and irrelevant information"],
-        notes:`**Summary Writing — Technique and Practice**\n\n**What is a Summary?**\nA summary condenses the main ideas of a passage into a shorter form without adding personal opinions.\n\n**WAEC Summary Types:**\n1. **Point-form summary:** "In not more than 5 points, summarise..."\n2. **Prose summary:** "In not more than 100 words, summarise..."\n\n**Steps for Writing a Good Summary:**\n1. **Read** the passage carefully to understand the main idea\n2. **Identify** the key points (usually the first sentence of each paragraph)\n3. **Underline** or note the key points\n4. **Rewrite** the key points in your own words (paraphrase)\n5. **Count** your words or points and stay within the limit\n6. **Check** — do not include examples, illustrations, or opinions from the passage\n\n**Common Mistakes to Avoid:**\n- ❌ Copying sentences directly from the passage\n- ❌ Adding your own opinions\n- ❌ Including minor details or examples\n- ❌ Exceeding the word/point limit\n- ❌ Changing the meaning of the original text\n\n**WAEC Scoring for Summary:**\n- Each valid point = 2 marks (maximum 10 points = 20 marks)\n- Deduct marks for each error in expression\n- Penalty for exceeding word limit: deduct 2 marks`
-      },
-      { week:11, topic:"First Term Revision — English Language", objectives:["Review all SS1 First Term English Language topics"], notes:"Comprehensive revision: phonology, comprehension, tenses, vocabulary, essay types, passive voice, oral English, and summary writing. Attempt at least one full WAEC-style essay and one comprehension passage." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term English Language examination"], notes:"First Term Examination. The exam covers all topics. Answer all sections carefully within the time limit." }
-    ]
-  };
-
-  /* ─── GENERAL MATHEMATICS — SS1 ─── */
-  const genMathSS1 = {
-    subjectId: "gen-math", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Number Base System",
-        objectives:["Convert numbers between bases 2, 8, 10, 16","Perform arithmetic in base 2","Apply number bases to computer science"],
-        notes:`**Number Base System**\n\n**Common Number Bases:**\n| Base | Name | Digits Used |\n|---|---|---|\n| 2 | Binary | 0, 1 |\n| 8 | Octal | 0–7 |\n| 10 | Decimal | 0–9 |\n| 16 | Hexadecimal | 0–9, A–F |\n\n**Decimal to Binary Conversion:**\nConvert 25 to binary:\n25 ÷ 2 = 12 remainder **1**\n12 ÷ 2 = 6 remainder **0**\n6 ÷ 2 = 3 remainder **0**\n3 ÷ 2 = 1 remainder **1**\n1 ÷ 2 = 0 remainder **1**\nRead remainders **bottom to top**: 25₁₀ = **11001₂**\n\n**Binary to Decimal:**\n11001₂ = (1×2⁴) + (1×2³) + (0×2²) + (0×2¹) + (1×2⁰)\n= 16 + 8 + 0 + 0 + 1 = **25**\n\n**Binary Addition:**\n0 + 0 = 0\n0 + 1 = 1\n1 + 0 = 1\n1 + 1 = 10 (write 0, carry 1)\n\n**Decimal to Hex:**\n255₁₀ = FF₁₆ (F = 15 in hexadecimal)\n\n**Application in Computers:**\nComputers use binary (base 2) because electronic circuits have two states: ON (1) and OFF (0).`
-      },
-      { week:2, topic:"Modular Arithmetic",
-        objectives:["Define modular arithmetic","Solve problems in mod 5, mod 7, mod 12","Apply modular arithmetic to real-life (clock, calendars)"],
-        notes:`**Modular Arithmetic**\n\n**Definition:**\n"a mod n" gives the remainder when a is divided by n.\n\n**Notation:** a ≡ b (mod n) means "a and b have the same remainder when divided by n"\n\n**Examples:**\n- 17 mod 5 = 2 (17 = 3×5 + 2)\n- 23 mod 7 = 2 (23 = 3×7 + 2)\n- 60 mod 12 = 0 (60 = 5×12 + 0)\n\n**Clock Arithmetic (mod 12):**\nA clock has 12 hours. If it is 9 o'clock and you add 5 hours:\n(9 + 5) mod 12 = 14 mod 12 = **2 o'clock**\n\n**Days of the Week (mod 7):**\nIf today is Monday (day 1) and 20 days pass:\n(1 + 20) mod 7 = 21 mod 7 = 0 ≡ **Sunday (day 7 or 0)**\n\n**Addition in Modular Arithmetic:**\n(17 + 28) mod 9\n= 45 mod 9 = **0**\n\n**Multiplication in Modular Arithmetic:**\n(7 × 8) mod 5\n= 56 mod 5 = **1**\n\n**Applications:**\n- Computer cryptography (RSA encryption uses mod)\n- ISBN and barcode check digits\n- WAEC exam scheduling (days calculation)`
-      },
-      { week:3, topic:"Indices and Standard Form",
-        objectives:["Apply laws of indices","Write numbers in standard form","Simplify expressions with negative and fractional indices"],
-        notes:`**Indices (Powers/Exponents)**\n\n**Laws of Indices:**\n| Law | Rule | Example |\n|---|---|---|\n| Multiplication | aᵐ × aⁿ = aᵐ⁺ⁿ | 2³ × 2⁴ = 2⁷ |\n| Division | aᵐ ÷ aⁿ = aᵐ⁻ⁿ | 3⁶ ÷ 3² = 3⁴ |\n| Power of Power | (aᵐ)ⁿ = aᵐⁿ | (2³)⁴ = 2¹² |\n| Zero Index | a⁰ = 1 | 7⁰ = 1 |\n| Negative Index | a⁻ⁿ = 1/aⁿ | 2⁻³ = 1/8 |\n| Fractional Index | a^(1/n) = ⁿ√a | 8^(1/3) = ∛8 = 2 |\n| Fractional Index | a^(m/n) = (ⁿ√a)ᵐ | 27^(2/3) = (∛27)² = 9 |\n\n**Standard Form (Scientific Notation):**\nA × 10ⁿ where 1 ≤ A < 10\n\nExamples:\n- 4,500,000 = **4.5 × 10⁶**\n- 0.00023 = **2.3 × 10⁻⁴**\n\n**Simplification Practice:**\n1. Simplify: (2x³y²)³\n   = 2³ × x⁹ × y⁶ = **8x⁹y⁶**\n2. Evaluate: 4^(3/2)\n   = (√4)³ = 2³ = **8**`
-      },
-      { week:4, topic:"Logarithms",
-        objectives:["Define logarithm as inverse of index","Read log and antilog tables","Use logarithms to calculate products, quotients, and powers"],
-        notes:`**Logarithms**\n\n**Definition:**\nIf bˣ = N, then log_b(N) = x\n"Logarithm base b of N equals x"\n\n**Key Relationship:**\n10ˣ = N ↔ log₁₀(N) = x\n\n**Log Rules:**\n| Rule | Formula |\n|---|---|\n| Product | log(MN) = log M + log N |\n| Quotient | log(M/N) = log M − log N |\n| Power | log(Mⁿ) = n log M |\n| log base a of a | logₐ(a) = 1 |\n| log of 1 | log(1) = 0 |\n\n**Using Log Tables:**\nTo find log 4.56:\n1. Look up 45 in the log table → 6532\n2. Find the difference for 6 → add 6\n3. log 4.56 ≈ 0.6590\n\n**Antilog:**\nTo find antilog 2.3456:\n1. Look up .3456 in antilog table → 2216\n2. Move decimal: 10² × 2.216 = **221.6**\n\n**Calculation Using Logs:**\nEvaluate: 45.6 × 0.892\n= log(45.6) + log(0.892)\n= 1.6590 + (-0.0497)\n= 1.6093\nAntilog 1.6093 = **40.68**`
-      },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review Weeks 1–4 and sit class test"], notes:"Mid-Term test on number bases, modular arithmetic, indices, and logarithms." },
-      { week:6, topic:"Effective Use of Logarithm Tables",
-        objectives:["Use log tables for division and roots","Solve practical problems using logarithms","Apply logarithms to finance calculations"],
-        notes:`**Advanced Use of Logarithm Tables**\n\n**Division Using Logs:**\nEvaluate: 356.4 ÷ 24.7\n= log(356.4) − log(24.7)\n= 2.5519 − 1.3927\n= 1.1592\nAntilog 1.1592 = **14.43**\n\n**Finding Powers Using Logs:**\nEvaluate: (3.45)⁴\n= 4 × log(3.45)\n= 4 × 0.5378\n= 2.1512\nAntilog 2.1512 = **141.7**\n\n**Finding Roots Using Logs:**\nEvaluate: ⁵√247\n= (1/5) × log(247)\n= (1/5) × 2.3927\n= 0.4785\nAntilog 0.4785 = **3.011**\n\n**Compound Interest using Logs:**\nA = P(1 + r/100)ⁿ\nIf P = ₦5,000, r = 8%, n = 7:\nlog A = log 5000 + 7 × log(1.08)\n= 3.6990 + 7 × 0.0334\n= 3.6990 + 0.2338\n= 3.9328\nA = antilog 3.9328 = **₦8,570** (approx)`
-      },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Practice logarithm calculations during the break." },
-      { week:8, topic:"Simple Equations and Variation",
-        objectives:["Change the subject of a formula","Distinguish direct, inverse, joint, and partial variation","Solve variation problems"],
-        notes:`**Variation and Change of Subject**\n\n**Change of Subject of Formula:**\nMake r the subject of: A = πr²\n→ r² = A/π\n→ r = √(A/π)\n\nMake t the subject of: v = u + at\n→ v − u = at\n→ t = (v − u)/a\n\n**Types of Variation:**\n\n**Direct Variation (y ∝ x):**\ny = kx (k is the constant of variation)\nExample: y = 6 when x = 2, find y when x = 7\n6 = k × 2 → k = 3\nWhen x = 7: y = 3 × 7 = **21**\n\n**Inverse Variation (y ∝ 1/x):**\ny = k/x\nExample: y = 5 when x = 4, find y when x = 10\n5 = k/4 → k = 20\nWhen x = 10: y = 20/10 = **2**\n\n**Joint Variation (y ∝ x²z):**\ny = kx²z\nIf y = 12 when x = 2, z = 3:\n12 = k(4)(3) = 12k → k = 1\nWhen x = 3, z = 4: y = 1(9)(4) = **36**\n\n**Partial Variation:**\ny = a + bx (partially constant, partially varying)\nUsed in: cost = fixed charge + variable charge`
-      },
-      { week:9, topic:"Quadratic Equations I",
-        objectives:["Factorise quadratic expressions","Solve quadratic equations by factorisation","Identify quadratic expressions that cannot be factorised"],
-        notes:`**Quadratic Equations — Factorisation**\n\n**General Form:** ax² + bx + c = 0\n\n**Factorisation Method:**\n1. Find two numbers that multiply to give ac and add to give b\n2. Split the middle term\n3. Factorise by grouping\n\n**Example 1:** Solve x² + 5x + 6 = 0\nFind numbers that multiply to 6 and add to 5 → **3 and 2**\n= (x + 3)(x + 2) = 0\nx + 3 = 0 → x = −3\nx + 2 = 0 → x = −2\n**Solutions: x = −3 or x = −2**\n\n**Example 2:** Solve 2x² + 7x + 3 = 0\nac = 2 × 3 = 6; find two numbers that multiply to 6 and add to 7 → 6 and 1\n= 2x² + 6x + x + 3\n= 2x(x + 3) + 1(x + 3)\n= (2x + 1)(x + 3) = 0\nx = −½ or x = −3\n\n**Difference of Two Squares:**\nx² − 9 = (x − 3)(x + 3)\n4x² − 25 = (2x − 5)(2x + 5)\n\n**Perfect Square:**\nx² + 6x + 9 = (x + 3)²`
-      },
-      { week:10, topic:"Quadratic Equations II — Formula and Graphs",
-        objectives:["Use quadratic formula to solve equations","Draw quadratic graphs","Read roots from a quadratic graph"],
-        notes:`**Quadratic Formula and Graphs**\n\n**Quadratic Formula:**\nFor ax² + bx + c = 0:\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\n**Discriminant (b² − 4ac):**\n- b² − 4ac > 0 → two distinct real roots\n- b² − 4ac = 0 → one repeated root\n- b² − 4ac < 0 → no real roots (complex)\n\n**Example:** Solve 2x² − 5x + 2 = 0\na = 2, b = −5, c = 2\nDiscriminant = 25 − 16 = 9\nx = (5 ± 3) / 4\nx = 8/4 = **2** or x = 2/4 = **½**\n\n**Drawing a Quadratic Graph:**\nPlot y = x² − 2x − 3:\n| x | −2 | −1 | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|---|---|\n| y | 5 | 0 | −3 | −4 | −3 | 0 | 5 |\n\n- The graph is a **parabola** (U-shape if a > 0)\n- The x-intercepts are the roots: x = −1 and x = 3\n- The vertex (minimum) is at x = −b/2a = 1, y = −4`
-      },
-      { week:11, topic:"First Term Revision — General Mathematics", objectives:["Review all topics from Weeks 1–10"], notes:"Comprehensive revision of number bases, modular arithmetic, indices, logarithms, variation, and quadratic equations. Attempt past WAEC questions." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term General Mathematics examination"], notes:"First Term Examination. Show all working clearly. Use approved calculator where permitted. Bring your geometric set and log tables." }
-    ]
-  };
-
-  /* ─── DIGITAL TECHNOLOGIES — SS1 ─── */
-  const digTechSS1 = {
-    subjectId: "dig-tech-ss", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Introduction to Digital Technologies", objectives:["Define digital technology and ICT","List 5 areas where digital tech has transformed society","Explain the relevance of Digital Technologies in the NERDC 2025 curriculum"], notes:"**Introduction to Digital Technologies**\n\nDigital Technologies (DT) is a broad field covering all digital systems — from computers and the internet to artificial intelligence and robotics. The NERDC 2025 curriculum places Digital Technologies as a core compulsory subject for all SS students.\n\n**Areas Transformed by Digital Technology:**\n1. Education (e-learning, online exams, digital libraries)\n2. Healthcare (telemedicine, electronic health records, diagnostic AI)\n3. Commerce (e-commerce, digital banking, fintech)\n4. Government (e-voting, digital ID, online tax filing)\n5. Agriculture (precision farming, drone monitoring, smart irrigation)\n6. Entertainment (streaming, gaming, VR/AR)\n7. Transport (GPS, ride-hailing, autonomous vehicles)\n\n**WAEC/JAMB Relevance:**\n- WAEC Computer Studies: Practical and theory examination\n- JAMB: Computer-Based Test uses digital technology\n- University courses: Computer Science, IT, Engineering, Data Science all require DT knowledge" },
-      { week:2, topic:"History and Evolution of Digital Technologies", objectives:["List computer generations with key features","Trace evolution from abacus to AI","Explain Moore's Law"], notes:"**History of Digital Technologies**\n\n| Generation | Period | Technology | Speed/Size |\n|---|---|---|---|\n| 1st | 1940–1956 | Vacuum tubes | Very slow, room-sized |\n| 2nd | 1956–1963 | Transistors | Faster, smaller |\n| 3rd | 1964–1971 | Integrated Circuits (ICs) | Much faster, portable |\n| 4th | 1971–Present | Microprocessors | Very fast, desktop/laptop |\n| 5th | Now–Future | AI, Quantum, Neural | Intelligent systems |\n\n**Moore's Law:**\nGordon Moore (co-founder of Intel) observed in 1965 that the number of transistors on a chip doubles approximately every 2 years, leading to exponential growth in computing power.\n\n**Key Milestones:**\n- 1945: ENIAC (first general-purpose electronic computer)\n- 1969: ARPANET (precursor to internet)\n- 1971: Intel 4004 (first microprocessor)\n- 1981: IBM PC (personal computer for homes)\n- 1991: World Wide Web (Tim Berners-Lee)\n- 1998: Google founded\n- 2007: iPhone (smartphone revolution)\n- 2022: ChatGPT (generative AI era begins)" },
-      { week:3, topic:"Number Systems — Binary, Decimal, Octal, Hexadecimal", objectives:["Convert between all four number systems","Perform binary addition and subtraction","Explain why computers use binary"], notes:"**Number Systems in Computing**\n\n**Conversion Quick Reference:**\n\nDecimal → Binary: Divide by 2, read remainders upward\nDecimal → Octal: Divide by 8, read remainders upward\nDecimal → Hex: Divide by 16; A=10, B=11, C=12, D=13, E=14, F=15\n\n**Hexadecimal Table:**\n| Decimal | Binary | Hex |\n|---|---|---|\n| 0–9 | 0000–1001 | 0–9 |\n| 10 | 1010 | A |\n| 11 | 1011 | B |\n| 12 | 1100 | C |\n| 13 | 1101 | D |\n| 14 | 1110 | E |\n| 15 | 1111 | F |\n\n**Binary Arithmetic:**\n1101₂ + 1011₂:\n  1101\n+ 1011\n------\n 11000 = 24 in decimal (check: 13 + 11 = 24 ✓)\n\n**Two's Complement (for binary subtraction):**\n1. Flip all bits (one's complement)\n2. Add 1\nUsed by computers to represent negative numbers." },
-      { week:4, topic:"Computer Hardware — Deep Dive", objectives:["Describe the CPU and its components (ALU, CU, Registers)","Explain the fetch-execute cycle","Calculate memory addressing"], notes:"**Computer Hardware — Internal Architecture**\n\n**The CPU (Central Processing Unit):**\nThe 'brain' of the computer.\n- **ALU (Arithmetic Logic Unit):** Performs mathematical calculations and logical comparisons (AND, OR, NOT)\n- **CU (Control Unit):** Directs the operation of all other components; fetches and decodes instructions\n- **Registers:** Ultra-fast temporary memory inside the CPU (Program Counter, Accumulator, Instruction Register)\n- **Cache Memory:** Ultra-fast memory between CPU and RAM (L1, L2, L3 cache levels)\n\n**The Fetch-Execute Cycle:**\n1. **FETCH:** CU reads the instruction from RAM (address in Program Counter)\n2. **DECODE:** CU interprets what the instruction means\n3. **EXECUTE:** ALU performs the operation\n4. **STORE:** Result is stored in a register or RAM\n\n**Bus Systems:**\n- **Data Bus:** Carries data between components (width = word size, e.g., 64-bit)\n- **Address Bus:** Carries memory address (determines max RAM addressable)\n- **Control Bus:** Carries control signals (read/write signals)" },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review Weeks 1–4 and sit class test"], notes:"Mid-Term test on digital tech history, number systems, and computer hardware." },
-      { week:6, topic:"Computer Software — Classification and Functions", objectives:["Classify software into system, application, and utility","List 5 examples of each type","Explain software licensing models (open source, proprietary, freeware)"], notes:"**Computer Software Classification**\n\n**System Software:**\n- Operating Systems (Windows, Linux, macOS, Android, iOS)\n- BIOS/UEFI firmware\n- Device drivers (printer drivers, graphics drivers)\n- Bootloaders\n\n**Application Software:**\n- Productivity: Microsoft Office, LibreOffice\n- Browser: Chrome, Firefox, Opera\n- Media: VLC, Spotify\n- Education: Khan Academy, Duolingo\n- Graphics: Canva, Photoshop\n\n**Utility Software:**\n- Antivirus: Kaspersky, Norton, Windows Defender\n- File compression: WinRAR, 7-Zip\n- Disk cleanup: CCleaner\n- Backup: Windows Backup\n- Disk partition: MiniTool, GParted\n\n**Software Licensing:**\n| Type | Cost | Modification Allowed? |\n|---|---|---|\n| Proprietary | Usually paid | No |\n| Open Source | Free | Yes (with conditions) |\n| Freeware | Free | No |\n| Shareware | Try free, pay later | No |\n| Creative Commons | Varies | Varies |" },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Review your notes and attempt past WAEC Computer Studies questions." },
-      { week:8, topic:"Operating Systems — Functions and Types", objectives:["List 5 major functions of an OS","Compare Windows, Linux, and macOS","Explain file management using the OS"], notes:"**Operating Systems**\n\n**Definition:** An operating system is the master control program that manages hardware and software resources and provides an interface for users.\n\n**5 Major Functions:**\n1. **Memory Management:** Allocates RAM to running programs; uses virtual memory when RAM is full\n2. **Process Management:** Runs multiple programs simultaneously (multitasking); schedules CPU time\n3. **File System Management:** Organises data in hierarchical folders; supports formats like NTFS, FAT32, ext4\n4. **Device Management:** Controls peripherals through device drivers\n5. **Security and Access Control:** User accounts, passwords, file permissions, firewall\n\n**OS Comparison:**\n| Feature | Windows 11 | macOS | Ubuntu Linux |\n|---|---|---|---|\n| Cost | Paid | Free (with Mac) | Free |\n| Interface | GUI | GUI | GUI / CLI |\n| Popularity | Highest (desktop) | Second | Third |\n| Security | Moderate | High | High |\n| Customisation | Moderate | Low | Very High |" },
-      { week:9, topic:"Computer Maintenance and Safety", objectives:["List preventive maintenance tasks","Explain ergonomic principles for computer use","Create a maintenance schedule for a computer lab"], notes:"**Computer Maintenance and Safety**\n\n**Preventive Maintenance (Hardware):**\n- Clean keyboard and mouse weekly (compressed air)\n- Wipe monitor screen with soft, lint-free cloth\n- Dust internal components every 6 months\n- Check and tighten cable connections\n- Use UPS (Uninterruptible Power Supply) to protect from power surges\n- Keep temperature below 35°C (use air conditioning or fans)\n\n**Preventive Maintenance (Software):**\n- Update OS and applications regularly\n- Scan for viruses/malware weekly\n- Delete temporary files (Disk Cleanup)\n- Defragment HDD quarterly (not needed for SSD)\n- Backup important data to external drive or cloud\n- Uninstall unused programs\n\n**Ergonomics (Healthy Computer Use):**\n- Monitor top at eye level (reduces neck strain)\n- 50–70 cm distance from screen\n- Use chair with lower back support\n- Take a 5-minute break every 45 minutes (20-20-20 rule: every 20 min, look 20 feet away for 20 seconds)\n- Wrists flat when typing (not bent up or down)\n\n**Power Safety:**\n- Never use a computer in wet conditions\n- Unplug during electrical storms\n- Use surge protectors" },
-      { week:10, topic:"Data Representation in Computers", objectives:["Explain ASCII and Unicode encoding","Calculate storage size of text, image, and audio files","Understand binary representation of images (pixels, colour depth)"], notes:"**Data Representation**\n\n**Text Encoding:**\n- **ASCII** (American Standard Code for Information Interchange): 128 characters using 7 bits. 'A' = 65, 'a' = 97, '0' = 48\n- **Unicode (UTF-8):** Supports 1,114,112 characters (including all world languages and emojis). Backward compatible with ASCII.\n\n**Image Representation:**\n- An image is made of **pixels** (picture elements)\n- Each pixel has a colour value\n- **Colour Depth (Bit Depth):** Number of bits per pixel\n  - 1-bit = 2 colours (black/white)\n  - 8-bit = 256 colours\n  - 24-bit = 16.7 million colours (True Colour: 8 bits each for R, G, B)\n\n**Image File Size Calculation:**\nFile size = Width × Height × Colour depth (in bits) ÷ 8 (to convert to bytes)\nExample: 800 × 600 image at 24-bit:\n= 800 × 600 × 24 / 8 = **1,440,000 bytes = 1.37 MB**\n\n**Audio Representation:**\n- **Sampling rate:** Number of samples per second (Hz). CD quality = 44,100 Hz\n- **Bit depth:** Bits per sample. CD = 16-bit\n- Audio size = sampling rate × bit depth × channels × duration ÷ 8" },
-      { week:11, topic:"First Term Revision — Digital Technologies SS1", objectives:["Review all topics Weeks 1–10"], notes:"Revision session covering: DT introduction, history, number systems, CPU/hardware, software, OS, maintenance, and data representation. Practice converting between all four number bases." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term Digital Technologies examination"], notes:"First Term Examination — Digital Technologies SS1. The exam covers all first-term topics including number system conversions (show all workings), hardware identification, software classification, and OS functions." }
-    ]
-  };
-
-  /* ─── PHYSICS — SS1 ─── */
-  const physicsSS1 = {
-    subjectId: "physics", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Introduction to Physics — Measurements and Units",
-        objectives:["Define physics and its branches","State SI units for fundamental quantities","Use significant figures and scientific notation"],
-        notes:`**Introduction to Physics**\n\n**Definition:** Physics is the study of matter, energy, and the interaction between them.\n\n**Branches of Physics:**\n- Mechanics (motion and forces)\n- Thermodynamics (heat and energy)\n- Electromagnetism (electricity and magnetism)\n- Optics (light)\n- Nuclear Physics (atomic nucleus)\n- Modern Physics (quantum mechanics, relativity)\n\n**SI (International System) Base Units:**\n| Quantity | Symbol | SI Unit | Symbol |\n|---|---|---|---|\n| Length | l | Metre | m |\n| Mass | m | Kilogram | kg |\n| Time | t | Second | s |\n| Temperature | T | Kelvin | K |\n| Current | I | Ampere | A |\n| Amount of substance | n | Mole | mol |\n| Luminous intensity | Iᵥ | Candela | cd |\n\n**Prefixes:**\n| Prefix | Symbol | Factor |\n|---|---|---|\n| Giga | G | 10⁹ |\n| Mega | M | 10⁶ |\n| Kilo | k | 10³ |\n| Centi | c | 10⁻² |\n| Milli | m | 10⁻³ |\n| Micro | μ | 10⁻⁶ |\n| Nano | n | 10⁻⁹ |`
-      },
-      { week:2, topic:"Scalars and Vectors",
-        objectives:["Distinguish scalar from vector quantities","Add vectors graphically (head-to-tail method)","Resolve a vector into perpendicular components"],
-        notes:`**Scalars and Vectors**\n\n**Scalar Quantity:** Has magnitude (size) only.\nExamples: mass (kg), time (s), temperature (K), speed (m/s), energy (J), distance (m)\n\n**Vector Quantity:** Has both magnitude AND direction.\nExamples: force (N), velocity (m/s), displacement (m), acceleration (m/s²), momentum (kg·m/s)\n\n**Vector Addition:**\n**Graphical method (head-to-tail):**\n1. Draw vector A\n2. Place tail of vector B at the head of A\n3. The resultant R goes from the tail of A to the head of B\n\n**Pythagoras method (for perpendicular vectors):**\nR = √(A² + B²)\nDirection: θ = tan⁻¹(B/A)\n\n**Resolution of Vectors:**\nA vector F at angle θ to horizontal has:\n- Horizontal component: Fₓ = F cos θ\n- Vertical component: Fᵧ = F sin θ\n\n**Example:**\nA force of 50 N acts at 30° to horizontal:\n- Fₓ = 50 cos 30° = 50 × 0.866 = **43.3 N**\n- Fᵧ = 50 sin 30° = 50 × 0.5 = **25 N**`
-      },
-      { week:3, topic:"Motion — Distance, Displacement, Speed, Velocity",
-        objectives:["Distinguish distance from displacement","Distinguish speed from velocity","Calculate average speed and velocity from data"],
-        notes:`**Kinematics — Basic Concepts**\n\n**Distance vs Displacement:**\n- **Distance:** Total path length covered (scalar)\n- **Displacement:** Straight-line change in position with direction (vector)\n\nExample: If you walk 4 m East, then 3 m North:\n- Distance = 4 + 3 = **7 m**\n- Displacement = √(4² + 3²) = √25 = **5 m (NE direction)**\n\n**Speed vs Velocity:**\n- **Speed:** Rate of change of distance (scalar). Speed = Distance / Time\n- **Velocity:** Rate of change of displacement (vector). Velocity = Displacement / Time\n\n**Types of Speed:**\n- **Uniform Speed:** Equal distances in equal time intervals\n- **Non-uniform Speed:** Unequal distances in equal time intervals\n- **Average Speed:** Total distance / Total time\n- **Instantaneous Speed:** Speed at any particular moment\n\n**Units:** m/s, km/h (1 m/s = 3.6 km/h)\n\n**Conversion:** 72 km/h = 72 ÷ 3.6 = **20 m/s**`
-      },
-      { week:4, topic:"Equations of Motion (Kinematics)",
-        objectives:["State the three equations of motion","Apply equations to solve uniform acceleration problems","Analyse motion using velocity-time graphs"],
-        notes:`**Equations of Uniform Motion**\n\n**Three Equations of Motion:**\n1. **v = u + at**\n2. **s = ut + ½at²**\n3. **v² = u² + 2as**\n\nWhere:\n- u = initial velocity (m/s)\n- v = final velocity (m/s)\n- a = acceleration (m/s²)\n- t = time (s)\n- s = displacement (m)\n\n**Example 1:** A car starts from rest and accelerates uniformly at 3 m/s². Find its velocity after 5 seconds.\nu = 0, a = 3, t = 5\nv = u + at = 0 + (3)(5) = **15 m/s**\n\n**Example 2:** A ball is thrown upward with velocity 20 m/s. How high does it go? (g = 10 m/s²)\nAt maximum height: v = 0\nv² = u² − 2gs\n0 = 400 − 20s\ns = **20 m**\n\n**Velocity-Time Graph:**\n- Slope = acceleration\n- Area under graph = displacement\n- Horizontal line = constant velocity\n- Slanting line = uniform acceleration/deceleration`
-      },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review and test Weeks 1–4 content"], notes:"Mid-Term test on measurements, vectors, motion, and equations of motion." },
-      { week:6, topic:"Newton's Laws of Motion", objectives:["State all three Newton's Laws","Apply F = ma to solve problems","Explain action-reaction pairs"], notes:"**Newton's Three Laws of Motion**\n\n**First Law (Law of Inertia):**\n'A body remains at rest or continues moving with uniform velocity unless acted upon by an external net force.'\n- Inertia: Resistance to change in state of motion\n- Greater mass = greater inertia\n\n**Second Law (Law of Force):**\n'The acceleration of a body is directly proportional to the net force and inversely proportional to its mass.'\n**F = ma** (Force = mass × acceleration)\n- Units: Newton (N) = kg·m/s²\n\nExample: A 4 kg object experiences a net force of 20 N. Find its acceleration:\na = F/m = 20/4 = **5 m/s²**\n\n**Third Law (Law of Action-Reaction):**\n'For every action, there is an equal and opposite reaction.'\n- Rocket propulsion: hot gases pushed backward → rocket moves forward\n- Walking: foot pushes ground backward → ground pushes foot forward\n- Recoil of a gun: bullet pushed forward → gun pushed backward\n\n**Weight and Mass:**\n- Weight W = mg (g = 10 m/s² on Earth, 1.6 m/s² on Moon)\n- A 60 kg person: Weight on Earth = 60 × 10 = **600 N**" },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Solve 10 kinematics and Newton's Law problems." },
-      { week:8, topic:"Work, Energy, and Power", objectives:["Calculate work done by a force","Apply the work-energy theorem","Distinguish kinetic from potential energy"], notes:"**Work, Energy, and Power**\n\n**Work (W):**\nW = F × d × cos θ\nWork is done only when a force causes displacement.\n- F = force (N), d = displacement (m), θ = angle between force and displacement\n- Units: Joule (J) = N·m\n- If force and displacement are in the same direction (θ = 0°): W = Fd\n\n**Energy:**\n- **Kinetic Energy (KE):** Energy of motion. KE = ½mv²\n- **Potential Energy (PE):** Stored energy.\n  - Gravitational PE = mgh\n  - Elastic PE = ½ke² (spring)\n\n**Conservation of Energy:**\nTotal energy is conserved (KE + PE = constant, ignoring friction)\n\nA ball of mass 2 kg falls from height 5 m:\nPE at top = mgh = 2 × 10 × 5 = 100 J\nKE at bottom = 100 J\nv = √(2KE/m) = √(200/2) = √100 = **10 m/s**\n\n**Power (P):**\nP = Work / Time = W/t\nOr P = Force × velocity = Fv\n- Units: Watt (W) = J/s\n- 1 horsepower (hp) = 746 W\n\n**Efficiency:**\nEfficiency = (Useful output energy / Total input energy) × 100%" },
-      { week:9, topic:"Pressure in Solids, Liquids, and Gases", objectives:["Calculate pressure in solids","Apply liquid pressure formula","State Boyle's Law and Pascal's Principle"], notes:"**Pressure**\n\n**Pressure in Solids:**\nPressure = Force / Area\nP = F/A\n- Units: Pascal (Pa) = N/m²\n- A force of 100 N on area 0.5 m²: P = 100/0.5 = **200 Pa**\n- Why knife is sharp: small area → very high pressure\n\n**Pressure in Liquids:**\nP = ρgh\n- ρ = density of liquid (kg/m³), g = 10 m/s², h = depth (m)\n- Water density: 1,000 kg/m³\n- Pressure at 5 m depth in water: P = 1000 × 10 × 5 = **50,000 Pa = 50 kPa**\n\n**Properties of Liquid Pressure:**\n- Acts in all directions\n- Increases with depth\n- Independent of container shape\n- Depends on density of liquid\n\n**Pascal's Principle:**\nPressure applied to an enclosed fluid is transmitted equally in all directions.\nApplication: Hydraulic press, car brakes, hydraulic jack\n\n**Hydraulic press:**\nF₁/A₁ = F₂/A₂\nIf A₂ = 20A₁ and F₁ = 100 N:\nF₂ = 100 × 20 = **2,000 N** (mechanical advantage = 20)\n\n**Atmospheric Pressure:**\nAt sea level: 101,325 Pa ≈ **101.3 kPa = 1 atm = 760 mmHg**" },
-      { week:10, topic:"Archimedes' Principle and Flotation", objectives:["State Archimedes' Principle","Calculate upthrust/buoyancy force","Apply the principle of flotation"], notes:"**Archimedes' Principle**\n\n**Statement:**\n'When an object is wholly or partially submerged in a fluid, it experiences an upward force (upthrust/buoyancy) equal to the weight of the fluid displaced.'\n\n**Upthrust (U) = Weight of fluid displaced**\nU = ρ_fluid × V_displaced × g\n\n**Principle of Flotation:**\nA floating object displaces fluid whose weight equals the object's weight.\n\n**Example:**\nA wooden block of mass 5 kg and volume 0.008 m³ placed in water:\n- Weight of block = 5 × 10 = 50 N\n- Maximum upthrust = ρ_water × V × g = 1000 × 0.008 × 10 = 80 N\n- Since max upthrust (80 N) > weight (50 N), the block FLOATS\n- Volume submerged: 50 = 1000 × V_sub × 10 → V_sub = 0.005 m³\n- Fraction submerged = 0.005/0.008 = **62.5%**\n\n**Why ships float despite being made of steel?**\nShips have a large hollow volume filled with air, making the overall density less than water.\n\n**Hydrometer:**\nAn instrument that measures the density/relative density of a liquid based on the principle of flotation." },
-      { week:11, topic:"First Term Revision — Physics SS1", objectives:["Review all topics Weeks 1–10"], notes:"Physics SS1 comprehensive revision. Focus on: SI units, vectors, kinematics (all 3 equations), Newton's Laws, work/energy/power, pressure, and Archimedes' Principle. Practice at least 20 calculation questions." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term Physics examination"], notes:"First Term Physics Examination. Show complete workings for all calculations. State laws and principles clearly before applying them." }
-    ]
-  };
-
-  /* ─── CHEMISTRY — SS1 ─── */
-  const chemistrySS1 = {
-    subjectId: "chemistry", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Introduction to Chemistry — Matter and its Properties", objectives:["Define chemistry and its branches","Classify matter as element, compound, or mixture","Distinguish physical from chemical changes"], notes:"**Introduction to Chemistry**\n\n**Definition:** Chemistry is the branch of science dealing with the composition, structure, properties, and reactions of matter.\n\n**Branches of Chemistry:**\n- Organic: Study of carbon compounds\n- Inorganic: Study of non-carbon compounds\n- Physical: Energy changes in reactions\n- Analytical: Identifying and measuring substances\n- Biochemistry: Chemistry of living organisms\n\n**Classification of Matter:**\n- **Element:** Pure substance that cannot be broken down by chemical means (e.g., iron, oxygen, gold)\n- **Compound:** Two or more elements chemically combined in fixed ratio (e.g., H₂O, NaCl, CO₂)\n- **Mixture:** Two or more substances physically combined (e.g., air, seawater, sand+water)\n\n**Types of Mixtures:**\n- Homogeneous (uniform throughout): Salt water, sugar solution\n- Heterogeneous (non-uniform): Sand + water, salad\n\n**Physical vs Chemical Changes:**\n| Physical Change | Chemical Change |\n|---|---|\n| No new substance formed | New substance(s) formed |\n| Reversible (usually) | Irreversible (usually) |\n| E.g., melting ice, cutting wood | E.g., burning wood, rusting |\n| No energy change (usually) | Energy absorbed or released |" },
-      { week:2, topic:"Separation Techniques", objectives:["Match separation technique to mixture type","Describe the process of distillation, chromatography, and electrolysis","Apply filtration in the laboratory"], notes:"**Separation Techniques**\n\n| Mixture Type | Technique | Principle |\n|---|---|---|\n| Solid in liquid | Filtration | Particle size |\n| Dissolved solid from liquid | Evaporation/Crystallisation | Volatility |\n| Two miscible liquids | Fractional distillation | Boiling points |\n| Two immiscible liquids | Separating funnel | Density difference |\n| Coloured dyes in solution | Paper chromatography | Differential absorption |\n| Magnetic solid from non-magnetic | Magnetic separation | Magnetism |\n| Solid + sublimable substance | Sublimation | Sublimation point |\n\n**Distillation:**\n1. Heat the mixture\n2. Lower boiling point component vaporises first\n3. Vapour passes through condenser → cools → collects as liquid (distillate)\nUse: Getting pure water from seawater\n\n**Chromatography:**\n- Mobile phase carries substances up the stationary phase\n- Substances with higher affinity for stationary phase move slower\n- Rf value = distance moved by substance / distance moved by solvent\n- Each compound has a unique Rf value in a given solvent\n\n**Crystallisation:**\nDissolve solid in hot solvent → cool slowly → crystals form." },
-      { week:3, topic:"Atomic Structure", objectives:["Describe the structure of the atom (proton, neutron, electron)","Calculate proton number, neutron number, and mass number","Draw electronic configuration for elements 1–20"], notes:"**Atomic Structure**\n\n**Sub-atomic Particles:**\n| Particle | Location | Charge | Mass (amu) |\n|---|---|---|---|\n| Proton | Nucleus | +1 | 1 |\n| Neutron | Nucleus | 0 | 1 |\n| Electron | Shells/Orbitals | −1 | ~0 |\n\n**Key Terms:**\n- **Atomic Number (Z):** Number of protons\n- **Mass Number (A):** Protons + Neutrons\n- **Neutron Number:** A − Z\n- **Isotopes:** Atoms of same element with different mass numbers (different neutron count)\n\nExample: Carbon (Z = 6)\n- ¹²C: 6 protons, 6 neutrons\n- ¹³C: 6 protons, 7 neutrons\n- ¹⁴C: 6 protons, 8 neutrons (radioactive)\n\n**Electronic Configuration (Shells: 2, 8, 8, 18...):**\n| Element | Z | Configuration |\n|---|---|---|\n| H | 1 | 1 |\n| He | 2 | 2 |\n| Li | 3 | 2, 1 |\n| Na | 11 | 2, 8, 1 |\n| Ca | 20 | 2, 8, 8, 2 |\n\n**Valence Electrons:** Electrons in the outermost shell → determines bonding behaviour." },
-      { week:4, topic:"Periodic Table — Groups and Periods", objectives:["Describe the arrangement of the Periodic Table","State properties of Groups I, II, and VII","Explain trends in atomic radius, ionisation energy, electronegativity"], notes:"**The Periodic Table**\n\n**Arrangement:**\n- **Periods (horizontal rows):** 7 periods. Period number = number of electron shells.\n- **Groups (vertical columns):** 18 groups. Group number = number of valence electrons (for main groups).\n\n**Key Groups:**\n| Group | Name | Elements | Properties |\n|---|---|---|---|\n| IA (1) | Alkali metals | Li, Na, K, Rb, Cs | Soft, reactive, form +1 ions |\n| IIA (2) | Alkaline earth metals | Be, Mg, Ca | Less reactive than Group I, form +2 ions |\n| VIIA (17) | Halogens | F, Cl, Br, I | Reactive non-metals, form −1 ions |\n| 0 (18) | Noble gases | He, Ne, Ar | Very unreactive (full outer shell) |\n\n**Periodic Trends (across a period, left to right):**\n- Atomic radius DECREASES (more protons pull electrons closer)\n- Ionisation energy INCREASES (harder to remove electrons)\n- Electronegativity INCREASES\n\n**Periodic Trends (down a group):**\n- Atomic radius INCREASES\n- Ionisation energy DECREASES\n- Reactivity of metals INCREASES; reactivity of halogens DECREASES" },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review and test Weeks 1–4 content"], notes:"Mid-Term test on matter classification, separation techniques, atomic structure, and the periodic table." },
-      { week:6, topic:"Chemical Bonding — Ionic and Covalent", objectives:["Explain the formation of ionic bonds","Describe covalent bonding using dot-and-cross diagrams","Compare properties of ionic and covalent compounds"], notes:"**Chemical Bonding**\n\n**Ionic Bonding:**\nOccurs between a metal and non-metal. Metal loses electrons → cation (+). Non-metal gains electrons → anion (−).\n\nExample: NaCl formation:\nNa (2,8,1) → Na⁺ (2,8) + e⁻\nCl (2,8,7) + e⁻ → Cl⁻ (2,8,8)\nNa⁺ + Cl⁻ → NaCl (strong electrostatic attraction)\n\n**Covalent Bonding:**\nOccurs between non-metals. Atoms share electrons.\n\n- Single bond (share 1 pair): H₂, HCl, CH₄\n- Double bond (share 2 pairs): O₂, CO₂\n- Triple bond (share 3 pairs): N₂\n\n**Comparison:**\n| Property | Ionic | Covalent |\n|---|---|---|\n| Melting point | High | Low (usually) |\n| Solubility in water | Usually soluble | Usually insoluble |\n| Electrical conductivity | Conducts when molten/dissolved | Does not conduct |\n| State at room temp | Solid | Solid, liquid, or gas |\n| Examples | NaCl, MgO, CaCl₂ | H₂O, CO₂, CH₄ |" },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Draw and memorise periodic table groups and periods." },
-      { week:8, topic:"Chemical Equations and Stoichiometry", objectives:["Balance chemical equations","Calculate moles, molar mass, and number of particles","Perform simple stoichiometry calculations"], notes:"**Chemical Equations and Mole Concept**\n\n**Balancing Equations:**\n2H₂ + O₂ → 2H₂O\n(Check: 4H on each side, 2O on each side ✓)\n\nFe₂O₃ + 3CO → 2Fe + 3CO₂ (blast furnace)\n\n**The Mole:**\n1 mole = 6.02 × 10²³ particles (Avogadro's number)\n1 mole of any element has a mass equal to its relative atomic mass in grams.\n\nMolar masses:\n- H₂O: (2×1) + 16 = **18 g/mol**\n- NaCl: 23 + 35.5 = **58.5 g/mol**\n- CaCO₃: 40 + 12 + (3×16) = **100 g/mol**\n\n**Mole Calculations:**\nMoles = Mass / Molar Mass\nMass = Moles × Molar Mass\nParticles = Moles × 6.02 × 10²³\n\n**Example:**\nHow many moles in 18 g of water?\nMoles = 18/18 = **1 mole**\nParticles = 1 × 6.02 × 10²³ = **6.02 × 10²³ molecules**\n\n**Stoichiometry:**\nFrom 2H₂ + O₂ → 2H₂O:\n2 moles H₂ + 1 mole O₂ → 2 moles H₂O\nIf 4 g H₂ reacts (4÷2 = 2 moles), it needs 1 mole O₂ = 32 g O₂, producing 2 moles H₂O = 36 g" },
-      { week:9, topic:"Acids, Bases, and Salts", objectives:["Define acids, bases, and salts with examples","Use pH scale to classify solutions","Describe neutralisation reactions"], notes:"**Acids, Bases, and Salts**\n\n**Acids:**\n- Taste sour\n- Turn blue litmus RED\n- pH < 7\n- React with metals to release hydrogen gas\n- React with bases/carbonates to form salt + water (+ CO₂)\n\nCommon acids: HCl (hydrochloric), H₂SO₄ (sulphuric), HNO₃ (nitric), CH₃COOH (acetic/vinegar)\n\n**Bases:**\n- Taste bitter, feel soapy\n- Turn red litmus BLUE\n- pH > 7\n- Soluble bases are called ALKALIS\n\nCommon bases: NaOH (sodium hydroxide), Ca(OH)₂ (lime water), NH₃ (ammonia)\n\n**Salts:**\n- Formed when acid reacts with base\n- Named: cation (from base) + anion (from acid)\n- NaCl (from NaOH + HCl), CaSO₄ (from Ca(OH)₂ + H₂SO₄)\n\n**pH Scale:** 0 (strongly acidic) → 7 (neutral) → 14 (strongly alkaline)\n\n**Neutralisation:**\nAcid + Base → Salt + Water\nHCl + NaOH → NaCl + H₂O\nH₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O\n\n**Indicators:**\n- Litmus: Red in acid, Blue in alkali\n- Phenolphthalein: Colourless in acid, Pink in alkali\n- Universal indicator: Shows full pH range" },
-      { week:10, topic:"Oxidation and Reduction (REDOX)", objectives:["Define oxidation and reduction in terms of electron transfer","Identify oxidising and reducing agents","Balance simple redox equations"], notes:"**Oxidation-Reduction (REDOX) Reactions**\n\n**Definitions:**\n- **Oxidation:** Loss of electrons (OIL — Oxidation Is Loss)\n- **Reduction:** Gain of electrons (RIG — Reduction Is Gain)\n- OIL RIG is the memory aid\n\n**Oxidation State Rules:**\n- Free elements: OS = 0\n- Simple ions: OS = ion charge (Na⁺ = +1, Cl⁻ = −1)\n- O in compounds: OS = −2 (except peroxides: −1)\n- H in compounds: OS = +1 (except metal hydrides: −1)\n\n**Example — Rusting:**\n4Fe + 3O₂ → 2Fe₂O₃\n- Fe: OS goes from 0 → +3 (OXIDISED — loses electrons)\n- O: OS goes from 0 → −2 (REDUCED — gains electrons)\n\n**Identifying Agents:**\n- **Oxidising agent:** Causes oxidation in others, gets REDUCED itself\n- **Reducing agent:** Causes reduction in others, gets OXIDISED itself\n\n**Common Oxidising Agents:** O₂, Cl₂, KMnO₄, H₂O₂\n**Common Reducing Agents:** H₂, CO, Zn, Fe, Na" },
-      { week:11, topic:"First Term Revision — Chemistry SS1", objectives:["Review all Chemistry topics from the term"], notes:"Comprehensive Chemistry revision: matter, separation, atomic structure, periodic table, bonding, equations/moles, acids/bases, and redox. Practice writing and balancing chemical equations." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term Chemistry examination"], notes:"First Term Chemistry Examination. All sections: theory, calculations, and practical/interpretation questions." }
-    ]
-  };
-
-  /* ─── ECONOMICS — SS1 ─── */
-  const economicsSS1 = {
-    subjectId: "economics", classId: "SS1",
-    weeks: [
-      { week:1, topic:"Introduction to Economics — Scarcity and Choice", objectives:["Define economics and its branches","Explain scarcity, choice, and opportunity cost","Construct and interpret a Production Possibility Curve (PPC)"], notes:"**Introduction to Economics**\n\n**Definition:** Economics is the social science that studies how individuals, businesses, governments, and nations make choices about allocating scarce resources to satisfy unlimited wants.\n\n**Key Concepts:**\n- **Scarcity:** Resources (land, labour, capital) are limited while human wants are unlimited\n- **Choice:** Because of scarcity, economic agents must choose what to produce, how, and for whom\n- **Opportunity Cost:** The value of the next best alternative forgone when a choice is made\n\n**Example of Opportunity Cost:**\nIf a student has ₦5,000 and uses it to buy books instead of a shirt, the opportunity cost is the value of the shirt.\n\n**Branches of Economics:**\n- **Microeconomics:** Studies individual units (households, firms, markets)\n- **Macroeconomics:** Studies the economy as a whole (GDP, inflation, unemployment)\n\n**The Production Possibility Curve (PPC):**\n- Shows all possible combinations of two goods that can be produced with given resources\n- Points ON the curve: productively efficient\n- Points INSIDE: underutilising resources\n- Points OUTSIDE: currently unattainable\n- Movement along PPC: opportunity cost\n- OUTWARD shift: economic growth (more resources or better technology)" },
-      { week:2, topic:"Demand — Law and Determinants", objectives:["State the Law of Demand","Draw a demand curve","List 5 factors that shift the demand curve"], notes:"**Demand in Economics**\n\n**Law of Demand:**\n'As price increases, quantity demanded decreases, and as price decreases, quantity demanded increases, all other things being equal (ceteris paribus).'\n\n**Demand Schedule:**\n| Price (₦) | Quantity Demanded |\n|---|---|\n| 100 | 50 |\n| 80 | 70 |\n| 60 | 100 |\n| 40 | 140 |\n\n**Demand Curve:** Downward-sloping (D₁ to the right)\n\n**Movements vs Shifts:**\n- **Movement along the curve:** Caused by price change only\n- **Shift of the curve:** Caused by non-price factors\n\n**Factors that INCREASE Demand (shift D RIGHT):**\n1. Increase in consumer income\n2. Rise in price of substitute goods\n3. Fall in price of complementary goods\n4. Positive change in consumer tastes/preferences\n5. Increase in population\n6. Expected future price increase\n\n**Exceptions (Giffen Goods):**\nInferior goods where demand rises with price (e.g., cheap staple food — gari — when income is very low)." },
-      { week:3, topic:"Supply — Law and Determinants", objectives:["State the Law of Supply","Draw a supply curve","List 5 factors that shift the supply curve"], notes:"**Supply in Economics**\n\n**Law of Supply:**\n'As price increases, quantity supplied increases, all other things being equal.'\n\n**Supply Schedule:**\n| Price (₦) | Quantity Supplied |\n|---|---|\n| 100 | 140 |\n| 80 | 110 |\n| 60 | 75 |\n| 40 | 40 |\n\n**Supply Curve:** Upward-sloping (S₁)\n\n**Factors that INCREASE Supply (shift S RIGHT):**\n1. Improvement in technology\n2. Decrease in cost of production\n3. Favourable weather (for agriculture)\n4. Government subsidies to producers\n5. Increase in number of producers\n6. Increase in prices of related goods (if they are jointly supplied)\n\n**Factors that DECREASE Supply (shift S LEFT):**\n- Increase in production costs\n- Natural disasters\n- Government taxes on producers\n- Adverse weather conditions\n- Reduction in number of producers\n\n**Price Elasticity of Supply:**\nPES = % change in quantity supplied / % change in price\n- PES > 1: Elastic supply (supply is responsive)\n- PES < 1: Inelastic supply (supply is less responsive)" },
-      { week:4, topic:"Market Equilibrium — Price Determination", objectives:["Define market equilibrium","Find equilibrium price and quantity graphically and algebraically","Analyse effects of supply and demand shifts on equilibrium"], notes:"**Market Equilibrium**\n\n**Definition:**\nMarket equilibrium occurs when the quantity demanded equals quantity supplied at a particular price.\n- **Equilibrium Price (Market Price):** Price at which market clears\n- **Equilibrium Quantity:** Output exchanged at equilibrium price\n\n**Graphical Approach:**\n- Equilibrium is where D curve intersects S curve\n- Above equilibrium: Surplus (excess supply) → price falls\n- Below equilibrium: Shortage (excess demand) → price rises\n\n**Algebraic Approach:**\nIf Qd = 100 − 2P and Qs = 20 + 3P\nAt equilibrium: Qd = Qs\n100 − 2P = 20 + 3P\n80 = 5P → **P = ₦16**\nQ = 100 − 32 = **68 units**\n\n**Effects of Shifts:**\n- Demand increases (D shifts right) → higher equilibrium price and quantity\n- Supply increases (S shifts right) → lower equilibrium price, higher quantity\n- Both increase: quantity definitely increases, price depends on magnitude" },
-      { week:5, topic:"Mid-Term Assessment", objectives:["Review Weeks 1–4 and sit class test"], notes:"Mid-Term test on scarcity/choice, demand, supply, and market equilibrium." },
-      { week:6, topic:"Consumer Theory — Utility and Indifference Curves", objectives:["Define utility and marginal utility","State the Law of Diminishing Marginal Utility","Interpret indifference curves"], notes:"**Consumer Theory**\n\n**Utility:**\nThe satisfaction a consumer derives from consuming a good or service.\n\n**Types of Utility:**\n- **Total Utility (TU):** Overall satisfaction from consuming all units\n- **Marginal Utility (MU):** Extra satisfaction from one additional unit\n\n**Law of Diminishing Marginal Utility:**\n'As more units of a good are consumed, the additional satisfaction from each extra unit decreases.'\n\nExample — Eating Plates of Rice:\n| Plates | TU | MU |\n|---|---|---|\n| 1 | 20 | 20 |\n| 2 | 35 | 15 |\n| 3 | 45 | 10 |\n| 4 | 50 | 5 |\n| 5 | 50 | 0 |\n| 6 | 45 | −5 |\n\nMU is highest for the first unit and falls to zero (saturation point) then negative.\n\n**Consumer Equilibrium:**\nMU/P must be equal across all goods for maximum satisfaction.\n\n**Indifference Curves:**\n- Show combinations of two goods giving the same level of utility\n- Properties: downward sloping, convex to origin, do not cross, higher curve = higher utility\n- **Budget Line:** Shows affordable combinations given income and prices" },
-      { week:7, topic:"Mid-Term Break", objectives:[], notes:"Mid-Term Break. Practice demand and supply calculations and graphs." },
-      { week:8, topic:"Price Elasticity of Demand", objectives:["Calculate PED using the midpoint formula","Interpret PED values","Explain determinants of PED and business applications"], notes:"**Price Elasticity of Demand (PED)**\n\n**Formula:**\nPED = (% change in Qd) / (% change in Price)\n= (ΔQ/Q) / (ΔP/P)\n\n**Interpretation:**\n| PED Value | Meaning | Example |\n|---|---|---|\n| PED = 0 | Perfectly inelastic | Insulin (life-saving) |\n| 0 < PED < 1 | Inelastic | Petrol, salt |\n| PED = 1 | Unit elastic | — |\n| PED > 1 | Elastic | Luxury cars, foreign holidays |\n| PED = ∞ | Perfectly elastic | Perfect competitors |\n\n**Example Calculation:**\nPrice of garri falls from ₦200 to ₦160 (−20%). Quantity demanded rises from 100 to 140 bags (+40%).\nPED = 40% / 20% = **2** (Elastic demand)\n\n**Determinants of PED:**\n1. Availability of substitutes (more substitutes → more elastic)\n2. Proportion of income spent (more of income → more elastic)\n3. Necessity vs luxury (necessities → inelastic)\n4. Time period (more time → more elastic)\n5. Habit/addiction (addicted goods → inelastic)\n\n**Business Application:**\n- If demand is ELASTIC: Lower price → TR increases\n- If demand is INELASTIC: Raise price → TR increases" },
-      { week:9, topic:"Production and Costs", objectives:["Distinguish short run from long run production","State the Law of Variable Proportions","Calculate TFC, TVC, TC, AFC, AVC, ATC, and MC"], notes:"**Production and Costs**\n\n**Short Run:** At least one factor of production is fixed (usually capital/land)\n**Long Run:** All factors of production are variable\n\n**Law of Variable Proportions (Diminishing Returns):**\nAs more variable factors (labour) are added to a fixed factor (land), total output increases at a decreasing rate after a point.\n\n**Stages:**\n- Stage I: Increasing returns\n- Stage II: Diminishing returns (optimal production zone)\n- Stage III: Negative returns\n\n**Cost Concepts:**\n- **TFC:** Total Fixed Cost (same regardless of output) — e.g., rent, insurance\n- **TVC:** Total Variable Cost (changes with output) — e.g., raw materials, labour\n- **TC:** TFC + TVC\n- **AFC:** TFC / Q (falls continuously as output rises)\n- **AVC:** TVC / Q (U-shaped)\n- **ATC:** TC / Q = AFC + AVC (U-shaped)\n- **MC:** Change in TC / Change in Q (the extra cost of one more unit)\n\n**MC and ATC Relationship:**\n- When MC < ATC → ATC falls\n- When MC = ATC → ATC at minimum\n- When MC > ATC → ATC rises\n(MC curve always cuts ATC at its lowest point)" },
-      { week:10, topic:"Market Structures — Perfect Competition and Monopoly", objectives:["List features of perfect competition","Describe characteristics of monopoly","Compare both market structures in a table"], notes:"**Market Structures**\n\n**PERFECT COMPETITION:**\n- Many buyers and sellers\n- Homogeneous (identical) products\n- Perfect information\n- Free entry and exit\n- Price takers (no individual can influence price)\n- Long-run profit = normal profit\n- Example: Agricultural products (rice, yam markets)\n\n**MONOPOLY:**\n- Single seller controls the entire market\n- Unique product with no close substitutes\n- High barriers to entry\n- Price maker (sets its own price)\n- Can earn supernormal profit in long run\n- Example: NEPA/AEDC (electricity), water utilities\n\n**Comparison:**\n| Feature | Perfect Competition | Monopoly |\n|---|---|---|\n| Number of sellers | Many | One |\n| Product | Homogeneous | Unique |\n| Price control | None (price taker) | Full (price maker) |\n| Entry barriers | None | Very high |\n| Long-run profit | Normal | Supernormal |\n| Consumer welfare | High | Low |\n| Examples | Farm markets | Utilities, patents |\n\n**Monopoly Power Sources:**\n- Patent and copyright protection\n- Control of key natural resources\n- Government licences\n- Economies of scale (natural monopoly)" },
-      { week:11, topic:"First Term Revision — Economics SS1", objectives:["Review all Economics topics from the term"], notes:"Comprehensive Economics revision. Focus on: scarcity/PPC, demand/supply/equilibrium, PED calculations, utility, production costs, and market structures. Practice drawing and interpreting demand/supply graphs." },
-      { week:12, topic:"First Term Examination", objectives:["Sit formal First Term Economics examination"], notes:"First Term Economics Examination. All sections: objectives, short theory, and essays. Always define key terms and support arguments with diagrams where applicable." }
-    ]
-  };
-
-  /* ═══════════════════════════════════════════════════════════
-   * COMPILE ALL CURRICULUM DATA
-   * ═══════════════════════════════════════════════════════════ */
-  const ALL_CURRICULUM = [
-    digTechJSS1, mathJSS1, ngHistJSS1,
-    engLangSS1, genMathSS1, digTechSS1,
-    physicsSS1, chemistrySS1, economicsSS1
+  const juniorNerdcSubjectIds = [
+    "english-studies", "mathematics", "digital-technologies", "basic-science",
+    "physical-health-education", "social-citizenship-studies", "business-studies",
+    "cultural-creative-arts", "nigerian-history", "christian-religious-studies",
+    "islamic-studies", "french"
   ];
 
-  /* ═══════════════════════════════════════════════════════════
-   * PRACTICE QUESTIONS BANK
-   * ═══════════════════════════════════════════════════════════ */
-  const PRACTICE_QUESTIONS = [
-    // Digital Technologies
-    { id:"q001", subjectId:"dig-tech-ss", classId:"SS1", week:1,
-      stem:"Which of the following best describes digital technology?",
-      options:["Technology that processes data in binary form","Technology that uses analogue signals","Technology that only involves the internet","Technology that requires a power grid"],
-      answerIndex:0, explanation:"Digital technology processes all data as binary digits (0s and 1s)." },
-    { id:"q002", subjectId:"dig-tech-ss", classId:"SS1", week:2,
-      stem:"What technology characterised the THIRD generation of computers?",
-      options:["Integrated Circuits","Vacuum tubes","Transistors","Microprocessors"],
-      answerIndex:0, explanation:"Third generation computers (1964–1971) used Integrated Circuits (ICs), making them smaller and faster." },
-    { id:"q003", subjectId:"dig-tech-ss", classId:"SS1", week:3,
-      stem:"What is the decimal equivalent of the binary number 11001?",
-      options:["25","24","26","27"],
-      answerIndex:0, explanation:"11001₂ = 16+8+0+0+1 = 25₁₀" },
-    { id:"q004", subjectId:"dig-tech-jss", classId:"JSS1", week:4,
-      stem:"Which of the following is an OUTPUT device?",
-      options:["Printer","Scanner","Keyboard","Microphone"],
-      answerIndex:0, explanation:"A printer produces paper copies of data — it is an output device." },
-    { id:"q005", subjectId:"dig-tech-jss", classId:"JSS1", week:6,
-      stem:"Which type of memory loses all its data when the computer is switched off?",
-      options:["RAM","ROM","Flash drive","Hard Disk"],
-      answerIndex:0, explanation:"RAM (Random Access Memory) is volatile — it loses data when power is removed." },
-    // Mathematics
-    { id:"q006", subjectId:"gen-math", classId:"SS1", week:1,
-      stem:"What is 45 expressed in base 2 (binary)?",
-      options:["101101","101011","110101","100111"],
-      answerIndex:0, explanation:"45 ÷ 2 repeatedly: remainders read upward give 101101₂ (32+8+4+1=45 ✓)" },
-    { id:"q007", subjectId:"gen-math", classId:"SS1", week:2,
-      stem:"Evaluate (17 + 28) mod 9",
-      options:["0","3","6","9"],
-      answerIndex:0, explanation:"17 + 28 = 45; 45 ÷ 9 = 5 remainder 0; so 45 mod 9 = 0" },
-    { id:"q008", subjectId:"mathematics", classId:"JSS1", week:1,
-      stem:"What is the place value of 6 in the number 4,567,892?",
-      options:["Ten-thousands","Thousands","Millions","Hundred-thousands"],
-      answerIndex:0, explanation:"In 4,567,892 — the 6 is in the ten-thousands place (position 5 from right)." },
-    // Nigerian History
-    { id:"q009", subjectId:"ng-history", classId:"JSS1", week:3,
-      stem:"The Nok culture is best known for its production of",
-      options:["terracotta figurines","bronze plaques","ivory carvings","clay pottery only"],
-      answerIndex:0, explanation:"The Nok culture (c. 1000 BC–200 AD) produced distinctive terracotta (fired clay) figurines." },
-    { id:"q010", subjectId:"ng-history", classId:"JSS1", week:6,
-      stem:"The political head of the Oyo Empire was known as the",
-      options:["Alafin","Ooni","Oba","Sarki"],
-      answerIndex:0, explanation:"The Alafin was the king of the Oyo Empire; the Oyo Mesi served as the council of chiefs." },
-    // Physics
-    { id:"q011", subjectId:"physics", classId:"SS1", week:4,
-      stem:"A car accelerates from rest to 20 m/s in 5 seconds. What is its acceleration?",
-      options:["4 m/s²","5 m/s²","10 m/s²","100 m/s²"],
-      answerIndex:0, explanation:"a = (v-u)/t = (20-0)/5 = 4 m/s²" },
-    { id:"q012", subjectId:"physics", classId:"SS1", week:6,
-      stem:"A force of 30 N acts on a mass of 6 kg. What is the acceleration?",
-      options:["5 m/s²","0.2 m/s²","180 m/s²","24 m/s²"],
-      answerIndex:0, explanation:"F = ma; a = F/m = 30/6 = 5 m/s²" },
-    // Chemistry
-    { id:"q013", subjectId:"chemistry", classId:"SS1", week:3,
-      stem:"How many neutrons are in an atom of carbon-14 (¹⁴C, Z=6)?",
-      options:["8","6","14","12"],
-      answerIndex:0, explanation:"Neutrons = Mass Number − Atomic Number = 14 − 6 = 8" },
-    { id:"q014", subjectId:"chemistry", classId:"SS1", week:8,
-      stem:"What is the molar mass of water (H₂O)? (H=1, O=16)",
-      options:["18 g/mol","17 g/mol","16 g/mol","20 g/mol"],
-      answerIndex:0, explanation:"H₂O = (2×1) + 16 = 18 g/mol" },
-    // Economics
-    { id:"q015", subjectId:"economics", classId:"SS1", week:2,
-      stem:"When the price of a good falls and quantity demanded rises, this is consistent with",
-      options:["The Law of Demand","The Law of Supply","Giffen's Paradox","The Law of Diminishing Returns"],
-      answerIndex:0, explanation:"The Law of Demand states that price and quantity demanded are inversely related." },
-    { id:"q016", subjectId:"economics", classId:"SS1", week:4,
-      stem:"Market equilibrium exists when",
-      options:["Quantity demanded equals quantity supplied","Price is at its maximum","Supply exceeds demand","Demand exceeds supply"],
-      answerIndex:0, explanation:"At equilibrium, the market 'clears' — quantity demanded = quantity supplied at the equilibrium price." }
+  const seniorNerdcSubjectIds = [
+    "english-language", "general-mathematics", "solar-photovoltaic-installation-and-maintenance",
+    "citizenship-and-heritage-studies", "digital-technologies", "biology", "chemistry", "physics",
+    "agriculture", "further-mathematics", "health-education", "geography", "technical-drawing",
+    "government", "christian-religious-studies", "literature-in-english", "nigerian-history",
+    "accounting", "commerce", "marketing", "economics"
   ];
 
-  /* ═══════════════════════════════════════════════════════════
-   * HELPER FUNCTIONS
-   * ═══════════════════════════════════════════════════════════ */
-  function getWeekReleaseDate(weekNumber) {
-    const start = new Date(window.BOOTCAMP_CONFIG.termStartDate);
-    const releaseDate = new Date(start);
-    releaseDate.setDate(start.getDate() + (weekNumber - 1) * 7);
-    return releaseDate;
+  const ss3ExamSubjectIds = [
+    "english-language", "general-mathematics", "civic-education", "digital-technologies",
+    "solar-photovoltaic-installation-and-maintenance", "biology", "chemistry", "physics", "agriculture",
+    "further-mathematics", "health-education", "geography", "technical-drawing", "nigerian-history",
+    "government", "christian-religious-studies", "literature-in-english", "accounting", "commerce",
+    "marketing", "economics"
+  ];
+
+  const officialClassPlan = {
+    jss1: juniorNerdcSubjectIds,
+    jss2: juniorNerdcSubjectIds,
+    jss3: juniorNerdcSubjectIds,
+    sss1: seniorNerdcSubjectIds,
+    sss2: seniorNerdcSubjectIds,
+    sss3: ss3ExamSubjectIds
+  };
+
+  const classFallbackOrder = {
+    jss1: ["jss1", "jss2", "jss3"],
+    jss2: ["jss2", "jss1", "jss3"],
+    jss3: ["jss3", "jss2", "jss1"],
+    sss1: ["sss1", "sss2", "sss3"],
+    sss2: ["sss2", "sss1", "sss3"],
+    sss3: ["sss3", "sss2", "sss1"]
+  };
+
+  const rawSubjectsByClass = {};
+  classes.forEach(cls => {
+    rawSubjectsByClass[cls.id] = (subjectsByClass[cls.id] || []).slice();
+  });
+
+  function generatedSubjectWeeks(classId, def) {
+    const cls = classMeta.find(item => item.id === classId) || { name: classId };
+    return [
+      [1, "Orientation to " + def.title, "Explain the scope of " + def.title + " for " + cls.name + " and set first-term learning targets."],
+      [2, "Core Concepts and Vocabulary", "Build the terms, symbols, tools, and ideas needed for confident learning."],
+      [3, "NERDC 2025 Skill Focus", "Connect the subject to practical competence, citizenship, enterprise, technology, and problem solving."],
+      [4, "Guided Practice", "Work through teacher-led examples and class activities using ChiaTech notes."],
+      [5, "Midterm Assessment", "Check understanding from Weeks 1 to 4 with short written and CBT-style questions."],
+      [6, "Applied Learning Project", "Use the subject to solve a school, home, community, or exam-readiness task."],
+      [7, "Midterm Break", "Review notebooks, revise weak areas, and complete catch-up assignments."],
+      [8, "Extended Concepts", "Develop higher-order understanding through examples, diagrams, readings, and demonstrations."],
+      [9, "Exam and CBT Practice", "Practise objective, short-answer, and structured questions with feedback."],
+      [10, "Integrated Revision", "Revise the full first-term sequence and link topics across the curriculum."],
+      [11, "Project Presentation", "Present learning evidence through notes, calculations, designs, reports, or oral explanation."],
+      [12, "End-of-Term Revision", "Review likely examination areas and correct common mistakes."],
+      [13, "First Term Examination", "Complete final assessment and prepare an improvement plan for next term."]
+    ].map(item => ({ week: "Week " + item[0], topic: item[1], objectives: item[2] }));
   }
 
-  function isWeekUnlocked(weekNumber) {
-    const now = new Date();
-    return now >= getWeekReleaseDate(weekNumber);
+  function sourceSubjectFor(classId, def) {
+    const sourceIds = (def.sourceAliases || [def.id]).map(slug);
+    const order = classFallbackOrder[classId] || [classId];
+    for (const sourceClass of order) {
+      const source = (rawSubjectsByClass[sourceClass] || []).find(subject =>
+        sourceIds.includes(slug(subject.id)) || sourceIds.includes(slug(subject.title)) || sourceIds.includes(slug(subject.shortTitle))
+      );
+      if (source) return source;
+    }
+    return null;
   }
 
-  function getCurriculumForClass(classId, subjectId) {
-    return ALL_CURRICULUM.find(c => c.classId === classId && c.subjectId === subjectId) || null;
+  function officialSubjectFor(classId, defId) {
+    const def = officialDefsById[defId];
+    const source = sourceSubjectFor(classId, def);
+    if (source) {
+      return Object.assign({}, source, {
+        id: def.id,
+        classId,
+        title: def.title,
+        shortTitle: def.shortTitle,
+        icon: def.icon,
+        sourceTitle: source.title
+      });
+    }
+
+    const sourceWeeks = generatedSubjectWeeks(classId, def);
+    return {
+      id: def.id,
+      classId,
+      title: def.title,
+      shortTitle: def.shortTitle,
+      icon: def.icon,
+      terms: [{ termName: "First Term", weeks: sourceWeeks }],
+      weeks: sourceWeeks.map(normalizeWeek),
+      sourceTitle: "ChiaTech generated scheme"
+    };
   }
 
-  function getSubjectById(subjectId) {
-    return SUBJECTS.find(s => s.id === subjectId) || null;
-  }
+  classes.forEach(cls => {
+    subjectsByClass[cls.id] = (officialClassPlan[cls.id] || []).map(defId => officialSubjectFor(cls.id, defId));
+  });
+
+  Object.keys(subjectsById).forEach(key => delete subjectsById[key]);
+  const uniqueOfficialSubjects = [];
+  const seenOfficialSubjects = {};
+  classes.forEach(cls => {
+    subjectsByClass[cls.id].forEach(subject => {
+      const def = officialDefsById[subject.id];
+      subjectsById[subject.id] = subject;
+      (def.sourceAliases || []).forEach(alias => { subjectsById[slug(alias)] = subject; });
+      if (!seenOfficialSubjects[subject.id]) {
+        seenOfficialSubjects[subject.id] = true;
+        uniqueOfficialSubjects.push(subject);
+      }
+    });
+  });
+  subjects.splice(0, subjects.length, ...uniqueOfficialSubjects.sort((a, b) => a.title.localeCompare(b.title)));
+
 
   function getClassById(classId) {
-    return CLASSES.find(c => c.id === classId) || null;
+    const key = normalizeClassId(classId);
+    return classes.find(item => item.id === key) || null;
   }
 
   function getSubjectsForClass(classId) {
-    const ids = CLASS_SUBJECTS[classId] || [];
-    return ids.map(id => SUBJECTS.find(s => s.id === id)).filter(Boolean);
+    return subjectsByClass[normalizeClassId(classId)] || [];
+  }
+
+  function getSubjectById(subjectId) {
+    const key = canonicalSubjectId(subjectId);
+    return subjectsById[key] || subjects.find(subject => subject.id === key || slug(subject.title) === key || subject.title.toLowerCase() === String(subjectId || "").toLowerCase()) || null;
+  }
+
+  function getCurriculumForClass(classId, subjectId) {
+    const normalizedClassId = normalizeClassId(classId);
+    const normalizedSubjectId = canonicalSubjectId(subjectId);
+    const subject = getSubjectsForClass(normalizedClassId).find(item => item.id === normalizedSubjectId);
+    return subject ? { classId: normalizedClassId, subjectId: subject.id, weeks: subject.weeks } : null;
+  }
+
+  function getWeekReleaseDate(week) {
+    const date = new Date(BOOTCAMP_CONFIG.termStartDate + "T00:00:00");
+    const offset = Math.max(0, weekNumber(week) - 1) * BOOTCAMP_CONFIG.releaseIntervalDays;
+    date.setDate(date.getDate() + offset);
+    return date;
+  }
+
+  function isWeekUnlocked(week) {
+    return new Date() >= getWeekReleaseDate(week);
   }
 
   function getQuestionsForSubjectAndClass(subjectId, classId) {
-    return PRACTICE_QUESTIONS.filter(q => q.subjectId === subjectId && q.classId === classId);
+    const data = getCurriculumForClass(classId, subjectId);
+    if (!data || !data.weeks.length) return [];
+    return data.weeks.map((week, index) => ({
+      id: [classId, subjectId, week.week, index].join("-"),
+      stem: "Which topic is scheduled for Week " + week.week + " in this subject?",
+      options: [
+        week.topic,
+        data.weeks[(index + 1) % data.weeks.length].topic,
+        "End of term examinations",
+        "Midterm break"
+      ],
+      answerIndex: 0,
+      explanation: "Week " + week.week + " focuses on " + week.topic + "."
+    }));
   }
 
-  /* ═══════════════════════════════════════════════════════════
-   * EXPORTS
-   * ═══════════════════════════════════════════════════════════ */
+  window.BOOTCAMP_CONFIG = BOOTCAMP_CONFIG;
+  window.curriculumData = curriculumData;
   window.CURRICULUM = {
-    classes: CLASSES,
-    subjects: SUBJECTS,
-    classSubjects: CLASS_SUBJECTS,
-    curriculum: ALL_CURRICULUM,
-    practiceQuestions: PRACTICE_QUESTIONS,
+    raw: curriculumData,
+    classes,
+    subjects,
+    getClassById,
+    normalizeClassId,
+    getSubjectsForClass,
+    getSubjectById,
+    canonicalSubjectId,
+    getCurriculumForClass,
     getWeekReleaseDate,
     isWeekUnlocked,
-    getCurriculumForClass,
-    getSubjectById,
-    getClassById,
-    getSubjectsForClass,
-    getQuestionsForSubjectAndClass
+    getQuestionsForSubjectAndClass,
+    titleCaseId
   };
-
 })();

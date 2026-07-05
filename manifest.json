@@ -1,7 +1,7 @@
 {
   "name": "ChiaTech Summer Bootcamp",
   "short_name": "Bootcamp",
-  "description": "ChiaTech Summer Bootcamp 2026 — NERDC 2025 aligned first term lessons for JSS1–SS3. Works offline.",
+  "description": "ChiaTech Summer Bootcamp 2026: NERDC 2025 aligned first term lessons for JSS1 to SS3. Works offline after first install.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -13,32 +13,16 @@
   "categories": ["education"],
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
+      "src": "icons/icon-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/icons/icon-512.png",
+      "src": "icons/icon-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "assets/screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Dashboard — Weekly Lessons"
-    },
-    {
-      "src": "assets/screenshot-narrow.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Mobile view — Lesson Week Card"
     }
   ],
   "related_applications": [],

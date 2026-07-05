@@ -1,129 +1,113 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080c1a">
-  <meta name="description" content="ChiaTech Summer Bootcamp — Nigeria's smartest summer lesson portal. First Term 2026/2027 lessons for JSS1–SS3, aligned to NERDC 2025. Covers WAEC, NECO, JAMB, BECE. Works offline.">
-  <meta name="keywords" content="ChiaTech, summer bootcamp, NERDC 2025, JSS1, SS3, WAEC, JAMB, BECE, Nigeria, lesson notes, scheme of work">
-  <meta name="author" content="ChiaTech Solutions & Resources Ltd">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="ChiaTech Summer Bootcamp 2026">
-  <meta property="og:description" content="First Term 2026/2027 lessons for JSS1–SS3. NERDC 2025 aligned. Works offline.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://summer.chiatechsolutions.com">
-  <meta property="og:image" content="assets/og-image.png">
-
-  <!-- PWA -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5a623">
+  <meta name="description" content="ChiaTech Summer Bootcamp portal for NERDC 2025 aligned First Term 2026/2027 lessons from JSS1 to SS3.">
+  <title>ChiaTech Summer Bootcamp | NERDC 2025 Lesson Portal</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
-
-  <!-- Preconnect for Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <title>ChiaTech Summer Bootcamp 2026 | JSS1–SS3 First Term Lessons</title>
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css?v=20260705-3">
 </head>
 <body>
-  <a href="#main" class="skip-link btn btn-primary">Skip to content</a>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
 
-  <!-- ══════════ HEADER ══════════ -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container">
-      <a href="#" class="brand-lockup" data-goto="home" id="brandLockup">
-        <img src="assets/logo.png" alt="ChiaTech Logo" class="brand-logo"
-             onerror="this.style.display='none'">
-        <div class="brand-copy">
+      <a class="brand-lockup" href="#home" data-goto="home" aria-label="ChiaTech Summer Bootcamp home">
+        <img class="brand-logo" src="chiatech-logo.png" alt="ChiaTech logo">
+        <span class="brand-copy">
           <h1>ChiaTech Summer Bootcamp</h1>
-          <span class="tagline">First Term 2026/2027 — NERDC 2025</span>
-        </div>
+          <span class="tagline">NERDC 2025 aligned lessons</span>
+        </span>
       </a>
       <div class="header-actions">
         <span id="sessionPill">Not logged in</span>
-        <button class="btn btn-primary btn-sm hidden" id="installAppButton">
-          📲 Install App
-        </button>
-        <button class="btn btn-ghost btn-sm hidden" id="logoutBtn">Logout</button>
+        <button class="btn btn-green btn-sm hidden" id="installAppButton" type="button">Install App</button>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button">Logout</button>
       </div>
     </div>
   </header>
 
-  <!-- ══════════ TOP NAV ══════════ -->
-  <nav class="top-nav" role="navigation" aria-label="Main navigation">
-    <button class="nav-btn is-active" data-view="home"      id="navHome">🏠 Home</button>
-    <button class="nav-btn"           data-view="register"  id="navRegister">📝 Register</button>
-    <button class="nav-btn"           data-view="dashboard" id="navDashboard">📚 Dashboard</button>
-    <button class="nav-btn"           data-view="admin"     id="navAdmin">🔐 Admin</button>
+  <nav class="top-nav" aria-label="Primary">
+    <button class="nav-btn is-active" type="button" data-view="home">Home</button>
+    <button class="nav-btn" type="button" data-view="register">Register</button>
+    <button class="nav-btn" type="button" data-view="dashboard">Dashboard</button>
+    <button class="nav-btn" type="button" data-view="admin">Admin</button>
   </nav>
 
-  <!-- ══════════ MAIN ══════════ -->
-  <main id="main" role="main">
-
-    <!-- HOME VIEW -->
-    <section class="view is-active" id="homeView" aria-label="Home">
-      <!-- dynamically rendered by app.js -->
-      <div class="page-loader">
-        <div class="spinner"></div>
-        <p>Loading portal…</p>
-      </div>
-    </section>
-
-    <!-- REGISTER VIEW -->
-    <section class="view" id="registerView" aria-label="Registration">
-      <div class="page-loader">
-        <div class="spinner"></div>
-        <p>Loading registration form…</p>
-      </div>
-    </section>
-
-    <!-- DASHBOARD VIEW -->
-    <section class="view" id="dashboardView" aria-label="Student Dashboard">
-      <div class="page-loader">
-        <div class="spinner"></div>
-        <p>Loading dashboard…</p>
-      </div>
-    </section>
-
-    <!-- ADMIN VIEW -->
-    <section class="view" id="adminView" aria-label="Admin Panel">
-      <div class="page-loader">
-        <div class="spinner"></div>
-        <p>Loading admin panel…</p>
-      </div>
-    </section>
-
+  <main id="mainContent">
+    <section class="view is-active" id="homeView" aria-live="polite"></section>
+    <section class="view" id="registerView" aria-live="polite"></section>
+    <section class="view" id="dashboardView" aria-live="polite"></section>
+    <section class="view" id="adminView" aria-live="polite"></section>
   </main>
 
-  <!-- ══════════ GLOBAL MODAL ══════════ -->
-  <div class="modal-overlay" id="globalModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-box" id="modalBox">
+  <footer class="site-footer global-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <img src="chiatech-logo.png" alt="ChiaTech logo">
+            <img src="chiatech-stem-academy-logo.PNG" alt="ChiaTech STEM Academy logo">
+          </div>
+          <p>Learn, know, do, and create success with ChiaTech's NERDC 2025 aligned Summer Bootcamp.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Portal</h4>
+          <ul>
+            <li><a href="#home" data-goto="home">Home</a></li>
+            <li><a href="#register" data-goto="register">Registration</a></li>
+            <li><a href="#dashboard" data-goto="dashboard">Learner Dashboard</a></li>
+            <li><a href="#admin" data-goto="admin">Admin Panel</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learning</h4>
+          <ul>
+            <li>JSS1 to SS3</li>
+            <li>Weekly first-term lessons</li>
+            <li>Subject notes and schemes</li>
+            <li>CBT practice tests</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+2347037689917">+234 703 768 9917</a></li>
+            <li><a href="mailto:chiatech01@gmail.com">chiatech01@gmail.com</a></li>
+            <li><a href="https://chiatechsolutions.com" target="_blank" rel="noopener">chiatechsolutions.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Â© 2026 ChiaTech Solutions & Resources Ltd. All rights reserved.</p>
+        <p>Powered by CHIATECH</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal-overlay" id="globalModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true">
       <div id="modalBody"></div>
     </div>
   </div>
 
-  <!-- ══════════ TOAST ══════════ -->
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <!-- ══════════ SCRIPTS ══════════ -->
-  <!-- Order matters: config data → offline db → api client → curriculum → pwa → app -->
-  <script src="js/curriculum-data.js"></script>
-  <script src="js/offline-db.js"></script>
-  <script src="js/sheet-api.js"></script>
-  <script src="js/pwa.js"></script>
-  <script src="js/app.js"></script>
-
   <noscript>
-    <style>.page-loader{display:none}</style>
-    <div style="font-family:sans-serif;text-align:center;padding:4rem;color:#e8edf5;background:#080c1a;min-height:100vh">
-      <h2>JavaScript Required</h2>
-      <p>ChiaTech Summer Bootcamp requires JavaScript. Please enable it in your browser to use this portal.</p>
-      <p style="margin-top:1rem">Contact: chiatech01@gmail.com | +234 703 768 9917</p>
+    <div class="container" style="padding:2rem;color:#e8edf5">
+      ChiaTech Summer Bootcamp requires JavaScript to register, verify access codes, and open lessons.
     </div>
   </noscript>
+
+  <script src="js/console-guard.js?v=20260705-3"></script>
+  <script src="js/curriculum-data.js?v=20260705-3"></script>
+  <script src="js/offline-db.js?v=20260705-3"></script>
+  <script src="js/sheet-api.js?v=20260705-3"></script>
+  <script src="js/pwa.js?v=20260705-3"></script>
+  <script src="js/app.js?v=20260705-3"></script>
 </body>
 </html>

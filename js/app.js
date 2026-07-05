@@ -149,12 +149,16 @@
               Nigeria's Smartest<br>
               <span class="highlight">Summer Bootcamp</span>
             </h2>
-            <p>First Term 2026/2027 lessons for JSS1–SS3. Weekly content drops, professional notes, and practice CBTs — all in one offline-ready portal.</p>
+            <p>Learn, know, do, and create success with First Term 2026/2027 lessons for JSS1-SS3. Weekly content drops, professional notes, and practice CBTs - all in one offline-ready portal.</p>
             <div class="hero-badges">
-              <span class="badge"><span class="dot"></span> JSS1 – SS3 Coverage</span>
-              <span class="badge"><span class="dot"></span> WAEC · NECO · JAMB · BECE</span>
+              <span class="badge"><span class="dot"></span> Learn</span>
+              <span class="badge"><span class="dot"></span> Know</span>
+              <span class="badge"><span class="dot"></span> Do</span>
+              <span class="badge"><span class="dot"></span> Create Success</span>
+              <span class="badge"><span class="dot"></span> JSS1-SS3 Coverage</span>
+              <span class="badge"><span class="dot"></span> WAEC, NECO, JAMB, BECE</span>
               <span class="badge"><span class="dot"></span> Works Offline After Install</span>
-              <span class="badge"><span class="dot"></span> ₦2,500/subject/month</span>
+              <span class="badge"><span class="dot"></span> NGN 2,500/subject/month</span>
             </div>
             <div class="hero-cta">
               <button class="btn btn-primary btn-lg" data-goto="register" id="heroCTA">
@@ -164,6 +168,13 @@
                 ? `<button class="btn btn-secondary btn-lg" data-goto="dashboard">Go to My Dashboard →</button>`
                 : `<button class="btn btn-secondary btn-lg" id="heroCodeBtn">Enter Access Code</button>`}
             </div>
+          </div>
+          <div class="hero-showcase" aria-label="Learn Know Do Create Success">
+            <img class="hero-main-art" src="assets/hero.PNG" alt="ChiaTech students learning with digital tools">
+            <div class="value-orbit value-learn">Learn</div>
+            <div class="value-orbit value-know">Know</div>
+            <div class="value-orbit value-do">Do</div>
+            <div class="value-orbit value-create">Create Success</div>
           </div>
           <div class="code-entry-card" id="homeCodeCard">
             <p class="eyebrow" style="margin-bottom:0.5rem">Already Registered?</p>
@@ -280,7 +291,7 @@
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <img src="assets/logo.png" alt="ChiaTech" onerror="this.style.display='none'">
+              <img src="chiatech-logo.png" alt="ChiaTech" onerror="this.style.display='none'">
               <p>ChiaTech Solutions & Resources Ltd — Abuja's leading educational technology and digital solutions company.</p>
             </div>
             <div class="footer-col">
@@ -322,6 +333,14 @@
     pane.querySelectorAll("[data-goto]").forEach(btn =>
       btn.addEventListener("click", () => showView(btn.dataset.goto))
     );
+
+    const heroCodeBtn = $("heroCodeBtn");
+    if (heroCodeBtn) {
+      heroCodeBtn.addEventListener("click", () => {
+        $("homeCodeCard")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => $("codeInput")?.focus(), 350);
+      });
+    }
 
     // Animated particles
     spawnParticles("heroParticles", 18);
@@ -417,9 +436,11 @@
             </div>
             <div style="margin-top:1.5rem;padding:1rem;background:rgba(0,212,160,0.07);border:1px solid rgba(0,212,160,0.2);border-radius:var(--r-md)">
               <p style="font-size:0.75rem;color:var(--clr-txt-muted)"><strong style="color:var(--clr-green)">Payment Details:</strong><br>
-              Contact ChiaTech after submitting:<br>
-              📞 +234 703 768 9917<br>
-              📧 chiatech01@gmail.com</p>
+              Account Name: CHIA TECH SOLUTIONS AND RESOURCES LIMITED<br>
+              Account Number: <strong style="color:var(--clr-txt)">6963021042</strong><br>
+              Bank: Moniepoint<br>
+              Send receipt via WhatsApp: +234 703 768 9917<br>
+              Email: chiatech01@gmail.com</p>
             </div>
           </div>
         </div>
@@ -561,8 +582,10 @@
     if (!S.selectedSubject) S.selectedSubject = subjects[0].id;
     const student  = OfflineDB.getStudent();
     const classId  = student.classLevel;
+    const cls      = CURRICULUM.getClassById(classId) || { name: classId };
     const currData = CURRICULUM.getCurriculumForClass(classId, S.selectedSubject);
     const seen     = OfflineDB.getSeenWeeks(S.selectedSubject, classId);
+    S.weekContent  = OfflineDB.getCachedContent("weekly_" + classId) || S.weekContent || [];
 
     const unlockedCount = currData
       ? currData.weeks.filter(w => CURRICULUM.isWeekUnlocked(w.week)).length
@@ -572,7 +595,7 @@
 
     container.innerHTML = `
       <div style="margin-bottom:1.5rem">
-        <p class="eyebrow">📚 My Lessons — ${student.classLevel}</p>
+        <p class="eyebrow">📚 My Lessons — ${cls.name}</p>
         <h2 style="font-family:var(--ff-head);font-weight:800;font-size:1.5rem;margin-bottom:0.75rem">First Term 2026/2027</h2>
         <div class="subject-tabs" id="lessonSubjTabs">
           ${subjects.map(s => `
@@ -611,6 +634,20 @@
         OfflineDB.markWeekSeen(S.selectedSubject, student.classLevel, wk);
       });
     });
+
+    if (navigator.onLine && SheetAPI.isConfigured()) {
+      SheetAPI.getWeeklyContent({
+        code: S.code,
+        classLevel: student.classLevel,
+        subjects: student.subjects || []
+      }).then(res => {
+        if (res.ok && Array.isArray(res.content)) {
+          S.weekContent = res.content;
+          OfflineDB.cacheContent("weekly_" + classId, res.content, 120);
+          if (S.view === "dashboard" && S.dashTab === "lessons") renderDashTab(subjects);
+        }
+      }).catch(() => {});
+    }
   }
 
   function renderWeekCards(currData, seen) {
@@ -621,6 +658,7 @@
     return currData.weeks.map(w => {
       const unlocked = CURRICULUM.isWeekUnlocked(w.week);
       const isSeen   = seen.includes(w.week);
+      const uploads  = getUploadedWeekContent(currData.classId, currData.subjectId, w.week);
       const releaseDate = CURRICULUM.getWeekReleaseDate(w.week);
       const statusLabel = unlocked
         ? (isSeen ? "available" : "new")
@@ -642,6 +680,7 @@
           ${unlocked ? `
             <div class="week-body">
               <p>${(w.objectives || []).slice(0,2).map(o => "• " + o).join("<br>") || "Click to view lesson content."}</p>
+              ${uploads.length ? `<p class="text-green" style="font-size:0.75rem;margin-top:0.5rem">${uploads.length} uploaded note${uploads.length > 1 ? "s" : ""} ready</p>` : ""}
               <button class="btn btn-ghost btn-sm">📖 Read Lesson →</button>
             </div>` : ""}
         </div>
@@ -654,6 +693,7 @@
     if (!week) return;
 
     const notesHtml = formatNotes(week.notes || "");
+    const uploads = getUploadedWeekContent(currData.classId, currData.subjectId, week.week);
     const objHtml = (week.objectives || []).length
       ? `<ul style="margin:0 0 1rem 1rem;color:var(--clr-txt-muted);font-size:0.875rem;line-height:1.8">
           ${week.objectives.map(o => `<li>${o}</li>`).join("")}
@@ -669,7 +709,28 @@
       </div>
       ${week.objectives?.length ? `<p class="eyebrow" style="margin-bottom:0.5rem">Learning Objectives</p>${objHtml}` : ""}
       <div class="lesson-notes">${notesHtml}</div>
+      ${uploads.length ? `
+        <div style="margin-top:1.25rem;padding:1rem;background:var(--clr-green-glow);border:1px solid rgba(0,212,160,0.24);border-radius:var(--r-md)">
+          <p class="eyebrow" style="margin-bottom:0.75rem;color:var(--clr-green)">Uploaded ChiaTech Notes</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem">
+            ${uploads.map(item => `<a class="btn btn-green btn-sm" href="${item.url}" target="_blank" rel="noopener">${item.title || "Open weekly note"}</a>`).join("")}
+          </div>
+        </div>` : ""}
     `);
+  }
+
+  function getUploadedWeekContent(classId, subjectId, week) {
+    const currentClass = CURRICULUM.normalizeClassId ? CURRICULUM.normalizeClassId(classId) : String(classId || "").toLowerCase();
+    const currentWeek = parseInt(String(week || "").match(/\d+/)?.[0] || week, 10);
+    return (S.weekContent || []).filter(item => {
+      const itemWeek = parseInt(String(item.week || item.Week || "").match(/\d+/)?.[0] || item.week || item.Week, 10);
+      const itemClass = CURRICULUM.normalizeClassId ? CURRICULUM.normalizeClassId(item.classLevel || item.ClassLevel) : String(item.classLevel || item.ClassLevel || "").toLowerCase();
+      const itemSubject = String(item.subjectId || item.SubjectId || "").toLowerCase();
+      return itemWeek === currentWeek && itemClass === currentClass && itemSubject === String(subjectId || "").toLowerCase() && (item.url || item.URL);
+    }).map(item => ({
+      title: item.title || item.Title || "Open weekly note",
+      url: item.url || item.URL
+    }));
   }
 
   /* Markdown-like formatter for lesson notes */
@@ -745,6 +806,89 @@
   }
 
   function renderDownloadCards(downloads, subjects, filterSubj) {
+    const libraryResources = [
+      {
+        title: "ChiaTech Complete JSS/SSS New Curriculum Scheme",
+        subject: "",
+        type: "Master Scheme",
+        icon: "📘",
+        description: "Full ChiaTech reference scheme for the new curriculum across junior and senior secondary classes.",
+        url: "Library/2026%20Complete-Scheme-of-Work-JSS%20n%20SSS%20New%20Curriculum.pdf"
+      },
+      {
+        title: "JSS1-JSS3 NERDC Curriculum Scheme",
+        subject: "",
+        type: "Junior Secondary Scheme",
+        icon: "📗",
+        description: "Junior secondary scheme of work aligned to the updated NERDC curriculum.",
+        url: "Library/JSS%201%20TO%203%20NEW%20NERDC%20CURRICULUM%20SCHEME%20OF%20WORK.pdf"
+      },
+      {
+        title: "Senior Secondary Approved Curriculum Scheme",
+        subject: "",
+        type: "Senior Secondary Scheme",
+        icon: "📙",
+        description: "Senior secondary curriculum scheme for SS1 to SS3 subjects and pathways.",
+        url: "Library/SSS%201%20TO%203%20NEW%20APPROVED%20CURRICULUM%20SCHEME%20OF%20WORK.pdf"
+      },
+      {
+        title: "ChiaTech Senior Secondary Subject Guide",
+        subject: "",
+        type: "Subject Guide",
+        icon: "🎓",
+        description: "ChiaTech senior secondary subject grouping and exam pathway reference.",
+        url: "Library/chiatech%20SENIOR%20SECONDARY%20SCHOOL%20subjects.pdf"
+      },
+      {
+        title: "SSS1-3 Scheme of Work",
+        subject: "",
+        type: "Senior Secondary Scheme",
+        icon: "📒",
+        description: "Additional SS1 to SS3 scheme of work reference for academic planning.",
+        url: "Library/SSS1-3%20Scheme%20of%20Work.pdf"
+      },
+      {
+        title: "Solar PV Installation and Maintenance",
+        subjects: ["solar-pv-installation-and-maintenance", "electrical-installation-and-maintenance-work"],
+        type: "Trade Subject Scheme",
+        icon: "🔆",
+        description: "Trade subject scheme for solar photovoltaic installation and maintenance.",
+        url: "Library/Solar-PV-Installation-and-Maintenance-ss1-3.pdf"
+      },
+      {
+        title: "Digital Technology Scheme - SS1",
+        subjects: ["digital-technologies", "computer-studies", "data-processing"],
+        type: "Digital Technology Scheme",
+        icon: "💻",
+        description: "SS1 digital technology scheme of work.",
+        url: "Library/Digital-Technology-Scheme-of-work-SS1.pdf"
+      },
+      {
+        title: "Digital Technology Scheme - SS2",
+        subjects: ["digital-technologies", "computer-studies", "data-processing"],
+        type: "Digital Technology Scheme",
+        icon: "💻",
+        description: "SS2 digital technology scheme of work.",
+        url: "Library/Digital-Technology-Scheme-of-work-SS2.pdf"
+      },
+      {
+        title: "Digital Technology Scheme - SS3",
+        subjects: ["digital-technologies", "computer-studies", "data-processing"],
+        type: "Digital Technology Scheme",
+        icon: "💻",
+        description: "SS3 digital technology scheme of work.",
+        url: "Library/Digital-Technology-Scheme-of-work-SS3.pdf"
+      },
+      {
+        title: "WAEC Computer Studies Reference",
+        subjects: ["digital-technologies", "computer-studies", "data-processing"],
+        type: "Exam Reference",
+        icon: "💻",
+        description: "Computer Studies support material for WAEC-aligned digital technology preparation.",
+        url: "Library/WAEC%20COMPUTER%20STUDIES.pdf"
+      }
+    ];
+
     // Built-in starter resources (always available)
     const builtIn = subjects.map(s => ({
       title: s.title + " — First Term Scheme of Work",
@@ -756,9 +900,15 @@
     }));
 
     const all = [
+      ...libraryResources,
       ...builtIn,
       ...(Array.isArray(downloads) ? downloads : [])
-    ].filter(d => filterSubj === "all" || d.subject === filterSubj);
+    ].filter(d => {
+      if (filterSubj === "all") return true;
+      if (!d.subject && !d.subjects) return true;
+      if (Array.isArray(d.subjects)) return d.subjects.includes(filterSubj);
+      return d.subject === filterSubj;
+    });
 
     if (!all.length) {
       return `<div class="empty-state" style="grid-column:1/-1"><div class="icon">📭</div><h3>No downloads yet</h3>
@@ -769,7 +919,7 @@
       <div class="download-card">
         <div class="download-icon">${d.icon || "📄"}</div>
         <h4>${d.title}</h4>
-        <div class="meta">${d.type || "Resource"} · ${CURRICULUM.getSubjectById(d.subject)?.shortTitle || d.subject || ""}</div>
+        <div class="meta">${d.type || "Resource"} · ${CURRICULUM.getSubjectById(d.subject || (Array.isArray(d.subjects) ? d.subjects[0] : ""))?.shortTitle || d.subject || ""}</div>
         <p style="font-size:0.8rem;color:var(--clr-txt-muted);flex:1">${d.description || ""}</p>
         ${d.url
           ? `<a class="btn btn-green btn-sm" href="${d.url}" target="_blank" rel="noopener">⬇ Download</a>`
@@ -1245,7 +1395,7 @@
                   <td style="font-size:0.8rem">${CURRICULUM.getSubjectById(d.subject)?.shortTitle||d.subject||"—"}</td>
                   <td>${d.type||"—"}</td>
                   <td>${d.url?`<a href="${d.url}" target="_blank" style="font-size:0.8rem">🔗 Open</a>`:"—"}</td>
-                  <td><button class="btn btn-danger btn-sm" data-dlrow="${i}">🗑</button></td>
+                  <td><button class="btn btn-danger btn-sm" data-dlrow="${d.rowIndex || i + 2}">🗑</button></td>
                 </tr>`).join("")
               : `<tr><td colspan="6" style="text-align:center;color:var(--clr-txt-muted)">No downloads uploaded yet</td></tr>`}
           </tbody>
@@ -1261,6 +1411,24 @@
         btn.classList.remove("loading"); btn.disabled = false;
         if (res.ok) { showToast("Download added ✅", "success"); loadAdminData(); }
         else showToast(res.message || "Error", "error");
+      });
+    });
+
+    container.querySelectorAll("[data-dlrow]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        const res = await SheetAPI.adminRemoveDownload({
+          adminToken: OfflineDB.getAdminToken(),
+          rowIndex: btn.dataset.dlrow
+        });
+
+        if (res.ok) {
+          showToast("Download removed", "success");
+          loadAdminData();
+        } else {
+          btn.disabled = false;
+          showToast(res.message || "Unable to remove download", "error");
+        }
       });
     });
   }
