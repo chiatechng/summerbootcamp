@@ -5082,25 +5082,110 @@ const BOOTCAMP_CONFIG = {
       .trim();
   }
 
-  function normalizeWeek(week) {
+  function classPathway(classId) {
+    const id = normalizeClassId(classId);
+    if (id === "jss1" || id === "jss2") return "NERDC 2025 junior foundation pathway";
+    if (id === "jss3") return "BECE existing curriculum and transition pathway";
+    if (id === "sss1" || id === "sss2") return "NERDC 2025 senior foundation and examination-prep pathway";
+    if (id === "sss3") return "WAEC / NECO / JAMB / NABTEB existing examination pathway";
+    return "ChiaTech first-term pathway";
+  }
+
+  function assessmentFocus(classId, weekNum) {
+    const id = normalizeClassId(classId);
+    const exam = id === "jss3"
+      ? "BECE"
+      : id === "sss3"
+        ? "WAEC, NECO, JAMB and NABTEB"
+        : id === "sss1" || id === "sss2"
+          ? "NERDC 2025, WAEC and NECO readiness"
+          : "NERDC 2025 junior skills";
+
+    if (weekNum === 5) return "Midterm class test and weekly CBT review aligned with " + exam + ".";
+    if (weekNum >= 11) return "Terminal/end-of-session CBT and written revision aligned with " + exam + ".";
+    return "Weekly lesson, assignment and CBT checkpoint aligned with " + exam + ".";
+  }
+
+  function detailedBreakdown(topic, objectives, subject, classId, weekNum) {
+    const items = [];
+    const title = subject && subject.title ? subject.title : "the subject";
+    items.push("Key terms, examples and prior knowledge for " + topic + ".");
+    objectives.slice(0, 4).forEach(item => items.push(item.replace(/\.$/, "") + "."));
+    items.push("Class activity: solve, discuss, design or demonstrate one " + title + " task.");
+    items.push("Exam link: connect this week to " + classPathway(classId) + ".");
+    if (weekNum === 5) items.push("Midterm checkpoint covering Weeks 1 to 4.");
+    if (weekNum >= 11) items.push("Terminal revision, correction of errors and CBT practice.");
+    return items.filter(Boolean);
+  }
+
+  function assignmentPlan(topic, subject, classId, weekNum) {
+    const title = subject && subject.title ? subject.title : "Subject";
+    return {
+      title: "Week " + weekNum + " " + title + " assignment",
+      instructions: [
+        "Summarise the main ideas in " + topic + " in your notebook.",
+        "Answer the teacher's uploaded assignment or complete the portal activity for this week.",
+        "Prepare one question you can explain to another learner."
+      ],
+      submission: weekNum >= 11 ? "Submit revision corrections before terminal CBT." : "Submit before the next weekly lesson opens.",
+      requiredForProgress: true
+    };
+  }
+
+  function cbtPlan(topic, subject, classId, weekNum) {
+    const title = subject && subject.title ? subject.title : "Subject";
+    const type = weekNum >= 11 ? "terminal" : weekNum === 5 ? "class-test" : "weekly";
+    return {
+      type,
+      title: (type === "terminal" ? "Terminal CBT: " : type === "class-test" ? "Class Test CBT: " : "Weekly CBT: ") + title + " - Week " + weekNum,
+      scope: topic,
+      requiredForProgress: weekNum !== 7,
+      adminManaged: true,
+      note: "Admin uploads the CBT/question bank and release date from the Admin Panel."
+    };
+  }
+
+  function normalizeWeek(week, subject, classId) {
     const num = weekNumber(week.week);
     const objectives = objectiveList(week.objectives);
+    const topic = week.topic || "Weekly Lesson";
+    const breakdown = detailedBreakdown(topic, objectives, subject, classId, num);
+    const assignment = assignmentPlan(topic, subject, classId, num);
+    const cbt = cbtPlan(topic, subject, classId, num);
     const notes = [
-      "## " + (week.topic || "Weekly Lesson"),
+      "## " + topic,
       "",
       cleanText(week.objectives || "Lesson content will be supplied by the academic team."),
       "",
+      "### Coverage Breakdown",
+      breakdown.map(item => "- " + item).join("\n"),
+      "",
       "### Study Task",
-      "- Read the topic summary carefully.",
-      "- Write short notes on the key ideas.",
-      "- Attempt the practice questions for this subject."
+      assignment.instructions.map(item => "- " + item).join("\n"),
+      "",
+      "### CBT Checkpoint",
+      "- " + cbt.title,
+      "- " + cbt.note
     ].join("\n");
 
     return {
       week: num,
       label: String(week.week || "Week " + num),
-      topic: week.topic || "Weekly Lesson",
+      topic,
+      coverage: {
+        summary: topic + " for " + classPathway(classId),
+        alignment: assessmentFocus(classId, num),
+        pathway: classPathway(classId)
+      },
       objectives,
+      breakdown,
+      activities: [
+        "Teacher-led explanation and guided examples.",
+        "Learner practice with correction and feedback.",
+        "Application task linked to home, school, community or examination context."
+      ],
+      assignment,
+      cbt,
       notes
     };
   }
@@ -5119,7 +5204,7 @@ const BOOTCAMP_CONFIG = {
         .replace("Literature-in-English", "Literature"),
       icon: subjectIcon(subject),
       terms: subject.terms || [],
-      weeks: (firstTerm.weeks || []).map(normalizeWeek)
+      weeks: (firstTerm.weeks || []).map(week => normalizeWeek(week, subject, classId))
     };
   }
 
@@ -5150,6 +5235,8 @@ const BOOTCAMP_CONFIG = {
     { id: "physical-health-education", title: "Physical & Health Education", shortTitle: "PHE", icon: "ðŸƒ", sourceAliases: ["physical-and-health-education", "physical-health-education", "health-education"] },
     { id: "social-citizenship-studies", title: "Social & Citizenship Studies", shortTitle: "Social Studies", icon: "ðŸ¤", sourceAliases: ["social-and-citizenship-studies", "social-citizenship-studies", "social-studies"] },
     { id: "business-studies", title: "Business Studies", shortTitle: "Business", icon: "ðŸ’¼", sourceAliases: ["business-studies"] },
+    { id: "basic-technology", title: "Basic Technology", shortTitle: "Basic Tech", icon: "ðŸ”§", sourceAliases: ["basic-technology", "technology", "introductory-technology", "technical-studies"] },
+    { id: "pre-vocational-studies", title: "Pre-Vocational Studies", shortTitle: "Pre-Vocational", icon: "ðŸ§°", sourceAliases: ["pre-vocational-studies", "prevocational-studies", "home-economics", "agricultural-science", "agriculture", "entrepreneurship"] },
     { id: "cultural-creative-arts", title: "Cultural & Creative Arts", shortTitle: "CCA", icon: "ðŸŽ¨", sourceAliases: ["cultural-and-creative-arts", "cultural-creative-arts"] },
     { id: "nigerian-history", title: "Nigerian History", shortTitle: "History", icon: "ðŸ“œ", sourceAliases: ["nigerian-history", "history"] },
     { id: "christian-religious-studies", title: "Christian Religious Studies", shortTitle: "CRS", icon: "âœï¸", sourceAliases: ["christian-religious-studies", "crs", "religious-studies-crs-irs", "religious-studies"] },
@@ -5203,7 +5290,7 @@ const BOOTCAMP_CONFIG = {
   const juniorNerdcSubjectIds = [
     "english-studies", "mathematics", "digital-technologies", "basic-science",
     "physical-health-education", "social-citizenship-studies", "business-studies",
-    "cultural-creative-arts", "nigerian-history", "christian-religious-studies",
+    "basic-technology", "pre-vocational-studies", "cultural-creative-arts", "nigerian-history", "christian-religious-studies",
     "islamic-studies", "french"
   ];
 
@@ -5248,6 +5335,43 @@ const BOOTCAMP_CONFIG = {
 
   function generatedSubjectWeeks(classId, def) {
     const cls = classMeta.find(item => item.id === classId) || { name: classId };
+    const tradeSchemes = {
+      "basic-technology": [
+        [1, "Workshop Safety and Basic Tools", "Safety rules, personal protective equipment, measuring tools, cutting tools, and care of tools."],
+        [2, "Materials in Technology", "Wood, metal, plastics, ceramics, rubber and glass; properties and everyday uses."],
+        [3, "Basic Technical Drawing", "Drawing instruments, lines, lettering, dimensioning and simple freehand sketches."],
+        [4, "Simple Machines", "Levers, pulleys, inclined planes, wheels and axles; applications in school and home."],
+        [5, "Class Test and Practical Safety Review", "Assessment of tools, materials, safety and simple drawing skills."],
+        [6, "Energy, Electricity and Circuits", "Sources of energy, conductors/insulators, simple circuits, switches and safety."],
+        [7, "Midterm Break", "Review notebook, complete safety poster and practise drawing symbols."],
+        [8, "Woodwork and Metalwork Processes", "Marking out, cutting, filing, joining, finishing and maintenance."],
+        [9, "Building and Construction Basics", "Common building materials, foundations, walls, roofs and environmental safety."],
+        [10, "Technology Project Planning", "Identify a simple need, sketch a solution, list materials and prepare a work plan."],
+        [11, "Mini Project Production", "Produce or model a simple useful product using safe workshop procedure."],
+        [12, "Revision and Practical Exhibition", "Present project, correct errors and revise tools, drawing and safety."],
+        [13, "Terminal Examination", "Written/practical assessment and improvement plan."]
+      ],
+      "pre-vocational-studies": [
+        [1, "Meaning and Scope of Pre-Vocational Studies", "Agriculture, Home Economics, entrepreneurship, safety and dignity of labour."],
+        [2, "Farm Tools and Simple Agricultural Practices", "Identification, uses and maintenance of hand tools; school garden practices."],
+        [3, "Soil, Crops and Food Production", "Types of soil, soil fertility, seed selection, planting and crop care."],
+        [4, "Home Management and Personal Hygiene", "Cleanliness, care of the home, personal grooming, health and safety."],
+        [5, "Class Test and Practical Review", "Assessment of agriculture/home economics skills from Weeks 1 to 4."],
+        [6, "Food, Nutrition and Meal Planning", "Food groups, balanced diet, food hygiene and simple meal planning."],
+        [7, "Midterm Break", "Home practice: hygiene checklist, garden observation or simple food diary."],
+        [8, "Clothing, Textiles and Care of Materials", "Fibres, sewing tools, basic stitches, laundry symbols and fabric care."],
+        [9, "Entrepreneurship and Simple Trade Skills", "Needs, wants, small business ideas, costing, savings and customer care."],
+        [10, "Consumer Education and Resource Management", "Budgeting, wise buying, reuse/recycling and family resource management."],
+        [11, "Vocational Mini Project", "Prepare a simple product/service plan, costing and presentation."],
+        [12, "Revision and Skills Demonstration", "Demonstrate selected practical skills and correct common mistakes."],
+        [13, "Terminal Examination", "Written/practical assessment and improvement plan."]
+      ]
+    };
+
+    if (tradeSchemes[def.id]) {
+      return tradeSchemes[def.id].map(item => ({ week: "Week " + item[0], topic: item[1], objectives: item[2] }));
+    }
+
     return [
       [1, "Orientation to " + def.title, "Explain the scope of " + def.title + " for " + cls.name + " and set first-term learning targets."],
       [2, "Core Concepts and Vocabulary", "Build the terms, symbols, tools, and ideas needed for confident learning."],
@@ -5299,7 +5423,7 @@ const BOOTCAMP_CONFIG = {
       shortTitle: def.shortTitle,
       icon: def.icon,
       terms: [{ termName: "First Term", weeks: sourceWeeks }],
-      weeks: sourceWeeks.map(normalizeWeek),
+      weeks: sourceWeeks.map(week => normalizeWeek(week, def, classId)),
       sourceTitle: "ChiaTech generated scheme"
     };
   }

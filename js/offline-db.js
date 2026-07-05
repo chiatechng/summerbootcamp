@@ -16,6 +16,7 @@
     deviceVerified: PREFIX + "device_verified",
     contentCache:   PREFIX + "content_cache",
     progressMap:    PREFIX + "progress_map",
+    completedMap:   PREFIX + "completed_map",
     practiceState:  PREFIX + "practice_state",
     adminToken:     PREFIX + "admin_token",
     outbox:         PREFIX + "api_outbox",
@@ -87,6 +88,19 @@
     return map[`${subjectId}|${classId}`] || [];
   }
 
+  function markWeekComplete(subjectId, classId, weekNum) {
+    const map = read(KEYS.completedMap, {});
+    const key = `${subjectId}|${classId}`;
+    if (!map[key]) map[key] = [];
+    if (!map[key].includes(weekNum)) map[key].push(weekNum);
+    write(KEYS.completedMap, map);
+  }
+
+  function getCompletedWeeks(subjectId, classId) {
+    const map = read(KEYS.completedMap, {});
+    return map[`${subjectId}|${classId}`] || [];
+  }
+
   /* ─── Outbox for offline API queuing ─── */
   function readOutbox() { return read(KEYS.outbox, []); }
   function writeOutbox(items) { write(KEYS.outbox, items.slice(-200)); }
@@ -141,6 +155,7 @@
     read, write, remove,
     getDeviceId,
     markWeekSeen, getSeenWeeks,
+    markWeekComplete, getCompletedWeeks,
     readOutbox, writeOutbox, enqueueOutbox,
     getStudent, getCode, isLoggedIn,
     getAdminToken, isAdmin,

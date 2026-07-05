@@ -10,7 +10,7 @@
   const S = {
     view: "home",           // home | register | dashboard | admin | cbt
     dashTab: "lessons",     // lessons | downloads | practice | profile
-    adminTab: "students",   // students | content | downloads | sendcode
+    adminTab: "students",   // students | content | tests | downloads | sendcode
     selectedClass: "",
     selectedSubject: "",
     selectedWeek: null,
@@ -20,6 +20,7 @@
     code: OfflineDB.getCode(),
     weekContent: [],        // admin-provided content from sheet
     downloads: [],          // admin-provided downloads from sheet
+    tests: [],              // admin-provided CBT/test records
     adminData: null
   };
 
@@ -45,7 +46,7 @@
       S.student = OfflineDB.getStudent();
       S.code    = OfflineDB.getCode();
       S.selectedClass   = S.student.classLevel || "";
-      S.selectedSubject = (CURRICULUM.getSubjectsForClass(S.selectedClass)[0] || {}).id || "";
+      S.selectedSubject = studentSubjectIds(S.student)[0] || (CURRICULUM.getSubjectsForClass(S.selectedClass)[0] || {}).id || "";
       showView("dashboard");
     } else {
       showView("home");
@@ -166,6 +167,13 @@
   function subjectIcon(subject, className) {
     const info = subjectCardInfo(subject);
     return `<span class="${className || "subject-mini-symbol"} tone-${info.tone}" aria-hidden="true">${info.symbol}</span>`;
+  }
+
+  function studentSubjectIds(student) {
+    const raw = student && student.subjects;
+    if (Array.isArray(raw)) return raw;
+    if (!raw) return [];
+    return String(raw).split(/,|\|/).map(item => item.trim()).filter(Boolean);
   }
 
   /* ════════════════════════════════════════════════════════
@@ -547,7 +555,7 @@
     if (!pane) return;
 
     const student  = OfflineDB.getStudent();
-    const subjects = (student.subjects || []).map(id => CURRICULUM.getSubjectById(id)).filter(Boolean);
+    const subjects = studentSubjectIds(student).map(id => CURRICULUM.getSubjectById(id)).filter(Boolean);
     const cls      = CURRICULUM.getClassById(student.classLevel) || { name: student.classLevel };
 
     // Build sidebar subject tabs
@@ -563,13 +571,14 @@
           <div class="student-chip">
             <div class="student-avatar">${(student.name || "S")[0].toUpperCase()}</div>
             <div class="student-name">${student.name || "Student"}</div>
-            <div class="student-meta">${cls.name} · ${student.subjects ? student.subjects.length : 0} subjects</div>
+            <div class="student-meta">${cls.name} · ${studentSubjectIds(student).length} subjects</div>
           </div>
           <div class="sidebar-section">
             <p class="sidebar-label">Navigation</p>
             ${[
               { tab:"lessons",   icon:"📚", label:"My Lessons" },
-              { tab:"downloads", icon:"📥", label:"Download Notes" },
+              { tab:"tests",    label:"CBTs / Tests" },
+            { tab:"downloads", icon:"📥", label:"Download Notes" },
               { tab:"practice",  icon:"🎯", label:"Practice CBT" },
               { tab:"profile",   icon:"👤", label:"My Profile" }
             ].map(item => `
@@ -634,13 +643,15 @@
     const cls      = CURRICULUM.getClassById(classId) || { name: classId };
     const currData = CURRICULUM.getCurriculumForClass(classId, S.selectedSubject);
     const seen     = OfflineDB.getSeenWeeks(S.selectedSubject, classId);
+    const completed = OfflineDB.getCompletedWeeks ? OfflineDB.getCompletedWeeks(S.selectedSubject, classId) : seen;
     S.weekContent  = OfflineDB.getCachedContent("weekly_" + classId) || S.weekContent || [];
+    S.tests        = OfflineDB.getCachedContent("tests_" + classId) || S.tests || [];
 
     const unlockedCount = currData
-      ? currData.weeks.filter(w => CURRICULUM.isWeekUnlocked(w.week)).length
+      ? currData.weeks.filter((w, index) => isWeekAvailable(w, index, completed)).length
       : 0;
     const totalWeeks  = currData ? currData.weeks.length : 12;
-    const progressPct = Math.round((unlockedCount / totalWeeks) * 100);
+    const progressPct = Math.round((completed.length / totalWeeks) * 100);
 
     container.innerHTML = `
       <div style="margin-bottom:1.5rem">
@@ -654,7 +665,7 @@
         </div>
         <div style="margin-bottom:1.5rem">
           <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--clr-txt-muted);margin-bottom:0.5rem">
-            <span>Term Progress</span><span>${unlockedCount}/${totalWeeks} weeks unlocked</span>
+            <span>Term Progress</span><span>${completed.length}/${totalWeeks} weeks completed · ${unlockedCount} available</span>
           </div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" style="width:${progressPct}%"></div>
@@ -663,7 +674,7 @@
       </div>
 
       <div class="weeks-grid" id="weeksGrid">
-        ${renderWeekCards(currData, seen)}
+        ${renderWeekCards(currData, seen, completed)}
       </div>
     `;
 
@@ -688,33 +699,46 @@
       SheetAPI.getWeeklyContent({
         code: S.code,
         classLevel: student.classLevel,
-        subjects: student.subjects || []
+        subjects: studentSubjectIds(student)
       }).then(res => {
         if (res.ok && Array.isArray(res.content)) {
           S.weekContent = res.content;
+          S.tests = Array.isArray(res.tests) ? res.tests : res.content.filter(isAssessmentRecord);
           OfflineDB.cacheContent("weekly_" + classId, res.content, 120);
+          OfflineDB.cacheContent("tests_" + classId, S.tests, 120);
           if (S.view === "dashboard" && S.dashTab === "lessons") renderDashTab(subjects);
         }
       }).catch(() => {});
     }
   }
 
-  function renderWeekCards(currData, seen) {
+  function isWeekAvailable(week, index, completed) {
+    if (!CURRICULUM.isWeekUnlocked(week.week)) return false;
+    if (index === 0) return true;
+    const previous = index;
+    return completed.includes(previous);
+  }
+
+  function renderWeekCards(currData, seen, completed) {
     if (!currData) {
       return `<div class="empty-state"><div class="icon">📅</div><h3>No content yet</h3>
         <p>Curriculum data for this subject will appear here when available. Admin uploads weekly content via the Admin Panel.</p></div>`;
     }
-    return currData.weeks.map(w => {
-      const unlocked = CURRICULUM.isWeekUnlocked(w.week);
+    return currData.weeks.map((w, index) => {
+      const unlocked = isWeekAvailable(w, index, completed);
       const isSeen   = seen.includes(w.week);
+      const isDone   = completed.includes(w.week);
       const uploads  = getUploadedWeekContent(currData.classId, currData.subjectId, w.week);
+      const tests    = getUploadedTests(currData.classId, currData.subjectId, w.week);
       const releaseDate = CURRICULUM.getWeekReleaseDate(w.week);
       const statusLabel = unlocked
-        ? (isSeen ? "available" : "new")
+        ? (isDone ? "available" : isSeen ? "new" : "new")
         : "coming";
       const statusText = unlocked
-        ? (isSeen ? "✓ Read" : "🔥 New")
-        : "🔒 " + releaseDate.toLocaleDateString("en-NG", { day:"numeric", month:"short" });
+        ? (isDone ? "Done" : isSeen ? "Continue" : "Open")
+        : (index === 0 ? "Opens " : "Complete previous week · ") + releaseDate.toLocaleDateString("en-NG", { day:"numeric", month:"short" });
+      const objectivePreview = (w.objectives || []).slice(0,2).map(o => "- " + o).join("<br>") || "Open for lesson coverage.";
+      const breakdownPreview = (w.breakdown || []).slice(0,3).map(item => `<li>${escapeHtml(item)}</li>`).join("");
 
       return `
         <div class="week-card ${unlocked ? "unlocked" : "locked"}" data-week="${w.week}" role="${unlocked ? "button" : "article"}" tabindex="${unlocked ? "0" : "-1"}">
@@ -722,15 +746,19 @@
             <div class="week-number ${unlocked ? "unlocked" : "locked"}">${w.week}</div>
             <div class="week-info">
               <div class="week-title">${w.topic}</div>
-              <div class="week-subject">Week ${w.week} · First Term 2026/2027</div>
+              <div class="week-subject">Week ${w.week} · ${w.coverage?.pathway || "First Term 2026/2027"}</div>
             </div>
             <span class="week-status ${statusLabel}">${statusText}</span>
           </div>
           ${unlocked ? `
             <div class="week-body">
-              <p>${(w.objectives || []).slice(0,2).map(o => "• " + o).join("<br>") || "Click to view lesson content."}</p>
+              <p>${objectivePreview}</p>
+              ${breakdownPreview ? `<ul class="week-breakdown-preview">${breakdownPreview}</ul>` : ""}
+              <div class="week-gates">
+                <span>Lesson</span><span>Assignment</span><span>${tests.length ? "CBT ready" : "CBT pending"}</span>
+              </div>
               ${uploads.length ? `<p class="text-green" style="font-size:0.75rem;margin-top:0.5rem">${uploads.length} uploaded note${uploads.length > 1 ? "s" : ""} ready</p>` : ""}
-              <button class="btn btn-ghost btn-sm">📖 Read Lesson →</button>
+              <button class="btn btn-ghost btn-sm">${isDone ? "Review Week" : "Open Week"}</button>
             </div>` : ""}
         </div>
       `;
@@ -743,21 +771,43 @@
 
     const notesHtml = formatNotes(week.notes || "");
     const uploads = getUploadedWeekContent(currData.classId, currData.subjectId, week.week);
+    const tests = getUploadedTests(currData.classId, currData.subjectId, week.week);
     const objHtml = (week.objectives || []).length
       ? `<ul style="margin:0 0 1rem 1rem;color:var(--clr-txt-muted);font-size:0.875rem;line-height:1.8">
           ${week.objectives.map(o => `<li>${o}</li>`).join("")}
         </ul>` : "";
+    const breakdownHtml = (week.breakdown || []).length
+      ? `<div class="scheme-detail-block"><h4>Topic Breakdown</h4><ul>${week.breakdown.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul></div>`
+      : "";
+    const assignmentHtml = week.assignment
+      ? `<div class="scheme-detail-block"><h4>Assignment</h4>
+          <p><strong>${escapeHtml(week.assignment.title)}</strong></p>
+          <ul>${(week.assignment.instructions || []).map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          <p class="scheme-note">${escapeHtml(week.assignment.submission || "Submit before the next lesson opens.")}</p>
+        </div>`
+      : "";
+    const cbtHtml = week.cbt
+      ? `<div class="scheme-detail-block"><h4>CBT / Test Gate</h4>
+          <p><strong>${escapeHtml(week.cbt.title)}</strong></p>
+          <p>${escapeHtml(week.cbt.note || "Admin manages this CBT from the Admin Panel.")}</p>
+          ${tests.length ? `<div class="uploaded-test-list">${tests.map(test => `<a class="btn btn-green btn-sm" href="${test.url}" target="_blank" rel="noopener">${escapeHtml(test.title || "Open CBT")}</a>`).join("")}</div>` : `<p class="scheme-note">CBT upload is pending. Continue studying and check back after admin release.</p>`}
+        </div>`
+      : "";
 
     openModal(`
       <div class="modal-header">
         <div>
           <p class="eyebrow">Week ${week.week} · ${CURRICULUM.getSubjectById(currData.subjectId)?.title || currData.subjectId}</p>
           <h3>${week.topic}</h3>
+          <p class="scheme-note">${escapeHtml(week.coverage?.alignment || "")}</p>
         </div>
         <button class="btn btn-icon btn-ghost" onclick="closeModal()" aria-label="Close">✕</button>
       </div>
       ${week.objectives?.length ? `<p class="eyebrow" style="margin-bottom:0.5rem">Learning Objectives</p>${objHtml}` : ""}
+      ${breakdownHtml}
       <div class="lesson-notes">${notesHtml}</div>
+      ${assignmentHtml}
+      ${cbtHtml}
       ${uploads.length ? `
         <div style="margin-top:1.25rem;padding:1rem;background:var(--clr-green-glow);border:1px solid rgba(0,212,160,0.24);border-radius:var(--r-md)">
           <p class="eyebrow" style="margin-bottom:0.75rem;color:var(--clr-green)">Uploaded ChiaTech Notes</p>
@@ -765,7 +815,18 @@
             ${uploads.map(item => `<a class="btn btn-green btn-sm" href="${item.url}" target="_blank" rel="noopener">${item.title || "Open weekly note"}</a>`).join("")}
           </div>
         </div>` : ""}
+      <div style="display:flex;justify-content:flex-end;margin-top:1.25rem">
+        <button class="btn btn-primary" id="completeWeekBtn">Mark Lesson, Assignment & CBT Done</button>
+      </div>
     `);
+
+    $("completeWeekBtn")?.addEventListener("click", () => {
+      if (OfflineDB.markWeekComplete) OfflineDB.markWeekComplete(currData.subjectId, currData.classId, week.week);
+      OfflineDB.markWeekSeen(currData.subjectId, currData.classId, week.week);
+      closeModal();
+      showToast("Week " + week.week + " completed. Next week will open when its release date is due.", "success");
+      renderDashTab(studentSubjectIds(OfflineDB.getStudent()).map(id => CURRICULUM.getSubjectById(id)).filter(Boolean));
+    });
   }
 
   function getUploadedWeekContent(classId, subjectId, week) {
@@ -775,10 +836,36 @@
       const itemWeek = parseInt(String(item.week || item.Week || "").match(/\d+/)?.[0] || item.week || item.Week, 10);
       const itemClass = CURRICULUM.normalizeClassId ? CURRICULUM.normalizeClassId(item.classLevel || item.ClassLevel) : String(item.classLevel || item.ClassLevel || "").toLowerCase();
       const itemSubject = String(item.subjectId || item.SubjectId || "").toLowerCase();
-      return itemWeek === currentWeek && itemClass === currentClass && itemSubject === String(subjectId || "").toLowerCase() && (item.url || item.URL);
+      return !isAssessmentRecord(item) && itemWeek === currentWeek && itemClass === currentClass && itemSubject === String(subjectId || "").toLowerCase() && (item.url || item.URL);
     }).map(item => ({
       title: item.title || item.Title || "Open weekly note",
       url: item.url || item.URL
+    }));
+  }
+
+  function isAssessmentRecord(item) {
+    const type = String(item.recordType || item.RecordType || item.assessmentType || item.AssessmentType || item.type || item.Type || "").toLowerCase();
+    return /cbt|test|exam|assessment|terminal|session/.test(type);
+  }
+
+  function getUploadedTests(classId, subjectId, week) {
+    const currentClass = CURRICULUM.normalizeClassId ? CURRICULUM.normalizeClassId(classId) : String(classId || "").toLowerCase();
+    const currentWeek = parseInt(String(week || "").match(/\d+/)?.[0] || week, 10);
+    const allTests = [
+      ...(Array.isArray(S.tests) ? S.tests : []),
+      ...(Array.isArray(S.weekContent) ? S.weekContent.filter(isAssessmentRecord) : [])
+    ];
+    return allTests.filter(item => {
+      const itemWeek = parseInt(String(item.week || item.Week || "").match(/\d+/)?.[0] || item.week || item.Week || currentWeek, 10);
+      const itemClass = CURRICULUM.normalizeClassId ? CURRICULUM.normalizeClassId(item.classLevel || item.ClassLevel) : String(item.classLevel || item.ClassLevel || "").toLowerCase();
+      const itemSubject = String(item.subjectId || item.SubjectId || item.subject || item.Subject || "").toLowerCase();
+      const classMatch = itemClass === currentClass || itemClass === "all";
+      const subjectMatch = itemSubject === String(subjectId || "").toLowerCase() || itemSubject === "all";
+      return itemWeek === currentWeek && classMatch && subjectMatch && (item.url || item.URL);
+    }).map(item => ({
+      title: item.title || item.Title || item.assessmentType || item.AssessmentType || "Open CBT",
+      url: item.url || item.URL,
+      type: item.assessmentType || item.AssessmentType || item.type || item.Type || "Weekly CBT"
     }));
   }
 
@@ -1133,7 +1220,7 @@
   function renderProfileTab(container) {
     const student = OfflineDB.getStudent();
     if (!student) return;
-    const subjects = (student.subjects || []).map(id => CURRICULUM.getSubjectById(id)).filter(Boolean);
+    const subjects = studentSubjectIds(student).map(id => CURRICULUM.getSubjectById(id)).filter(Boolean);
     const cls = CURRICULUM.getClassById(student.classLevel);
 
     container.innerHTML = `
@@ -1217,6 +1304,7 @@
           ${[
             { tab:"students", label:"👥 Students" },
             { tab:"content",  label:"📅 Weekly Content" },
+            { tab:"tests",    label:"CBTs / Tests" },
             { tab:"downloads",label:"📥 Downloads" },
             { tab:"sendcode", label:"🔑 Send Code" }
           ].map(t => `<button class="admin-tab ${S.adminTab === t.tab ? "is-active" : ""}" data-tab="${t.tab}">${t.label}</button>`).join("")}
@@ -1273,6 +1361,7 @@
     switch (S.adminTab) {
       case "students":  renderAdminStudents(container, data.registrations || []); break;
       case "content":   renderAdminContent(container, data.weeklyContent || []); break;
+      case "tests":     renderAdminTests(container, data.tests || (data.weeklyContent || []).filter(isAssessmentRecord)); break;
       case "downloads": renderAdminDownloads(container, data.downloads || []); break;
       case "sendcode":  renderAdminSendCode(container, data.registrations || []); break;
       default:          renderAdminStudents(container, data.registrations || []);
@@ -1393,6 +1482,111 @@
         btn.classList.remove("loading"); btn.disabled = false;
         if (res.ok) { showToast("Content record saved ✅", "success"); loadAdminData(); }
         else showToast(res.message || "Error saving content", "error");
+      });
+    });
+  }
+
+  function renderAdminTests(container, tests) {
+    container.innerHTML = `
+      <div class="card card-padded" style="margin-bottom:1.5rem">
+        <p class="eyebrow" style="margin-bottom:0.75rem">Create CBT / Test Record</p>
+        <p style="font-size:0.875rem;color:var(--clr-txt-muted);margin-bottom:1rem">
+          Use this for weekly CBTs, class tests, terminal CBTs and end-of-session assessments. Students see matching tests inside the weekly scheme view.
+        </p>
+        <form id="testForm" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;align-items:end">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tType">Assessment Type</label>
+            <select class="form-control" id="tType">
+              <option value="weekly-cbt">Weekly CBT</option>
+              <option value="class-test">Class Test</option>
+              <option value="terminal-cbt">Terminal / End-of-Term CBT</option>
+              <option value="end-session-cbt">End-of-Session CBT</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tWeek">Week</label>
+            <select class="form-control" id="tWeek">
+              ${Array.from({length:13},(_,i)=>`<option value="${i+1}">Week ${i+1}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tClass">Class</label>
+            <select class="form-control" id="tClass">
+              <option value="ALL">All Classes</option>
+              ${CURRICULUM.classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tSubject">Subject</label>
+            <select class="form-control" id="tSubject">
+              <option value="ALL">All Subjects</option>
+              ${CURRICULUM.subjects.map(s=>`<option value="${s.id}">${s.title}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0;grid-column:1/-1">
+            <label class="form-label" for="tTitle">CBT / Test Title</label>
+            <input class="form-control" id="tTitle" placeholder="e.g. JSS1 Mathematics Week 4 CBT">
+          </div>
+          <div class="form-group" style="margin-bottom:0;grid-column:1/-1">
+            <label class="form-label" for="tUrl">Question Bank / CBT Link</label>
+            <input class="form-control" id="tUrl" type="url" placeholder="https://forms.gle/... or https://docs.google.com/...">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tRelease">Release Date</label>
+            <input class="form-control" id="tRelease" type="date">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tDuration">Duration</label>
+            <input class="form-control" id="tDuration" placeholder="e.g. 20 minutes">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="tAttempts">Attempts</label>
+            <input class="form-control" id="tAttempts" type="number" min="1" value="1">
+          </div>
+          <button class="btn btn-primary" type="submit" id="testSaveBtn" style="grid-column:1/-1">Save CBT / Test</button>
+        </form>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Type</th><th>Week</th><th>Class</th><th>Subject</th><th>Title</th><th>Release</th><th>Link</th></tr></thead>
+          <tbody>
+            ${tests.length
+              ? tests.map(test=>`<tr>
+                  <td>${test.assessmentType || test.AssessmentType || test.type || "CBT"}</td>
+                  <td>W${test.week || test.Week || "-"}</td>
+                  <td>${test.classLevel || test.ClassLevel || "ALL"}</td>
+                  <td>${CURRICULUM.getSubjectById(test.subjectId || test.SubjectId || test.subject)?.shortTitle || test.subjectId || test.SubjectId || test.subject || "ALL"}</td>
+                  <td>${test.title || test.Title || "-"}</td>
+                  <td>${test.releaseDate || test.ReleaseDate || "-"}</td>
+                  <td>${test.url || test.URL ? `<a href="${test.url || test.URL}" target="_blank" style="font-size:0.8rem">Open</a>` : "-"}</td>
+                </tr>`).join("")
+              : `<tr><td colspan="7" style="text-align:center;color:var(--clr-txt-muted)">No CBT or test records yet</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    $("testForm")?.addEventListener("submit", e => {
+      e.preventDefault();
+      const payload = {
+        adminToken: OfflineDB.getAdminToken(),
+        recordType: "assessment",
+        assessmentType: $("tType").value,
+        week: $("tWeek").value,
+        classLevel: $("tClass").value,
+        subjectId: $("tSubject").value,
+        title: $("tTitle").value,
+        url: $("tUrl").value,
+        releaseDate: $("tRelease").value,
+        duration: $("tDuration").value,
+        attempts: $("tAttempts").value
+      };
+      const btn = $("testSaveBtn");
+      btn.classList.add("loading"); btn.disabled = true;
+      SheetAPI.adminUpdateContent(payload).then(res => {
+        btn.classList.remove("loading"); btn.disabled = false;
+        if (res.ok) { showToast("CBT / test record saved", "success"); loadAdminData(); }
+        else showToast(res.message || "Error saving CBT / test", "error");
       });
     });
   }
@@ -1581,7 +1775,7 @@
     S.code    = code;
     S.student = student;
     S.selectedClass   = student.classLevel || "";
-    S.selectedSubject = (CURRICULUM.getSubjectsForClass(S.selectedClass)[0] || {}).id || "";
+    S.selectedSubject = studentSubjectIds(student)[0] || (CURRICULUM.getSubjectsForClass(S.selectedClass)[0] || {}).id || "";
     showToast("🎉 Welcome, " + (student.name || "Student") + "!", "success");
     showView("dashboard");
   }
