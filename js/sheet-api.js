@@ -28,7 +28,7 @@
   }
 
   function backendUnavailableMessage() {
-    return "Portal backend is not available on this static server. Use Netlify Dev locally or deploy on Netlify with APPS_SCRIPT_URL configured.";
+    return "Portal backend is deployed but not connected yet. Add APPS_SCRIPT_URL in Netlify environment variables, then redeploy.";
   }
 
   function payloadFor(action, payload) {

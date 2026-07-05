@@ -1,4 +1,10 @@
-const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL || "";
+const APPS_SCRIPT_URL =
+  process.env.APPS_SCRIPT_URL ||
+  process.env.APP_SCRIPT_URL ||
+  process.env.GOOGLE_APPS_SCRIPT_URL ||
+  "";
+
+const hasValidAppsScriptUrl = /^https:\/\/script\.google\.com\/macros\/s\//.test(APPS_SCRIPT_URL);
 
 const headers = {
   "Content-Type": "application/json; charset=utf-8",
@@ -13,13 +19,25 @@ exports.handler = async function handler(event) {
     return { statusCode: 204, headers, body: "" };
   }
 
+  if (event.httpMethod === "GET") {
+    return response(200, {
+      ok: hasValidAppsScriptUrl,
+      service: "ChiaTech portal API",
+      configured: hasValidAppsScriptUrl,
+      message: hasValidAppsScriptUrl
+        ? "Portal backend is configured."
+        : "Portal backend is not configured. Set APPS_SCRIPT_URL in Netlify environment variables."
+    });
+  }
+
   if (event.httpMethod !== "POST") {
     return response(405, { ok: false, message: "Method not allowed." });
   }
 
-  if (!/^https:\/\/script\.google\.com\/macros\/s\//.test(APPS_SCRIPT_URL)) {
-    return response(500, {
+  if (!hasValidAppsScriptUrl) {
+    return response(200, {
       ok: false,
+      code: "BACKEND_NOT_CONFIGURED",
       message: "Portal backend is not configured. Set APPS_SCRIPT_URL in Netlify environment variables."
     });
   }
