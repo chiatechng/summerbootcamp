@@ -5005,7 +5005,7 @@ const curriculumData = {
 };
 
 const BOOTCAMP_CONFIG = {
-  apiProxyUrl: "/api/portal",
+  apiProxyUrl: "/.netlify/functions/portal-api",
   pricePerSubject: 2500,
   currency: "NGN",
   termStartDate: "2026-07-04",

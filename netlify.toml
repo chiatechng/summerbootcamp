@@ -4,3 +4,13 @@
 
 [functions]
   directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/portal"
+  to = "/.netlify/functions/portal-api"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,6 +1,6 @@
 /**
  * ChiaTech Summer Bootcamp - Sheet API Client
- * Calls the same-origin Netlify proxy at /api/portal.
+ * Calls the same-origin Netlify Function, with /api/portal rewrite fallback.
  * Backend URLs and sheet identifiers must stay private in Netlify env vars.
  */
 (function () {
@@ -11,7 +11,12 @@
   }
 
   function proxyUrl() {
-    return cfg().apiProxyUrl || "/api/portal";
+    return cfg().apiProxyUrl || "/.netlify/functions/portal-api";
+  }
+
+  function fallbackProxyUrls() {
+    const primary = proxyUrl();
+    return [primary, "/api/portal"].filter((url, index, list) => url && list.indexOf(url) === index);
   }
 
   function isConfigured() {
@@ -35,12 +40,12 @@
     };
   }
 
-  async function proxyRequest(body, timeoutMs) {
+  async function proxyRequestTo(url, body, timeoutMs) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs || 20000);
 
     try {
-      const res = await fetch(proxyUrl(), {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -63,6 +68,10 @@
       if (!res.ok) {
         data.ok = false;
         if (!data.message) data.message = "Portal proxy request failed (" + res.status + ").";
+        if (res.status === 404) {
+          data.networkError = true;
+          data.notFound = true;
+        }
       }
 
       return data;
@@ -75,6 +84,20 @@
     } finally {
       clearTimeout(timeout);
     }
+  }
+
+  async function proxyRequest(body, timeoutMs) {
+    let lastResult = { ok: false, networkError: true, message: backendUnavailableMessage() };
+    const urls = fallbackProxyUrls();
+    for (const url of urls) {
+      lastResult = await proxyRequestTo(url, body, timeoutMs);
+      if (lastResult.ok || !lastResult.networkError) return lastResult;
+    }
+    if (lastResult.notFound) {
+      lastResult.networkError = false;
+      lastResult.message = backendUnavailableMessage();
+    }
+    return lastResult;
   }
 
   async function requestWithRetry(action, payload, options) {
