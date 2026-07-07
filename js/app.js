@@ -183,6 +183,11 @@
     const pane = $("homeView");
     if (!pane) return;
 
+    const whatsappMessage = encodeURIComponent(
+      "Hello ChiaTech, I want to register for STEM classes and practical training."
+    );
+    const whatsappUrl = `https://wa.me/2347037689917?text=${whatsappMessage}`;
+
     pane.innerHTML = `
       <!-- HERO -->
       <section class="hero" aria-labelledby="heroTitle">
@@ -190,7 +195,7 @@
         <div class="hero-particles" aria-hidden="true" id="heroParticles"></div>
         <div class="hero-content container">
           <div class="hero-text">
-            <p class="eyebrow">🎓 NERDC 2025 Aligned</p>
+            <p class="eyebrow">NERDC 2025 Aligned</p>
             <h2 id="heroTitle">
               Nigeria's Smartest<br>
               <span class="highlight">Summer Bootcamp</span>
@@ -208,10 +213,10 @@
             </div>
             <div class="hero-cta">
               <button class="btn btn-primary btn-lg" data-goto="register" id="heroCTA">
-                📝 Register Now
+                Register Now
               </button>
               ${OfflineDB.isLoggedIn()
-                ? `<button class="btn btn-secondary btn-lg" data-goto="dashboard">Go to My Dashboard →</button>`
+                ? `<button class="btn btn-secondary btn-lg" data-goto="dashboard">Go to My Dashboard</button>`
                 : `<button class="btn btn-secondary btn-lg" id="heroCodeBtn">Enter Access Code</button>`}
             </div>
           </div>
@@ -239,7 +244,7 @@
                 <p class="form-error" id="codeError"></p>
               </div>
               <p style="font-size:0.75rem;color:var(--clr-txt-faint);text-align:center;margin-top:0.5rem">
-                Don't have a code? <button type="button" class="btn btn-ghost btn-sm" data-goto="register">Register →</button>
+                Don't have a code? <button type="button" class="btn btn-ghost btn-sm" data-goto="register">Register</button>
               </p>
             </form>
           </div>
@@ -275,35 +280,137 @@
           </div>
           <div class="feature-grid">
             <div class="feature-card">
-              <div class="feature-icon gold">📅</div>
+              <div class="feature-icon gold">WK</div>
               <h3>Weekly Sequential Drops</h3>
-              <p>Lessons unlock week by week, just like school. No cramming everything at once — structured learning that works.</p>
+              <p>Lessons unlock week by week, just like school. No cramming everything at once - structured learning that works.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon green">📥</div>
+              <div class="feature-icon green">DL</div>
               <h3>Downloadable Notes & Schemes</h3>
               <p>ChiaTech-branded, professionally formatted PDF notes and schemes of work. Download by class and subject.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon gold">📶</div>
+              <div class="feature-icon gold">OFF</div>
               <h3>Works Offline</h3>
               <p>Install the portal once and access your lessons even without internet. Your progress is saved automatically.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon green">🏆</div>
+              <div class="feature-icon green">CBT</div>
               <h3>Practice CBT Questions</h3>
               <p>Subject-specific objective questions in WAEC/NECO/JAMB/BECE style, with instant corrections and explanations.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon gold">🎓</div>
+              <div class="feature-icon gold">EX</div>
               <h3>All Exam Bodies Covered</h3>
-              <p>JSS3 — BECE. SS3 — WAEC, NECO, JAMB, and NABTEB. Content tuned to what examiners actually set.</p>
+              <p>JSS3: BECE. SS3: WAEC, NECO, JAMB, and NABTEB. Content tuned to what examiners actually set.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon green">🔐</div>
+              <div class="feature-icon green">SEC</div>
               <h3>Secure & Private</h3>
               <p>Your access code is unique to you. Device-change confirmation via email keeps your account safe.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIVE CLASSES ADVERT -->
+      <section class="section promo-band" aria-labelledby="liveClassesTitle">
+        <div class="container promo-layout">
+          <div class="promo-copy">
+            <p class="eyebrow">Registration & Classes Now Open</p>
+            <h2 id="liveClassesTitle">Online and physical STEM classes for serious learners</h2>
+            <p>
+              Join ChiaTech's tested and trusted tutors for focused school lessons, exam preparation,
+              and practical technology training led by Engr. Chia S.K. - a seasoned STEM expert,
+              coach, researcher, developer, programmer, and engineer.
+            </p>
+            <div class="promo-actions">
+              <button class="btn btn-primary btn-lg pulse" data-goto="register">Register for Classes</button>
+              <a class="btn btn-green btn-lg" href="${whatsappUrl}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+          </div>
+          <div class="promo-schedule" aria-label="Class schedule and services">
+            <div class="schedule-row">
+              <span>Learning Mode</span>
+              <strong>Online + Physical Classes</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Opening Days</span>
+              <strong>Monday to Saturday</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Daily Time</span>
+              <strong>8:00 AM - 6:00 PM</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Training Level</span>
+              <strong>Beginner to Advanced</strong>
+            </div>
+          </div>
+        </div>
+        <div class="container service-strip" aria-label="Available practical training and solutions">
+          <span>Programming</span>
+          <span>Web Development</span>
+          <span>App Development</span>
+          <span>Cybersecurity</span>
+          <span>Data Science</span>
+          <span>AI & ML</span>
+          <span>Electrical/Electronic</span>
+          <span>Solar Solutions</span>
+          <span>Academic Research</span>
+          <span>Data Analysis</span>
+          <span>Engineering</span>
+        </div>
+      </section>
+
+      <!-- CHIATECH PRODUCTS -->
+      <section class="section section-alt product-promo" aria-labelledby="productsTitle">
+        <div class="container">
+          <div class="section-title">
+            <p class="eyebrow">More ChiaTech Products</p>
+            <h2 id="productsTitle">Short, powerful tools for smarter learning</h2>
+            <p>Explore our connected learning products for CBT practice, WAEC electrical preparation, and chemistry practical mastery.</p>
+          </div>
+          <div class="product-grid">
+            <a class="product-card" href="https://cbt.chiatechsolutions.com/" target="_blank" rel="noopener">
+              <span class="product-icon">CBT</span>
+              <strong>ChiaTech CBT</strong>
+              <p>Smart objective practice, timed tests, instant scoring, and exam readiness for schools and learners.</p>
+              <span class="product-link">Open cbt.chiatechsolutions.com</span>
+            </a>
+            <a class="product-card" href="https://waecelectrical.chiatechsolutions.com/" target="_blank" rel="noopener">
+              <span class="product-icon">ELEC</span>
+              <strong>WAEC Electrical</strong>
+              <p>Electrical installation theory, practical guides, project preparation, and WAEC/NABTEB revision support.</p>
+              <span class="product-link">Open waecelectrical.chiatechsolutions.com</span>
+            </a>
+            <a class="product-card" href="https://chempractical.chiatechsolutions.com/" target="_blank" rel="noopener">
+              <span class="product-icon">CHEM</span>
+              <strong>Chemistry Practical</strong>
+              <p>Practical chemistry support for experiments, observations, calculations, reports, and exam confidence.</p>
+              <span class="product-link">Open chempractical.chiatechsolutions.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHATSAPP CONTACT -->
+      <section class="section whatsapp-section" aria-labelledby="whatsappTitle">
+        <div class="container whatsapp-layout">
+          <div>
+            <p class="eyebrow">WhatsApp Product Description</p>
+            <h2 id="whatsappTitle">Learn, Know, Do & Create with ChiaTech</h2>
+            <p>
+              ChiaTech Solutions offers online and physical STEM lessons, exam-focused school support,
+              beginner-to-advanced practical ICT training, and professional solutions in engineering,
+              solar, data analysis, research, and digital systems.
+            </p>
+          </div>
+          <div class="contact-card">
+            <a class="btn btn-green btn-full" href="${whatsappUrl}" target="_blank" rel="noopener">Send WhatsApp Message</a>
+            <a class="contact-link" href="tel:+2347037689917">Call: +234 703 768 9917</a>
+            <a class="contact-link" href="mailto:chiatech01@gmail.com">Email: chiatech01@gmail.com</a>
+            <a class="contact-link" href="https://stemclass.chiatechsolutions.com/" target="_blank" rel="noopener">Portal: stemclass.chiatechsolutions.com</a>
           </div>
         </div>
       </section>
@@ -327,7 +434,7 @@
               </div>`).join("")}
           </div>
           <div style="text-align:center;margin-top:3rem">
-            <button class="btn btn-primary btn-lg pulse" data-goto="register">Start Registration →</button>
+            <button class="btn btn-primary btn-lg pulse" data-goto="register">Start Registration</button>
           </div>
         </div>
       </section>
@@ -338,7 +445,7 @@
           <div class="footer-grid">
             <div class="footer-brand">
               <img src="chiatech-logo.png" alt="ChiaTech" onerror="this.style.display='none'">
-              <p>ChiaTech Solutions & Resources Ltd — Abuja's leading educational technology and digital solutions company.</p>
+              <p>ChiaTech Solutions & Resources Ltd - Abuja's leading educational technology and digital solutions company.</p>
             </div>
             <div class="footer-col">
               <h4>Bootcamp</h4>
@@ -364,7 +471,7 @@
             </div>
           </div>
           <div class="footer-bottom">
-            <p>© ${new Date().getFullYear()} ChiaTech Solutions & Resources Ltd. All rights reserved.</p>
+            <p>&copy; ${new Date().getFullYear()} ChiaTech Solutions & Resources Ltd. All rights reserved.</p>
             <p>Powered by Google Apps Script + PWA Technology</p>
           </div>
         </div>
